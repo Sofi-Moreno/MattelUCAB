@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BB2DE62A-E1AB-509C-49DC-703D105059B7" name="materia_prima">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F2BA0DAB-2214-DDB0-4699-3D11F356A966" name="consumo_materia_prima">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 02:47:47 UTC</createdTime>
+<createdTime>2026-05-02 05:02:11 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,63 +15,41 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="mp_id" id="11B184B0-E714-9088-815C-36B7ABA88815">
+<Attribute name="cmp_cantidad_usada" id="1ABE8C0B-8FA2-1046-6F2F-FD187FE2CA0E">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 02:51:12 UTC</createdTime>
+<createdTime>2026-05-02 05:02:30 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="mp_nombre" id="09CE32D5-AC09-D6ED-3E81-2510E13E22FA">
+<Attribute name="lmp_lote" id="C78F662A-2D0B-696D-C5C6-13F2B1CC2CC7">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 02:51:13 UTC</createdTime>
+<createdTime>2026-05-02 05:03:32 UTC</createdTime>
+<generatorID>D54EBA1A-4C26-E093-309F-3B84DFAFB4AE</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="mp_unidad_medida" id="F8DA67EB-3A41-E525-C77E-BBEF316840CB">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 02:51:15 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
+<referedAttribute>4A93DF18-9270-B71F-19CD-C0E6582F7C10</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="mp_descripcion" id="28C54415-ACB6-0048-5363-0482C3D98368">
+<Attribute name="up_sku" id="CBF005F5-A988-9B18-1325-34FEA788D766">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 03:16:08 UTC</createdTime>
+<createdTime>2026-05-02 05:03:47 UTC</createdTime>
+<generatorID>F940627B-A403-7B9E-866D-C12991C733CC</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="tm_id" id="68684509-6CD1-1CFA-2D1E-6A6B67B04AD7">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 02:58:42 UTC</createdTime>
-<generatorID>E593927D-6BA4-5D7F-C6B1-1E2329FC8627</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>8F11994A-B866-C605-8B30-47CF7CDE39F5</referedAttribute>
+<referedAttribute>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -79,16 +57,17 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="C0C9B11A-9227-EBAC-287D-5F228CF5AC8E" name="material_catalogo PK">
+<identifier id="4862890F-0D11-B9A8-3889-B011DA8E40C7" name="consumo_materia_prima PK">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 02:51:49 UTC</createdTime>
+<createdTime>2026-05-02 05:03:47 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>11B184B0-E714-9088-815C-36B7ABA88815</attributeRef>
+<attributeRef>CBF005F5-A988-9B18-1325-34FEA788D766</attributeRef>
+<attributeRef>C78F662A-2D0B-696D-C5C6-13F2B1CC2CC7</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

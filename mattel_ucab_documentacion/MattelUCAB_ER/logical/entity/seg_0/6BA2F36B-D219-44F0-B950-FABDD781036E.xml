@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7CA47D9D-CE5C-428B-E1C3-FFF53DB602F4" name="fase_prueba_diseño">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6BA2F36B-D219-44F0-B950-FABDD781036E" name="autor_diseño">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 03:12:13 UTC</createdTime>
+<createdTime>2026-05-02 05:37:34 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,46 +15,64 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="fpd_id" id="B743992F-2B8E-2158-E893-2B77F1AFFD23">
+<Attribute name="ad_porcentaje_autoria" id="C6CE7399-0EB0-1A0C-1EBB-EA477DB749D1">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 03:12:24 UTC</createdTime>
+<createdTime>2026-05-02 05:38:03 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fpd_numero_paso" id="AF6FED63-99EF-8C88-20B3-1034C6F2188C">
+<Attribute name="ctt_id" id="1B05D973-7AF0-698E-E869-482A96E06802">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 03:12:22 UTC</createdTime>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
+<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
+<referedAttribute>459E66D9-3030-3AE8-B4B6-E611A313E123</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fpd_dias_estimados" id="933882EA-9237-49CF-C159-EF616C6243FE">
+<Attribute name="pn_id" id="B1E0F90F-14B9-958E-2994-459CECE0D129">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 03:12:23 UTC</createdTime>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
+<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
+<referedAttribute>A212AB7B-5B97-03F0-63D2-174FDEB92806</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dp_id" id="8D42EC80-A982-F4C3-A904-7DD08CD7DE6A">
+<Attribute name="cg_id" id="355872E0-34EA-8B55-40C3-BE0B0987C9F7">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 03:26:10 UTC</createdTime>
-<generatorID>77BA1690-03AA-26D5-55A4-3FDE48E01094</generatorID>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
+<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>3D7AF4B6-EF0D-A271-E757-0D1C6A09048E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dp_id" id="C7633DB2-49BB-E607-CC21-A20241BE1CEA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:39:34 UTC</createdTime>
+<generatorID>26317334-C4C3-FA45-F9ED-8B4C70BC2A08</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -65,44 +83,21 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="oc_id" id="071DD564-F409-4E91-53F2-06CF98C1B6EE">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 03:40:04 UTC</createdTime>
-<generatorID>6388F27D-2470-68B2-348A-38DECE0925A9</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>895C0960-3F22-1E48-5F97-3D4897F205ED</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="fpd_tipo" id="1CDCA00E-D386-8CAF-4E28-CC4ECC1127D4">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 05:20:53 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="6A4B39B3-9F5B-C1C1-0B21-807B3B55EB78" name="construccion PK">
+<identifier id="CB367103-1B8C-3479-1468-F6779CD3EE2E" name="autor_diseño PK">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 03:12:42 UTC</createdTime>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>B743992F-2B8E-2158-E893-2B77F1AFFD23</attributeRef>
+<attributeRef>1B05D973-7AF0-698E-E869-482A96E06802</attributeRef>
+<attributeRef>B1E0F90F-14B9-958E-2994-459CECE0D129</attributeRef>
+<attributeRef>355872E0-34EA-8B55-40C3-BE0B0987C9F7</attributeRef>
+<attributeRef>C7633DB2-49BB-E607-CC21-A20241BE1CEA</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

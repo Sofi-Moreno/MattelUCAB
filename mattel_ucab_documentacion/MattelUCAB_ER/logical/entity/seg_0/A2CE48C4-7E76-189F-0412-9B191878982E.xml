@@ -63,7 +63,7 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fpp_reporte" id="65C3A423-EC18-417B-620F-2564E2991908">
+<Attribute name="fpp_resultado" id="65C3A423-EC18-417B-620F-2564E2991908">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-01 14:06:26 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
@@ -73,6 +73,33 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="op_id" id="761A031E-CCB1-E9ED-518E-1C0234B8F900">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 03:25:54 UTC</createdTime>
+<generatorID>E20B9A2F-AE68-5B71-4BB9-A3EF66899DF3</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>ECA241D2-D358-9965-D39D-6E967C7C236F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fpd_id" id="4C5B25C4-0EAE-A766-D951-5414B51ABF98">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:19:43 UTC</createdTime>
+<generatorID>D78EB40F-D169-7594-2BDD-4C0ACB33FCB6</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>B743992F-2B8E-2158-E893-2B77F1AFFD23</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

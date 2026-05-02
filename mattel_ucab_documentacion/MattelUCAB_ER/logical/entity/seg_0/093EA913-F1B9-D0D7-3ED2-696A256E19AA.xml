@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="093EA913-F1B9-D0D7-3ED2-696A256E19AA" name="produción_producto">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="093EA913-F1B9-D0D7-3ED2-696A256E19AA" name="orden_produccion">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-04-29 14:11:12 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
@@ -15,6 +15,66 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="op_id" id="ECA241D2-D358-9965-D39D-6E967C7C236F">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 03:22:28 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="op_cantidad_solicitada" id="98A0C801-5853-6232-21F9-74AC09AA3A23">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 03:23:00 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="op_fecha_creacion_orden" id="F68F3C9C-952C-0416-F0D0-CE168E123C54">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:56:36 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="op_fecha_finalizacion_orden" id="FDF2267C-7DF8-0B74-31E6-2C59F4861093">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:57:15 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="op_estatus" id="4ED7BBA1-7E01-9C04-3C45-B18CC0359B29">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 03:45:08 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="dp_id" id="D4C8B30C-2BF5-3223-5BD2-C9BEEE370D7A">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-04-29 14:12:48 UTC</createdTime>
@@ -71,7 +131,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="mc_id" id="013713E8-D7D6-B6BB-0994-BA8C3E336233">
+<Attribute name="mp_id" id="013713E8-D7D6-B6BB-0994-BA8C3E336233">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-04-29 14:14:35 UTC</createdTime>
 <generatorID>258C91AD-E8D1-9867-CBB3-6049FD493FA5</generatorID>
@@ -128,4 +188,18 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B15A9F9F-2A0B-E037-F84F-D5F2CE816954" name="orden_produccion PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 03:22:58 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>ECA241D2-D358-9965-D39D-6E967C7C236F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>
