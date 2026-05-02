@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BB911A86-B43A-7F7A-7D71-FFA49B0061CA" name="material_inventario">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:41:06 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="mi_id" id="097E5E4F-0CCF-3F49-BBC8-5B13B6D8D8FE">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:41:17 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mi_cantidad" id="E62CAFD7-7765-B203-18F9-FE644392BEEC">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:41:26 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mc_id" id="5E3519FC-B3C4-8757-C81A-DE1B80A43956">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 14:03:45 UTC</createdTime>
+<generatorID>0200466D-7D31-8DC0-C229-9ECAFC2F94A1</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>11B184B0-E714-9088-815C-36B7ABA88815</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mi_lote" id="4A93DF18-9270-B71F-19CD-C0E6582F7C10">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 14:04:14 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E3843603-2CAC-A31F-7733-3B3F26AF6243" name="material_inventario PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:42:08 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>097E5E4F-0CCF-3F49-BBC8-5B13B6D8D8FE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
