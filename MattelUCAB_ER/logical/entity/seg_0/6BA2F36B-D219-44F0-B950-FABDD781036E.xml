@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6BA2F36B-D219-44F0-B950-FABDD781036E" name="autor_diseño">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:37:34 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ad_porcentaje_autoria" id="C6CE7399-0EB0-1A0C-1EBB-EA477DB749D1">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:38:03 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ctt_id" id="1B05D973-7AF0-698E-E869-482A96E06802">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
+<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>459E66D9-3030-3AE8-B4B6-E611A313E123</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pn_id" id="B1E0F90F-14B9-958E-2994-459CECE0D129">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
+<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>A212AB7B-5B97-03F0-63D2-174FDEB92806</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cg_id" id="355872E0-34EA-8B55-40C3-BE0B0987C9F7">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
+<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>3D7AF4B6-EF0D-A271-E757-0D1C6A09048E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dp_id" id="C7633DB2-49BB-E607-CC21-A20241BE1CEA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:39:34 UTC</createdTime>
+<generatorID>26317334-C4C3-FA45-F9ED-8B4C70BC2A08</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>CAE40F10-4B0D-132A-DE03-C280A905C438</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="CB367103-1B8C-3479-1468-F6779CD3EE2E" name="autor_diseño PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:38:52 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1B05D973-7AF0-698E-E869-482A96E06802</attributeRef>
+<attributeRef>B1E0F90F-14B9-958E-2994-459CECE0D129</attributeRef>
+<attributeRef>355872E0-34EA-8B55-40C3-BE0B0987C9F7</attributeRef>
+<attributeRef>C7633DB2-49BB-E607-CC21-A20241BE1CEA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

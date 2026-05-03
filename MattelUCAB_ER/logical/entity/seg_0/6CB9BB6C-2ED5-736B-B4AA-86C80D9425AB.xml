@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6CB9BB6C-2ED5-736B-B4AA-86C80D9425AB" name="cargo">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-28 03:19:28 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cg_id" id="2BB128FC-D04E-27EA-1025-EC0EBC63EFDE">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-28 03:20:57 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cg_nombre" id="D5258A4E-8255-3436-0D3D-3AADD3C54832">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-28 03:20:57 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cg_sueldo_base_us" id="A475B355-50F2-3E0A-3E46-812CF72A0A79">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-28 03:20:58 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dptmt_id" id="12598B1D-BBE2-3350-F19E-4FB032ABD7DA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:59:35 UTC</createdTime>
+<generatorID>1EFEB3E9-F5B2-4CAF-AFBF-95F729FE4ADF</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>D964FC30-7C5B-B6E0-7D17-0CF50D9DD8CD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BA9A7D3D-2EAD-F627-A902-771BDF34F56B" name="cargo PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-28 03:21:35 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2BB128FC-D04E-27EA-1025-EC0EBC63EFDE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
