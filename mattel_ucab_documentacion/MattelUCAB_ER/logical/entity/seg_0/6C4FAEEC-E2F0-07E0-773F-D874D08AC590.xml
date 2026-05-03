@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D38C45A3-EB7A-7F3D-9AC8-C774272BBBF5" name="unidad_producto">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:05:35 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6C4FAEEC-E2F0-07E0-773F-D874D08AC590" name="compra_online">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 02:56:40 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="up_sku" id="66E05776-4C21-0EDC-2E04-3E0372C2F5EB">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:43 UTC</createdTime>
+<Attribute name="co_id" id="AF464A02-D31B-BB51-840B-938E0BF8B070">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 02:58:04 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -27,9 +27,33 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="up_estatus" id="20673648-6A0D-5A60-5066-F62DCAE56B82">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:44 UTC</createdTime>
+<Attribute name="co_fecha_hora" id="1E3EA7A5-D3AD-E084-A3D3-1E5CDEB5D4DC">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 02:58:04 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="co_numero_compra" id="BE3F4F80-6ACE-EAC6-845F-4BF199FB8170">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 02:58:04 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="co_estatus" id="EE1FF60B-43B6-D876-EAA4-9DAD47F65662">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 16:09:47 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -39,9 +63,21 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="up_precio_venta" id="8D81F3C2-5D64-B9CB-5071-30D44195B23D">
+<Attribute name="co_direccion" id="C95A6BCB-C9A5-B4F9-69CE-E867C532EDE0">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:44 UTC</createdTime>
+<createdTime>2026-05-03 19:10:49 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="co_monto_total" id="4E04C41F-6B05-2555-4C57-E6E1787801CF">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-03 19:11:24 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -51,29 +87,15 @@
 <logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="op_id" id="3426EFD9-A7AF-64BB-FEA3-EDC40D09F095">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 05:04:29 UTC</createdTime>
-<generatorID>12B565FF-845D-0560-678C-1A1A22C7E7BF</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>ECA241D2-D358-9965-D39D-6E967C7C236F</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="fbc_id" id="3BA7A429-C31D-09B3-CC47-A139A012147A">
+<Attribute name="pn_id" id="4AA9A917-C317-6A31-7549-E3C44DD7E152">
 <createdBy>Maria</createdBy>
-<createdTime>2026-05-03 16:00:01 UTC</createdTime>
-<generatorID>AF12A457-AAF2-D503-A451-AA9E2C73B885</generatorID>
+<createdTime>2026-05-03 13:50:46 UTC</createdTime>
+<generatorID>D2E0FD24-97DC-5DFE-6A4B-7F1A2C949862</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>8718F0F3-A838-0409-A406-72A5B5EBE8C9</referedAttribute>
+<referedAttribute>B8799406-9A1E-9804-D487-E2D6ADEE49A0</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -81,16 +103,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="F7BD2FBA-57B8-EAD2-4755-9A1D151AE32D" name="unidad_producto PK">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:50:01 UTC</createdTime>
+<identifier id="F48CA581-2C62-FE3A-3C5D-E411938C977B" name="compra_online PK">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 03:43:53 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</attributeRef>
+<attributeRef>AF464A02-D31B-BB51-840B-938E0BF8B070</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

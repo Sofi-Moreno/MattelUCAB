@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="0F139216-5649-175D-B32D-88091A56E550">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 00:33:49 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>

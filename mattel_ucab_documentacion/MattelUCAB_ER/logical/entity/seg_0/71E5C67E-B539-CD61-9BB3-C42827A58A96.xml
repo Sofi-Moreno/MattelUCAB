@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D38C45A3-EB7A-7F3D-9AC8-C774272BBBF5" name="unidad_producto">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="71E5C67E-B539-CD61-9BB3-C42827A58A96" name="pago_recibido">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:05:35 UTC</createdTime>
+<createdTime>2026-05-03 19:17:41 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="up_sku" id="66E05776-4C21-0EDC-2E04-3E0372C2F5EB">
+<Attribute name="pr_id" id="94F513FD-22A1-A776-5F6C-E63C289684A8">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:43 UTC</createdTime>
+<createdTime>2026-05-03 19:18:04 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -27,21 +27,21 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="up_estatus" id="20673648-6A0D-5A60-5066-F62DCAE56B82">
+<Attribute name="pr_fecha_hora" id="9B48A873-2849-2BF8-5709-8B52D95653CC">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:44 UTC</createdTime>
+<createdTime>2026-05-03 19:18:04 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
+<logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="up_precio_venta" id="8D81F3C2-5D64-B9CB-5071-30D44195B23D">
+<Attribute name="pr_monto" id="F64E23F4-A209-A92E-6FCD-A3C9BAFDC98E">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:44 UTC</createdTime>
+<createdTime>2026-05-03 19:18:04 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -51,29 +51,27 @@
 <logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="op_id" id="3426EFD9-A7AF-64BB-FEA3-EDC40D09F095">
+<Attribute name="pr_referencia_bancaria" id="31912A4B-FC35-C805-3815-2CBFCAE16F3C">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 05:04:29 UTC</createdTime>
-<generatorID>12B565FF-845D-0560-678C-1A1A22C7E7BF</generatorID>
+<createdTime>2026-05-03 19:18:04 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<referedAttribute>ECA241D2-D358-9965-D39D-6E967C7C236F</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fbc_id" id="3BA7A429-C31D-09B3-CC47-A139A012147A">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 16:00:01 UTC</createdTime>
-<generatorID>AF12A457-AAF2-D503-A451-AA9E2C73B885</generatorID>
+<Attribute name="mp_id" id="7DA33C8E-27F4-B99E-1521-5844BBAE20EE">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-03 19:20:07 UTC</createdTime>
+<generatorID>590B5DBD-929B-3B0E-CDEA-63E2EC433E68</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>8718F0F3-A838-0409-A406-72A5B5EBE8C9</referedAttribute>
+<referedAttribute>FEA27C6E-A6BE-C59E-01E5-CD56C671FFF3</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -81,16 +79,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="F7BD2FBA-57B8-EAD2-4755-9A1D151AE32D" name="unidad_producto PK">
+<identifier id="E95EE3C4-1E9E-73D2-CD75-0484F4629A54" name="pago_recibido PK">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:50:01 UTC</createdTime>
+<createdTime>2026-05-03 19:18:27 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</attributeRef>
+<attributeRef>94F513FD-22A1-A776-5F6C-E63C289684A8</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

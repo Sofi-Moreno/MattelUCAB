@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_101" directorySegmentName="seg_1" id="590B5DBD-929B-3B0E-CDEA-63E2EC433E68">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-03 19:20:07 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<sourcePk>2F9342AA-89A1-854B-492B-3C4ACA16FD0A</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>442ACDAB-206B-2D1F-2B1C-72BC036388E8</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>71E5C67E-B539-CD61-9BB3-C42827A58A96</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

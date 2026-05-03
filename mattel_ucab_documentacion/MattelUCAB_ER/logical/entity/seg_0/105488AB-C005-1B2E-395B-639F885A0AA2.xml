@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D38C45A3-EB7A-7F3D-9AC8-C774272BBBF5" name="unidad_producto">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:05:35 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="105488AB-C005-1B2E-395B-639F885A0AA2" name="conciliacion_pago">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 13:58:33 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="up_sku" id="66E05776-4C21-0EDC-2E04-3E0372C2F5EB">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:43 UTC</createdTime>
+<Attribute name="cp_monto_aplicado" id="02EB3B76-AD7E-BEF4-72AF-4006AF1AEF29">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 13:58:46 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -27,53 +27,55 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="up_estatus" id="20673648-6A0D-5A60-5066-F62DCAE56B82">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:44 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="up_precio_venta" id="8D81F3C2-5D64-B9CB-5071-30D44195B23D">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:44 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT021</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="op_id" id="3426EFD9-A7AF-64BB-FEA3-EDC40D09F095">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 05:04:29 UTC</createdTime>
-<generatorID>12B565FF-845D-0560-678C-1A1A22C7E7BF</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>ECA241D2-D358-9965-D39D-6E967C7C236F</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="fbc_id" id="3BA7A429-C31D-09B3-CC47-A139A012147A">
+<Attribute name="cp_fecha_hora" id="53070B7E-58C3-BA33-7BD3-53A518B20325">
 <createdBy>Maria</createdBy>
-<createdTime>2026-05-03 16:00:01 UTC</createdTime>
-<generatorID>AF12A457-AAF2-D503-A451-AA9E2C73B885</generatorID>
+<createdTime>2026-05-03 13:59:04 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<referedAttribute>8718F0F3-A838-0409-A406-72A5B5EBE8C9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="oc_id" id="8FE0298C-8B5E-104A-400B-F59B5F7D53CA">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 14:01:18 UTC</createdTime>
+<generatorID>30D5270D-6127-84D5-3ECB-67313C7975F3</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>16A604BC-ED26-3CAE-A7C5-F2DA4C2EEE7F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pr_id" id="FD5B336D-FB34-E282-4FF0-9E7DCA6B684B">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-03 19:22:08 UTC</createdTime>
+<generatorID>E8F97CA1-972E-0791-A997-B2D3038DBE9E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>94F513FD-22A1-A776-5F6C-E63C289684A8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="co_id" id="C6DA5EBF-2898-B269-EB5E-DF05F90AB019">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-03 19:24:34 UTC</createdTime>
+<generatorID>01C89977-3DF4-4EC7-AB9D-87F43B7DBC59</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>AF464A02-D31B-BB51-840B-938E0BF8B070</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -81,17 +83,14 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="F7BD2FBA-57B8-EAD2-4755-9A1D151AE32D" name="unidad_producto PK">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:50:01 UTC</createdTime>
+<identifier id="5AD67D56-1184-DF15-D805-50D4420656B7" name="pago PK">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 14:01:36 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<usedAttributes>
-<attributeRef>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</attributeRef>
-</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

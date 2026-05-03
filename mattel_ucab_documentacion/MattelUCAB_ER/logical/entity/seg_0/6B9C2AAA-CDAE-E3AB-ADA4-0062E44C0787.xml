@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6B9C2AAA-CDAE-E3AB-ADA4-0062E44C0787" name="despacho">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:13:44 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="dpc_id" id="AF4E43FD-B418-B5FA-8C8C-E6BF0FC9CFE3">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:13:59 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dpc_manifiesto_carga" id="0B9367FE-8B6C-AC18-255C-10CEF5D62529">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:15:36 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dpc_numero_tracking" id="AD065AF8-6DFE-EEF5-98CF-F04F0CA3825F">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:16:26 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dpc_direccion" id="14DC3068-4B23-DE63-3071-01469F89BACD">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:17:03 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dpc_costo" id="250C3FB1-A31F-C2E1-E8EA-5C122F11F053">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:17:50 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tpt_id" id="494458D7-70F9-6A06-7E8F-0DDD6CEE51A0">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:18:43 UTC</createdTime>
+<generatorID>DE87185F-2BED-0454-0DE4-D848F68F565E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>916B875B-BC91-953B-9666-532A2B6738A6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="co_id" id="17461094-19AE-CFBF-645B-215AAE889368">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:20:24 UTC</createdTime>
+<generatorID>89A3E7DC-6B1A-97F4-9B4B-F541540A80B5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>FA89925F-C6AE-48E3-31BB-E0985A7B1A94</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="up_sku1" id="6B04C7CD-A27C-560F-A411-F0260D91B5DC">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:20:24 UTC</createdTime>
+<generatorID>89A3E7DC-6B1A-97F4-9B4B-F541540A80B5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>8D5D9C17-7D2F-7065-856E-BE67C9AB8873</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="82AEC3DF-BE0C-6917-11C6-7E49FB51EC49" name="despacho PK">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 17:15:34 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>AF4E43FD-B418-B5FA-8C8C-E6BF0FC9CFE3</attributeRef>
+<attributeRef>494458D7-70F9-6A06-7E8F-0DDD6CEE51A0</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -89,6 +89,18 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="pn_correo" id="D342587C-0CEE-857F-49CE-8B643961D702">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-03 18:25:29 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="pn_direccion" id="0D3DE424-5A25-5352-5948-2E0C9BA77E6E">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-01 15:39:29 UTC</createdTime>

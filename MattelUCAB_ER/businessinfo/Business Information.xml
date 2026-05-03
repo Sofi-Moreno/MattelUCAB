@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="068CBD1E-FD71-7E6B-38A7-FD6A87BDE960">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 00:33:49 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</BusinessInfoDesign>
