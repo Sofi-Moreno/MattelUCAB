@@ -16,7 +16,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="tipo_cuenta" id="B523A47F-3BFC-FCCA-5F67-D338715DC18F">
+<Attribute name="tjd_tipo_cuenta" id="B523A47F-3BFC-FCCA-5F67-D338715DC18F">
 <createdBy>Maria</createdBy>
 <createdTime>2026-05-03 01:19:34 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
@@ -26,6 +26,30 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tjd_franquicia" id="76D90881-1DC5-CA71-7501-A09AD278DFCC">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 20:58:55 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tjc_fecha_vencimiento" id="78F71C44-1D44-F376-F49E-1BBA04064504">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 20:59:08 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

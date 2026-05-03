@@ -119,6 +119,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="ov_id" id="27675AEF-2B17-044F-D99C-772C9DFE8452">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-03 22:54:47 UTC</createdTime>
+<generatorID>C1955FA0-21F7-DEBA-48DA-5ED75348D0E5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>3172C5E5-465B-D651-DDDE-AAEF2B5E41F2</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="82AEC3DF-BE0C-6917-11C6-7E49FB51EC49" name="despacho PK">
