@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="MattelUCAB_ER" id="B71E3ABB-A211-8F73-FDB9-65EF0E5DED8F" version="3.5">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-28 00:33:49 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>B71E3ABB-A211-8F73-FDB9-65EF0E5DED8F</designId>
+</OSDM_Design>

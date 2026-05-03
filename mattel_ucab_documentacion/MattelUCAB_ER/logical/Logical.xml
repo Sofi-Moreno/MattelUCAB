@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="E0B2D318-2BF9-29B8-9E67-109AD2F83DD6" mainViewID="50D76508-5405-5AB6-51CA-22004FDEDBE7">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-28 00:33:49 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

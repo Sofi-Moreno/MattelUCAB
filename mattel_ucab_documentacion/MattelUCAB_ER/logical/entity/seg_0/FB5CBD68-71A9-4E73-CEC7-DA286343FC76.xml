@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FB5CBD68-71A9-4E73-CEC7-DA286343FC76" name="dp_categoria">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:36:09 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="dp_id" id="F828E7E4-6805-40F9-4E3C-7F18750A1803">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:36:39 UTC</createdTime>
+<generatorID>EB09E472-4B51-FAAE-01DF-481CCFB44F62</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>CAE40F10-4B0D-132A-DE03-C280A905C438</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cp_id" id="95C7F836-4308-460A-0490-CC4F40A725D5">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:36:57 UTC</createdTime>
+<generatorID>D679C58B-6D60-CC41-1AEE-A67CBCA68153</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>2ABFB122-36B0-A23D-351B-DAB7DD53C209</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5D768FE7-749C-B7DA-809A-16EDB38B0997" name="dp_categoria PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-04-29 13:36:39 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F828E7E4-6805-40F9-4E3C-7F18750A1803</attributeRef>
+<attributeRef>95C7F836-4308-460A-0490-CC4F40A725D5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F2BA0DAB-2214-DDB0-4699-3D11F356A966" name="consumo_materia_prima">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:02:11 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cmp_cantidad_usada" id="1ABE8C0B-8FA2-1046-6F2F-FD187FE2CA0E">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:02:30 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="lmp_lote" id="C78F662A-2D0B-696D-C5C6-13F2B1CC2CC7">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:03:32 UTC</createdTime>
+<generatorID>D54EBA1A-4C26-E093-309F-3B84DFAFB4AE</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>4A93DF18-9270-B71F-19CD-C0E6582F7C10</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="up_sku" id="CBF005F5-A988-9B18-1325-34FEA788D766">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:03:47 UTC</createdTime>
+<generatorID>F940627B-A403-7B9E-866D-C12991C733CC</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4862890F-0D11-B9A8-3889-B011DA8E40C7" name="consumo_materia_prima PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-02 05:03:47 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CBF005F5-A988-9B18-1325-34FEA788D766</attributeRef>
+<attributeRef>C78F662A-2D0B-696D-C5C6-13F2B1CC2CC7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

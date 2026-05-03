@@ -1,0 +1,159 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C3827478-8246-6540-CE59-32478EDA35E0" name="asistencia">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:10:52 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="astc_id" id="754BD032-A832-7D68-3566-57A9D749D3BD">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:11:02 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="astc_hora_entrada" id="BDB61355-4E67-B102-C436-BA0C365432D8">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:11:03 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="astc_hora_salida" id="C3A75BA8-86CF-4526-FEE5-331FD97EA8D5">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:11:03 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="astc_estatus_asistencia" id="B7F7A1D7-77DA-7866-15EC-DD67416B7EE0">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:20:40 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="astc_fecha_laboral" id="85B9887A-5198-9EA1-E0A2-D738DDB167E9">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:21:33 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="astc_horas_trabajadas" id="5D3D6D67-35C6-4E21-5281-8CFFF0C9F1DE">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:22:28 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="astc_horas_extra" id="D5E379DC-E37F-BA20-D19F-3FB45D1F074C">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:22:53 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ctt_id" id="60583D15-615B-A0BF-AF74-959515FC381E">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:55:32 UTC</createdTime>
+<generatorID>4D5C3BEB-AC62-76B5-0D40-E337861D7B91</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>459E66D9-3030-3AE8-B4B6-E611A313E123</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pn_id" id="75F8D7E3-B248-4AA7-5F65-1FE430DFEC82">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:55:32 UTC</createdTime>
+<generatorID>4D5C3BEB-AC62-76B5-0D40-E337861D7B91</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>A212AB7B-5B97-03F0-63D2-174FDEB92806</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cg_id" id="4D86B170-52BB-05D4-25BB-B6DCB4BC58D9">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:55:32 UTC</createdTime>
+<generatorID>4D5C3BEB-AC62-76B5-0D40-E337861D7B91</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>3D7AF4B6-EF0D-A271-E757-0D1C6A09048E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="E81FF84F-D634-4ECA-9737-BEDB31AFAD15" name="asistencia PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-01 23:12:18 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>754BD032-A832-7D68-3566-57A9D749D3BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
