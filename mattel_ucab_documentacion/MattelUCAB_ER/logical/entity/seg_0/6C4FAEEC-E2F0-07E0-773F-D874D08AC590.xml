@@ -63,18 +63,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="co_direccion" id="C95A6BCB-C9A5-B4F9-69CE-E867C532EDE0">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-03 19:10:49 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="co_monto_total" id="4E04C41F-6B05-2555-4C57-E6E1787801CF">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-03 19:11:24 UTC</createdTime>

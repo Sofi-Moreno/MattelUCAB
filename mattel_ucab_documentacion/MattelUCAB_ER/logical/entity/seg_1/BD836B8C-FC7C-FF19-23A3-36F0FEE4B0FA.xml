@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="799B8CC6-20A8-C18D-418D-80D73DEE3E30" name="subasta">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:17:56 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_1" id="BD836B8C-FC7C-FF19-23A3-36F0FEE4B0FA" name="permiso">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:27:33 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="sbt_id" id="72380176-1221-F1B2-8CAF-F084A31A24FB">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:18:48 UTC</createdTime>
+<Attribute name="pms_id" id="E6FB1091-DA71-2BAC-8FC9-A4D83B400684">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:27:45 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -27,55 +27,42 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="sbt_precio_base" id="C4D60B16-83B9-BB6C-B2FD-06B1F2490E93">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:19:35 UTC</createdTime>
+<Attribute name="pms_nombre" id="91E93E27-748E-56BB-39FB-B011D3AB004C">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:27:46 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="sbt_incremenyo_minimo" id="3DBAFC79-C830-F138-B393-99C1550D5129">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:21:52 UTC</createdTime>
+<Attribute name="pms_modulo" id="FA7B391F-25AB-C9BF-3483-6E03DA2E11FF">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:27:46 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="sbt_precio_final" id="61DB1DE0-D55B-FA3D-3C18-03F4241EB00D">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 22:47:32 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="48B1382F-15B6-2FC2-CCE2-FB6EE5FB2533" name="subasta PK">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:19:32 UTC</createdTime>
+<identifier id="B5B7D25E-6013-265A-AA19-9E07A407AE93" name="permisos PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:30:14 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>72380176-1221-F1B2-8CAF-F084A31A24FB</attributeRef>
+<attributeRef>E6FB1091-DA71-2BAC-8FC9-A4D83B400684</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

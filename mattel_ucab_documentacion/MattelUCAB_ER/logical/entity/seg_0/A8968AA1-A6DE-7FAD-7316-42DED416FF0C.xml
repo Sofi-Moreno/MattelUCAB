@@ -53,6 +53,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="dp_id" id="53B03C0B-2817-7B80-9A88-6DEFD1F37372">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 00:22:08 UTC</createdTime>
+<generatorID>0026AFBB-FB79-F46E-7498-F11204C1AF1D</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>CAE40F10-4B0D-132A-DE03-C280A905C438</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="29320041-AE2D-9C20-440C-3663DBFCFF65" name="detalle_carrito PK">
@@ -65,6 +79,7 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>2241AA69-B14A-4010-2E94-489821240488</attributeRef>
+<attributeRef>53B03C0B-2817-7B80-9A88-6DEFD1F37372</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

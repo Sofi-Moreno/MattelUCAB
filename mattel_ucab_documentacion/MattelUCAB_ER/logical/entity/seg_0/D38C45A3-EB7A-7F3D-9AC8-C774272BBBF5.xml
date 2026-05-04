@@ -27,7 +27,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="up_estatus" id="20673648-6A0D-5A60-5066-F62DCAE56B82">
+<Attribute name="up_estado" id="20673648-6A0D-5A60-5066-F62DCAE56B82">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-02 04:49:44 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
@@ -39,9 +39,21 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="up_precio_venta" id="8D81F3C2-5D64-B9CB-5071-30D44195B23D">
+<Attribute name="up_precio_minorista" id="4F4C3D14-3B46-A2D0-EE0D-3675FE645870">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 04:49:44 UTC</createdTime>
+<createdTime>2026-05-04 01:30:13 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="up_precio_mayorista" id="8A58345B-AC32-E909-5314-5B9ED6F4A153">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:30:37 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>

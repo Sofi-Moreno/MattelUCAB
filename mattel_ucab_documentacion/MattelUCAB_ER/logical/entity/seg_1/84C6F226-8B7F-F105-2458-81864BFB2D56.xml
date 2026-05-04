@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_1" id="84C6F226-8B7F-F105-2458-81864BFB2D56" name="rol_permiso">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:30:33 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="r_id" id="7E1DE0ED-B48B-2596-9E41-F31C226CC293">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:31:11 UTC</createdTime>
+<generatorID>75C24A46-7407-10BD-9AE8-1B18C95B9694</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>2BB7D9AB-6334-B9B3-AECB-9CE63A5BBC08</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pms_id" id="768D6A70-2690-ABC6-552F-03DDA21613E4">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:31:18 UTC</createdTime>
+<generatorID>0796AD9D-BE5C-7E91-49C5-13116D0D6A59</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>E6FB1091-DA71-2BAC-8FC9-A4D83B400684</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4C26654C-313F-2510-8944-2D778C4874C6" name="rol_permiso PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:31:11 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7E1DE0ED-B48B-2596-9E41-F31C226CC293</attributeRef>
+<attributeRef>768D6A70-2690-ABC6-552F-03DDA21613E4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

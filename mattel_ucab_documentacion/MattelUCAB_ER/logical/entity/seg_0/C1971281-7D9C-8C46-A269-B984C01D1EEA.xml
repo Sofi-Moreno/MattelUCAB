@@ -75,6 +75,30 @@
 <logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="dp_precio_minorista" id="C27F0433-D051-C4CB-E438-754AECA7B5DA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:02:12 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dp_precio_mayorista" id="D1D864F8-D571-C9F4-497D-EE503D773CC3">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:02:38 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="eh_id" id="F7DA6A19-92AC-2B7B-D280-0382C348D182">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-04-28 02:06:20 UTC</createdTime>
@@ -153,6 +177,21 @@
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <referedAttribute>DDAD7BF1-2464-13EC-4588-ACCD8D41BD0C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dp_id1" id="6D47AB5F-4A93-446A-A25B-63C56E1D8536">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 00:20:37 UTC</createdTime>
+<generatorID>89B9B035-87A4-8999-165B-EDBA6A1E6840</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>CAE40F10-4B0D-132A-DE03-C280A905C438</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

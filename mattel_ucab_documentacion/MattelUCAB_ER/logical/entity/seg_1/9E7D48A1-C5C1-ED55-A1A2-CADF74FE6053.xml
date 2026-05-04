@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="799B8CC6-20A8-C18D-418D-80D73DEE3E30" name="subasta">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:17:56 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_1" id="9E7D48A1-C5C1-ED55-A1A2-CADF74FE6053" name="detalle_despacho">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:20:42 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,50 +15,42 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="sbt_id" id="72380176-1221-F1B2-8CAF-F084A31A24FB">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:18:48 UTC</createdTime>
+<Attribute name="up_sku" id="FD372530-A9D6-9BE2-FDFE-298DA9181C7C">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:21:34 UTC</createdTime>
+<generatorID>B429D8E6-A6E6-C947-2A67-B7190ACC383B</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
+<referedAttribute>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="sbt_precio_base" id="C4D60B16-83B9-BB6C-B2FD-06B1F2490E93">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:19:35 UTC</createdTime>
+<Attribute name="dpc_id" id="D641CCE4-1AA5-5841-818C-9BD857DA8FE9">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:21:47 UTC</createdTime>
+<generatorID>61313B74-D758-63AB-5C12-D0F7EDFCAB1C</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
+<referedAttribute>AF4E43FD-B418-B5FA-8C8C-E6BF0FC9CFE3</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="sbt_incremenyo_minimo" id="3DBAFC79-C830-F138-B393-99C1550D5129">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:21:52 UTC</createdTime>
+<Attribute name="tpt_id" id="2F309691-D005-7019-EE4A-49525975528C">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:21:47 UTC</createdTime>
+<generatorID>61313B74-D758-63AB-5C12-D0F7EDFCAB1C</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="sbt_precio_final" id="61DB1DE0-D55B-FA3D-3C18-03F4241EB00D">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 22:47:32 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
+<referedAttribute>494458D7-70F9-6A06-7E8F-0DDD6CEE51A0</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -66,16 +58,18 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="48B1382F-15B6-2FC2-CCE2-FB6EE5FB2533" name="subasta PK">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 20:19:32 UTC</createdTime>
+<identifier id="89609D7C-CC0B-6D77-93E0-D761CCDB32AB" name="detalle_despacho PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:21:34 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>72380176-1221-F1B2-8CAF-F084A31A24FB</attributeRef>
+<attributeRef>FD372530-A9D6-9BE2-FDFE-298DA9181C7C</attributeRef>
+<attributeRef>D641CCE4-1AA5-5841-818C-9BD857DA8FE9</attributeRef>
+<attributeRef>2F309691-D005-7019-EE4A-49525975528C</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

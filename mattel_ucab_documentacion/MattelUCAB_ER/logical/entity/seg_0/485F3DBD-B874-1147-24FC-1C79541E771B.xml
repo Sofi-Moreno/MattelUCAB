@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9CFC5017-192B-F57D-361F-5560B56EA9D9" name="historico_tasa_cambio">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="485F3DBD-B874-1147-24FC-1C79541E771B" name="historico_valor_mercado">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 00:53:23 UTC</createdTime>
+<createdTime>2026-05-04 01:33:56 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="htc_id" id="6A841AF1-9834-88ED-8E18-26BB57904D31">
+<Attribute name="hvm_id" id="C275C07F-8CCF-4319-2C21-E46D01F22FA5">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:06:02 UTC</createdTime>
+<createdTime>2026-05-04 01:34:19 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -27,9 +27,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="htc_fecha_hora_inicio" id="55119754-577A-67B8-594D-FC60FC3E5720">
+<Attribute name="hvm_fecha_hora_tasacion" id="A8526432-6A1B-3F16-970B-58CAAB3D3133">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:03:29 UTC</createdTime>
+<createdTime>2026-05-04 01:34:20 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -39,21 +39,9 @@
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="htc_fecha_hora_fin" id="51271792-8B4D-8B52-CFAF-006B57324218">
+<Attribute name="hvm_precio_estimado" id="6BCE569A-C6DD-8212-0AB2-5996B9C0EAF8">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:03:29 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="htc_tasa" id="5B52AA8E-90BD-1F90-F8CE-A0474393852B">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:03:29 UTC</createdTime>
+<createdTime>2026-05-04 01:35:46 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -63,48 +51,44 @@
 <logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="m_codigo" id="7E04C224-6D3C-8161-F8B3-8C6F2E7DB18A">
+<Attribute name="hvm_fuente" id="E2B93079-2BC1-1BA2-F46D-D85AF3A303AC">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:06:51 UTC</createdTime>
-<generatorID>6C9ADFB5-7346-4193-0B59-0562BCDDF138</generatorID>
+<createdTime>2026-05-04 01:36:08 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<referedAttribute>D84F7297-22A3-B94B-36B3-F05AA978C395</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="m_codigo1" id="E951DE32-34BF-84A5-6AF2-7A10142FEE19">
+<Attribute name="dp_id" id="637E25CD-158A-5A84-2834-13B8923B9518">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:06:59 UTC</createdTime>
-<generatorID>0CD39F39-CC01-E80D-7766-311F488D0B1B</generatorID>
+<createdTime>2026-05-04 01:36:44 UTC</createdTime>
+<generatorID>D255411B-7694-1D97-87F9-32E65CFB9825</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<referedAttribute>D84F7297-22A3-B94B-36B3-F05AA978C395</referedAttribute>
+<referedAttribute>CAE40F10-4B0D-132A-DE03-C280A905C438</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="6B8823E6-4575-D71A-5F42-183ECFCAC9A7" name="historico_tasa_cambio PK">
+<identifier id="15FF6B38-F215-E4FC-1978-F4EDA77B6E06" name="historico_valor_mercado PK">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:06:22 UTC</createdTime>
+<createdTime>2026-05-04 01:35:06 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>6A841AF1-9834-88ED-8E18-26BB57904D31</attributeRef>
-<attributeRef>7E04C224-6D3C-8161-F8B3-8C6F2E7DB18A</attributeRef>
-<attributeRef>E951DE32-34BF-84A5-6AF2-7A10142FEE19</attributeRef>
+<attributeRef>C275C07F-8CCF-4319-2C21-E46D01F22FA5</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

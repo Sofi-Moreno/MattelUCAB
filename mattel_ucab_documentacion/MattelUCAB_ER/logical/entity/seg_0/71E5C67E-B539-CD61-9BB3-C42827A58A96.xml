@@ -77,6 +77,48 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="htc_id" id="793BC242-376B-15BC-4EF2-BC59CB0115E4">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:24:42 UTC</createdTime>
+<generatorID>411538D4-D40A-5071-BF7B-0032C9F109DA</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>6A841AF1-9834-88ED-8E18-26BB57904D31</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="m_codigo" id="67513C52-4398-90B4-2F46-BED7F9DA43F6">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:24:42 UTC</createdTime>
+<generatorID>411538D4-D40A-5071-BF7B-0032C9F109DA</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>7E04C224-6D3C-8161-F8B3-8C6F2E7DB18A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="m_codigo1" id="9ACCD8EB-8D7B-9DAE-EC07-DD4FE4F1D270">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:24:42 UTC</createdTime>
+<generatorID>411538D4-D40A-5071-BF7B-0032C9F109DA</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>E951DE32-34BF-84A5-6AF2-7A10142FEE19</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="E95EE3C4-1E9E-73D2-CD75-0484F4629A54" name="pago_recibido PK">

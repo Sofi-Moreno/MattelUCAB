@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4AD93DCF-C877-A91A-3F92-D1C3F545CAE7" name="detalle_oc">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 14:06:54 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AFAEB90B-287A-69FF-1E10-CFE3487C2013" name="historial_post_venta">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:14:22 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,33 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="doc_cantidad_unidades" id="07768391-CA1F-C2E9-6CCB-98B5C752E707">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 14:07:16 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="doc_precio_pactado" id="1D38DD34-996D-20C0-6EB0-B8F8823C51EB">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 14:07:16 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="doc_cantidad_cajas" id="FB7647F0-313D-C3AD-BC12-0DB73885FA36">
+<Attribute name="hpv_id" id="ADE435B7-B139-75A3-9740-731966C0173A">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-03 19:01:45 UTC</createdTime>
+<createdTime>2026-05-04 01:14:39 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -51,56 +27,92 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="oc_id" id="A28D6851-9C15-A166-8860-131331C1DE9D">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 14:09:22 UTC</createdTime>
-<generatorID>4700E40A-7064-70BC-CCC8-E719B85F6579</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>16A604BC-ED26-3CAE-A7C5-F2DA4C2EEE7F</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="dpc_id" id="CD015F53-5412-8B14-EEFA-5DE0BBFC7522">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 17:25:05 UTC</createdTime>
-<generatorID>FF72DD0C-624E-B81C-AE4A-2543F03E0A8F</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>AF4E43FD-B418-B5FA-8C8C-E6BF0FC9CFE3</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="tpt_id" id="05D2008B-7DE2-899F-64EF-D280962243AA">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 17:25:05 UTC</createdTime>
-<generatorID>FF72DD0C-624E-B81C-AE4A-2543F03E0A8F</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>494458D7-70F9-6A06-7E8F-0DDD6CEE51A0</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="dp_id" id="5C99FC27-9F34-C890-3912-F783E888FB3B">
+<Attribute name="hpv_tipo_evento" id="84E0B271-3581-FB84-3EBA-5A34549F596B">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 00:19:02 UTC</createdTime>
-<generatorID>41A2BAEF-34D4-1D4A-A9CA-6679B6D40C72</generatorID>
+<createdTime>2026-05-04 01:15:53 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<referedAttribute>CAE40F10-4B0D-132A-DE03-C280A905C438</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hpv_fecha_hora_evento" id="AD5F5A18-535F-9AB5-3D08-D160357B5213">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:14:55 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hpv_estado_conservacion" id="A74FF420-5F33-733C-ACAF-9AD987EE1E54">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:21:05 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hpv_precio_transaccion" id="47DA5FE2-E03E-61E9-8614-0EEAFE707390">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:16:10 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hpv_observaciones" id="1C73D92B-7DD3-4323-7209-0C0B1B86786B">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:22:10 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="up_sku" id="BCFB27A9-0DA2-5B0F-2E9E-EAFF62F741D9">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:22:52 UTC</createdTime>
+<generatorID>8B69A465-4DF4-09AF-D87D-2190E18F7AAF</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pn_id" id="7EC50EF4-B93A-D48F-C39F-022EAFF8A4F7">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:27:42 UTC</createdTime>
+<generatorID>371287BA-3B03-B735-7DEB-B3ECD5473594</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>B8799406-9A1E-9804-D487-E2D6ADEE49A0</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -108,17 +120,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="DD0A03BF-4603-C0B6-FA9E-B135FFB2845B" name="detalle_oc PK">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 14:34:17 UTC</createdTime>
+<identifier id="7DB52827-C9F8-4966-A77E-208AE1C4956E" name="historial_post_venta PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 01:14:54 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>A28D6851-9C15-A166-8860-131331C1DE9D</attributeRef>
-<attributeRef>5C99FC27-9F34-C890-3912-F783E888FB3B</attributeRef>
+<attributeRef>ADE435B7-B139-75A3-9740-731966C0173A</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
