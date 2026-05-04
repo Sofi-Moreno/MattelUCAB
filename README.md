@@ -51,8 +51,8 @@ Este proyecto ha sido desarrollado como parte integral de la formación académi
 
 ## 👥 Autores
 
-* **Sofia Guadalupe Moreno Vivas** - 31.507.708 - Desarrollador Fullstack y Arquitecto de Bases de Datos.
-* **Maria Victoria Fuentes Guevara** - 31.448.315 - Desarrollador Fullstack y Arquitecto de Bases de Datos.
+* **Sofia Guadalupe Moreno Vivas** - [@Sofia-Moreno](https://github.com/Sofi-Moreno) - 31.507.708 - Desarrollador Fullstack y Arquitecto de Bases de Datos.
+* **Maria Victoria Fuentes Guevara** - [@mvfuentes24](https://github.com/mvfuentes24) - 31.448.315 - Desarrollador Fullstack y Arquitecto de Bases de Datos.
 
 ---
 
