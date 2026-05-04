@@ -111,6 +111,20 @@
 <logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="lg_id" id="DB197467-F26C-20ED-B167-E97C093BA565">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 02:56:52 UTC</createdTime>
+<generatorID>3BAAED55-06DD-3646-8991-D04B4212683E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>AAB1190F-7D7E-0208-7459-E3D30C032279</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="BF4226D1-6704-F824-054A-D13A8E5CF5A9" name="cliente_juridico PK">

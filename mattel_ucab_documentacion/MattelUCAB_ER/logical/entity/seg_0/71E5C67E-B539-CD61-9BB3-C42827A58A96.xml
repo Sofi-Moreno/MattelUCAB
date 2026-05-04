@@ -77,10 +77,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="htc_id" id="793BC242-376B-15BC-4EF2-BC59CB0115E4">
+<Attribute name="htc_id" id="69F449D7-D537-9690-1BD0-097DCDCDAEE0">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:24:42 UTC</createdTime>
-<generatorID>411538D4-D40A-5071-BF7B-0032C9F109DA</generatorID>
+<createdTime>2026-05-04 03:06:18 UTC</createdTime>
+<generatorID>CE15649D-4E5B-0954-81B1-C4835BC1BC78</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -91,10 +91,10 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="m_codigo" id="67513C52-4398-90B4-2F46-BED7F9DA43F6">
+<Attribute name="m_codigo" id="E6BFB6EC-CC6F-B774-AF8E-2B8664E40C89">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:24:42 UTC</createdTime>
-<generatorID>411538D4-D40A-5071-BF7B-0032C9F109DA</generatorID>
+<createdTime>2026-05-04 03:06:18 UTC</createdTime>
+<generatorID>CE15649D-4E5B-0954-81B1-C4835BC1BC78</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -105,10 +105,10 @@
 <logicalDatatype>LOGDT025</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="m_codigo1" id="9ACCD8EB-8D7B-9DAE-EC07-DD4FE4F1D270">
+<Attribute name="m_codigo1" id="716FE154-7C58-D10E-A0E5-AED93678389B">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:24:42 UTC</createdTime>
-<generatorID>411538D4-D40A-5071-BF7B-0032C9F109DA</generatorID>
+<createdTime>2026-05-04 03:06:18 UTC</createdTime>
+<generatorID>CE15649D-4E5B-0954-81B1-C4835BC1BC78</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>

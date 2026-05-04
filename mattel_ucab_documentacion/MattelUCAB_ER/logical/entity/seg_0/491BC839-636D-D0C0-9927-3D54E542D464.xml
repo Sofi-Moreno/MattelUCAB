@@ -51,7 +51,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ov_estatus" id="7CE2F65E-260C-4D5C-FC68-2A46727B2A5F">
+<Attribute name="ov_estado" id="7CE2F65E-260C-4D5C-FC68-2A46727B2A5F">
 <createdBy>Maria</createdBy>
 <createdTime>2026-05-03 22:57:08 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
@@ -63,6 +63,19 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="ov_numero_factura" id="5D548B44-3F84-F999-54DE-0B2FB0CF5BE1">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 03:32:42 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="sbt_id" id="BD1FB2ED-0AEB-E424-1CC8-0014B824F60E">
 <createdBy>Maria</createdBy>
 <createdTime>2026-05-03 22:48:44 UTC</createdTime>
@@ -72,33 +85,6 @@
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <referedAttribute>72380176-1221-F1B2-8CAF-F084A31A24FB</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="dpc_id" id="F8BF3837-673E-6F52-028F-6F33A6B69260">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 22:55:50 UTC</createdTime>
-<generatorID>C1955FA0-21F7-DEBA-48DA-5ED75348D0E5</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>AF4E43FD-B418-B5FA-8C8C-E6BF0FC9CFE3</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="tpt_id" id="F479FFEC-F414-6247-7D06-5A576AB42F7E">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 22:55:50 UTC</createdTime>
-<generatorID>C1955FA0-21F7-DEBA-48DA-5ED75348D0E5</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>494458D7-70F9-6A06-7E8F-0DDD6CEE51A0</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

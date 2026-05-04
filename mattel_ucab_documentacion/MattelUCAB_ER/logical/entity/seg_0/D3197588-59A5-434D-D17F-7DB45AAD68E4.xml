@@ -101,6 +101,19 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="oc_numero_factura" id="78D659AA-1F1E-D695-B076-9E70EB7363AC">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 03:32:05 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="pj_id" id="73AC01BA-3B39-72E0-6966-49545F776B3F">
 <createdBy>Maria</createdBy>
 <createdTime>2026-05-03 16:26:28 UTC</createdTime>

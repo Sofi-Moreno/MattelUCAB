@@ -90,34 +90,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="co_id" id="17461094-19AE-CFBF-645B-215AAE889368">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 17:20:24 UTC</createdTime>
-<generatorID>89A3E7DC-6B1A-97F4-9B4B-F541540A80B5</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>FA89925F-C6AE-48E3-31BB-E0985A7B1A94</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="up_sku1" id="6B04C7CD-A27C-560F-A411-F0260D91B5DC">
-<createdBy>Maria</createdBy>
-<createdTime>2026-05-03 17:20:24 UTC</createdTime>
-<generatorID>89A3E7DC-6B1A-97F4-9B4B-F541540A80B5</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>8D5D9C17-7D2F-7065-856E-BE67C9AB8873</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="ov_id" id="27675AEF-2B17-044F-D99C-772C9DFE8452">
 <createdBy>Maria</createdBy>
 <createdTime>2026-05-03 22:54:47 UTC</createdTime>
@@ -132,15 +104,57 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="lg_id" id="FDED2EE1-673B-6485-9674-F2B759689FDF">
+<Attribute name="lg_id" id="D7905436-7F7D-43D3-DD91-590FCA02EF06">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:18:48 UTC</createdTime>
-<generatorID>2B8089E7-4D94-A3E6-847E-DCA58E336DC0</generatorID>
+<createdTime>2026-05-04 02:56:22 UTC</createdTime>
+<generatorID>390BA5EA-9FAE-0F8E-2BC7-0589F2FFB721</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <referedAttribute>AAB1190F-7D7E-0208-7459-E3D30C032279</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="oc_id" id="21EA3B10-725B-14D3-C9A8-C75F65ADA667">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 03:18:39 UTC</createdTime>
+<generatorID>FF72DD0C-624E-B81C-AE4A-2543F03E0A8F</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>A28D6851-9C15-A166-8860-131331C1DE9D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="dp_id" id="85D57AEC-7011-EEC2-4025-0EB1CD801B47">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 03:18:39 UTC</createdTime>
+<generatorID>FF72DD0C-624E-B81C-AE4A-2543F03E0A8F</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>FB9CFBA2-3716-7B67-C4EB-6EE2A18EF80F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="co_id" id="9E8E7097-E7EE-F935-F535-E2A06592A26D">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-04 03:20:52 UTC</createdTime>
+<generatorID>89A3E7DC-6B1A-97F4-9B4B-F541540A80B5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>AF464A02-D31B-BB51-840B-938E0BF8B070</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
