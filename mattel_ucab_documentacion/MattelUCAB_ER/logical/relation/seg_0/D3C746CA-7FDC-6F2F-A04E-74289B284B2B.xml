@@ -8,6 +8,8 @@
 </engineerTo>
 <targetPk>37A806CA-7695-AB83-42BE-7CF4CBC0B745</targetPk>
 <identifying>false</identifying>
+<nameOnSource>.</nameOnSource>
+<nameOnTarget>genera</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

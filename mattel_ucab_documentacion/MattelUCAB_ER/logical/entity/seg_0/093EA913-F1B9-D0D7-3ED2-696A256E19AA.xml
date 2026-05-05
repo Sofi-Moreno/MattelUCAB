@@ -173,20 +173,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dp_id11" id="05DA2DB8-F3B7-D3D9-B129-2B0716BEF411">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-01 13:44:23 UTC</createdTime>
-<generatorID>8188F543-9B9A-EC45-803E-6057AAB1D9E8</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>8B6030D3-48A8-0F23-4DB2-464C67DCD0E3</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="B15A9F9F-2A0B-E037-F84F-D5F2CE816954" name="orden_produccion PK">

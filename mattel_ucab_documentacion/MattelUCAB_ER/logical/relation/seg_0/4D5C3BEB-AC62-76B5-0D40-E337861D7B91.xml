@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>0A76ABD4-75CD-4500-91B4-B3AF57CA0FBF</sourcePk>
 <identifying>false</identifying>
+<nameOnSource>.</nameOnSource>
+<nameOnTarget>administra</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

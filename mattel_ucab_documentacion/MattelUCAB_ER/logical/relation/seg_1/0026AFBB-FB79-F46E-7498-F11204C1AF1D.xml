@@ -9,6 +9,8 @@
 <sourcePk>29320041-AE2D-9C20-440C-3663DBFCFF65</sourcePk>
 <targetPk>E3182AF6-1272-3F1D-DED1-65405A243504</targetPk>
 <identifying>true</identifying>
+<nameOnSource> </nameOnSource>
+<nameOnTarget>es agregado</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>*</sourceCardinality>

@@ -8,6 +8,8 @@
 </engineerTo>
 <targetPk>1B82BE79-5F73-4B67-36B5-D327A622A2D9</targetPk>
 <identifying>false</identifying>
+<nameOnSource>.</nameOnSource>
+<nameOnTarget>divide</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>true</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

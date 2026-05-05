@@ -8,7 +8,10 @@
 </engineerTo>
 <sourcePk>5BD812FE-2EAD-058A-0E92-5B02AD143D3D</sourcePk>
 <targetPk>5AD67D56-1184-DF15-D805-50D4420656B7</targetPk>
+<arc>011B730F-4D25-46C6-08D2-DD5ABB60C7D7</arc>
 <identifying>false</identifying>
+<nameOnSource> </nameOnSource>
+<nameOnTarget>liquida</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

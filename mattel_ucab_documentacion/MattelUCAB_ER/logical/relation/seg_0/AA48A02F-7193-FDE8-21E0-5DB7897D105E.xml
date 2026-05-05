@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>2E6DBB8F-7617-C4B0-1CC1-B4BB81451932</sourcePk>
 <identifying>true</identifying>
+<nameOnSource>es otorgado</nameOnSource>
+<nameOnTarget>.</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

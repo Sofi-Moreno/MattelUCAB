@@ -90,6 +90,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="pn_id" id="F53E3503-1A69-1F94-F290-BE0838E4435B">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-04 18:38:41 UTC</createdTime>
+<generatorID>8C15675B-C1DE-1F95-2A92-0C45DC74F1BF</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>7B2D1EF2-4A37-C36A-91C0-5FC6E41D5436</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="5BD812FE-2EAD-058A-0E92-5B02AD143D3D" name="orden_venta PK">

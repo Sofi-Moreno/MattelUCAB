@@ -64,6 +64,44 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="pn_id" id="7B2D1EF2-4A37-C36A-91C0-5FC6E41D5436">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-04 18:38:41 UTC</createdTime>
+<generatorID>20FC64D8-373F-82DA-3D9D-6F59FFC37E4E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>B8799406-9A1E-9804-D487-E2D6ADEE49A0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sbt_fecha_inicio" id="3C1FCF84-46B8-176E-0257-425681D1055C">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-04 18:49:38 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sbt_fecha_fin" id="FBC9A89F-9189-BB27-82E8-EC073B62C69F">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-04 18:50:19 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="48B1382F-15B6-2FC2-CCE2-FB6EE5FB2533" name="subasta PK">
@@ -76,6 +114,7 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>72380176-1221-F1B2-8CAF-F084A31A24FB</attributeRef>
+<attributeRef>7B2D1EF2-4A37-C36A-91C0-5FC6E41D5436</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

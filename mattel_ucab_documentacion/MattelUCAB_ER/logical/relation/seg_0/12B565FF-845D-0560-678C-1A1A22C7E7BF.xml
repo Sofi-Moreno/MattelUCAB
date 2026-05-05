@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>B15A9F9F-2A0B-E037-F84F-D5F2CE816954</sourcePk>
 <identifying>false</identifying>
+<nameOnSource> </nameOnSource>
+<nameOnTarget>materializa</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

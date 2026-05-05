@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>E2E861C2-1E2D-5C44-9AC6-61EA4F38D5B0</sourcePk>
 <identifying>true</identifying>
+<nameOnSource>.</nameOnSource>
+<nameOnTarget>vincula</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

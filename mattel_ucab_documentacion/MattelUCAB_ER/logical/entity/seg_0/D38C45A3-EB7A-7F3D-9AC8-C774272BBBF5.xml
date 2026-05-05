@@ -91,6 +91,36 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="sbt_id" id="872EB874-6F8C-393A-695F-D68113B65449">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-05 00:34:48 UTC</createdTime>
+<generatorID>B3C70796-47A2-BD14-83DB-940DF7567407</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>72380176-1221-F1B2-8CAF-F084A31A24FB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pn_id" id="40064D9E-CEA2-80C0-8250-A945EEC913C1">
+<createdBy>Maria</createdBy>
+<createdTime>2026-05-05 00:34:48 UTC</createdTime>
+<generatorID>B3C70796-47A2-BD14-83DB-940DF7567407</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>7B2D1EF2-4A37-C36A-91C0-5FC6E41D5436</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="F7BD2FBA-57B8-EAD2-4755-9A1D151AE32D" name="unidad_producto PK">

@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>BF4226D1-6704-F824-054A-D13A8E5CF5A9</sourcePk>
 <identifying>false</identifying>
+<nameOnSource> </nameOnSource>
+<nameOnTarget>adquiere</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

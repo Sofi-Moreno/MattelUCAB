@@ -51,20 +51,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dp_id" id="626BCE14-C100-3268-2AB8-7FCE8AFA9355">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 18:26:53 UTC</createdTime>
-<generatorID>45245ED5-2A70-E608-8B86-2115AC516B26</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>A551E525-9959-6A18-BAC6-E5B2185E5178</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="E2E861C2-1E2D-5C44-9AC6-61EA4F38D5B0" name="profesion PK">
@@ -77,7 +63,6 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>1DC6BBBF-0C77-B353-54BC-82616AAA80C8</attributeRef>
-<attributeRef>626BCE14-C100-3268-2AB8-7FCE8AFA9355</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

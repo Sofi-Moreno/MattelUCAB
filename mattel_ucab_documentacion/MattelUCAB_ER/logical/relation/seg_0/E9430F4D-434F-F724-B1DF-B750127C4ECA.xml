@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>6B8823E6-4575-D71A-5F42-183ECFCAC9A7</sourcePk>
 <identifying>false</identifying>
+<nameOnSource>.</nameOnSource>
+<nameOnTarget>valora</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

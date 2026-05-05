@@ -8,6 +8,8 @@
 </engineerTo>
 <targetPk>95A2F17C-504B-C88B-D92D-753843B7052E</targetPk>
 <identifying>false</identifying>
+<nameOnSource> </nameOnSource>
+<nameOnTarget>catalogar</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>*</sourceCardinality>

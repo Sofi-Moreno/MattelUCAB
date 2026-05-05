@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>E3182AF6-1272-3F1D-DED1-65405A243504</sourcePk>
 <identifying>false</identifying>
+<nameOnSource>.</nameOnSource>
+<nameOnTarget>supera</nameOnTarget>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

@@ -55,20 +55,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dp_id1" id="8B6030D3-48A8-0F23-4DB2-464C67DCD0E3">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 18:27:38 UTC</createdTime>
-<generatorID>45245ED5-2A70-E608-8B86-2115AC516B26</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>626BCE14-C100-3268-2AB8-7FCE8AFA9355</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="504B9465-F351-1C49-E4A4-AC455A480F09" name="dp_pro PK">
@@ -82,7 +68,6 @@
 <usedAttributes>
 <attributeRef>A551E525-9959-6A18-BAC6-E5B2185E5178</attributeRef>
 <attributeRef>6408CDDE-1294-1AF7-7A1E-A4A2C35DD5FB</attributeRef>
-<attributeRef>8B6030D3-48A8-0F23-4DB2-464C67DCD0E3</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

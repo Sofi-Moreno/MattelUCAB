@@ -8,6 +8,8 @@
 </engineerTo>
 <sourcePk>BA9A7D3D-2EAD-F627-A902-771BDF34F56B</sourcePk>
 <identifying>false</identifying>
+<nameOnSource> </nameOnSource>
+<nameOnTarget>participa</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
