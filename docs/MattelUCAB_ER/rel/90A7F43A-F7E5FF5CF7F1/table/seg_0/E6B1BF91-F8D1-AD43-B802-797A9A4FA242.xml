@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E6B1BF91-F8D1-AD43-B802-797A9A4FA242" name="historico_valor_mercado">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>485F3DBD-B874-1147-24FC-1C79541E771B</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="hvm_id" id="2EA63CB1-C23E-891A-74FD-510F4C862773">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>C275C07F-8CCF-4319-2C21-E46D01F22FA5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hvm_fecha_hora_tasacion" id="CF9F94C5-5683-9D86-5DEF-59B2191D991E">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>A8526432-6A1B-3F16-970B-58CAAB3D3133</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hvm_precio_estimado" id="D05151A7-3A3F-1B95-1289-FEA86C281741">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>6BCE569A-C6DD-8212-0AB2-5996B9C0EAF8</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hvm_fuente" id="92E75CA0-A159-65CD-F7C2-1F79093F932E">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>E2B93079-2BC1-1BA2-F46D-D85AF3A303AC</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="diseño_producto_dp_id" id="3818F2E5-DF6C-FA0F-36C6-404003378519">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>637E25CD-158A-5A84-2834-13B8923B9518</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BA00B7C3-1BA9-FDDA-8A48-1FBEF6904DF8" referredColumn="56F6E030-45AA-DDB6-438D-7BDD8007E34F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D9E58CFC-4A38-E1CD-D225-B7CE294DC68F" name="historico_valor_mercado_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>15FF6B38-F215-E4FC-1978-F4EDA77B6E06</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2EA63CB1-C23E-891A-74FD-510F4C862773"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5CE83AD5-6A42-7998-A218-4200EA838376" name="historico_valor_mercado_diseño_producto_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>D255411B-7694-1D97-87F9-32E65CFB9825</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3818F2E5-DF6C-FA0F-36C6-404003378519"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

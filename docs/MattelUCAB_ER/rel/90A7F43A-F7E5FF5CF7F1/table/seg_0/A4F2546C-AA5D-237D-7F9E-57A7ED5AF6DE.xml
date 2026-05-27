@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A4F2546C-AA5D-237D-7F9E-57A7ED5AF6DE" name="categoria_categoria">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>8A957A1E-04C5-E2A6-97AD-F4DB6FF7F3F3</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="categoria_producto_cp_id" id="F6EA1747-8FF1-BF1D-FD67-C3FD3538664F">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>E75D124A-7615-C598-79A2-FE3F93D6A6B1</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8DCCD0FF-741F-4325-422F-89E547B2A89B" referredColumn="CFD7A689-ECEF-2A76-9E09-E9BCF3F68214"/>
+</associations>
+</Column>
+<Column name="categoria_producto_cp_id2" id="48273A5E-D53F-CFC4-D082-33AF647FCFDE">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>C85AB915-F090-E084-3C52-827CE0947118</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7469ECCD-4924-7767-2090-C7FBB66D3835" referredColumn="CFD7A689-ECEF-2A76-9E09-E9BCF3F68214"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="754A1900-9EC6-2D7E-5D09-B353AE19B2D8" name="categoria_categoria_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>41F330EE-1931-3364-0B17-CE2F38A33864</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F6EA1747-8FF1-BF1D-FD67-C3FD3538664F"/>
+<colUsage columnID="48273A5E-D53F-CFC4-D082-33AF647FCFDE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D75C60C2-8592-1ED2-C46A-72D3E6A77F36" name="categoria_categoria_categoria_producto_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>1EE4EAE7-E848-DA87-3A48-A5217F2D4F53</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F6EA1747-8FF1-BF1D-FD67-C3FD3538664F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B0070DEF-6E00-D418-4382-36D0FD0B6F6B" name="categoria_categoria_categoria_producto_FKv2">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>E10C09DE-3C04-5196-94F4-C6BF9B9DA77E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="48273A5E-D53F-CFC4-D082-33AF647FCFDE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

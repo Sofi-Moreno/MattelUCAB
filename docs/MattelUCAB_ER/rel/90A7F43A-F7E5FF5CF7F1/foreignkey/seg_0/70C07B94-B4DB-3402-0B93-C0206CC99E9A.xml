@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="70C07B94-B4DB-3402-0B93-C0206CC99E9A" containerWithKeyObject="B8249B88-79C4-D4CA-0469-1550C64611E3" localFKIndex="6ADD638F-653C-3FB8-83DC-DDAC9FD8E60E" name="conciliacion_pago_orden_venta_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>F404DB18-594A-933D-332C-8D1032113CF0</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>orden_venta</referredTableLongName>
+<arc>9517CC51-C658-3360-863F-8352F69254AB</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>70703F74-5E38-3A44-F0BE-D661A3641E49</referredTableID>
+<keyObject>EB308CF1-E569-8F19-3314-2D1D0CBFDD5B</keyObject>
+<referredKeyID>EB308CF1-E569-8F19-3314-2D1D0CBFDD5B</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>ov_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

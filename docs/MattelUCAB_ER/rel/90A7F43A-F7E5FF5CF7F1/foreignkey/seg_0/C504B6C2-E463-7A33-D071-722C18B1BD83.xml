@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C504B6C2-E463-7A33-D071-722C18B1BD83" containerWithKeyObject="D80412F8-D3C6-D061-3989-F11A45841053" localFKIndex="9B1F645F-6BC9-D4E6-AA86-967096CCAC25" name="consumo_materia_prima_lote_materia_prima_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>D54EBA1A-4C26-E093-309F-3B84DFAFB4AE</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>lote_materia_prima</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DD87138A-32EC-E44C-C59F-3DDCCB66FEFF</referredTableID>
+<keyObject>2936EF32-45EA-3EC6-C7FE-04E413AE4D4F</keyObject>
+<referredKeyID>2936EF32-45EA-3EC6-C7FE-04E413AE4D4F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>lmp_lote</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

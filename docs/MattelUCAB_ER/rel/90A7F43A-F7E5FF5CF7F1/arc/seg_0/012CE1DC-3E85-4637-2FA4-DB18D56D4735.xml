@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKArc class="oracle.dbtools.crest.model.design.relational.FKArc" directorySegmentName="seg_0" id="012CE1DC-3E85-4637-2FA4-DB18D56D4735" name="Arc_3">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<mandatory>true</mandatory>
+<table>374E17AF-42E5-0D44-1736-10BAB6C2C7FC</table>
+<fkeys>
+<fkeyID>366ED796-2EAE-CFEA-76A4-D061BB9F9721</fkeyID>
+<fkeyID>B700CD76-385F-D8A5-12BB-4156B8597ACB</fkeyID>
+</fkeys>
+</FKArc>

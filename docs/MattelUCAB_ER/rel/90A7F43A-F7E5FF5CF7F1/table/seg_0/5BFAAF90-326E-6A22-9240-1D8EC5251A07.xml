@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5BFAAF90-326E-6A22-9240-1D8EC5251A07" name="detalle_despacho">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>9E7D48A1-C5C1-ED55-A1A2-CADF74FE6053</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="unidad_producto_up_sku" id="3FE97327-1199-87C7-0ABF-E3095444BFF4">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>FD372530-A9D6-9BE2-FDFE-298DA9181C7C</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="11C6FC0E-4D2B-F960-EF32-1F56733D5EF6" referredColumn="CD270646-CA3A-FEC9-CAEF-D1A285287923"/>
+</associations>
+</Column>
+<Column name="despacho_dpc_id" id="8DE62EFF-915A-3FC4-B58E-19CC7B08305B">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>D641CCE4-1AA5-5841-818C-9BD857DA8FE9</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8779C461-1DB4-4065-6BB6-8D0A03CB91F0" referredColumn="06F86C80-7D86-F2E2-FF24-1306EFCFA554"/>
+</associations>
+</Column>
+<Column name="despacho_transporte_tpt_id" id="9E47CC5F-45E8-4459-D425-D67101C18316">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>2F309691-D005-7019-EE4A-49525975528C</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8779C461-1DB4-4065-6BB6-8D0A03CB91F0" referredColumn="4B5CFA2C-873E-5CC2-DB84-7A6525694F27"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="98F46652-9757-82AF-533F-5FC1560FBC2E" name="detalle_despacho_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>89609D7C-CC0B-6D77-93E0-D761CCDB32AB</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3FE97327-1199-87C7-0ABF-E3095444BFF4"/>
+<colUsage columnID="8DE62EFF-915A-3FC4-B58E-19CC7B08305B"/>
+<colUsage columnID="9E47CC5F-45E8-4459-D425-D67101C18316"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="12237092-089B-4A91-64AE-68E4C2BF0DEE" name="detalle_despacho_unidad_producto_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>B429D8E6-A6E6-C947-2A67-B7190ACC383B</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3FE97327-1199-87C7-0ABF-E3095444BFF4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F0EB9FA-178B-6BA4-F7E7-2274357BEF84" name="detalle_despacho_despacho_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>61313B74-D758-63AB-5C12-D0F7EDFCAB1C</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8DE62EFF-915A-3FC4-B58E-19CC7B08305B"/>
+<colUsage columnID="9E47CC5F-45E8-4459-D425-D67101C18316"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

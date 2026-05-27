@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="87A737AE-4FF1-027D-5CB7-17956ECD8934" name="carrito">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>B03BBCF1-F5C4-AEDA-E180-4771CB9CFED1</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="crt_id" id="C9C4740D-17E0-E53B-F592-BF52FFAD4704">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>CF1ADDB3-9712-64BF-ACBD-A65FD9BD9D28</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cliente_pn_id" id="8583A9FC-5C74-8A74-DEBE-46683352A05C">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>519860BD-2671-6882-99C0-EF2C23D4407F</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D5BC4342-301E-D29F-84F7-DBC68D8FA3D6" referredColumn="723438E9-61C5-DAE9-3A50-DE75AB9F3CEF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="19E5AE4A-65CB-7CC2-6EAB-6B97A4FB33D1" name="carrito_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>3D3DFB85-9C30-E93B-F790-2983A88E15F6</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C9C4740D-17E0-E53B-F592-BF52FFAD4704"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5F950E89-0693-1EE9-3FC5-48B6DFD64AC3" name="carrito__IDX">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>E77B63AA-C72D-D6DF-932D-AC1154527911</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="8583A9FC-5C74-8A74-DEBE-46683352A05C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32D1C3AE-F7BD-FAEF-B747-B8497BBBE0EE" name="carrito_cliente_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>E77B63AA-C72D-D6DF-932D-AC1154527911</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8583A9FC-5C74-8A74-DEBE-46683352A05C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

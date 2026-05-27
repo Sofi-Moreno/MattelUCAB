@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D80412F8-D3C6-D061-3989-F11A45841053" name="consumo_materia_prima">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>F2BA0DAB-2214-DDB0-4699-3D11F356A966</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cmp_cantidad_usada" id="3C007F42-6C73-5B1C-908F-1BE5C32FF843">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>1ABE8C0B-8FA2-1046-6F2F-FD187FE2CA0E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lote_materia_prima_lmp_lote" id="F1F4F80B-DBDE-8853-7346-048C0CDAA127">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>C78F662A-2D0B-696D-C5C6-13F2B1CC2CC7</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C504B6C2-E463-7A33-D071-722C18B1BD83" referredColumn="6996B6D4-06D3-8D17-A6B4-84143871F11A"/>
+</associations>
+</Column>
+<Column name="unidad_producto_up_sku" id="E347644A-0C3B-0296-A903-4BD5CB4B0645">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>CBF005F5-A988-9B18-1325-34FEA788D766</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B41B5A00-C906-857B-EABC-CB9B6533BCC2" referredColumn="CD270646-CA3A-FEC9-CAEF-D1A285287923"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7A3AEEAC-4224-B3B4-D25E-38654B92808B" name="consumo_materia_prima_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>4862890F-0D11-B9A8-3889-B011DA8E40C7</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E347644A-0C3B-0296-A903-4BD5CB4B0645"/>
+<colUsage columnID="F1F4F80B-DBDE-8853-7346-048C0CDAA127"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9B1F645F-6BC9-D4E6-AA86-967096CCAC25" name="consumo_materia_prima_lote_materia_prima_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>D54EBA1A-4C26-E093-309F-3B84DFAFB4AE</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F1F4F80B-DBDE-8853-7346-048C0CDAA127"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="036811EA-29CD-CD38-76A7-90CFBB0B19A2" name="consumo_materia_prima_unidad_producto_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>F940627B-A403-7B9E-866D-C12991C733CC</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E347644A-0C3B-0296-A903-4BD5CB4B0645"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

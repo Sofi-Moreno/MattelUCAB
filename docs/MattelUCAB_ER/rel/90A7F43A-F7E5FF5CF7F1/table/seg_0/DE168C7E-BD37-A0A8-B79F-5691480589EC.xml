@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DE168C7E-BD37-A0A8-B79F-5691480589EC" name="dp_pro">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>BAA734CC-E4F1-0E1D-6C1F-5A4C902F5E82</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="dpp_año" id="E01A4994-9239-E7A3-4A1F-BC67060F5062">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>64A707FC-50AA-4C16-F757-44CC8DE84E80</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="diseño_producto_dp_id" id="DD644B76-CD52-090B-940B-2FA4C7622BEC">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>A551E525-9959-6A18-BAC6-E5B2185E5178</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="78029F7A-9601-C743-A683-61AA906AC1F7" referredColumn="56F6E030-45AA-DDB6-438D-7BDD8007E34F"/>
+</associations>
+</Column>
+<Column name="profesion_pfs_id" id="E1631B82-7080-E2D6-6893-AC591A90B0FE">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>6408CDDE-1294-1AF7-7A1E-A4A2C35DD5FB</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4BFF8C44-3884-31F3-7C2B-5663B2E3FB3B" referredColumn="071EF934-55EB-53DD-3EED-E818F470EBD0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="16E9DF02-391A-84FE-3F7B-AF16FF4D077C" name="dp_pro_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>504B9465-F351-1C49-E4A4-AC455A480F09</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD644B76-CD52-090B-940B-2FA4C7622BEC"/>
+<colUsage columnID="E1631B82-7080-E2D6-6893-AC591A90B0FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09BEB568-A751-37C7-CC95-3505E5330FF4" name="dp_pro_diseño_producto_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>2B7C8DA1-38AA-DA4F-CFD3-49455AB72E80</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD644B76-CD52-090B-940B-2FA4C7622BEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E73AE73F-5950-6710-669E-C20391C71B72" name="dp_pro_profesion_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>45245ED5-2A70-E608-8B86-2115AC516B26</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1631B82-7080-E2D6-6893-AC591A90B0FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

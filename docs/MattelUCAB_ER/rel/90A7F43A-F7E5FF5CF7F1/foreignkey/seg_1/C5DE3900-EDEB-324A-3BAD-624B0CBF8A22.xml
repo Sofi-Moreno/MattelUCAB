@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="C5DE3900-EDEB-324A-3BAD-624B0CBF8A22" containerWithKeyObject="3437DF4F-E872-F796-E4C6-70FB73537AB8" localFKIndex="4EA150B7-7084-4040-5F11-5724644B67F4" name="tarjeta_debito_metodo_pago_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>EFD9F380-AFD7-86B1-6188-39BF77848586</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>metodo_pago</referredTableLongName>
+<arc>8EC05DF5-24C1-B01F-6B2B-30BC891E88C9</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9A440E9E-6C2F-46F4-7E6D-4DB8134E3290</referredTableID>
+<keyObject>91ADED57-07F6-28B4-4308-E8A3B03C5748</keyObject>
+<referredKeyID>91ADED57-07F6-28B4-4308-E8A3B03C5748</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>mp_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

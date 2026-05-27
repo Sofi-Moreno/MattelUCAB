@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C23137E-2121-DA83-D332-B97D8703C909" name="historico_tasa_cambio">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>9CFC5017-192B-F57D-361F-5560B56EA9D9</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="htc_id" id="59600643-07E3-8A03-EAC8-C9578B63E2FC">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>6A841AF1-9834-88ED-8E18-26BB57904D31</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="htc_fecha_hora_inicio" id="CF47E2AC-7527-7E07-239B-DFDF989C6F54">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>55119754-577A-67B8-594D-FC60FC3E5720</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="htc_fecha_hora_fin" id="78B0BAD1-0E7D-CDD3-6DA8-B7A722FACE7C">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>51271792-8B4D-8B52-CFAF-006B57324218</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="htc_tasa" id="EB1AFC7F-1041-1336-DAEE-8954FD9C6506">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>5B52AA8E-90BD-1F90-F8CE-A0474393852B</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="moneda_m_codigo" id="A5126EB1-1737-A53A-ABEA-5379A7BC8756">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>7E04C224-6D3C-8161-F8B3-8C6F2E7DB18A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C2D24337-0444-EE9D-106B-3129716AF154" referredColumn="2B9B1288-87E4-664F-CCFE-A473D9E647D1"/>
+</associations>
+</Column>
+<Column name="moneda_m_codigo2" id="E104717F-3F83-8A52-15D9-01C0495727CA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>E951DE32-34BF-84A5-6AF2-7A10142FEE19</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="451443BA-2025-9068-167F-2FED56A4EC0C" referredColumn="2B9B1288-87E4-664F-CCFE-A473D9E647D1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ACCC33B7-15C6-8DCC-23A2-6CE7EE83E6CC" name="historico_tasa_cambio_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>6B8823E6-4575-D71A-5F42-183ECFCAC9A7</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="59600643-07E3-8A03-EAC8-C9578B63E2FC"/>
+<colUsage columnID="A5126EB1-1737-A53A-ABEA-5379A7BC8756"/>
+<colUsage columnID="E104717F-3F83-8A52-15D9-01C0495727CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EC3B871D-6618-9477-4330-4BF68342CD0B" name="historico_tasa_cambio_moneda_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>6C9ADFB5-7346-4193-0B59-0562BCDDF138</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5126EB1-1737-A53A-ABEA-5379A7BC8756"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53809113-C6A7-1679-9642-669D6A50420E" name="historico_tasa_cambio_moneda_FKv2">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>0CD39F39-CC01-E80D-7766-311F488D0B1B</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E104717F-3F83-8A52-15D9-01C0495727CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

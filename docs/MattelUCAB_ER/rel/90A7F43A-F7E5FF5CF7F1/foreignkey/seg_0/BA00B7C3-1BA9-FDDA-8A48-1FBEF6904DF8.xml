@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BA00B7C3-1BA9-FDDA-8A48-1FBEF6904DF8" containerWithKeyObject="E6B1BF91-F8D1-AD43-B802-797A9A4FA242" localFKIndex="5CE83AD5-6A42-7998-A218-4200EA838376" name="historico_valor_mercado_diseño_producto_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>D255411B-7694-1D97-87F9-32E65CFB9825</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>diseño_producto</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>63C6C704-ED34-249A-A2B9-D31DF6D1C725</referredTableID>
+<keyObject>70E535FA-76F1-2739-62CA-3F1AA27363F1</keyObject>
+<referredKeyID>70E535FA-76F1-2739-62CA-3F1AA27363F1</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>dp_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

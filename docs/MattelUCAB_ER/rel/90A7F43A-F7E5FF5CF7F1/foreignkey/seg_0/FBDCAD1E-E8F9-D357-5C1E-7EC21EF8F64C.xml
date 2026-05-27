@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FBDCAD1E-E8F9-D357-5C1E-7EC21EF8F64C" containerWithKeyObject="63C6C704-ED34-249A-A2B9-D31DF6D1C725" localFKIndex="DDB0CE0A-8688-EB37-2B0B-7BEAC29E9851" name="diseño_producto_color_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>2DA8D20B-588E-0FB5-46FB-E1CAF620E7E8</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>color</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>97AD2E3F-9834-BFDB-5019-FF18EC7D1A83</referredTableID>
+<keyObject>1470B545-83CF-178F-A4CB-EF772342E3FD</keyObject>
+<referredKeyID>1470B545-83CF-178F-A4CB-EF772342E3FD</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>cl_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

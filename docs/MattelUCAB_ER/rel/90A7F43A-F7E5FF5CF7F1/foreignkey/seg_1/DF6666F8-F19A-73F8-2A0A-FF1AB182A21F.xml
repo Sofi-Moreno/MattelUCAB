@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="DF6666F8-F19A-73F8-2A0A-FF1AB182A21F" containerWithKeyObject="48016C6A-46B2-0D1A-66EB-268E69573A10" localFKIndex="692575C3-0903-0B32-910A-9F26B1F86B87" name="orden_produccion_Taxonomia_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>258C91AD-E8D1-9867-CBB3-6049FD493FA5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>Taxonomia</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B7B7F88B-B38A-2A1A-A333-78F626E58125</referredTableID>
+<keyObject>BF846EA3-C902-B637-8D43-7885C831513E</keyObject>
+<referredKeyID>BF846EA3-C902-B637-8D43-7885C831513E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>diseño_producto_dp_id,pieza_pz_id,molde_md_id,materia_prima_mp_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

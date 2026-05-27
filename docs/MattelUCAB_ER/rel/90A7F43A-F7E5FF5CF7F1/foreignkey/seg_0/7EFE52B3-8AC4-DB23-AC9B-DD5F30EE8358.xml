@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7EFE52B3-8AC4-DB23-AC9B-DD5F30EE8358" containerWithKeyObject="5267CAC9-3CCC-7E34-7E15-113C6185F653" localFKIndex="AC70BCD9-441B-D86E-3EE6-5F1803186302" name="fabrica_lugar_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>F6D70536-3E98-E738-E852-FAAC3066C2FF</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>lugar</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9E632B88-3C92-302E-1FC6-023260E23275</referredTableID>
+<keyObject>92993B1B-1EF6-0B90-8F13-E7979B5D0FBF</keyObject>
+<referredKeyID>92993B1B-1EF6-0B90-8F13-E7979B5D0FBF</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>lg_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

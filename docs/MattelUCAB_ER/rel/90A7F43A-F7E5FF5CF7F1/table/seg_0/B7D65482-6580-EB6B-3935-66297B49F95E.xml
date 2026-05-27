@@ -1,0 +1,177 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B7D65482-6580-EB6B-3935-66297B49F95E" name="unidad_producto">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>D38C45A3-EB7A-7F3D-9AC8-C774272BBBF5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="up_sku" id="CD270646-CA3A-FEC9-CAEF-D1A285287923">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="up_estado" id="1EB5835B-6224-4C41-9106-4D4CC01A8118">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>20673648-6A0D-5A60-5066-F62DCAE56B82</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="up_precio_minorista" id="70DB980F-DBDF-2E6C-56F6-D323A2C89DCB">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>4F4C3D14-3B46-A2D0-EE0D-3675FE645870</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="up_precio_mayorista" id="68ADCA8C-879B-891C-1F8E-D7428CDD737A">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>8A58345B-AC32-E909-5314-5B9ED6F4A153</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="up_fecha_hora_disponible" id="1E675C23-1120-A91B-964A-7637CBD39ADB">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>AF7C6F8D-8D7E-16A2-F7D7-2EFAEAA12665</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="orden_produccion_op_id" id="7315344A-0A6E-53C0-94AF-8C1B7DD833CA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>3426EFD9-A7AF-64BB-FEA3-EDC40D09F095</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BF63CBDA-18AA-613C-0728-22CA641CFFAD" referredColumn="64E4E0CD-49C5-C9E9-BDD4-8300B5DBE96E"/>
+</associations>
+</Column>
+<Column name="fabrica_fbc_id" id="D5C3A0B4-C7F7-E745-4AA6-266C72B02B63">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>3BA7A429-C31D-09B3-CC47-A139A012147A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="22D1F5A4-B3BC-7085-2BF0-E8F3B190F2AF" referredColumn="5BFF3C02-617D-02C7-C098-D3FF5BE494E6"/>
+</associations>
+</Column>
+<Column name="subasta_sbt_id" id="0E6DA940-3F4F-1984-A2A4-468ACDFFD013">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>872EB874-6F8C-393A-695F-D68113B65449</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7A5DFD51-B6F6-9A88-C87C-1409E3655956" referredColumn="0319308F-AAED-9B84-C3AE-7410EBA56444"/>
+</associations>
+</Column>
+<Column name="subasta_cliente_pn_id" id="244AE48E-A645-4CB9-2660-B25A30A13BB0">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>40064D9E-CEA2-80C0-8250-A945EEC913C1</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7A5DFD51-B6F6-9A88-C87C-1409E3655956" referredColumn="B47AD313-55EE-F9A3-0B28-6718D85DCDE6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A92F46CF-7585-C01E-5F57-B3018E4D116D" name="unidad_producto_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>F7BD2FBA-57B8-EAD2-4755-9A1D151AE32D</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CD270646-CA3A-FEC9-CAEF-D1A285287923"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6DBA4B49-B936-D4DC-374E-FE5E6C894C4C" name="unidad_producto_fabrica_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>AF12A457-AAF2-D503-A451-AA9E2C73B885</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5C3A0B4-C7F7-E745-4AA6-266C72B02B63"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F93EC45-2F3D-753F-A95D-9E71808CBCC6" name="unidad_producto_subasta_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:07 UTC</createdTime>
+<generatorID>B3C70796-47A2-BD14-83DB-940DF7567407</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E6DA940-3F4F-1984-A2A4-468ACDFFD013"/>
+<colUsage columnID="244AE48E-A645-4CB9-2660-B25A30A13BB0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A8A1B20-A07D-3059-BF55-E37482B31CA6" name="unidad_producto_orden_produccion_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-05 05:01:08 UTC</createdTime>
+<generatorID>12B565FF-845D-0560-678C-1A1A22C7E7BF</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7315344A-0A6E-53C0-94AF-8C1B7DD833CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
