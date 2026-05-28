@@ -54,7 +54,7 @@ CREATE TABLE era_historica (
 CREATE TABLE tipo_cuerpo (
     tc_id          INTEGER  NOT NULL , 
     tc_nombre      VARCHAR(255) NOT NULL , 
-    tc_año_patente DATE  NOT NULL , 
+    tc_ano_patente DATE  NOT NULL , 
     tc_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT tipo_cuerpo_PK PRIMARY KEY ( tc_id )
 );
@@ -102,7 +102,7 @@ CREATE TABLE membresia (
 CREATE TABLE molde (
     md_id          INTEGER  NOT NULL , 
     md_nombre      VARCHAR(255) NOT NULL , 
-    md_año_patente DATE  NOT NULL , 
+    md_ano_patente DATE  NOT NULL , 
     md_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT molde_PK PRIMARY KEY ( md_id )
 );
@@ -307,7 +307,7 @@ CREATE TABLE persona_juridica (
 CREATE TABLE usuario (
     usar_id             INTEGER  NOT NULL , 
     usar_nombre_usuario VARCHAR(255) NOT NULL , 
-    usar_contraseña     VARCHAR(255) NOT NULL , 
+    usar_contrasena     VARCHAR(255) NOT NULL , 
     usar_correo         VARCHAR(255) NOT NULL , 
     usar_fecha_registro TIMESTAMP  NOT NULL , 
     usar_estado         VARCHAR(255) NOT NULL , 
@@ -511,7 +511,7 @@ CREATE TABLE contrato_horario (
     ))
 );
 
-CREATE TABLE diseño_producto (
+CREATE TABLE diseno_producto (
     dp_id                    INTEGER  NOT NULL , 
     dp_nombre_comercial      VARCHAR(255) NOT NULL , 
     dp_ancho_cm              NUMERIC  NOT NULL , 
@@ -528,34 +528,34 @@ CREATE TABLE diseño_producto (
     fk_tc_dp                 INTEGER  NOT NULL , 
     fk_dp_dp                 INTEGER , 
     dp_limite_compra_usuario INTEGER  NOT NULL,
-    CONSTRAINT diseño_producto_PK PRIMARY KEY ( dp_id ),
-    CONSTRAINT diseño_producto_clasificacion_exclusividad_FK FOREIGN KEY (fk_ce_dp) 
+    CONSTRAINT diseno_producto_PK PRIMARY KEY ( dp_id ),
+    CONSTRAINT diseno_producto_clasificacion_exclusividad_FK FOREIGN KEY (fk_ce_dp) 
     REFERENCES clasificacion_exclusividad (ce_id),
-    CONSTRAINT diseño_producto_color_FK FOREIGN KEY (fk_cl_dp_ojos) 
+    CONSTRAINT diseno_producto_color_FK FOREIGN KEY (fk_cl_dp_ojos) 
     REFERENCES color (cl_id),
-    CONSTRAINT diseño_producto_color_FKv2 FOREIGN KEY (fk_cl_dp_piel) 
+    CONSTRAINT diseno_producto_color_FKv2 FOREIGN KEY (fk_cl_dp_piel) 
     REFERENCES color (cl_id),
-    CONSTRAINT diseño_producto_diseño_producto_FK FOREIGN KEY (fk_dp_dp) 
-    REFERENCES diseño_producto (dp_id),
-    CONSTRAINT diseño_producto_era_historica_FK FOREIGN KEY (fk_eh_dp) 
+    CONSTRAINT diseno_producto_diseno_producto_FK FOREIGN KEY (fk_dp_dp) 
+    REFERENCES diseno_producto (dp_id),
+    CONSTRAINT diseno_producto_era_historica_FK FOREIGN KEY (fk_eh_dp) 
     REFERENCES era_historica (eh_id),
-    CONSTRAINT diseño_producto_tipo_cuerpo_FK FOREIGN KEY (fk_tc_dp) 
+    CONSTRAINT diseno_producto_tipo_cuerpo_FK FOREIGN KEY (fk_tc_dp) 
     REFERENCES tipo_cuerpo (tc_id)
 );
 
-CREATE TABLE autor_diseño (
+CREATE TABLE autor_diseno (
     ad_porcentaje_autoria   NUMERIC  NOT NULL , 
     fk_ctt_ad_1             INTEGER  NOT NULL , 
     fk_ctt_ad_2             INTEGER  NOT NULL , 
     fk_ctt_ad_3             INTEGER  NOT NULL , 
     fk_dp_ad                INTEGER  NOT NULL,
-    CONSTRAINT autor_diseño_PK PRIMARY KEY
+    CONSTRAINT autor_diseno_PK PRIMARY KEY
     ( fk_ctt_ad_1,
       fk_ctt_ad_2,
       fk_ctt_ad_3,
       fk_dp_ad
     ),
-    CONSTRAINT autor_diseño_contrato_FK FOREIGN KEY 
+    CONSTRAINT autor_diseno_contrato_FK FOREIGN KEY 
     ( 
      fk_ctt_ad_1,
      fk_ctt_ad_2,
@@ -567,8 +567,8 @@ CREATE TABLE autor_diseño (
      fk_epad_ctt, 
      fk_cg_ctt
     ),
-    CONSTRAINT autor_diseño_diseño_producto_FK FOREIGN KEY (fk_dp_ad) 
-    REFERENCES diseño_producto (dp_id)
+    CONSTRAINT autor_diseno_diseno_producto_FK FOREIGN KEY (fk_dp_ad) 
+    REFERENCES diseno_producto (dp_id)
 );
 
 CREATE TABLE dp_categoria (
@@ -577,17 +577,17 @@ CREATE TABLE dp_categoria (
     CONSTRAINT dp_categoria_PK PRIMARY KEY ( fk_dp_dpc, fk_cp_dpc ),
     CONSTRAINT dp_categoria_categoria_producto_FK FOREIGN KEY (fk_cp_dpc) 
     REFERENCES categoria_producto (cp_id),
-    CONSTRAINT dp_categoria_diseño_producto_FK FOREIGN KEY (fk_dp_dpc) 
-    REFERENCES diseño_producto (dp_id)
+    CONSTRAINT dp_categoria_diseno_producto_FK FOREIGN KEY (fk_dp_dpc) 
+    REFERENCES diseno_producto (dp_id)
 );
 
 CREATE TABLE dp_profesion (
-    dpp_año    DATE  NOT NULL , 
+    dpp_ano    DATE  NOT NULL , 
     fk_dp_dpp  INTEGER  NOT NULL , 
     fk_pfs_dpp INTEGER  NOT NULL,
     CONSTRAINT dp_pro_PK PRIMARY KEY ( fk_dp_dpp, fk_pfs_dpp ),
-    CONSTRAINT dp_pro_diseño_producto_FK FOREIGN KEY (fk_dp_dpp) 
-    REFERENCES diseño_producto (dp_id),
+    CONSTRAINT dp_pro_diseno_producto_FK FOREIGN KEY (fk_dp_dpp) 
+    REFERENCES diseno_producto (dp_id),
     CONSTRAINT dp_pro_profesion_FK FOREIGN KEY (fk_pfs_dpp) 
     REFERENCES profesion (pfs_id)
 );
@@ -599,26 +599,26 @@ CREATE TABLE historico_valor_mercado (
     hvm_fuente              VARCHAR(255) NOT NULL , 
     fk_dp_hvm               INTEGER  NOT NULL,
     CONSTRAINT historico_valor_mercado_PK PRIMARY KEY ( hvm_id ),
-    CONSTRAINT historico_valor_mercado_diseño_producto_FK FOREIGN KEY (fk_dp_hvm) 
-    REFERENCES diseño_producto (dp_id)
+    CONSTRAINT historico_valor_mercado_diseno_producto_FK FOREIGN KEY (fk_dp_hvm) 
+    REFERENCES diseno_producto (dp_id)
 );
 
-CREATE TABLE fase_prueba_diseño (
+CREATE TABLE fase_prueba_diseno (
     fpd_id             INTEGER  NOT NULL , 
     fpd_numero_paso    INTEGER  NOT NULL , 
     fpd_dias_estimados INTEGER  NOT NULL , 
     fpd_tipo           VARCHAR(255) NOT NULL,
     fk_dp_fpd          INTEGER  NOT NULL , 
     fk_octlg_fpd       INTEGER  NOT NULL ,
-    CONSTRAINT fase_prueba_diseño_PK PRIMARY KEY ( fpd_id ),
-    CONSTRAINT fase_prueba_diseño_diseño_producto_FK FOREIGN KEY (fk_dp_fpd) 
-    REFERENCES diseño_producto (dp_id),
-    CONSTRAINT fase_prueba_diseño_operacion_catalogo_FK FOREIGN KEY (fk_octlg_fpd) 
+    CONSTRAINT fase_prueba_diseno_PK PRIMARY KEY ( fpd_id ),
+    CONSTRAINT fase_prueba_diseno_diseno_producto_FK FOREIGN KEY (fk_dp_fpd) 
+    REFERENCES diseno_producto (dp_id),
+    CONSTRAINT fase_prueba_diseno_operacion_catalogo_FK FOREIGN KEY (fk_octlg_fpd) 
     REFERENCES operacion_catalogo (octlg_id),
-    CONSTRAINT tipo_fase_prueba_diseño CHECK(fpd_tipo IN('Producción','Prueba'))
+    CONSTRAINT tipo_fase_prueba_diseno CHECK(fpd_tipo IN('Producción','Prueba'))
 );
 
-CREATE TABLE Taxonomia (
+CREATE TABLE taxonomia (
     txnm_cantidad_pieza    INTEGER  NOT NULL , 
     txnm_cantidad_material NUMERIC  NOT NULL , 
     fk_dp_txnm             INTEGER  NOT NULL , 
@@ -633,8 +633,8 @@ CREATE TABLE Taxonomia (
     ),
     CONSTRAINT Taxonomia_color_FK FOREIGN KEY (fk_cl_txnm) 
     REFERENCES color (cl_id),
-    CONSTRAINT Taxonomia_diseño_producto_FK FOREIGN KEY (fk_dp_txnm) 
-    REFERENCES diseño_producto (dp_id),
+    CONSTRAINT Taxonomia_diseno_producto_FK FOREIGN KEY (fk_dp_txnm) 
+    REFERENCES diseno_producto (dp_id),
     CONSTRAINT Taxonomia_materia_prima_FK FOREIGN KEY (fk_mp_txnm) 
     REFERENCES materia_prima (mp_id),
     CONSTRAINT Taxonomia_molde_FK FOREIGN KEY (fk_md_txnm) 
@@ -651,8 +651,8 @@ CREATE TABLE detalle_carrito (
     CONSTRAINT detalle_carrito_PK PRIMARY KEY ( fk_crrt_dc, fk_dp_dc ),
     CONSTRAINT detalle_carrito_carrito_FK FOREIGN KEY (fk_crrt_dc) 
     REFERENCES carrito (crrt_id),
-    CONSTRAINT detalle_carrito_diseño_producto_FK FOREIGN KEY (fk_dp_dc) 
-    REFERENCES diseño_producto (dp_id)
+    CONSTRAINT detalle_carrito_diseno_producto_FK FOREIGN KEY (fk_dp_dc) 
+    REFERENCES diseno_producto (dp_id)
 );
 
 CREATE TABLE prenomina (
@@ -855,8 +855,8 @@ CREATE TABLE fpdc_cargo (
     CONSTRAINT fc_cargo_PK PRIMARY KEY ( fk_cg_fpdc, fk_fpd_fpdc ),
     CONSTRAINT fc_cargo_cargo_FK FOREIGN KEY (fk_cg_fpdc) 
     REFERENCES cargo (cg_id),
-    CONSTRAINT fc_cargo_fase_prueba_diseño_FK FOREIGN KEY (fk_fpd_fpdc) 
-    REFERENCES fase_prueba_diseño (fpd_id)
+    CONSTRAINT fc_cargo_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fpdc) 
+    REFERENCES fase_prueba_diseno (fpd_id)
 );
 
 CREATE TABLE detalle_oc (
@@ -866,8 +866,8 @@ CREATE TABLE detalle_oc (
     fk_oc_doc                   INTEGER  NOT NULL , 
     fk_dp_doc                   INTEGER  NOT NULL,
     CONSTRAINT detalle_oc_PK PRIMARY KEY (fk_oc_doc,fk_dp_doc ),
-    CONSTRAINT detalle_oc_diseño_producto_FK FOREIGN KEY (fk_dp_doc) 
-    REFERENCES diseño_producto (dp_id),
+    CONSTRAINT detalle_oc_diseno_producto_FK FOREIGN KEY (fk_dp_doc) 
+    REFERENCES diseno_producto (dp_id),
     CONSTRAINT detalle_oc_orden_compra_FK FOREIGN KEY (fk_oc_doc) 
     REFERENCES orden_compra (oc_id)
 );
@@ -885,8 +885,8 @@ CREATE TABLE orden_produccion (
     fk_dpp_op_1                 INTEGER  NOT NULL, 
     fk_dpp_op_2                 INTEGER  NOT NULL,
     CONSTRAINT orden_produccion_PK PRIMARY KEY ( op_id ),
-    CONSTRAINT orden_produccion_diseño_producto_FK FOREIGN KEY (fk_dp_op) 
-    REFERENCES diseño_producto (dp_id),
+    CONSTRAINT orden_produccion_diseno_producto_FK FOREIGN KEY (fk_dp_op) 
+    REFERENCES diseno_producto (dp_id),
     CONSTRAINT orden_produccion_dp_pro_FK FOREIGN KEY (fk_dpp_op_1, fk_dpp_op_2) 
     REFERENCES dp_profesion (fk_dp_dpp,fk_pfs_dpp),
     CONSTRAINT orden_produccion_Taxonomia_FK FOREIGN KEY 
@@ -1002,8 +1002,8 @@ CREATE TABLE fase_prueba_produccion (
     fk_up_fpp        INTEGER NOT NULL , 
     fk_fpd_fpp       INTEGER  NOT NULL,
     CONSTRAINT fase_prueba_produccion_PK PRIMARY KEY ( fpp_id ),
-    CONSTRAINT fase_prueba_produccion_fase_prueba_diseño_FK FOREIGN KEY (fk_fpd_fpp) 
-    REFERENCES fase_prueba_diseño (fpd_id),
+    CONSTRAINT fase_prueba_produccion_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fpp) 
+    REFERENCES fase_prueba_diseno (fpd_id),
     CONSTRAINT fase_prueba_producion_unidad_producto_FK FOREIGN KEY (fk_up_fpp)
     REFERENCES unidad_producto (up_sku)
 );
@@ -1095,8 +1095,8 @@ CREATE TABLE detalle_despacho (
 CREATE UNIQUE INDEX cliente__IDX ON cliente (fk_crt_cet ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDXv1 ON conciliacion_pago (fk_ov_cp ASC);
-CREATE UNIQUE INDEX diseño_producto__IDX ON diseño_producto (fk_cl_dp_ojos ASC);
-CREATE UNIQUE INDEX diseño_producto__IDXv1 ON diseño_producto (fk_cl_dp_piel ASC);
+CREATE UNIQUE INDEX diseno_producto__IDX ON diseno_producto (fk_cl_dp_ojos ASC);
+CREATE UNIQUE INDEX diseno_producto__IDXv1 ON diseno_producto (fk_cl_dp_piel ASC);
 CREATE UNIQUE INDEX orden_venta__IDX ON orden_venta (fk_sbt_ov ASC);
 CREATE UNIQUE INDEX usuario__IDX ON usuario (fk_pn_usar ASC);
 CREATE UNIQUE INDEX usuario__IDXv1 ON usuario (fk_pj_usar ASC);

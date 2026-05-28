@@ -66,48 +66,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ctt_id" id="7E389248-506F-F939-0511-06FAEAF7673B">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-01 23:44:21 UTC</createdTime>
-<generatorID>20A4EA14-D638-A05D-6A0E-4D53CE0F5B7C</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>459E66D9-3030-3AE8-B4B6-E611A313E123</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="pn_id" id="52D2F22D-A4F1-EB4E-3029-13E473778AFB">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-01 23:44:21 UTC</createdTime>
-<generatorID>20A4EA14-D638-A05D-6A0E-4D53CE0F5B7C</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>A212AB7B-5B97-03F0-63D2-174FDEB92806</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="cg_id" id="1EE3C784-CA87-D301-2054-D96EBD8E0C25">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-01 23:44:21 UTC</createdTime>
-<generatorID>20A4EA14-D638-A05D-6A0E-4D53CE0F5B7C</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>3D7AF4B6-EF0D-A271-E757-0D1C6A09048E</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="bnf_id" id="684BF4EB-15E8-E7AE-0411-B9F557D15594">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-01 23:44:35 UTC</createdTime>
@@ -191,48 +149,6 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="htc_id" id="58ED8693-C963-FE92-5912-793223F196C4">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:07:22 UTC</createdTime>
-<generatorID>E9430F4D-434F-F724-B1DF-B750127C4ECA</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>6A841AF1-9834-88ED-8E18-26BB57904D31</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="m_codigo" id="C05DD1CB-657E-6572-1603-DF81B819DCD6">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:07:22 UTC</createdTime>
-<generatorID>E9430F4D-434F-F724-B1DF-B750127C4ECA</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>7E04C224-6D3C-8161-F8B3-8C6F2E7DB18A</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="m_codigo1" id="3BFC03BB-CB37-0B16-EC1C-D5EFDBDAE2C8">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:07:22 UTC</createdTime>
-<generatorID>E9430F4D-434F-F724-B1DF-B750127C4ECA</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>E951DE32-34BF-84A5-6AF2-7A10142FEE19</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

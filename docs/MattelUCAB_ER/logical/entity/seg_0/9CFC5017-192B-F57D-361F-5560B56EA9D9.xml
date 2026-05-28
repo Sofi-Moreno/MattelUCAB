@@ -74,7 +74,7 @@
 <referedAttribute>D84F7297-22A3-B94B-36B3-F05AA978C395</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="m_codigo1" id="E951DE32-34BF-84A5-6AF2-7A10142FEE19">
@@ -88,7 +88,7 @@
 <referedAttribute>D84F7297-22A3-B94B-36B3-F05AA978C395</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
