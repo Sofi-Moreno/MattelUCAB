@@ -5,7 +5,13 @@ CREATE TABLE lugar (
     fk_lg_lg  INTEGER,
     CONSTRAINT lugar_PK PRIMARY KEY ( lg_id ),
     CONSTRAINT lugar_lugar_FK FOREIGN KEY (fk_lg_lg) 
-    REFERENCES lugar (lg_id)
+    REFERENCES lugar (lg_id),
+    CONSTRAINT lugar_tipo_check CHECK(lg_tipo IN
+    ('Continente', 
+    'País', 
+    'Estado', 
+    'Municipio', 
+    'Parroquia'))
 );
 
 CREATE TABLE moneda (
@@ -209,7 +215,8 @@ CREATE TABLE fabrica (
     fk_lg_fbc   INTEGER  NOT NULL,
     CONSTRAINT fabrica_PK PRIMARY KEY ( fbc_id ),
     CONSTRAINT fabrica_lugar_FK FOREIGN KEY (fk_lg_fbc) 
-    REFERENCES lugar (lg_id)
+    REFERENCES lugar (lg_id),
+    CONSTRAINT fabrica_tipo_check CHECK(fbc_tipo IN('Fabrica','Hub'))
 );
 
 CREATE TABLE materia_prima (
@@ -298,7 +305,7 @@ CREATE TABLE persona_juridica (
     pj_correo           VARCHAR(255) NOT NULL , 
     pj_limite_credito   NUMERIC  NOT NULL , 
     pj_saldo_pendiente  NUMERIC  NOT NULL , 
-    fk_lg_pj         INTEGER  NOT NULL,
+    fk_lg_pj            INTEGER  NOT NULL,
     CONSTRAINT persona_juridica_PK PRIMARY KEY ( pj_id ),
     CONSTRAINT persona_juridica_lugar_FK FOREIGN KEY (fk_lg_pj) 
     REFERENCES lugar (lg_id)
@@ -925,7 +932,8 @@ CREATE TABLE unidad_producto (
      'Activo', 
      'Bloqueado',
      'Desechado', 
-     'Vendido'))
+     'Vendido',
+     'Tránsito'))
 );
 
 CREATE TABLE conciliacion_pago (
@@ -1095,8 +1103,6 @@ CREATE TABLE detalle_despacho (
 CREATE UNIQUE INDEX cliente__IDX ON cliente (fk_crt_cet ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDXv1 ON conciliacion_pago (fk_ov_cp ASC);
-CREATE UNIQUE INDEX diseno_producto__IDX ON diseno_producto (fk_cl_dp_ojos ASC);
-CREATE UNIQUE INDEX diseno_producto__IDXv1 ON diseno_producto (fk_cl_dp_piel ASC);
 CREATE UNIQUE INDEX orden_venta__IDX ON orden_venta (fk_sbt_ov ASC);
 CREATE UNIQUE INDEX usuario__IDX ON usuario (fk_pn_usar ASC);
 CREATE UNIQUE INDEX usuario__IDXv1 ON usuario (fk_pj_usar ASC);

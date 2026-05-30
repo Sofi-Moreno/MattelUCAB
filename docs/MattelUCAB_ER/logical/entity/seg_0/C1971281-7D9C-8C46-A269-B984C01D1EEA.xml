@@ -154,20 +154,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="cl_id_piel" id="97B7E4C3-79E5-3D0F-DB1C-B1F8258D63C9">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-04-28 18:06:36 UTC</createdTime>
-<generatorID>A924CFEE-D02A-F788-EA51-6969CFFDBF6B</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>1B5E3BEA-86E2-4EAA-1F00-FC9FF66884D1</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="dp_usa_bateria" id="5F079DDE-DA69-CE6B-5A47-C20276B9EE80">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-04-29 13:53:52 UTC</createdTime>
@@ -217,6 +203,20 @@
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cl_id" id="55BDCD86-C339-E822-76C6-FD9F46AF9CBD">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-05-30 22:07:29 UTC</createdTime>
+<generatorID>A924CFEE-D02A-F788-EA51-6969CFFDBF6B</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>1B5E3BEA-86E2-4EAA-1F00-FC9FF66884D1</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

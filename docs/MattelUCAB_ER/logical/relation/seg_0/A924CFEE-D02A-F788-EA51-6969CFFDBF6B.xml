@@ -7,6 +7,7 @@
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <sourcePk>B815A749-F5E8-2820-48EE-883CCF3834EB</sourcePk>
+<targetPk>E3182AF6-1272-3F1D-DED1-65405A243504</targetPk>
 <identifying>false</identifying>
 <nameOnSource>.</nameOnSource>
 <nameOnTarget>se presenta</nameOnTarget>
@@ -14,7 +15,7 @@
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
 <sourceEntity>39E7766E-D540-0B6B-E823-A6BAC12D10B5</sourceEntity>
-<targetCardinalityString>1</targetCardinalityString>
+<targetCardinalityString>*</targetCardinalityString>
 <targetEntity>C1971281-7D9C-8C46-A269-B984C01D1EEA</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
