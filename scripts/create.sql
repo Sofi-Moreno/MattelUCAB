@@ -299,7 +299,7 @@ CREATE TABLE metodo_pago (
 CREATE TABLE persona_juridica (
     pj_id               INTEGER  NOT NULL , 
     pj_nombre_comercial VARCHAR(255) NOT NULL , 
-    pj_rif              INTEGER  NOT NULL , 
+    pj_rif              VARCHAR(20)  NOT NULL , 
     pj_razon_social     VARCHAR(255) NOT NULL , 
     pj_direccion        VARCHAR(255) NOT NULL , 
     pj_correo           VARCHAR(255) NOT NULL , 
@@ -388,7 +388,7 @@ CREATE TABLE carrito (
 CREATE TABLE cliente (
     cet_id      INTEGER  NOT NULL , 
     cet_tipo    VARCHAR(255) NOT NULL , 
-    fk_mbs_cet INTEGER, 
+    fk_mbs_cet  INTEGER, 
     fk_crt_cet  INTEGER  NOT NULL,
     CONSTRAINT cliente_PK PRIMARY KEY ( cet_id ),
     CONSTRAINT cliente_carrito_FK FOREIGN KEY (fk_crt_cet) 
