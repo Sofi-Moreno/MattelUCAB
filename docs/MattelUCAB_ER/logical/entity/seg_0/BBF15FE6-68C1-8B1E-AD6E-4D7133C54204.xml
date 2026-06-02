@@ -77,6 +77,18 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="pn_tipo" id="8C8F84A4-DD12-350A-0B8C-5E2E66B3E991">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-02 00:11:42 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="pn_telefono" id="407E4A5A-5FCE-AEFF-7648-7413309ACB4A">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-01 15:28:26 UTC</createdTime>
@@ -158,6 +170,20 @@
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <referedAttribute>AAB1190F-7D7E-0208-7459-E3D30C032279</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mbs_id" id="2E871BB8-F862-DF84-0CE3-833C2C49A714">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-02 00:13:43 UTC</createdTime>
+<generatorID>80B26CEA-E573-EA76-2201-0623B0DED060</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>E35224DD-84C3-2486-513D-F0F76E26EB41</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

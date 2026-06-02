@@ -109,20 +109,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pn_id1" id="B0E3C081-34CD-2982-1C46-5990EABE8191">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-01 23:59:12 UTC</createdTime>
-<generatorID>76A58B25-92CA-3CEB-CA32-602E33337C87</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>F0D30021-BB7C-DAFC-9565-BBBB8F9A3F55</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="cg_id1" id="2ED496B7-51BB-5A16-F619-08B8D9E6BB04">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-01 23:59:12 UTC</createdTime>
@@ -146,6 +132,20 @@
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <referedAttribute>91B8DA43-A2BC-AECF-AF08-DE5508FE5727</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="epad_id" id="769E6776-0EFB-66A7-6535-1E16379D2E2C">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-02 00:18:58 UTC</createdTime>
+<generatorID>76A58B25-92CA-3CEB-CA32-602E33337C87</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>E9AFA60F-F9CD-F295-95EA-700F4DBEFAA2</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

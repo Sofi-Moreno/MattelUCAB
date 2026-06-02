@@ -41,20 +41,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pn_id" id="B1E0F90F-14B9-958E-2994-459CECE0D129">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 05:38:52 UTC</createdTime>
-<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>A212AB7B-5B97-03F0-63D2-174FDEB92806</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="cg_id" id="355872E0-34EA-8B55-40C3-BE0B0987C9F7">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-02 05:38:52 UTC</createdTime>
@@ -83,6 +69,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="epad_id" id="8987CA34-A636-C144-1859-88C3ABA33D15">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-02 00:18:58 UTC</createdTime>
+<generatorID>1BE6186C-AC78-24BD-16CF-2D0AB8C1A5A2</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>3FBCFEA8-5884-1CE7-E19A-4A7CDAFE69C6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="CB367103-1B8C-3479-1468-F6779CD3EE2E" name="autor_diseño PK">
@@ -95,8 +95,8 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>1B05D973-7AF0-698E-E869-482A96E06802</attributeRef>
-<attributeRef>B1E0F90F-14B9-958E-2994-459CECE0D129</attributeRef>
 <attributeRef>355872E0-34EA-8B55-40C3-BE0B0987C9F7</attributeRef>
+<attributeRef>8987CA34-A636-C144-1859-88C3ABA33D15</attributeRef>
 <attributeRef>C7633DB2-49BB-E607-CC21-A20241BE1CEA</attributeRef>
 </usedAttributes>
 </identifier>

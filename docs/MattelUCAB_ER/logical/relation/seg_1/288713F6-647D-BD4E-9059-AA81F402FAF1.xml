@@ -7,7 +7,10 @@
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <sourcePk>BF4226D1-6704-F824-054A-D13A8E5CF5A9</sourcePk>
+<arc>D225A306-9749-AAF5-AC00-1F921B9AA180</arc>
 <identifying>false</identifying>
+<nameOnSource> </nameOnSource>
+<nameOnTarget>debe_crear</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>

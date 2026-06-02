@@ -53,7 +53,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pn_id" id="67284B1D-69E7-A840-AC68-02C20FF1D232">
+<Attribute name="pn_id1" id="67284B1D-69E7-A840-AC68-02C20FF1D232">
 <createdBy>Maria</createdBy>
 <createdTime>2026-05-03 22:17:01 UTC</createdTime>
 <generatorID>C17E89CC-50BD-9F0E-8F8F-425A01B7AA71</generatorID>
@@ -67,7 +67,7 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pn_id1" id="246C4A37-705B-6175-F31C-1452CE00DBDE">
+<Attribute name="pn_id" id="246C4A37-705B-6175-F31C-1452CE00DBDE">
 <createdBy>Maria</createdBy>
 <createdTime>2026-05-04 18:38:41 UTC</createdTime>
 <generatorID>7D478F4B-B4B0-EE34-F3FB-5025DB4B4304</generatorID>

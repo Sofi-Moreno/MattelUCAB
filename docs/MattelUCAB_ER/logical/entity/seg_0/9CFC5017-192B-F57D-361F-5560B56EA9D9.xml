@@ -63,20 +63,6 @@
 <logicalDatatype>LOGDT021</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="m_codigo" id="7E04C224-6D3C-8161-F8B3-8C6F2E7DB18A">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 01:06:51 UTC</createdTime>
-<generatorID>6C9ADFB5-7346-4193-0B59-0562BCDDF138</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>D84F7297-22A3-B94B-36B3-F05AA978C395</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="m_codigo1" id="E951DE32-34BF-84A5-6AF2-7A10142FEE19">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-02 01:06:59 UTC</createdTime>
@@ -103,7 +89,6 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>6A841AF1-9834-88ED-8E18-26BB57904D31</attributeRef>
-<attributeRef>7E04C224-6D3C-8161-F8B3-8C6F2E7DB18A</attributeRef>
 <attributeRef>E951DE32-34BF-84A5-6AF2-7A10142FEE19</attributeRef>
 </usedAttributes>
 </identifier>

@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_1" id="9E7D48A1-C5C1-ED55-A1A2-CADF74FE6053" name="detalle_despacho">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D1214EE7-AE82-3A77-0767-AC5A420C9F37" name="estatus">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:20:42 UTC</createdTime>
+<createdTime>2026-06-01 23:47:30 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
@@ -15,62 +15,54 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="up_sku" id="FD372530-A9D6-9BE2-FDFE-298DA9181C7C">
+<Attribute name="ett_id" id="8FE1ADE3-6FC0-D892-59B5-7EC60D3C1FD3">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:21:34 UTC</createdTime>
-<generatorID>B429D8E6-A6E6-C947-2A67-B7190ACC383B</generatorID>
+<createdTime>2026-06-01 23:47:41 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<referedAttribute>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dpc_id" id="D641CCE4-1AA5-5841-818C-9BD857DA8FE9">
+<Attribute name="ett_nombre" id="A13F55F9-2D02-6994-D08F-59649D3CD793">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:21:47 UTC</createdTime>
-<generatorID>61313B74-D758-63AB-5C12-D0F7EDFCAB1C</generatorID>
+<createdTime>2026-06-01 23:47:42 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<referedAttribute>AF4E43FD-B418-B5FA-8C8C-E6BF0FC9CFE3</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="tpt_id" id="2F309691-D005-7019-EE4A-49525975528C">
+<Attribute name="ett_descripcion" id="4237732F-48BF-2626-E7C7-1AE70068D86B">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:21:47 UTC</createdTime>
-<generatorID>61313B74-D758-63AB-5C12-D0F7EDFCAB1C</generatorID>
+<createdTime>2026-06-01 23:47:42 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
-<referedAttribute>494458D7-70F9-6A06-7E8F-0DDD6CEE51A0</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="89609D7C-CC0B-6D77-93E0-D761CCDB32AB" name="detalle_despacho PK">
+<identifier id="B9665978-0DF0-EE10-3800-EA950DFBC7B1" name="estatus PK">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 02:21:34 UTC</createdTime>
+<createdTime>2026-06-01 23:49:24 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>FD372530-A9D6-9BE2-FDFE-298DA9181C7C</attributeRef>
-<attributeRef>D641CCE4-1AA5-5841-818C-9BD857DA8FE9</attributeRef>
-<attributeRef>2F309691-D005-7019-EE4A-49525975528C</attributeRef>
+<attributeRef>8FE1ADE3-6FC0-D892-59B5-7EC60D3C1FD3</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

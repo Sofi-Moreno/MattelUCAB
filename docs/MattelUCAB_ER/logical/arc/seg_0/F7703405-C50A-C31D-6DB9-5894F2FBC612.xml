@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Arc class="oracle.dbtools.crest.model.design.logical.Arc" directorySegmentName="seg_0" id="F7703405-C50A-C31D-6DB9-5894F2FBC612" name="Arc_7">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-02 00:31:18 UTC</createdTime>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<entity>D38C45A3-EB7A-7F3D-9AC8-C774272BBBF5</entity>
+<relations>
+<relationID>4700E40A-7064-70BC-CCC8-E719B85F6579</relationID>
+<relationID>B3C70796-47A2-BD14-83DB-940DF7567407</relationID>
+<relationID>71369F22-0128-F59B-886E-3FCBC2EA0F3F</relationID>
+</relations>
+</Arc>

@@ -200,9 +200,14 @@ CREATE TABLE persona_natural (
     pn_direccion        VARCHAR(255) NOT NULL , 
     pn_cedula           VARCHAR(255) NOT NULL , 
     pn_fecha_nacimiento DATE  NOT NULL , 
-    pn_rif              VARCHAR(255) NOT NULL , 
+    pn_rif              VARCHAR(255) NOT NULL ,
+    pn_tipo             VARCHAR(255) NOT NULL , 
+    fk_mbs_pn           INTEGER,  
     fk_lg_pn            INTEGER  NOT NULL,
     CONSTRAINT persona_natural_PK PRIMARY KEY ( pn_id ),
+    CONSTRAINT persona_natural_membresia_FK FOREIGN KEY (fk_mbs_pn) 
+    REFERENCES membresia (mbs_id),
+    CONSTRAINT pn_tipo_check CHECK(pn_tipo IN('Normal','VIP')),
     CONSTRAINT persona_natural_lugar_FK FOREIGN KEY (fk_lg_pn) 
     REFERENCES lugar (lg_id)
 );
@@ -356,10 +361,21 @@ CREATE TABLE categoria_categoria (
 );
 
 CREATE TABLE empleado (
-    epad_id INTEGER  NOT NULL,
+    epad_id               INTEGER, 
+    epad_primer_nombre    VARCHAR(255) NOT NULL , 
+    epad_segundo_nombre   VARCHAR(255) , 
+    epad_primer_apellido  VARCHAR(255) NOT NULL , 
+    epad_segundo_apellido VARCHAR(255) , 
+    epad_telefono         VARCHAR(255) NOT NULL , 
+    epad_correo           VARCHAR(255) NOT NULL , 
+    epad_direccion        VARCHAR(255) NOT NULL , 
+    epad_cedula           VARCHAR(255) NOT NULL , 
+    epad_fecha_nacimiento DATE  NOT NULL , 
+    epad_rif              VARCHAR(255) NOT NULL , 
+    fk_lg_epad            INTEGER  NOT NULL,
     CONSTRAINT empleado_PK PRIMARY KEY ( epad_id ),
-    CONSTRAINT empleado_persona_natural_FK FOREIGN KEY (epad_id) 
-    REFERENCES persona_natural (pn_id)
+    CONSTRAINT empleado_lugar_FK FOREIGN KEY (fk_lg_epad) 
+    REFERENCES lugar (lg_id)
 );
 
 CREATE TABLE contrato (
@@ -380,26 +396,6 @@ CREATE TABLE contrato (
     REFERENCES empleado (epad_id)
 );
 
-CREATE TABLE carrito (
-    crrt_id        INTEGER  NOT NULL , 
-    CONSTRAINT carrito_PK PRIMARY KEY ( crrt_id )
-);
-
-CREATE TABLE cliente (
-    cet_id      INTEGER  NOT NULL , 
-    cet_tipo    VARCHAR(255) NOT NULL , 
-    fk_mbs_cet  INTEGER, 
-    fk_crt_cet  INTEGER  NOT NULL,
-    CONSTRAINT cliente_PK PRIMARY KEY ( cet_id ),
-    CONSTRAINT cliente_carrito_FK FOREIGN KEY (fk_crt_cet) 
-    REFERENCES carrito (crrt_id),
-    CONSTRAINT cliente_membresia_FK FOREIGN KEY (fk_mbs_cet) 
-    REFERENCES membresia (mbs_id),
-    CONSTRAINT cliente_persona_natural_FK FOREIGN KEY (cet_id) 
-    REFERENCES persona_natural (pn_id),
-    CONSTRAINT cliente_tipo_check CHECK(cet_tipo IN('Normal','VIP'))
-);
-
 CREATE TABLE compra_online (
     co_id             INTEGER  NOT NULL , 
     co_fecha_hora     TIMESTAMP  NOT NULL , 
@@ -407,10 +403,10 @@ CREATE TABLE compra_online (
     co_estatus        VARCHAR(255) NOT NULL DEFAULT 'Emitida', 
     co_monto_total    NUMERIC  NOT NULL , 
     co_numero_factura INTEGER , 
-    fk_cet_co         INTEGER  NOT NULL,
+    fk_pn_co         INTEGER  NOT NULL,
     CONSTRAINT compra_online_PK PRIMARY KEY ( co_id ),
-    CONSTRAINT compra_online_cliente_FK FOREIGN KEY (fk_cet_co) 
-    REFERENCES cliente (cet_id),
+    CONSTRAINT compra_online_persona_natural_FK FOREIGN KEY (fk_pn_co) 
+    REFERENCES persona_natural (pn_id),
     CONSTRAINT compra_online_estado_check CHECK(co_estatus IN
     ('Emitida', 
      'Validada', 
@@ -756,8 +752,8 @@ CREATE TABLE subasta (
     sbt_fecha_hora_fin    TIMESTAMP  NOT NULL,
     fk_cet_sbt            INTEGER  NOT NULL , 
     CONSTRAINT subasta_PK PRIMARY KEY ( sbt_id ),
-    CONSTRAINT subasta_cliente_FK FOREIGN KEY (fk_cet_sbt) 
-    REFERENCES cliente (cet_id)
+    CONSTRAINT subasta_persona_natural_FK FOREIGN KEY (fk_cet_sbt) 
+    REFERENCES persona_natural (cet_id)
 );
 
 CREATE TABLE puja (
@@ -766,8 +762,8 @@ CREATE TABLE puja (
     fk_sbt_pj      INTEGER  NOT NULL , 
     fk_cet_pj      INTEGER  NOT NULL , 
     CONSTRAINT puja_PK PRIMARY KEY ( fk_sbt_pj, fk_cet_pj ),
-    CONSTRAINT puja_cliente_FK FOREIGN KEY (fk_cet_pj) 
-    REFERENCES cliente (cet_id),
+    CONSTRAINT puja_persona_natural_FK FOREIGN KEY (fk_cet_pj) 
+    REFERENCES persona_natural (cet_id),
     CONSTRAINT puja_subasta_FK FOREIGN KEY (fk_sbt_pj) 
     REFERENCES subasta (sbt_id)
 );
@@ -1061,8 +1057,8 @@ CREATE TABLE historial_post_venta (
     fk_up_hpv               INTEGER  NOT NULL , 
     fk_cet_hpv              INTEGER,
     CONSTRAINT historial_post_venta_PK PRIMARY KEY ( hpv_id ),
-    CONSTRAINT historial_post_venta_cliente_FK FOREIGN KEY (fk_cet_hpv) 
-    REFERENCES cliente (cet_id),
+    CONSTRAINT historial_post_venta_persona_natural_FK FOREIGN KEY (fk_cet_hpv) 
+    REFERENCES persona_natural (cet_id),
     CONSTRAINT historial_post_venta_unidad_producto_FK FOREIGN KEY (fk_up_hpv) 
     REFERENCES unidad_producto (up_sku),
     CONSTRAINT hpv_conservacion_check CHECK(hpv_estado_conservacion IN
@@ -1100,7 +1096,7 @@ CREATE TABLE detalle_despacho (
     REFERENCES unidad_producto (up_sku)
 );
 
-CREATE UNIQUE INDEX cliente__IDX ON cliente (fk_crt_cet ASC);
+CREATE UNIQUE INDEX persona_natural__IDX ON persona_natural (fk_crt_cet ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDXv1 ON conciliacion_pago (fk_ov_cp ASC);
 CREATE UNIQUE INDEX orden_venta__IDX ON orden_venta (fk_sbt_ov ASC);

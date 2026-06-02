@@ -67,20 +67,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pn_id" id="93E167AE-EB91-0C0C-E3F1-6622517D73FD">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-01 15:46:44 UTC</createdTime>
-<generatorID>B73BB731-D6F2-80D7-A8A3-AC6EB9EEB8F3</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>A212AB7B-5B97-03F0-63D2-174FDEB92806</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="cg_id" id="20F1EA65-019B-6729-3970-763C913B6FFD">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-01 15:46:59 UTC</createdTime>
@@ -90,6 +76,20 @@
 <item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
 </engineerTo>
 <referedAttribute>3D7AF4B6-EF0D-A271-E757-0D1C6A09048E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="epad_id" id="D5D02C38-442C-CF93-E270-FE75360CDD4B">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-02 00:18:58 UTC</createdTime>
+<generatorID>B73BB731-D6F2-80D7-A8A3-AC6EB9EEB8F3</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>3FBCFEA8-5884-1CE7-E19A-4A7CDAFE69C6</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
@@ -108,8 +108,8 @@
 <usedAttributes>
 <attributeRef>969DB84B-D60B-A67E-3633-27FAE538969B</attributeRef>
 <attributeRef>5829E55F-F09A-B61F-613C-9BC8FBD2F5ED</attributeRef>
-<attributeRef>93E167AE-EB91-0C0C-E3F1-6622517D73FD</attributeRef>
 <attributeRef>20F1EA65-019B-6729-3970-763C913B6FFD</attributeRef>
+<attributeRef>D5D02C38-442C-CF93-E270-FE75360CDD4B</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

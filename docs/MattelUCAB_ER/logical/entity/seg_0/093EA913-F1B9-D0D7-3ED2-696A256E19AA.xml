@@ -63,18 +63,6 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="op_estatus" id="4ED7BBA1-7E01-9C04-3C45-B18CC0359B29">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 03:45:08 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="dp_id" id="D4C8B30C-2BF5-3223-5BD2-C9BEEE370D7A">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-04-29 14:12:48 UTC</createdTime>

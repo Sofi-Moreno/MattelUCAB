@@ -8,7 +8,10 @@
 </engineerTo>
 <sourcePk>F7BD2FBA-57B8-EAD2-4755-9A1D151AE32D</sourcePk>
 <targetPk>48B1382F-15B6-2FC2-CCE2-FB6EE5FB2533</targetPk>
+<arc>F7703405-C50A-C31D-6DB9-5894F2FBC612</arc>
 <identifying>false</identifying>
+<nameOnSource>subasta</nameOnSource>
+<nameOnTarget> </nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>*</sourceCardinality>

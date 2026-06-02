@@ -53,20 +53,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pn_id" id="3DD4AF4C-3ECE-1E56-507C-DA9C6BC4A561">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-02 05:22:21 UTC</createdTime>
-<generatorID>5A5BF656-68DD-47D1-422B-C9BEEA00001D</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>A212AB7B-5B97-03F0-63D2-174FDEB92806</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="cg_id" id="FBC4B039-C9FB-DC7B-A365-AF29EACAB547">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-05-02 05:22:21 UTC</createdTime>
@@ -95,6 +81,20 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="epad_id" id="29D81617-C27C-C5E6-8A3D-8ECFD5FF8471">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-02 00:18:58 UTC</createdTime>
+<generatorID>5A5BF656-68DD-47D1-422B-C9BEEA00001D</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+</engineerTo>
+<referedAttribute>3FBCFEA8-5884-1CE7-E19A-4A7CDAFE69C6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="EB2A919B-6481-0B4C-B492-FE38F5946ABE" name="Entity_47 PK">
@@ -107,8 +107,8 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>39E47270-E3AF-098B-F034-8D9508405BFA</attributeRef>
-<attributeRef>3DD4AF4C-3ECE-1E56-507C-DA9C6BC4A561</attributeRef>
 <attributeRef>FBC4B039-C9FB-DC7B-A365-AF29EACAB547</attributeRef>
+<attributeRef>29D81617-C27C-C5E6-8A3D-8ECFD5FF8471</attributeRef>
 <attributeRef>6AAF937E-47C0-E7BB-9614-F7E3D2F27CC4</attributeRef>
 </usedAttributes>
 </identifier>

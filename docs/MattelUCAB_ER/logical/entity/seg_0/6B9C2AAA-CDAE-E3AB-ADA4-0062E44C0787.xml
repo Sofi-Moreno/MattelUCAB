@@ -119,48 +119,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="oc_id" id="21EA3B10-725B-14D3-C9A8-C75F65ADA667">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 03:18:39 UTC</createdTime>
-<generatorID>FF72DD0C-624E-B81C-AE4A-2543F03E0A8F</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>A28D6851-9C15-A166-8860-131331C1DE9D</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="dp_id" id="85D57AEC-7011-EEC2-4025-0EB1CD801B47">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 03:18:39 UTC</createdTime>
-<generatorID>FF72DD0C-624E-B81C-AE4A-2543F03E0A8F</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>FB9CFBA2-3716-7B67-C4EB-6EE2A18EF80F</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="co_id" id="9E8E7097-E7EE-F935-F535-E2A06592A26D">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 03:20:52 UTC</createdTime>
-<generatorID>89A3E7DC-6B1A-97F4-9B4B-F541540A80B5</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<referedAttribute>AF464A02-D31B-BB51-840B-938E0BF8B070</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="82AEC3DF-BE0C-6917-11C6-7E49FB51EC49" name="despacho PK">
