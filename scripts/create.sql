@@ -157,16 +157,13 @@ CREATE TABLE historico_tasa_cambio (
     htc_fecha_hora_fin    TIMESTAMP  NOT NULL , 
     htc_tasa              NUMERIC  NOT NULL , 
     fk_m_htc_1            INTEGER NOT NULL , 
-    fk_m_htc_2            INTEGER NOT NULL,
     CONSTRAINT historico_tasa_cambio_PK PRIMARY KEY 
     ( htc_id,
-      fk_m_htc_1,
-      fk_m_htc_2
+      fk_m_htc_1
     ),
     CONSTRAINT historico_tasa_cambio_moneda_FK FOREIGN KEY (fk_m_htc_1) 
-    REFERENCES moneda (m_id),
-    CONSTRAINT historico_tasa_cambio_moneda_FKv2 FOREIGN KEY (fk_m_htc_2) 
     REFERENCES moneda (m_id)
+
 );
 
 CREATE TABLE rol_permiso (
@@ -300,6 +297,71 @@ CREATE TABLE metodo_pago (
         (mp_tipo != 'PAYPAL' AND mp_pp_correo IS NULL)
     )
 );
+-- PREGUNTAR QUE DISEÑO QUIEREN, SI 1 PADRE O 1 CON TODO Y EL ATRIBUTO TIPO
+CREATE TABLE metodo_pago (
+    mp_id      INTEGER NOT NULL,
+    mp_numero  INTEGER NOT NULL, 
+    CONSTRAINT metodo_pago_PK PRIMARY KEY ( mp_id )
+);
+
+CREATE TABLE tarjeta_credito (
+    mp_id                INTEGER NOT NULL,
+    tjc_franquicia       VARCHAR(255) NOT NULL,
+    tjc_fecha_vecimiento DATE NOT NULL, 
+    CONSTRAINT tarjeta_credito_PK PRIMARY KEY ( mp_id ),
+    CONSTRAINT tarjeta_credito_metodo_pago_FK FOREIGN KEY ( mp_id )
+        REFERENCES metodo_pago ( mp_id )
+);
+
+
+CREATE TABLE tarjeta_debito (
+    mp_id                 INTEGER NOT NULL,
+    tjd_tipo_cuenta       VARCHAR(255) NOT NULL,
+    tjd_franquicia        INTEGER NOT NULL,      
+    tjc_fecha_vencimiento VARCHAR(255) NULL,     
+    CONSTRAINT tarjeta_debito_PK PRIMARY KEY ( mp_id ),
+    CONSTRAINT tarjeta_debito_metodo_pago_FK FOREIGN KEY ( mp_id )
+        REFERENCES metodo_pago ( mp_id ),
+    CONSTRAINT tjd_tipo_cuenta_check CHECK ( tjd_tipo_cuenta IN ('Ahorro', 'Corriente') )
+);
+
+
+CREATE TABLE paypal (
+    mp_id     INTEGER NOT NULL,
+    pp_correo VARCHAR(255) NOT NULL,
+    CONSTRAINT paypal_PK PRIMARY KEY ( mp_id ),
+    CONSTRAINT paypal_metodo_pago_FK FOREIGN KEY ( mp_id )
+        REFERENCES metodo_pago ( mp_id )
+);
+
+
+CREATE TABLE swift (
+    mp_id            INTEGER NOT NULL,
+    swt_banco_nombre VARCHAR(255) NOT NULL,
+    swt_pais         INTEGER NOT NULL, 
+    CONSTRAINT swift_PK PRIMARY KEY ( mp_id ),
+    CONSTRAINT swift_metodo_pago_FK FOREIGN KEY ( mp_id )
+        REFERENCES metodo_pago ( mp_id )
+);
+
+CREATE TABLE cheque_corporativo (
+    mp_id           INTEGER NOT NULL,
+    cc_num_cheque   INTEGER NOT NULL,
+    cc_banco_emisor VARCHAR(255) NOT NULL,
+    CONSTRAINT cheque_corporativo_PK PRIMARY KEY ( mp_id ),
+    CONSTRAINT cheque_corporativo_metodo_pago_FK FOREIGN KEY ( mp_id )
+        REFERENCES metodo_pago ( mp_id )
+);
+
+CREATE TABLE criptoactivo (
+    mp_id                  INTEGER NOT NULL,
+    ctatv_tipo             VARCHAR(255) NOT NULL,
+    ctatv_moneda_base      VARCHAR(255) NOT NULL,
+    ctatv_direccion_wallet VARCHAR(255) NOT NULL,
+    CONSTRAINT criptoactivo_PK PRIMARY KEY ( mp_id ),
+    CONSTRAINT criptoactivo_metodo_pago_FK FOREIGN KEY ( mp_id )
+        REFERENCES metodo_pago ( mp_id )
+);
 
 CREATE TABLE persona_juridica (
     pj_id               INTEGER  NOT NULL , 
@@ -322,7 +384,6 @@ CREATE TABLE usuario (
     usar_contrasena     VARCHAR(255) NOT NULL , 
     usar_correo         VARCHAR(255) NOT NULL , 
     usar_fecha_registro TIMESTAMP  NOT NULL , 
-    usar_estado         VARCHAR(255) NOT NULL , 
     fk_r_usar           INTEGER  NOT NULL , 
     fk_pn_usar          INTEGER , 
     fk_pj_usar INTEGER,
@@ -338,6 +399,8 @@ CREATE TABLE usuario (
     REFERENCES persona_natural (pn_id),
     CONSTRAINT usuario_rol_FK FOREIGN KEY (fk_r_usar) 
     REFERENCES rol (r_id)
+    CONSTRAINT   usuario_empleado_FK FOREIGN KEY (fk_emp_usar) 
+    REFERENCES empleado(epad_id)
 );
 
 CREATE TABLE categoria_producto (
@@ -400,31 +463,18 @@ CREATE TABLE compra_online (
     co_id             INTEGER  NOT NULL , 
     co_fecha_hora     TIMESTAMP  NOT NULL , 
     co_numero_compra  INTEGER  NOT NULL , 
-    co_estatus        VARCHAR(255) NOT NULL DEFAULT 'Emitida', 
     co_monto_total    NUMERIC  NOT NULL , 
     co_numero_factura INTEGER , 
     fk_pn_co         INTEGER  NOT NULL,
     CONSTRAINT compra_online_PK PRIMARY KEY ( co_id ),
     CONSTRAINT compra_online_persona_natural_FK FOREIGN KEY (fk_pn_co) 
-    REFERENCES persona_natural (pn_id),
-    CONSTRAINT compra_online_estado_check CHECK(co_estatus IN
-    ('Emitida', 
-     'Validada', 
-     'En Preparación', 
-     'Despachada',
-     'Entregada', 
-     'Facturada', 
-     'Cobrada', 
-     'Cancelada', 
-     'Devuelta'
-    ))
+    REFERENCES persona_natural (pn_id)
 );
 
 CREATE TABLE asistencia (
     astc_id                 INTEGER  NOT NULL , 
     astc_hora_entrada       TIMESTAMP  NOT NULL , 
     astc_hora_salida        TIMESTAMP  NOT NULL , 
-    astc_estatus            VARCHAR(255) NOT NULL , 
     astc_fecha_laboral      TIMESTAMP  NOT NULL , 
     astc_horas_trabajadas   INTEGER  NOT NULL , 
     astc_horas_extra        INTEGER  NOT NULL , 
@@ -443,9 +493,7 @@ CREATE TABLE asistencia (
      ctt_id,
      fk_epad_ctt, 
      fk_cg_ctt
-    ),
-    CONSTRAINT asistencia_tipo CHECK
-    (astc_estatus IN('Normal', 'Feriado', 'Horas Extra'))
+    )
 );
 
 CREATE TABLE beneficio_contrato (
@@ -646,18 +694,6 @@ CREATE TABLE taxonomia (
     REFERENCES pieza (pz_id)
 );
 
-CREATE TABLE detalle_carrito (
-    dc_cantidad       INTEGER  NOT NULL , 
-    dc_fecha_agregado TIMESTAMP  NOT NULL , 
-    fk_crrt_dc        INTEGER  NOT NULL , 
-    fk_dp_dc          INTEGER  NOT NULL,
-    CONSTRAINT detalle_carrito_PK PRIMARY KEY ( fk_crrt_dc, fk_dp_dc ),
-    CONSTRAINT detalle_carrito_carrito_FK FOREIGN KEY (fk_crrt_dc) 
-    REFERENCES carrito (crrt_id),
-    CONSTRAINT detalle_carrito_diseno_producto_FK FOREIGN KEY (fk_dp_dc) 
-    REFERENCES diseno_producto (dp_id)
-);
-
 CREATE TABLE prenomina (
     pnmn_id                   INTEGER  NOT NULL , 
     pnmn_fecha_inicio_periodo DATE  NOT NULL , 
@@ -772,50 +808,15 @@ CREATE TABLE orden_venta (
     ov_id             INTEGER  NOT NULL, 
     ov_fecha_hora     TIMESTAMP  NOT NULL, 
     ov_monto          INTEGER  NOT NULL, 
-    ov_estado         VARCHAR(255) NOT NULL, 
     ov_numero_factura INTEGER, 
     fk_sbt_ov         INTEGER  NOT NULL, 
     CONSTRAINT orden_venta_PK PRIMARY KEY ( ov_id ),
     CONSTRAINT orden_venta_subasta_FK FOREIGN KEY (fk_sbt_ov) 
     REFERENCES subasta (sbt_id),
-    CONSTRAINT ov_estado_check CHECK(ov_estado IN
-    ('Emitida', 
-     'Validada', 
-     'En Preparación', 
-     'Despachada',
-     'Entregada', 
-     'Facturada', 
-     'Cobrada', 
-     'Cancelada', 
-     'Devuelta'
-    ))
+
 ); 
 
-CREATE TABLE pago_recibido (
-    pr_id                  INTEGER  NOT NULL , 
-    pr_fecha_hora          TIMESTAMP  NOT NULL , 
-    pr_monto               NUMERIC  NOT NULL , 
-    pr_referencia_bancaria VARCHAR(255) NOT NULL , 
-    fk_htc_pr_1            INTEGER  NOT NULL , 
-    fk_htc_pr_2            INTEGER NOT NULL , 
-    fk_htc_pr_3            INTEGER NOT NULL,
-    fk_mp_pr               INTEGER NOT NULL,
-    CONSTRAINT pago_recibido_PK PRIMARY KEY ( pr_id ),
-    CONSTRAINT pago_recibido_historico_tasa_cambio_FK FOREIGN KEY 
-    ( 
-     fk_htc_pr_1,
-     fk_htc_pr_2,
-     fk_htc_pr_3
-    ) 
-    REFERENCES historico_tasa_cambio 
-    ( 
-     htc_id,
-     fk_m_htc_1,
-     fk_m_htc_2
-    ),
-    CONSTRAINT metodo_pago_pago_recibido_FK FOREIGN KEY(fk_mp_pr)
-    REFERENCES metodo_pago (mp_id)
-);
+
 
 CREATE TABLE detalle_prenomina (
     dpnmn_id              INTEGER  NOT NULL , 
@@ -851,36 +852,23 @@ CREATE TABLE detalle_prenomina (
     REFERENCES prenomina (pnmn_id)
 );
 
-CREATE TABLE fpdc_cargo (
-    fpdc_cantidad INTEGER  NOT NULL, 
-    fk_fpd_fpdc   INTEGER  NOT NULL, 
-    fk_cg_fpdc               INTEGER  NOT NULL,
-    CONSTRAINT fc_cargo_PK PRIMARY KEY ( fk_cg_fpdc, fk_fpd_fpdc ),
-    CONSTRAINT fc_cargo_cargo_FK FOREIGN KEY (fk_cg_fpdc) 
+CREATE TABLE fc_cargo (
+    fc_cantidad INTEGER  NOT NULL, 
+    fk_fpd_fc   INTEGER  NOT NULL, 
+    fk_cg_fc               INTEGER  NOT NULL,
+    CONSTRAINT fc_cargo_PK PRIMARY KEY ( fk_cg_fc, fk_fpd_fc ),
+    CONSTRAINT fc_cargo_cargo_FK FOREIGN KEY (fk_cg_fc) 
     REFERENCES cargo (cg_id),
-    CONSTRAINT fc_cargo_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fpdc) 
+    CONSTRAINT fc_cargo_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fc) 
     REFERENCES fase_prueba_diseno (fpd_id)
 );
 
-CREATE TABLE detalle_oc (
-    doc_cantidad_unidades       INTEGER  NOT NULL , 
-    doc_precio_unitario_pactado NUMERIC  NOT NULL , 
-    doc_cantidad_cajas          INTEGER  NOT NULL , 
-    fk_oc_doc                   INTEGER  NOT NULL , 
-    fk_dp_doc                   INTEGER  NOT NULL,
-    CONSTRAINT detalle_oc_PK PRIMARY KEY (fk_oc_doc,fk_dp_doc ),
-    CONSTRAINT detalle_oc_diseno_producto_FK FOREIGN KEY (fk_dp_doc) 
-    REFERENCES diseno_producto (dp_id),
-    CONSTRAINT detalle_oc_orden_compra_FK FOREIGN KEY (fk_oc_doc) 
-    REFERENCES orden_compra (oc_id)
-);
 
 CREATE TABLE orden_produccion (
     op_id                       INTEGER NOT NULL, 
     op_cantidad_solicitada      INTEGER  NOT NULL, 
     op_fecha_creacion_orden     TIMESTAMP  NOT NULL, 
     op_fecha_finalizacion_orden TIMESTAMP, 
-    op_estatus                  VARCHAR(255) NOT NULL, 
     fk_dp_op                    INTEGER  NOT NULL, 
     fk_txnma_op_1               INTEGER  NOT NULL, 
     fk_txnma_op_2               INTEGER  NOT NULL, 
@@ -908,7 +896,6 @@ CREATE TABLE orden_produccion (
 
 CREATE TABLE unidad_producto (
     up_sku                   INTEGER  NOT NULL , 
-    up_estado                VARCHAR(255) NOT NULL , 
     up_precio_minorista      NUMERIC  NOT NULL , 
     up_precio_mayorista      NUMERIC  NOT NULL , 
     up_fecha_hora_disponible TIMESTAMP  NOT NULL , 
@@ -922,20 +909,12 @@ CREATE TABLE unidad_producto (
     REFERENCES orden_produccion (op_id),
     CONSTRAINT unidad_producto_subasta_FK FOREIGN KEY (fk_sbt_up) 
     REFERENCES subasta (sbt_id),
-    CONSTRAINT unidad_producto_estado_check CHECK(up_estado IN
-    ('En Producción',
-     'En Prueba', 
-     'Activo', 
-     'Bloqueado',
-     'Desechado', 
-     'Vendido',
-     'Tránsito'))
+ 
 );
 
 CREATE TABLE conciliacion_pago (
     cp_monto_aplicado INTEGER  NOT NULL , 
     cp_fecha_hora     TIMESTAMP  NOT NULL , 
-    fk_pr_cp          INTEGER  NOT NULL ,
     fk_oc_cp          INTEGER , 
     fk_co_cp          INTEGER , 
     fk_ov_cp          INTEGER ,
@@ -955,8 +934,7 @@ CREATE TABLE conciliacion_pago (
     REFERENCES orden_compra (oc_id),
     CONSTRAINT conciliacion_pago_orden_venta_FK FOREIGN KEY (fk_ov_cp) 
     REFERENCES orden_venta (ov_id),
-    CONSTRAINT conciliacion_pago_pago_recibido_FK FOREIGN KEY (fk_pr_cp) 
-    REFERENCES pago_recibido (pr_id)
+    --FK de metodo pago
 );
 
 CREATE TABLE despacho (
@@ -968,8 +946,6 @@ CREATE TABLE despacho (
     fk_tpt_dpc           INTEGER  NOT NULL , 
     fk_ov_dpc            INTEGER , 
     fk_lg_dpc            INTEGER  NOT NULL , 
-    fk_doc_dpc_1         INTEGER , 
-    fk_doc_dpc_2         INTEGER , 
     fk_co_dpc            INTEGER,
     CONSTRAINT tipo_despacho CHECK ( 
         (  (fk_doc_dpc_1 IS NOT NULL) AND 
@@ -987,8 +963,6 @@ CREATE TABLE despacho (
     CONSTRAINT despacho_PK PRIMARY KEY ( dpc_id),
     CONSTRAINT despacho_compra_online_FK FOREIGN KEY (fk_co_dpc) 
     REFERENCES compra_online ( co_id),
-    CONSTRAINT despacho_detalle_oc_FK FOREIGN KEY (fk_doc_dpc_1,fk_doc_dpc_2) 
-    REFERENCES detalle_oc (fk_oc_doc, fk_dp_doc),
     CONSTRAINT despacho_lugar_FK FOREIGN KEY (fk_lg_dpc) 
     REFERENCES lugar (lg_id),
     CONSTRAINT despacho_orden_venta_FK FOREIGN KEY ( fk_ov_dpc) 
@@ -1001,7 +975,6 @@ CREATE TABLE fase_prueba_produccion (
     fpp_id           INTEGER  NOT NULL , 
     fpp_fecha_inicio DATE  NOT NULL , 
     fpp_fecha_fin    DATE  NOT NULL , 
-    fpp_estatus      VARCHAR(255) NOT NULL , 
     fpp_resultado    VARCHAR(255) NOT NULL , 
     fk_up_fpp        INTEGER NOT NULL , 
     fk_fpd_fpp       INTEGER  NOT NULL,
@@ -1067,33 +1040,11 @@ CREATE TABLE historial_post_venta (
     'Restoration Needed'
     ))
 );
-
-CREATE TABLE co_up (
-    co_up_id    INTEGER NOT NULL,
-    co_up_monto NUMERIC NOT NULL, 
-    fk_co_co_up INTEGER NOT NULL, 
-    fk_up_co_up INTEGER NOT NULL,
-    CONSTRAINT co_up_PK PRIMARY KEY 
-    (co_up_id,
-     fk_co_co_up,
-     fk_up_co_up),
-    CONSTRAINT co_up_compra_online_FK FOREIGN KEY (fk_co_co_up) 
-    REFERENCES compra_online (co_id),
-    CONSTRAINT co_up_unidad_producto_FK FOREIGN KEY (fk_up_co_up) 
-    REFERENCES unidad_producto (up_sku)
-);
-
-CREATE TABLE detalle_despacho (
-    fk_up_dd     INTEGER  NOT NULL , 
-    fk_dpc_dd    INTEGER  NOT NULL,
-    CONSTRAINT detalle_despacho_PK PRIMARY KEY 
-    ( fk_up_dd,
-      fk_dpc_dd 
-    ),
-    CONSTRAINT detalle_despacho_despacho_FK FOREIGN KEY (fk_dpc_dd) 
-    REFERENCES despacho (dpc_id),
-    CONSTRAINT detalle_despacho_unidad_producto_FK FOREIGN KEY (fk_up_dd) 
-    REFERENCES unidad_producto (up_sku)
+CREATE TABLE estatus (
+    ett_id          INTEGER NOT NULL,
+    ett_nombre      VARCHAR(255) NOT NULL,
+    ett_descripcion VARCHAR(255) NOT NULL,
+    CONSTRAINT estatus_PK PRIMARY KEY ( ett_id )
 );
 
 CREATE UNIQUE INDEX persona_natural__IDX ON persona_natural (fk_crt_cet ASC);
