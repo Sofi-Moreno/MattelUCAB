@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5EC173B3-A231-3335-4EFC-6226FDC8F451" containerWithKeyObject="290A8C27-7A11-1977-BD04-AC9B8AFE01D2" localFKIndex="5CD28118-0F8C-2946-F018-9FCEA80DB362" name="conciliacion_pago_metodo_pago_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>1428393C-D289-1FBC-C620-3134D7FA7927</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>metodo_pago</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3F730C38-CCDB-EC27-D7ED-2246953BE7A6</referredTableID>
+<keyObject>00750D38-1C54-F7A8-7D8F-F1F93970D15C</keyObject>
+<referredKeyID>00750D38-1C54-F7A8-7D8F-F1F93970D15C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>mp_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

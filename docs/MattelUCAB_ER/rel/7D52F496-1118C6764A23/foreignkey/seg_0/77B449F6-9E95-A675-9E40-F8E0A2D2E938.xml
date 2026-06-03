@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="77B449F6-9E95-A675-9E40-F8E0A2D2E938" containerWithKeyObject="290A8C27-7A11-1977-BD04-AC9B8AFE01D2" localFKIndex="29817E9C-A97B-C124-5D87-C546713623B7" name="conciliacion_pago_orden_compra_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>30D5270D-6127-84D5-3ECB-67313C7975F3</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>orden_compra</referredTableLongName>
+<arc>8AAD1962-F564-0CAD-805B-E62C33DC62D3</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2A865CCE-09E8-026D-B5BD-ABBF4E554920</referredTableID>
+<keyObject>43732756-2A5E-D2C8-EEC4-76E41782DAB9</keyObject>
+<referredKeyID>43732756-2A5E-D2C8-EEC4-76E41782DAB9</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>oc_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="C74F7234-F581-0D4A-BFDF-3F31197074EC" containerWithKeyObject="810CD270-ED31-FB1C-EA25-624888C1EC3A" localFKIndex="B645996B-F6FA-08F7-F8C2-81223A7FD78D" name="Taxonomia_molde_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>79EBF752-B6F3-889E-4F4F-2D099EC602E7</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>molde</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>00A0AA23-1E20-662A-0F29-29C1D37ED117</referredTableID>
+<keyObject>B91BE3C4-8AE1-A0D6-818D-AD6B3F50275C</keyObject>
+<referredKeyID>B91BE3C4-8AE1-A0D6-818D-AD6B3F50275C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>md_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

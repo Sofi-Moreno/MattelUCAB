@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FAB5E05E-C761-50CD-66A7-5720281151DC" name="fabrica">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>2441D7DA-F27D-1461-E581-9CD07DFC3EF9</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="fbc_id" id="FC025DCC-99AA-F3B8-14BB-D8911FDAA809">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>8718F0F3-A838-0409-A406-72A5B5EBE8C9</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fbc_nombre" id="01BF482E-CB73-B09D-AFF9-66FA74A4D560">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>C54E4A80-F8AF-10DE-D7DD-6A6C2404B25E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fbc_direccion" id="9FEA26ED-A482-EE53-169B-7C7152C11296">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>3056EAE7-4E75-3918-3121-55415DF5B093</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fbc_tipo" id="20D038BD-028E-E434-84C8-9E3469DB6588">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>2D8006A2-CD19-34F2-23C9-23A3F6CEA0F9</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lugar_lg_id" id="36EBF23E-30B7-DC6A-4BA6-A0B4F3390B4A">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>AED2313E-3C27-06F6-607F-64ECBD5C832D</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9F07E022-10B3-5DD7-DE4F-96148DF0BDCD" referredColumn="12228D26-0730-A026-BE52-FA69A5C1B851"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="141B7AB0-432A-F9C7-9C41-C3C058A9AB5E" name="fabrica_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>18806B95-B0B3-9106-4CAE-8AEC27098A4E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC025DCC-99AA-F3B8-14BB-D8911FDAA809"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EBD83756-9A30-5A8B-34F2-8DED728A293C" name="fabrica_lugar_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>F6D70536-3E98-E738-E852-FAAC3066C2FF</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36EBF23E-30B7-DC6A-4BA6-A0B4F3390B4A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F59B47D0-5655-D7A2-9CC4-5F8F5CDC6000" containerWithKeyObject="61F7622B-7CBC-ECD6-8D4E-02C224B972BD" localFKIndex="B93C725C-A831-3EC1-DA75-272EB5D17339" name="prenomina_historico_tasa_cambio_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>E9430F4D-434F-F724-B1DF-B750127C4ECA</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>historico_tasa_cambio</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>82CFFE8B-30CD-4102-B98E-647C79D6B461</referredTableID>
+<keyObject>D91D6339-93C2-0C7E-B3C2-6F4E8305A36E</keyObject>
+<referredKeyID>D91D6339-93C2-0C7E-B3C2-6F4E8305A36E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>htc_id,moneda_m_codigo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

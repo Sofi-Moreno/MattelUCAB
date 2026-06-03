@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BF694B0C-5498-C9CC-3E9D-3CDED851D9F0" containerWithKeyObject="63652BFA-9B8E-04AF-F92B-CB3E843E0A0F" localFKIndex="32FF3D13-14B8-C977-E261-4F4A9B2BFC24" name="paypal_metodo_pago_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>DC6BF037-F7C9-6D75-CB74-C891B0EC5B64</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>metodo_pago</referredTableLongName>
+<arc>4E6912D0-686E-9CCB-E21F-6100CEB09983</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3F730C38-CCDB-EC27-D7ED-2246953BE7A6</referredTableID>
+<keyObject>00750D38-1C54-F7A8-7D8F-F1F93970D15C</keyObject>
+<referredKeyID>00750D38-1C54-F7A8-7D8F-F1F93970D15C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>mp_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

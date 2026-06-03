@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="F069F0A8-BE87-3A4F-BA5F-31E50AD52A4D" containerWithKeyObject="F5EA6D99-242C-D037-4A4E-B428C856D20E" localFKIndex="F781CD79-48C7-C606-CA5D-C67D7C116707" name="unidad_producto_compra_online_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>71369F22-0128-F59B-886E-3FCBC2EA0F3F</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>compra_online</referredTableLongName>
+<arc>47A62967-B9A3-06E7-CFA4-C8CFE8AFB4DA</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>680AFBF0-1B82-5B04-E2BC-BF12BB7CA565</referredTableID>
+<keyObject>D3A3310B-47E1-9D67-8B8C-20D26E43B826</keyObject>
+<referredKeyID>D3A3310B-47E1-9D67-8B8C-20D26E43B826</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>co_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,150 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3CE34BFE-2E5C-E176-5C12-C6F17EC5AA87" name="asistencia">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>C3827478-8246-6540-CE59-32478EDA35E0</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="astc_id" id="54A08D11-157A-3112-F289-07EB90BCCC95">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>754BD032-A832-7D68-3566-57A9D749D3BD</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="astc_hora_entrada" id="64EEC0BF-B74F-E3CB-DBC2-4A29BAC0A213">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>BDB61355-4E67-B102-C436-BA0C365432D8</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="astc_hora_salida" id="F94B0CF1-BEC7-5021-3CA3-C5264691DCF0">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>C3A75BA8-86CF-4526-FEE5-331FD97EA8D5</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="astc_fecha_laboral" id="ED9F09D0-3262-7275-65C0-247A22B3AA66">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>85B9887A-5198-9EA1-E0A2-D738DDB167E9</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="astc_horas_trabajadas" id="E240A3BD-4B4F-F1D5-64C0-F1E8D6874DF8">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>5D3D6D67-35C6-4E21-5281-8CFFF0C9F1DE</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="astc_horas_extra" id="E532D37F-CE00-ABE9-AE0A-2A1409616416">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>D5E379DC-E37F-BA20-D19F-3FB45D1F074C</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contrato_ctt_id" id="E38EF5E2-31FE-A20E-5DC0-E5F75A79BB18">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>60583D15-615B-A0BF-AF74-959515FC381E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B3ECA91D-B9E8-0C06-5A92-8A8FAC8E3F58" referredColumn="838D6062-F38E-58DE-49FE-05DA25D68A0D"/>
+</associations>
+</Column>
+<Column name="contrato_cargo_cg_id" id="48875CD9-011A-43E2-EFE3-29D3B7F89712">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>4D86B170-52BB-05D4-25BB-B6DCB4BC58D9</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B3ECA91D-B9E8-0C06-5A92-8A8FAC8E3F58" referredColumn="FF5CCB17-2A7A-EB1F-D6CB-DF5F6C1AD3A8"/>
+</associations>
+</Column>
+<Column name="contrato_empleado_epad_id" id="1AE94AA7-80E3-0BCF-923A-0990292D34E8">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>CC2D61DC-439F-F1A4-EB6D-517D16E61A90</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B3ECA91D-B9E8-0C06-5A92-8A8FAC8E3F58" referredColumn="744A80E4-744E-C651-B7A3-F0F30F8CEC10"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1ADEA0C0-D160-7693-9BF4-1073FDC125B9" name="asistencia_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>E81FF84F-D634-4ECA-9737-BEDB31AFAD15</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="54A08D11-157A-3112-F289-07EB90BCCC95"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A635860C-579E-9B22-9768-A8571C253849" name="asistencia_contrato_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>4D5C3BEB-AC62-76B5-0D40-E337861D7B91</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E38EF5E2-31FE-A20E-5DC0-E5F75A79BB18"/>
+<colUsage columnID="1AE94AA7-80E3-0BCF-923A-0990292D34E8"/>
+<colUsage columnID="48875CD9-011A-43E2-EFE3-29D3B7F89712"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

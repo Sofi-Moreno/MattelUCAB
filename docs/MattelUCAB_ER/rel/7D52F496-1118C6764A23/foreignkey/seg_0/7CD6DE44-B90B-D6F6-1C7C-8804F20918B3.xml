@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7CD6DE44-B90B-D6F6-1C7C-8804F20918B3" containerWithKeyObject="1FF5222F-6C9E-1B7A-184E-B2EE501231F3" localFKIndex="EBD65091-C6B6-CDEA-A0E5-79B93D110F57" name="diseño_producto_clasificacion_exclusividad_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>77A4A6F7-4297-436B-DF56-3FF68C7D2D32</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>clasificacion_exclusividad</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A2838455-8800-6950-2907-70C3ED133D40</referredTableID>
+<keyObject>3D9FE974-7399-113D-9080-46F32E46DC0A</keyObject>
+<referredKeyID>3D9FE974-7399-113D-9080-46F32E46DC0A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ce_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

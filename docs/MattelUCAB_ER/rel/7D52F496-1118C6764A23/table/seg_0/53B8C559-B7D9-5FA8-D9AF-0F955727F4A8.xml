@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="53B8C559-B7D9-5FA8-D9AF-0F955727F4A8" name="beneficio_contrato">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>891D752F-B558-A2E0-DB02-D166C0E6D023</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="bc_monto_acordado" id="9F8387FF-998C-2DA0-BEE8-3CF5DCF7D5BC">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>6CDB68C9-DFF7-642D-FE30-917020BC8C4E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contrato_ctt_id" id="3F16A458-1FD1-5A6B-7721-ACB2E86A5AC2">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>385F8439-BDAD-F828-DB57-E5EDA5F7A56B</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5AB3E3AC-9DCE-D6C4-A8A9-CF9D26BCD988" referredColumn="838D6062-F38E-58DE-49FE-05DA25D68A0D"/>
+</associations>
+</Column>
+<Column name="contrato_cargo_cg_id" id="85D5E5CC-12CA-1601-ACBC-0592C28067A0">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>41211B08-2FC5-EC9E-448F-04DFAAAC221A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5AB3E3AC-9DCE-D6C4-A8A9-CF9D26BCD988" referredColumn="FF5CCB17-2A7A-EB1F-D6CB-DF5F6C1AD3A8"/>
+</associations>
+</Column>
+<Column name="beneficio_bnf_id" id="50604942-9C83-B20B-008F-D8952EDDD756">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>91B8DA43-A2BC-AECF-AF08-DE5508FE5727</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0653B52E-90D8-B0F1-8180-56ABFCA4B23C" referredColumn="F525FD10-712D-165B-776A-2EAD2957D389"/>
+</associations>
+</Column>
+<Column name="contrato_empleado_epad_id" id="50D4E2EF-950D-441B-AFC5-B0C185FC2A61">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>E9AFA60F-F9CD-F295-95EA-700F4DBEFAA2</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5AB3E3AC-9DCE-D6C4-A8A9-CF9D26BCD988" referredColumn="744A80E4-744E-C651-B7A3-F0F30F8CEC10"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7D07C476-6B59-84FE-BCC7-374F6D4A8655" name="beneficio_contrato_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>828A2B51-1EDB-2095-0A61-43EACDF64E5F</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3F16A458-1FD1-5A6B-7721-ACB2E86A5AC2"/>
+<colUsage columnID="85D5E5CC-12CA-1601-ACBC-0592C28067A0"/>
+<colUsage columnID="50D4E2EF-950D-441B-AFC5-B0C185FC2A61"/>
+<colUsage columnID="50604942-9C83-B20B-008F-D8952EDDD756"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A5C29409-3DED-2631-045F-16F9DF5CA1C7" name="beneficio_contrato_contrato_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>F0AD5C1D-74A4-60EF-D0FB-E4381605361B</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3F16A458-1FD1-5A6B-7721-ACB2E86A5AC2"/>
+<colUsage columnID="50D4E2EF-950D-441B-AFC5-B0C185FC2A61"/>
+<colUsage columnID="85D5E5CC-12CA-1601-ACBC-0592C28067A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F21BBFC-AA2E-6C8B-23E8-CF24D2FE17AF" name="beneficio_contrato_beneficio_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>AA48A02F-7193-FDE8-21E0-5DB7897D105E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50604942-9C83-B20B-008F-D8952EDDD756"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

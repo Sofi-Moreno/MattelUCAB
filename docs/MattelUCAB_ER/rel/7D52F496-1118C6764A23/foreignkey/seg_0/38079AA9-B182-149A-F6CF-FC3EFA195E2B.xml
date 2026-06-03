@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="38079AA9-B182-149A-F6CF-FC3EFA195E2B" containerWithKeyObject="564617D4-4FDD-088A-8389-039343535FCF" localFKIndex="3BD9D6E1-2312-C381-4AAC-3D4004FEC221" name="fpp_contrato_fase_prueba_produccion_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>29861D8F-4569-4E0B-0DB8-4CE0823AE473</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>fase_prueba_produccion</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>18EBE1B2-918A-DCCE-673D-AD28E9E614E8</referredTableID>
+<keyObject>35CBDBE0-E1A5-F633-76DA-095CF52EBC4B</keyObject>
+<referredKeyID>35CBDBE0-E1A5-F633-76DA-095CF52EBC4B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>fpp_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

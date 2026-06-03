@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FD16618D-0579-F306-7234-7CFD2A6AD60C" containerWithKeyObject="018092AF-8531-046C-9094-EE35B241DA4A" localFKIndex="8DC5C6DD-4C98-5E0D-35E4-154C0A8030BE" name="criptoactivo_metodo_pago_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>AAC0627A-35D0-2A12-4095-665623E1B390</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>metodo_pago</referredTableLongName>
+<arc>4E6912D0-686E-9CCB-E21F-6100CEB09983</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3F730C38-CCDB-EC27-D7ED-2246953BE7A6</referredTableID>
+<keyObject>00750D38-1C54-F7A8-7D8F-F1F93970D15C</keyObject>
+<referredKeyID>00750D38-1C54-F7A8-7D8F-F1F93970D15C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>mp_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="3DDDB5E9-7E14-D03C-F9C6-5DE93C0A0DED" containerWithKeyObject="810CD270-ED31-FB1C-EA25-624888C1EC3A" localFKIndex="EE323B64-7066-7A24-DAA3-FDD7B2980691" name="Taxonomia_pieza_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>3F10B45E-F170-5860-ECD1-9CD040C34CFB</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>pieza</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7C66E43C-B0E6-E26D-CF8B-6CA72FF1B7B5</referredTableID>
+<keyObject>DB305F0A-1A7B-B50E-379A-4E7E9886AF14</keyObject>
+<referredKeyID>DB305F0A-1A7B-B50E-379A-4E7E9886AF14</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>pz_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

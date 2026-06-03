@@ -1,0 +1,182 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="810CD270-ED31-FB1C-EA25-624888C1EC3A" name="Taxonomia">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>A632A033-B2E5-101F-6B1A-65D77600A59C</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="txnm_cantidad_pieza" id="369997BD-B291-1AD9-2FCC-3D07A8B8AE2F">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>1C3A6D17-1DD6-5440-CEB1-D9B20B8DCBB2</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="txnm_cantidad_material" id="B8052DF9-FBED-9124-B84B-D2ADB4D6574B">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>81ED9A6D-C587-3FDA-CE29-EE127927260E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="diseño_producto_dp_id" id="D7886B41-CC5E-8262-14D7-E5FDD34FD63D">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>83115A98-52A7-0227-F79A-1A98E6AB6668</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A59278BE-B8CA-FB85-DE99-AE704D6F6C64" referredColumn="49675E08-14C8-0CBD-E1B6-1B6DD5B0A98A"/>
+</associations>
+</Column>
+<Column name="pieza_pz_id" id="0533C742-D2C4-B0BE-60F8-C5E74D05FA38">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>C479E7B0-6226-D77F-407E-F5DB8DC19EA4</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3DDDB5E9-7E14-D03C-F9C6-5DE93C0A0DED" referredColumn="22ECC80A-695A-6CD1-C14D-E771DB0E1F16"/>
+</associations>
+</Column>
+<Column name="molde_md_id" id="90BB5FA8-A98B-D0CE-3025-DCBBE12559E1">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>2A412C69-C14F-645E-20AA-8AB0E0C1635E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C74F7234-F581-0D4A-BFDF-3F31197074EC" referredColumn="61D32136-6494-9125-2265-783E928E0A64"/>
+</associations>
+</Column>
+<Column name="materia_prima_mp_id" id="DEC220C5-B0C8-E23B-9C81-495FB679ED49">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>B5E6C1CD-DB4A-A8BD-E29D-112EC3140072</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9A19125C-E94D-431D-E2A1-231D2F37D86A" referredColumn="A6AD12E3-52F6-69CC-BF6A-81FEB274B0A0"/>
+</associations>
+</Column>
+<Column name="color_cl_id" id="8E9FF302-C606-2D40-CA57-D435B01593F3">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>C052D64D-E0CF-327D-1DFA-96A157ED7E6A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="538E3403-2487-F889-7C32-3F81CDFA13D6" referredColumn="F872079C-826C-3476-5274-FD7042352A42"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37EBF16F-C6B0-423F-CFD0-D15580681187" name="Taxonomia_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>058EFCC2-9E61-05CB-9FF3-47DF03682E6A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7886B41-CC5E-8262-14D7-E5FDD34FD63D"/>
+<colUsage columnID="0533C742-D2C4-B0BE-60F8-C5E74D05FA38"/>
+<colUsage columnID="90BB5FA8-A98B-D0CE-3025-DCBBE12559E1"/>
+<colUsage columnID="DEC220C5-B0C8-E23B-9C81-495FB679ED49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B99E06DC-9AC1-B5B2-9CD0-74BEBC926B8B" name="Taxonomia_diseño_producto_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>2AC3162D-110A-32CB-A15C-C172A92D42F0</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7886B41-CC5E-8262-14D7-E5FDD34FD63D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B645996B-F6FA-08F7-F8C2-81223A7FD78D" name="Taxonomia_molde_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>79EBF752-B6F3-889E-4F4F-2D099EC602E7</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90BB5FA8-A98B-D0CE-3025-DCBBE12559E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8942F69D-2D21-B3AF-E10E-FE88E748412B" name="Taxonomia_color_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>7515F9E7-1DB1-2626-3DA0-1F6DE30E969A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E9FF302-C606-2D40-CA57-D435B01593F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE323B64-7066-7A24-DAA3-FDD7B2980691" name="Taxonomia_pieza_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>3F10B45E-F170-5860-ECD1-9CD040C34CFB</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0533C742-D2C4-B0BE-60F8-C5E74D05FA38"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="51890B5F-0557-4B04-7590-0EE2C8792C7C" name="Taxonomia_materia_prima_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>7E3B9CFC-257E-656B-9AFC-8C51D8A54A34</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DEC220C5-B0C8-E23B-9C81-495FB679ED49"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

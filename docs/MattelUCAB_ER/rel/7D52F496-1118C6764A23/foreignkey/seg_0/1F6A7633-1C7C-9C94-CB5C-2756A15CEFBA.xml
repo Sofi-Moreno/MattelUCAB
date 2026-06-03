@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1F6A7633-1C7C-9C94-CB5C-2756A15CEFBA" containerWithKeyObject="203584E2-5884-E94C-E53A-8E622834484B" localFKIndex="5A805928-623C-58A7-F2EC-B7EA24D57B10" name="fc_cargo_fase_prueba_diseño_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>1756279C-AA8B-E76E-70A6-0857B419BD7A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>fase_prueba_diseño</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>005DA47A-B0A8-ED6E-292D-E4FD7A3C3165</referredTableID>
+<keyObject>AF53A3CA-6CE6-BD91-1458-2C6AD73AED95</keyObject>
+<referredKeyID>AF53A3CA-6CE6-BD91-1458-2C6AD73AED95</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>fpd_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

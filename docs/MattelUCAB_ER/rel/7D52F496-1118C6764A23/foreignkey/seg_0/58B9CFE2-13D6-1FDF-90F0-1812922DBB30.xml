@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="58B9CFE2-13D6-1FDF-90F0-1812922DBB30" containerWithKeyObject="A0913B7B-9B8F-A139-7ACF-F2EE19B248F5" localFKIndex="2D12AB0A-5008-60DF-1C7A-35760DF0CE19" name="detalle_prenomina_prenomina_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>3EC1FFED-2D3A-0031-C8FC-F19459A5B75A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>prenomina</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>61F7622B-7CBC-ECD6-8D4E-02C224B972BD</referredTableID>
+<keyObject>A916DCA1-2FBA-1AF5-3262-49CF139EFBFA</keyObject>
+<referredKeyID>A916DCA1-2FBA-1AF5-3262-49CF139EFBFA</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>pnmn_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

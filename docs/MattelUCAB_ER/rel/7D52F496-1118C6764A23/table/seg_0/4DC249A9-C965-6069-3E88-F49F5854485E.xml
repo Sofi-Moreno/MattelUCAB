@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4DC249A9-C965-6069-3E88-F49F5854485E" name="rol_permiso">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>84C6F226-8B7F-F105-2458-81864BFB2D56</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="rol_r_id" id="107A4FBF-D1E2-4769-D7D6-F1533C159EA4">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>7E1DE0ED-B48B-2596-9E41-F31C226CC293</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B8C50556-6721-3CE1-1C1B-98C33367E91C" referredColumn="DBA1942D-25D0-4D58-69BF-B5D0E2D9EB0C"/>
+</associations>
+</Column>
+<Column name="permiso_pms_id" id="AA578AF9-B9E3-59D0-0BCD-8A4BA5428F44">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>768D6A70-2690-ABC6-552F-03DDA21613E4</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3F47DA2F-6CA0-D734-1A29-B91973B2FAA1" referredColumn="ADF6DDBB-6AE8-5889-748A-ECD0384C1D5B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3F485D3D-74F7-7E7D-FC12-EEA4A53DF38B" name="rol_permiso_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>4C26654C-313F-2510-8944-2D778C4874C6</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="107A4FBF-D1E2-4769-D7D6-F1533C159EA4"/>
+<colUsage columnID="AA578AF9-B9E3-59D0-0BCD-8A4BA5428F44"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="88772CEA-81F2-0C7D-F3CA-7943DA3E15E9" name="rol_permiso_rol_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>75C24A46-7407-10BD-9AE8-1B18C95B9694</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="107A4FBF-D1E2-4769-D7D6-F1533C159EA4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5305A181-187D-ECE8-E62D-FB429EA13691" name="rol_permiso_permiso_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>0796AD9D-BE5C-7E91-49C5-13116D0D6A59</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA578AF9-B9E3-59D0-0BCD-8A4BA5428F44"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

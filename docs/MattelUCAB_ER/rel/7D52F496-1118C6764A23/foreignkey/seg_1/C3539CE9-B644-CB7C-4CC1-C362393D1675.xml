@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="C3539CE9-B644-CB7C-4CC1-C362393D1675" containerWithKeyObject="F5EA6D99-242C-D037-4A4E-B428C856D20E" localFKIndex="64B1FD9D-0D68-43A8-E7D4-00D6C521BD51" name="unidad_producto_fabrica_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>AF12A457-AAF2-D503-A451-AA9E2C73B885</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>fabrica</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>FAB5E05E-C761-50CD-66A7-5720281151DC</referredTableID>
+<keyObject>141B7AB0-432A-F9C7-9C41-C3C058A9AB5E</keyObject>
+<referredKeyID>141B7AB0-432A-F9C7-9C41-C3C058A9AB5E</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>fbc_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

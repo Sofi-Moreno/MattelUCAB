@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4143BD51-22CE-9125-C6DF-B3B292FC4CE5" containerWithKeyObject="9FDEBF5A-2C6C-E448-1E40-66DAA36CE67E" localFKIndex="2C294318-F19B-E46A-C6E8-41CB139F9B28" name="contrato_horario_horario_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:23 UTC</createdTime>
+<generatorID>9C06B39A-F2F1-DD53-05F8-27CA37CACFE7</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>horario</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DC3A989B-B227-3E63-D709-F5C830CF561C</referredTableID>
+<keyObject>6E6F8594-A27A-F5EC-8876-5785B10B218A</keyObject>
+<referredKeyID>6E6F8594-A27A-F5EC-8876-5785B10B218A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>hrr_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

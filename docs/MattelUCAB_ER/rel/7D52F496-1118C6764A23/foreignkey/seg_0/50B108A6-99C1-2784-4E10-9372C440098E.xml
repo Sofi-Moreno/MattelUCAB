@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="50B108A6-99C1-2784-4E10-9372C440098E" containerWithKeyObject="1FF5222F-6C9E-1B7A-184E-B2EE501231F3" localFKIndex="5919929F-09E1-DC0A-8425-CAD9BE747812" name="diseño_producto_era_historica_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>1920A3AF-054E-2061-86FD-B76C41A10581</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<referredTableLongName>era_historica</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>1B4EE314-1DB9-1D5A-ACF9-AD165AD03D33</referredTableID>
+<keyObject>7EB4C9B3-9A9A-96B0-7853-6D9BE62E0D21</keyObject>
+<referredKeyID>7EB4C9B3-9A9A-96B0-7853-6D9BE62E0D21</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>eh_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

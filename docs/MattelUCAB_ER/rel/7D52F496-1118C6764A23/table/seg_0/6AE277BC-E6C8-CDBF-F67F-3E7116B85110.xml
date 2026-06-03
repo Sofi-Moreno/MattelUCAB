@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6AE277BC-E6C8-CDBF-F67F-3E7116B85110" name="tarjeta_credito">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>3D51D245-F87A-9FA5-DE7B-98EBA2255499</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mp_id" id="D96FCD13-D2CD-AA7F-36C0-77D38BD11207">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>FEA27C6E-A6BE-C59E-01E5-CD56C671FFF3</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0472FC31-FD2D-5E05-1785-8D5452BCBABA" referredColumn="16FBF8B8-4E16-2DAC-4247-64D3371B656F"/>
+</associations>
+</Column>
+<Column name="tjc_franquicia" id="12C0CA22-EE43-AA5B-8C0B-6EF09D7407CA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>34AEDC90-E722-5BD9-5B55-62DF4240686E</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tjc_fecha_vecimiento" id="17F950A8-482A-3D74-A9B7-A130AA25247D">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>41884646-69F7-2868-65F7-1B285578D378</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="76404D64-88F0-599D-2D2D-1320B85605DE" name="tarjeta_credito_PK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>2F9342AA-89A1-854B-492B-3C4ACA16FD0A</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D96FCD13-D2CD-AA7F-36C0-77D38BD11207"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09719DC3-DB7C-5F39-46EE-6DC6C9544370" name="tarjeta_credito_metodo_pago_FK">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-03 01:14:22 UTC</createdTime>
+<generatorID>957FEC18-E3A9-8A3C-48D1-80262C7E720C</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D96FCD13-D2CD-AA7F-36C0-77D38BD11207"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
