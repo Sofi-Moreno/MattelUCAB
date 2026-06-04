@@ -1509,6 +1509,216 @@ VALUES
     (1507, 'La Victoria', 'Parroquia', 367),
     (1508, 'Raúl Cuenca', 'Parroquia', 367);
 
+INSERT INTO moneda (m_id, m_nombre, m_simbolo, m_activa) VALUES
+    (1, 'Dólar Estadounidense', 'USD', true),
+    (2, 'Euro', 'EUR', true),
+    (3, 'Libra Esterlina', 'GBP', true),
+    (4, 'Yen Japonés', 'JPY', true),
+    (5, 'BarbieCoin Virtual', 'B', true), 
+    (6, 'Dólar Canadiense', 'CAD', true),
+    (7, 'Peso Mexicano', 'MXN', true),
+    (8, 'Real Brasileño', 'BRL', true),
+    (9, 'Franco Suizo', 'CHF', true),
+    (10, 'Yuan Chino', 'CNY', true);
+
+INSERT INTO beneficio (bnf_id, bnf_nombre, bnf_tipo, bnf_naturaleza, bnf_tipo_calculo, bnf_monto_referencia) VALUES
+    (1, 'Bono Asistencia Trimestral', 'Bono', 'Fijo', 'Monto', 120.00),
+    (2, 'Recargo Turno Nocturno', 'Recargo', 'Variable', 'Porcentaje', 15.00),
+    (3, 'Prima de Producción Lote', 'Prima Salarial', 'Variable', 'Monto', 250.00),
+    (4, 'Bono Alimentación Planta', 'Bono', 'Fijo', 'Monto', 90.00),
+    (5, 'Comisión por Venta B2B', 'Comisión', 'Variable', 'Porcentaje', 2.50),
+    (6, 'Regalía por Diseño Exclusivo', 'Regalia', 'Variable', 'Monto', 500.00),
+    (7, 'Bono Cero Defectos Auditoría', 'Bono', 'Variable', 'Monto', 300.00),
+    (8, 'Recargo Feriado Laborado', 'Recargo', 'Variable', 'Porcentaje', 50.00),
+    (9, 'Prima por Confección Manual', 'Prima Salarial', 'Fijo', 'Monto', 150.00),
+    (10, 'Bono de Eficiencia Logística', 'Bono', 'Variable', 'Monto', 100.00);
+
+INSERT INTO horario (hrr_id, hrr_hora_entrada, hrr_hora_salida) VALUES
+    (1, '06:00:00', '14:00:00'),
+    (2, '14:00:00', '22:00:00'),
+    (3, '22:00:00', '06:00:00'),
+    (4, '08:00:00', '17:00:00'),
+    (5, '07:00:00', '15:00:00'),
+    (6, '06:00:00', '18:00:00'),
+    (7, '18:00:00', '06:00:00'),
+    (8, '00:00:00', '08:00:00'),
+    (9, '12:00:00', '20:00:00'),
+    (10, '09:00:00', '18:00:00');
+
+INSERT INTO departamento (dptmt_id, dptmt_nombre, dptmt_descripcion) VALUES
+    (1, ' I+D', 'Inventa y definen las especificaciones técnicas y artísticas'),
+    (2, 'Operaciones y Manufactura', 'Área industrial encargada de la fabricación física de los productos'),
+    (3, 'Ventas y Marketing', 'Área comercial encargada de la comercialización y venta de los productos'),
+   
+INSERT INTO era_historica (eh_id, eh_nombre, eh_fecha_inicio, eh_fecha_fin) VALUES
+    (1, 'Vintage', '1959-01-01', '1966-12-31'),
+    (2, 'Mod Era', '1967-01-01', '1976-12-31'),
+    (3, 'Superstar Era', '1977-01-01', '1988-12-31'),
+    (4, 'Modern Era', '1989-01-01', '2026-12-31');
+
+
+INSERT INTO tipo_cuerpo (tc_id, tc_nombre, tc_ano_patente, tc_descripcion) VALUES
+(1, 'Original', '1959-03-09', 'Silueta clásica e icónica estilizada de la marca'),
+(2, 'Curvy', '2016-01-28', 'Silueta con curvas pronunciadas y proporciones realistas'),
+(3, 'Petite', '2016-01-28', 'Silueta de menor estatura y contextura compacta'),
+(4, 'Tall', '2016-01-28', 'Silueta de mayor estatura con extremidades alargadas'),
+(5, 'Made-to-Move', '2015-06-18', 'Cuerpo ultra articulado con 22 puntos de movimiento para poses de máximo realismo'),
+(6, 'Silkstone', '2000-02-15', 'Material pesado imitación porcelana para coleccionistas'),
+(7, 'Pivot', '2004-06-20', 'Cuerpo con poses predefinidas para exhibición de alta costura'),
+(8, 'ModelMuse', '2003-10-11', 'Postura asimétrica diseñada específicamente para exhibidores'),
+(9, 'Ken Estándar', '1961-03-11', 'Contextura clásica masculina deportiva'),
+(10, 'Ken Broad', '2017-04-14', 'Contextura masculina de hombros y torso más anchos');
+
+INSERT INTO clasificacion_exclusividad (ce_id, ce_nombre, ce_limite_unidades, ce_nivel_acceso, ce_descripcion) VALUES
+(1, 'Pink Label', 999999, 'Sin Membresía', 'Ediciones de juego de libre producción y acceso masivo'),
+(2, 'Black Label', 100000, 'Sin Membresía', 'Muñecas de colección diseñadas para el público adulto'),
+(3, 'Silver Label', 50000, 'Sin Membresía', 'Ediciones limitadas de colección con un tiraje medio'),
+(4, 'Gold Label', 25000, 'Gold', 'Producciones premium muy limitadas destinadas a la web oficial'),
+(5, 'Platinum Label', 1000, 'Platinum', 'Ediciones de élite numeradas secuencialmente, ultra-raras'),
+(6, 'OOAK (One of a Kind)', 1, 'Platinum', 'Piezas únicas en el mundo diseñadas por artistas de Mattel');
+
+INSERT INTO color (cl_id, cl_nombre, cl_codigo_hex, cl_aplicacion) VALUES
+(1, 'Azul Zafiro', '#0F52BA', 'Ojos'),
+(2, 'Verde Esmeralda', '#50C878', 'Ojos'),
+(3, 'Marrón Avellana', '#866043', 'Ojos'),
+(4, 'Negro Azabache', '#343434', 'Cabello'),
+(5, 'Rubio Platino', '#E6C280', 'Cabello'),
+(6, 'Pelirrojo Cobrizo', '#B87333', 'Cabello'),
+(7, 'Castaño Oscuro', '#4A3B32', 'Cabello'),
+(8, 'Piel Clara Porcelana', '#FFE5D9', 'Piel'),
+(9, 'Piel Morena Cálida', '#D2B48C', 'Piel'),
+(10, 'Piel Ébano Profundo', '#3D2314', 'Piel');
+
+INSERT INTO profesion (pfs_id, pfs_nombre, pfs_descripcion) VALUES
+(1, 'Astronauta', 'Exploradora espacial icónica lanzada en 1965, inspirando la carrera cósmica'),
+(2, 'Médica / Doctora', 'Profesional de la salud dedicada al cuidado de pacientes desde 1973'),
+(3, 'Piloto de Aviación', 'Comandante de líneas aéreas comerciales y aeronaves privadas'),
+(4, 'Científica de Laboratorio', 'Especialista en áreas STEM encargada de investigación, desarrollo y experimentos'),
+(5, 'Presidenta', 'Líder política y jefa de Estado en campañas presidenciales desde 1992'),
+(6, 'Ingeniera de Sistemas', 'Experta en computación, desarrollo de software y tecnología digital'),
+(7, 'Veterinaria', 'Especialista en el cuidado médico y preservación de la salud de los animales'),
+(8, 'Chef Executiva', 'Maestra de las artes culinarias encargada de la gestión de alta cocina'),
+(9, 'Bombera', 'Profesional de primera respuesta encargada del rescate y extinción de incendios'),
+(10, 'Arquitecta', 'Diseñadora de estructuras y edificaciones sustentables de vanguardia');
+
+INSERT INTO tipo_material (tm_id, tm_nombre, tm_descripcion) VALUES
+(1, 'Plásticos y Polímeros', 'Pellets químicos para procesos de inyección y soplado industrial'),
+(2, 'Fibras Sintéticas', 'Cabello de nylon y saran de alta gama para implantación de cabezas'),
+(3, 'Textiles y Telas', 'Sedas, algodones y encajes para confección de vestuarios'),
+(4, 'Pinturas y Solventes', 'Tintas acrílicas no tóxicas utilizadas para tampografía facial'),
+(5, 'Componentes Electrónicos', 'Microchips de audio y luces para modelos interactivos'),
+(6, 'Empaques y Cartones', 'Material corrugado estructural para cajas máster e individuales'),
+(7, 'Metales y Aleaciones', 'Alambres internos de articulaciones y accesorios de joyería'),
+(8, 'Resinas Compuestas', 'Compuesto polimérico pesado utilizado para la línea Silkstone'),
+(9, 'Adhesivos y Gomas', 'Pegamentos industriales calientes para fijación de pelucas y accesorios'),
+(10, 'Materiales Reciclados', 'Plásticos recuperados del océano orientados a líneas sustentables');
+
+INSERT INTO membresia (mbs_id, mbs_nombre, mbs_descripcion, mbs_early_access) VALUES
+(1, 'Sin Membresía', 'Acceso básico al catálogo general para clientes regulares', false),
+(2, 'Gold', 'Membresía intermedia con acceso prioritario a colecciones especiales y preventas', true),
+(3, 'Platinum', 'Nivel máximo con cupos garantizados en tirajes limitados y acceso exclusivo a la bóveda', true);
+
+INSERT INTO molde (md_id, md_nombre, md_ano_patente, md_descripcion) VALUES
+(1, 'Barbie Ponytail 1959', '1959-03-09', 'Rostro con mirada lateral y labios carmesí icónicos'),
+(2, 'Twist N Turn 1967', '1967-05-11', 'Facciones jóvenes con mirada al frente de la era Mod'),
+(3, 'Steffie Face 1972', '1972-11-04', 'Boca pequeña en forma de corazón y mejillas redondas'),
+(4, 'Superstar Face 1976', '1976-08-20', 'Sonrisa abierta mostrando dientes, muy expresiva'),
+(5, 'Mackie Face 1991', '1991-02-14', 'Rostro cerrado neutral ideal para ediciones Gold/Platinum'),
+(6, 'CEO Generation Girl', '1998-06-15', 'Rasgos modernos con hoyuelos marcados en mejillas'),
+(7, 'Millie Face 2013', '2013-09-10', 'Estándar actual de rasgos suaves para línea de juego'),
+(8, 'Karl Face 2014', '2014-10-24', 'Líneas angulares unisex inspiradas en la alta costura'),
+(9, 'Ken Original 1961', '1961-03-11', 'Facciones masculinas marcadas con cabello esculpido'),
+(10, 'Ken Modified 2017', '2017-05-18', 'Línea de mandíbula suave ideal para diversidad étnica');
+
+INSERT INTO pieza (pz_id, pz_nombre) VALUES
+(1, 'Cabeza de Vinilo Inyectado'),
+(2, 'Torso Superior Rígido'),
+(3, 'Pelvis Conectora Articulada'),
+(4, 'Brazo Izquierdo Estándar'),
+(5, 'Brazo Derecho Estándar'),
+(6, 'Pierna Izquierda Flexible (Clicky)'),
+(7, 'Pierna Derecha Flexible (Clicky)'),
+(8, 'Antebrazo Articulado Multipose'),
+(9, 'Mano Intercambiable Alta Costura'),
+(10, 'Pie para Tacón Alto Esculpido');
+
+INSERT INTO operacion_catalogo (octlg_id, octlg_nombre, octlg_descripcion, octlg_tipo) VALUES
+(1, 'Inyección de Extremidades', 'Moldeo por calor de piezas plásticas en planta', 'Producción'),
+(2, 'Prueba de Tracción Mecánica', 'Evaluación de resistencia de los brazos y articulaciones', 'Prueba'),
+(3, 'Ensamblaje de Cuerpo', 'Unión robótica de extremidades al torso central', 'Producción'),
+(4, 'Prueba Caída Libre Caja', 'Prueba de estrés al empaque sellado desde 2 metros', 'Prueba'),
+(5, 'Implantación de Cabello (Rooting)', 'Cosido de fibras sintéticas al cuero cabelludo', 'Producción'),
+(6, 'Tampografía de Rostro', 'Pintado de ojos y cejas por matrices automatizadas', 'Producción'),
+(7, 'Prueba No Toxicidad Pigmento', 'Análisis químico de seguridad de las pinturas faciales', 'Prueba'),
+(8, 'Confección de Vestuario', 'Costura industrial de prendas textiles', 'Producción'),
+(9, 'Prueba Decoloración UV', 'Exposición a luz ultravioleta para probar resistencia del color', 'Prueba'),
+(10, 'Empaque Final Blíster', 'Sellado al vacío de la muñeca en su caja de colección', 'Producción');
+
+INSERT INTO rol (r_id, r_nombre, r_descripcion) VALUES
+(1, 'Gerente de Inventario', 'Rol Interno: Autorizado para ver costos de producción, modificar stock y gestionar inventarios en almacén'),
+(2, 'Vendedor', 'Rol Interno: Autorizado únicamente para visualizar precios de lista y disponibilidad de productos al público'),
+(3, 'Coleccionista Platinum', 'Rol Externo (Cliente): Acceso exclusivo a subastas y visualización de historial personal de compras'),
+(4, 'Cliente Regular', 'Rol Externo (Cliente): Acceso básico al catálogo general de compras e historial personal');
+
+INSERT INTO permiso (prm_id, prm_accion, prm_descripcion) VALUES
+(1, 'VER_COSTOS_PRODUCCION', 'Permite visualizar los costos internos de fabricación y materia prima'),
+(2, 'MODIFICAR_STOCK', 'Permite alterar las cantidades físicas en los almacenes'),
+(3, 'VER_PRECIOS_LISTA', 'Permite consultar el precio de venta final al público'),
+(4, 'VER_DISPONIBILIDAD', 'Permite consultar si hay stock disponible para la venta (Sí/No)'),
+(5, 'ACCESO_SUBASTAS', 'Permite ingresar al módulo de subastas exclusivas del mercado secundario'),
+(6, 'VER_HISTORIAL_COMPRAS', 'Permite consultar las órdenes de venta facturadas al usuario autenticado');
+
+INSERT INTO transporte (tpt_id, tpt_nombre, tpt_descripcion, tpt_tipo) VALUES
+(1, 'DHL Express', 'Servicio aéreo de paquetería express internacional', 'Courier'),
+(2, 'FedEx Cargo', 'Distribución logística aérea global', 'Courier'),
+(3, 'Maersk Line', 'Transporte marítimo de contenedores a granel', 'Carga'),
+(4, 'MSC Shipping', 'Flete transoceánico de mercancía pesada', 'Carga'),
+(5, 'UPS Solutions', 'Distribución terrestre nacional de lotes industriales', 'Courier'),
+(6, 'Panalpina Logistics', 'Flete aéreo de carga consolidada', 'Carga'),
+(7, 'Coyote Logistics', 'Flota de camiones pesados inter-estados', 'Carga'),
+(8, 'Kuehne + Nagel', 'Operador marítimo internacional', 'Carga'),
+(9, 'CH Robinson', 'Logística integrada terrestre', 'Carga'),
+(10, 'Mattel Fleet', 'Flota privada interna de camiones para Hubs', 'Carga');
+
+INSERT INTO historico_tasa_cambio (htc_id, htc_fecha_hora_inicio, htc_fecha_hora_fin, htc_tasa, fk_m_htc_1) VALUES
+(1, '2026-01-01 00:00:00', '2026-01-31 23:59:59', 0.9200, 1), 
+(2, '2026-01-01 00:00:00', '2026-01-31 23:59:59', 0.7900, 2), 
+(3, '2026-01-01 00:00:00', '2026-01-31 23:59:59', 145.50, 3), 
+(4, '2026-01-01 00:00:00', '2026-01-31 23:59:59', 10.0000, 4), 
+(5, '2026-02-01 00:00:00', '2026-02-28 23:59:59', 0.9150, 5), 
+(6, '2026-02-01 00:00:00', '2026-02-28 23:59:59', 0.7850, 6), 
+(7, '2026-02-01 00:00:00', '2026-02-28 23:59:59', 147.20, 7), 
+(8, '2026-02-01 00:00:00', '2026-02-28 23:59:59', 12.0000, 8), 
+(9, '2026-03-01 00:00:00', '2026-05-31 23:59:59', 0.9300, 9), 
+(10, '2026-03-01 00:00:00', '2026-05-31 23:59:59', 15.0000, 10); 
+
+INSERT INTO rol_permiso (fk_r_rp, fk_pms_rp) VALUES
+(1, 1), 
+(1, 2), 
+(1, 3), 
+(1, 4), 
+(2, 3), 
+(2, 4), 
+(3, 5),
+(3, 6), 
+(4, 6); 
+
+INSERT INTO cargo (cg_id, cg_nombre, cg_sueldo_base_us, fk_dptmt_cg) VALUES
+(1, 'Diseñador de Conceptos Senior', 4500.00, 1),
+(2, 'Escultor de Moldes Digitales', 3800.00, 1),
+(3, 'Ingeniero de Procesos Químicos', 4200.00, 2),
+(4, 'Operador Especializado de Inyección', 2200.00, 2), 
+(5, 'Sastre Maestro de Alta Costura', 3100.00, 2),    
+(6, 'Inspector Jefe de Aseguramiento', 2800.00, 2),     
+(7, 'Coordinador de Despacho Máster', 2600.00, 2),     
+(9, 'Especialista en Operaciones de Personal', 2700.00, 2), 
+(8, 'Ejecutivo de Cuentas Corporativas', 3500.00, 3),   
+(10, 'Auditor de Operaciones Financieras', 3900.00, 3); 
+
+
+
+
+
 INSERT INTO persona_juridica (pj_id, pj_nombre_comercial, pj_rif, pj_razon_social, pj_direccion, pj_correo, pj_limite_credito, pj_saldo_pendiente, fk_lg_pj) 
 VALUES
     (1, 'General Import Sambil Caracas', 'J-30000001-1', 'General Import C.A.', 'Sambil Caracas', 'compras@generalimport.com', 50000, 0, 1020),
@@ -1912,10 +2122,6 @@ VALUES
     (399, 'Super Juguetería Occidental', 'J-30000399-1', 'Super Juguetería Occidental C.A.', 'Llano Mall', 'info@superjoccidental.com', 30000, 0, 1124),
     (400, 'Distribuidora Mattel Partners', 'J-30000400-1', 'Distribuidora Mayorista Infantil C.A.', 'Zona Industrial Los Ruices', 'ventas@mayoristainfantil.com', 200000, 0, 1045);
 
-INSERT INTO membresia (mbs_id, mbs_nombre, mbs_descripcion, mbs_early_access) 
-VALUES 
-    (1, 'Gold', 'Membresía Gold con beneficios estándar, atención preferencial y acceso anticipado a productos..', TRUE),
-    (2, 'Platinum', 'Membresía Platinum con beneficios exclusivos y acceso anticipado a productos.', TRUE);
 
 INSERT INTO persona_natural (
     pn_id, pn_primer_nombre, pn_segundo_nombre, pn_primer_apellido, pn_segundo_apellido, 
@@ -2322,4 +2528,40 @@ INSERT INTO persona_natural (
     (398, 'Laura', 'Cristina', 'Benitez', 'Castillo', '0412-2220398', 'laura.398@gmail.com', 'Avenida Los Cerezos 298', 'V-10000298', '1991-07-14', 'V-10000298-5', 'VIP', 2, 1147),
     (399, 'Andres', 'Eloy', 'Machado', 'Rios', '0416-2220399', 'andres.399@gmail.com', 'Calle 299, Sector Oeste', 'V-10000299', '1983-12-05', 'V-10000299-6', 'Normal', NULL, 1148),
     (400, 'Sonia', 'Mercedes', 'Mendoza', 'Guzman', '0424-2220400', 'sonia.400@gmail.com', 'Vereda 300, Casa 16', 'V-10000300', '1976-09-08', 'V-10000300-7', 'Normal', NULL, 1149);
+
+INSERT INTO fabrica (fbc_id, fbc_nombre, fbc_direccion, fbc_tipo, fk_lg_fbc) VALUES
+(1, 'Planta Principal de Inyección', 'Zona Industrial Las Tejerías, Galpón 4', 'Fabrica', 1),
+(2, 'Taller Textil Central', 'Avenida Intercomunal de Guarenas, Edif. Mattel', 'Fabrica', 2),
+(3, 'Hub de Distribución Caracas', 'Urb. La Yaguara, Calle Los Cerezos, Galpón B', 'Hub', 3),
+(4, 'Hub de Despacho Occidente', 'Zona Industrial II de Barquisimeto', 'Hub', 4),
+(5, 'Hub de Carga Oriente', 'Avenida Municipal de Puerto La Cruz', 'Hub', 5),
+(6, 'Planta de Ensamblaje y Prototipos', 'Zona Industrial de Valencia, Av. Henry Ford', 'Fabrica', 6),
+(7, 'Hub de Distribución Andes', 'Zona Industrial de San Cristóbal', 'Hub', 7),
+(8, 'Hub de Distribución Sur', 'Avenida Paseo Caroní, Puerto Ordaz', 'Hub', 8),
+(9, 'Planta de Empaque y Litografía', 'Zona Industrial de Maracaibo, Av. La Limpia', 'Fabrica', 9),
+(10, 'Hub de Carga Central', 'Eje Industrial de San Diego, Carabobo', 'Hub', 10);
+
+INSERT INTO materia_prima (mp_id, mp_nombre, mp_unidad_medida, mp_descripcion, fk_tm_mp) VALUES
+(1, 'Pellets de Vinilo Suave (PVC)', 'Kilogramos', 'Polímero base de alta flexibilidad para moldeado de cabezas', 1),
+(2, 'Pellets de Plástico Rígido (ABS)', 'Kilogramos', 'Resina plástica de alta resistencia para torsos y pelvis', 1),
+(3, 'Fibra de Nylon Premium (Kanekalon)', 'Metros', 'Hebras finas de fibra sintética para implantación de cabello rubio', 2),
+(4, 'Seda Satín Duquesa', 'Metros', 'Textil liso de alta gama para confección de vestidos de gala', 3),
+(5, 'Pigmento Acrílico Magenta No Tóxico', 'Litros', 'Tinta líquida concentrada para tampografía de labios', 4),
+(6, 'Microchip de Audio Integrado 16-bit', 'Unidades', 'Circuito electrónico con grabaciones de voz predefinidas', 5),
+(7, 'Cartón Corrugado de Alta Densidad', 'Unidades', 'Planchas estructurales para cajas de empaque individual', 6),
+(8, 'Alambre de Cobre Maleable Interno', 'Metros', 'Soporte interno estructural para flexión de extremidades', 7),
+(9, 'Resina Compuesta Silkstone de Alta Densidad', 'Kilogramos', 'Mezcla polimérica pesada que simula el acabado de la porcelana', 8),
+(10, 'Adhesivo Termoplástico Caliente', 'Kilogramos', 'Pegamento industrial de alta fusión para sellado de raíces de cabello', 9);
+
+INSERT INTO lote_materia_prima (lmp_lote, lmp_cantidad, lmp_fecha_recepcion, lmp_fecha_vencimiento, fk_mp_lmp) VALUES
+('LOTE-PL-001', 5000, '2026-01-15', '2031-01-15', 1),
+('LOTE-PL-002', 4500, '2026-03-10', '2031-03-10', 1),
+('LOTE-CB-010', 1200, '2026-02-01', '2029-02-01', 2),
+('LOTE-CB-011', 1500, '2026-04-18', '2029-04-18', 2),
+('LOTE-TX-050', 800, '2026-01-20', '2028-01-20', 3),
+('LOTE-TX-051', 950, '2026-05-02', '2028-05-02', 3),
+('LOTE-PT-088', 300, '2026-02-15', '2027-02-15', 4),
+('LOTE-EM-101', 10000, '2026-03-01', '2031-03-01', 5),
+('LOTE-EM-102', 12000, '2026-05-20', '2031-05-20', 5),
+('LOTE-ME-202', 25000, '2026-04-01', '2036-04-01', 6);
 

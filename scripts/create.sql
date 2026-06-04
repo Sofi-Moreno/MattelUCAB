@@ -17,7 +17,7 @@ CREATE TABLE lugar (
 CREATE TABLE moneda (
     m_id      INTEGER NOT NULL , 
     m_nombre  VARCHAR(255) NOT NULL , 
-    m_simbolo CHAR(1) NOT NULL , 
+    m_simbolo CHAR(5) NOT NULL , 
     m_activa  BOOLEAN  NOT NULL DEFAULT true,
     CONSTRAINT moneda_PK PRIMARY KEY ( m_id )
 );
