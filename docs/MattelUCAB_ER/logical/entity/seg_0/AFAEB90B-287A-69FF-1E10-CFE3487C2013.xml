@@ -4,7 +4,7 @@
 <createdTime>2026-05-04 01:14:22 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,7 +20,7 @@
 <createdTime>2026-05-04 01:14:39 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +32,7 @@
 <createdTime>2026-05-04 01:15:53 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -44,23 +44,11 @@
 <createdTime>2026-05-04 01:14:55 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT008</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="hpv_estado_conservacion" id="A74FF420-5F33-733C-ACAF-9AD987EE1E54">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-05-04 01:21:05 UTC</createdTime>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="hpv_precio_transaccion" id="47DA5FE2-E03E-61E9-8614-0EEAFE707390">
@@ -68,7 +56,7 @@
 <createdTime>2026-05-04 01:16:10 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -81,7 +69,7 @@
 <createdTime>2026-05-04 01:22:10 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -95,7 +83,7 @@
 <generatorID>8B69A465-4DF4-09AF-D87D-2190E18F7AAF</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <referedAttribute>66E05776-4C21-0EDC-2E04-3E0372C2F5EB</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -109,7 +97,7 @@
 <generatorID>371287BA-3B03-B735-7DEB-B3ECD5473594</generatorID>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <referedAttribute>B8799406-9A1E-9804-D487-E2D6ADEE49A0</referedAttribute>
@@ -125,7 +113,7 @@
 <createdTime>2026-05-04 01:14:54 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
-<item key="90A7F43A-09F5-B501-79E6-F7E5FF5CF7F1" value="true"/>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
