@@ -1,8 +1,8 @@
 CREATE TABLE lugar (
-    lg_id     INTEGER  NOT NULL , 
+    lg_id     SERIAL  NOT NULL , 
     lg_nombre VARCHAR(255) NOT NULL , 
     lg_tipo   VARCHAR(255) NOT NULL , 
-    fk_lg_lg  INTEGER,
+        fk_lg_lg  INTEGER,
     CONSTRAINT lugar_PK PRIMARY KEY ( lg_id ),
     CONSTRAINT lugar_lugar_FK FOREIGN KEY (fk_lg_lg) 
     REFERENCES lugar (lg_id),
@@ -15,7 +15,7 @@ CREATE TABLE lugar (
 );
 
 CREATE TABLE moneda (
-    m_id      INTEGER NOT NULL , 
+    m_id      SERIAL NOT NULL , 
     m_nombre  VARCHAR(255) NOT NULL , 
     m_simbolo CHAR(5) NOT NULL , 
     m_activa  BOOLEAN  NOT NULL DEFAULT true,
@@ -23,7 +23,7 @@ CREATE TABLE moneda (
 );
 
 CREATE TABLE beneficio (
-    bnf_id               INTEGER  NOT NULL , 
+    bnf_id               SERIAL  NOT NULL , 
     bnf_nombre           VARCHAR(255) NOT NULL , 
     bnf_tipo             VARCHAR(255) NOT NULL , 
     bnf_naturaleza       VARCHAR(255) NOT NULL , 
@@ -36,21 +36,21 @@ CREATE TABLE beneficio (
 );
 
 CREATE TABLE horario (
-    hrr_id           INTEGER  NOT NULL , 
+    hrr_id           SERIAL  NOT NULL , 
     hrr_hora_entrada TIME  NOT NULL , 
     hrr_hora_salida  TIME  NOT NULL,
     CONSTRAINT horario_PK PRIMARY KEY ( hrr_id )
 );
 
 CREATE TABLE departamento (
-    dptmt_id          INTEGER  NOT NULL , 
+    dptmt_id          SERIAL  NOT NULL , 
     dptmt_nombre      VARCHAR(255) NOT NULL , 
     dptmt_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT departamento_PK PRIMARY KEY ( dptmt_id )
 );
 
 CREATE TABLE era_historica (
-    eh_id           INTEGER  NOT NULL , 
+    eh_id           SERIAL  NOT NULL , 
     eh_nombre       VARCHAR(255) NOT NULL , 
     eh_fecha_inicio DATE  NOT NULL , 
     eh_fecha_fin    DATE  NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE era_historica (
 );
 
 CREATE TABLE tipo_cuerpo (
-    tc_id          INTEGER  NOT NULL , 
+    tc_id          SERIAL  NOT NULL , 
     tc_nombre      VARCHAR(255) NOT NULL , 
     tc_ano_patente DATE  NOT NULL , 
     tc_descripcion VARCHAR(255) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE tipo_cuerpo (
 );
 
 CREATE TABLE clasificacion_exclusividad (
-    ce_id              INTEGER  NOT NULL , 
+    ce_id              SERIAL  NOT NULL , 
     ce_nombre          VARCHAR(255) NOT NULL , 
     ce_limite_unidades INTEGER  NOT NULL , 
     ce_nivel_acceso    VARCHAR(255) NOT NULL , 
@@ -76,7 +76,7 @@ CREATE TABLE clasificacion_exclusividad (
 );
 
 CREATE TABLE color (
-    cl_id            INTEGER  NOT NULL , 
+    cl_id            SERIAL  NOT NULL , 
     cl_nombre        VARCHAR(255) NOT NULL , 
     cl_codigo_hex    VARCHAR(255) NOT NULL , 
     cl_clasificación VARCHAR(255) NOT NULL,
@@ -84,21 +84,21 @@ CREATE TABLE color (
 );
 
 CREATE TABLE profesion (
-    pfs_id          INTEGER  NOT NULL , 
+    pfs_id          SERIAL  NOT NULL , 
     pfs_nombre      VARCHAR(255) NOT NULL , 
     pfs_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT profesion_PK PRIMARY KEY ( pfs_id )
 );
 
 CREATE TABLE tipo_material (
-    tm_id          INTEGER  NOT NULL , 
+    tm_id          SERIAL  NOT NULL , 
     tm_nombre      VARCHAR(255) NOT NULL , 
     tm_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT tipo_material_PK PRIMARY KEY ( tm_id )
 );
 
 CREATE TABLE membresia (
-    mbs_id           INTEGER  NOT NULL, 
+    mbs_id           SERIAL  NOT NULL, 
     mbs_nombre       VARCHAR(255) NOT NULL, 
     mbs_descripcion  VARCHAR(255) NOT NULL, 
     mbs_early_access BOOLEAN  NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE membresia (
 );
 
 CREATE TABLE molde (
-    md_id          INTEGER  NOT NULL , 
+    md_id          SERIAL  NOT NULL , 
     md_nombre      VARCHAR(255) NOT NULL , 
     md_ano_patente DATE  NOT NULL , 
     md_descripcion VARCHAR(255) NOT NULL,
@@ -114,13 +114,13 @@ CREATE TABLE molde (
 );
 
 CREATE TABLE pieza (
-    pz_id     INTEGER  NOT NULL , 
+    pz_id     SERIAL  NOT NULL , 
     pz_nombre VARCHAR(255) NOT NULL,
     CONSTRAINT pieza_PK PRIMARY KEY ( pz_id )
 );
 
 CREATE TABLE operacion_catalogo (
-    octlg_id          INTEGER  NOT NULL , 
+    octlg_id          SERIAL  NOT NULL , 
     octlg_nombre      VARCHAR(255) NOT NULL , 
     octlg_descripcion VARCHAR(255) NOT NULL , 
     octlg_tipo        VARCHAR(255) NOT NULL,
@@ -129,21 +129,21 @@ CREATE TABLE operacion_catalogo (
 );
 
 CREATE TABLE rol (
-    r_id          INTEGER  NOT NULL , 
+    r_id          SERIAL  NOT NULL , 
     r_nombre      VARCHAR(255) NOT NULL , 
     r_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT rol_PK PRIMARY KEY ( r_id )
 );
 
 CREATE TABLE permiso (
-    pms_id     INTEGER  NOT NULL , 
+    pms_id     SERIAL  NOT NULL , 
     pms_nombre VARCHAR(255) NOT NULL , 
     pms_modulo VARCHAR(255) NOT NULL,
     CONSTRAINT permiso_PK PRIMARY KEY ( pms_id )
 );
 
 CREATE TABLE transporte (
-    tpt_id          INTEGER  NOT NULL , 
+    tpt_id          SERIAL  NOT NULL , 
     tpt_nombre      VARCHAR(255) NOT NULL , 
     tpt_descripcion VARCHAR(255) NOT NULL , 
     tpt_tipo        VARCHAR(255) NOT NULL,
@@ -152,11 +152,11 @@ CREATE TABLE transporte (
 );
 
 CREATE TABLE historico_tasa_cambio (
-    htc_id                INTEGER  NOT NULL , 
+    htc_id                SERIAL  NOT NULL , 
     htc_fecha_hora_inicio TIMESTAMP  NOT NULL , 
     htc_fecha_hora_fin    TIMESTAMP  NOT NULL , 
     htc_tasa              NUMERIC  NOT NULL , 
-    fk_m_htc_1            INTEGER NOT NULL , 
+    fk_m_htc_1            INTEGER NOT NULL,
     CONSTRAINT historico_tasa_cambio_PK PRIMARY KEY 
     ( htc_id,
       fk_m_htc_1
@@ -177,7 +177,7 @@ CREATE TABLE rol_permiso (
 );
 
 CREATE TABLE cargo (
-    cg_id             INTEGER  NOT NULL , 
+    cg_id             SERIAL  NOT NULL , 
     cg_nombre         VARCHAR(255) NOT NULL , 
     cg_sueldo_base_us NUMERIC  NOT NULL , 
     fk_dptmt_cg       INTEGER  NOT NULL,
@@ -187,7 +187,7 @@ CREATE TABLE cargo (
 );
 
 CREATE TABLE persona_natural (
-    pn_id               INTEGER  NOT NULL , 
+    pn_id               SERIAL  NOT NULL , 
     pn_primer_nombre    VARCHAR(255) NOT NULL , 
     pn_segundo_nombre   VARCHAR(255) , 
     pn_primer_apellido  VARCHAR(255) NOT NULL , 
@@ -210,7 +210,7 @@ CREATE TABLE persona_natural (
 );
 
 CREATE TABLE fabrica (
-    fbc_id        INTEGER  NOT NULL , 
+    fbc_id        SERIAL  NOT NULL , 
     fbc_nombre    VARCHAR(255) NOT NULL , 
     fbc_direccion VARCHAR(255) NOT NULL , 
     fbc_tipo      VARCHAR(255) NOT NULL , 
@@ -222,7 +222,7 @@ CREATE TABLE fabrica (
 );
 
 CREATE TABLE materia_prima (
-    mp_id            INTEGER  NOT NULL , 
+    mp_id            SERIAL  NOT NULL , 
     mp_nombre        VARCHAR(255) NOT NULL , 
     mp_unidad_medida VARCHAR(255) NOT NULL , 
     mp_descripcion   VARCHAR(255) NOT NULL , 
@@ -244,7 +244,7 @@ CREATE TABLE lote_materia_prima (
 );
 
 CREATE TABLE metodo_pago (
-    mp_id                     INTEGER NOT NULL,
+    mp_id                     SERIAL NOT NULL,
     mp_numero                 VARCHAR(255) NOT NULL,
     mp_tipo                   VARCHAR(50) NOT NULL, 
     mp_franquicia             VARCHAR(255),
@@ -299,13 +299,13 @@ CREATE TABLE metodo_pago (
 );
 -- PREGUNTAR QUE DISEÑO QUIEREN, SI 1 PADRE O 1 CON TODO Y EL ATRIBUTO TIPO
 CREATE TABLE metodo_pago (
-    mp_id      INTEGER NOT NULL,
+    mp_id      SERIAL NOT NULL,
     mp_numero  INTEGER NOT NULL, 
     CONSTRAINT metodo_pago_PK PRIMARY KEY ( mp_id )
 );
 
 CREATE TABLE tarjeta_credito (
-    mp_id                INTEGER NOT NULL,
+    mp_id                INTEGER  NOT NULL,
     tjc_franquicia       VARCHAR(255) NOT NULL,
     tjc_fecha_vecimiento DATE NOT NULL, 
     CONSTRAINT tarjeta_credito_PK PRIMARY KEY ( mp_id ),
@@ -315,7 +315,7 @@ CREATE TABLE tarjeta_credito (
 
 
 CREATE TABLE tarjeta_debito (
-    mp_id                 INTEGER NOT NULL,
+    mp_id                 INTEGER  NOT NULL,
     tjd_tipo_cuenta       VARCHAR(255) NOT NULL,
     tjd_franquicia        INTEGER NOT NULL,      
     tjc_fecha_vencimiento VARCHAR(255) NULL,     
@@ -327,7 +327,7 @@ CREATE TABLE tarjeta_debito (
 
 
 CREATE TABLE paypal (
-    mp_id     INTEGER NOT NULL,
+    mp_id     INTEGER  NOT NULL,
     pp_correo VARCHAR(255) NOT NULL,
     CONSTRAINT paypal_PK PRIMARY KEY ( mp_id ),
     CONSTRAINT paypal_metodo_pago_FK FOREIGN KEY ( mp_id )
@@ -336,7 +336,7 @@ CREATE TABLE paypal (
 
 
 CREATE TABLE swift (
-    mp_id            INTEGER NOT NULL,
+    mp_id            INTEGER  NOT NULL,
     swt_banco_nombre VARCHAR(255) NOT NULL,
     swt_pais         INTEGER NOT NULL, 
     CONSTRAINT swift_PK PRIMARY KEY ( mp_id ),
@@ -345,7 +345,7 @@ CREATE TABLE swift (
 );
 
 CREATE TABLE cheque_corporativo (
-    mp_id           INTEGER NOT NULL,
+    mp_id           INTEGER  NOT NULL,
     cc_num_cheque   INTEGER NOT NULL,
     cc_banco_emisor VARCHAR(255) NOT NULL,
     CONSTRAINT cheque_corporativo_PK PRIMARY KEY ( mp_id ),
@@ -354,7 +354,7 @@ CREATE TABLE cheque_corporativo (
 );
 
 CREATE TABLE criptoactivo (
-    mp_id                  INTEGER NOT NULL,
+    mp_id                  INTEGER  NOT NULL,
     ctatv_tipo             VARCHAR(255) NOT NULL,
     ctatv_moneda_base      VARCHAR(255) NOT NULL,
     ctatv_direccion_wallet VARCHAR(255) NOT NULL,
@@ -364,7 +364,7 @@ CREATE TABLE criptoactivo (
 );
 
 CREATE TABLE persona_juridica (
-    pj_id               INTEGER  NOT NULL , 
+    pj_id               SERIAL  NOT NULL , 
     pj_nombre_comercial VARCHAR(255) NOT NULL , 
     pj_rif              VARCHAR(20)  NOT NULL , 
     pj_razon_social     VARCHAR(255) NOT NULL , 
@@ -379,7 +379,7 @@ CREATE TABLE persona_juridica (
 );
 
 CREATE TABLE usuario (
-    usar_id             INTEGER  NOT NULL , 
+    usar_id             SERIAL  NOT NULL , 
     usar_nombre_usuario VARCHAR(255) NOT NULL , 
     usar_contrasena     VARCHAR(255) NOT NULL , 
     usar_correo         VARCHAR(255) NOT NULL , 
@@ -387,10 +387,12 @@ CREATE TABLE usuario (
     fk_r_usar           INTEGER  NOT NULL , 
     fk_pn_usar          INTEGER , 
     fk_pj_usar INTEGER,
+    fk_emp_usar INTEGER,
     CONSTRAINT juridica_natural_FK CHECK
 	( 
         ((fk_pj_usar IS NOT NULL) AND (fk_pn_usar IS NULL)) OR 
-        ((fk_pn_usar IS NOT NULL) AND (fk_pj_usar IS NULL))  
+        ((fk_pn_usar IS NOT NULL) AND (fk_pj_usar IS NULL)) 
+
 	),
     CONSTRAINT usuario_PK PRIMARY KEY ( usar_id ),
     CONSTRAINT usuario_persona_juridica_FK FOREIGN KEY (fk_pj_usar) 
@@ -398,16 +400,16 @@ CREATE TABLE usuario (
     CONSTRAINT usuario_persona_natural_FK FOREIGN KEY (fk_pn_usar) 
     REFERENCES persona_natural (pn_id),
     CONSTRAINT usuario_rol_FK FOREIGN KEY (fk_r_usar) 
-    REFERENCES rol (r_id)
+    REFERENCES rol (r_id),
     CONSTRAINT   usuario_empleado_FK FOREIGN KEY (fk_emp_usar) 
     REFERENCES empleado(epad_id)
 );
 
 CREATE TABLE categoria_producto (
-    cp_id          INTEGER  NOT NULL , 
+    cp_id          SERIAL  NOT NULL , 
     cp_nombre      VARCHAR(255) NOT NULL , 
     cp_descripcion VARCHAR(255) NOT NULL , 
-    fk_cp_cp       INTEGER,
+        fk_cp_cp       INTEGER,
     CONSTRAINT categoria_producto_PK PRIMARY KEY ( cp_id ),
     CONSTRAINT division_categoria_producto_FK FOREIGN KEY (fk_cp_cp) 
     REFERENCES categoria_producto (cp_id)
@@ -415,7 +417,7 @@ CREATE TABLE categoria_producto (
 
 CREATE TABLE categoria_categoria (
     fk_cp_cp_1  INTEGER  NOT NULL , 
-    fk_cp_cp_2  INTEGER  NOT NULL,
+    fk_cp_cp_2  INTEGER  NOT NULL ,
     CONSTRAINT categoria_categoria_PK PRIMARY KEY ( fk_cp_cp_1, fk_cp_cp_2),
     CONSTRAINT relacion_categoria_producto_FK FOREIGN KEY (fk_cp_cp_1) 
     REFERENCES categoria_producto (cp_id),
@@ -424,7 +426,7 @@ CREATE TABLE categoria_categoria (
 );
 
 CREATE TABLE empleado (
-    epad_id               INTEGER, 
+    epad_id               SERIAL, 
     epad_primer_nombre    VARCHAR(255) NOT NULL , 
     epad_segundo_nombre   VARCHAR(255) , 
     epad_primer_apellido  VARCHAR(255) NOT NULL , 
@@ -435,14 +437,14 @@ CREATE TABLE empleado (
     epad_cedula           VARCHAR(255) NOT NULL , 
     epad_fecha_nacimiento DATE  NOT NULL , 
     epad_rif              VARCHAR(255) NOT NULL , 
-    fk_lg_epad            INTEGER  NOT NULL,
+        fk_lg_epad            INTEGER  NOT NULL ,
     CONSTRAINT empleado_PK PRIMARY KEY ( epad_id ),
     CONSTRAINT empleado_lugar_FK FOREIGN KEY (fk_lg_epad) 
     REFERENCES lugar (lg_id)
 );
 
 CREATE TABLE contrato (
-    ctt_id             INTEGER  NOT NULL , 
+        ctt_id            SERIAL  NOT NULL ,
     ctt_fecha_inicio   DATE  NOT NULL , 
     ctt_fecha_fin      DATE , 
     ctt_sueldo_base_us NUMERIC  NOT NULL , 
@@ -460,7 +462,7 @@ CREATE TABLE contrato (
 );
 
 CREATE TABLE compra_online (
-    co_id             INTEGER  NOT NULL , 
+    co_id             SERIAL  NOT NULL , 
     co_fecha_hora     TIMESTAMP  NOT NULL , 
     co_numero_compra  INTEGER  NOT NULL , 
     co_monto_total    NUMERIC  NOT NULL , 
@@ -472,7 +474,7 @@ CREATE TABLE compra_online (
 );
 
 CREATE TABLE asistencia (
-    astc_id                 INTEGER  NOT NULL , 
+    astc_id                 SERIAL  NOT NULL , 
     astc_hora_entrada       TIMESTAMP  NOT NULL , 
     astc_hora_salida        TIMESTAMP  NOT NULL , 
     astc_fecha_laboral      TIMESTAMP  NOT NULL , 
@@ -563,7 +565,7 @@ CREATE TABLE contrato_horario (
 );
 
 CREATE TABLE diseno_producto (
-    dp_id                    INTEGER  NOT NULL , 
+    dp_id                    SERIAL  NOT NULL , 
     dp_nombre_comercial      VARCHAR(255) NOT NULL , 
     dp_ancho_cm              NUMERIC  NOT NULL , 
     dp_alto_cm               NUMERIC  NOT NULL , 
@@ -644,7 +646,7 @@ CREATE TABLE dp_profesion (
 );
 
 CREATE TABLE historico_valor_mercado (
-    hvm_id                  INTEGER  NOT NULL , 
+    hvm_id                  SERIAL  NOT NULL , 
     hvm_fecha_hora_tasacion TIMESTAMP  NOT NULL , 
     hvm_precio_estimado     NUMERIC  NOT NULL , 
     hvm_fuente              VARCHAR(255) NOT NULL , 
@@ -655,7 +657,7 @@ CREATE TABLE historico_valor_mercado (
 );
 
 CREATE TABLE fase_prueba_diseno (
-    fpd_id             INTEGER  NOT NULL , 
+    fpd_id             SERIAL  NOT NULL , 
     fpd_numero_paso    INTEGER  NOT NULL , 
     fpd_dias_estimados INTEGER  NOT NULL , 
     fpd_tipo           VARCHAR(255) NOT NULL,
@@ -695,7 +697,7 @@ CREATE TABLE taxonomia (
 );
 
 CREATE TABLE prenomina (
-    pnmn_id                   INTEGER  NOT NULL , 
+    pnmn_id                   SERIAL  NOT NULL , 
     pnmn_fecha_inicio_periodo DATE  NOT NULL , 
     pnmn_fecha_fin_periodo    DATE  NOT NULL , 
     pnmn_estatus              VARCHAR(255) NOT NULL , 
@@ -705,7 +707,6 @@ CREATE TABLE prenomina (
     fk_ctt_pnmn_3             INTEGER  NOT NULL , 
     fk_htc_pnmn_1             INTEGER  NOT NULL , 
     fk_htc_pnmn_2             INTEGER NOT NULL , 
-    fk_htc_pnmn_3             INTEGER NOT NULL,
     CONSTRAINT prenomina_PK PRIMARY KEY ( pnmn_id ),
     CONSTRAINT prenomina_contrato_FK FOREIGN KEY 
     ( 
@@ -723,18 +724,16 @@ CREATE TABLE prenomina (
     ( 
      fk_htc_pnmn_1,
      fk_htc_pnmn_2,
-     fk_htc_pnmn_3
     ) 
     REFERENCES historico_tasa_cambio 
     ( 
      htc_id,
      fk_m_htc_1,
-     fk_m_htc_2
     )
 );
 
 CREATE TABLE orden_compra (
-    oc_id                INTEGER  NOT NULL , 
+    oc_id                SERIAL  NOT NULL , 
     oc_nombre_cadena     VARCHAR(255) NOT NULL , 
     oc_periodo_pago      INTEGER  NOT NULL , 
     oc_fecha_emision     DATE  NOT NULL , 
@@ -780,7 +779,7 @@ CREATE TABLE orden_compra (
 );
 
 CREATE TABLE subasta (
-    sbt_id                INTEGER  NOT NULL , 
+    sbt_id                SERIAL  NOT NULL , 
     sbt_precio_base       INTEGER  NOT NULL , 
     sbt_incremento_minimo INTEGER  NOT NULL , 
     sbt_precio_final      INTEGER , 
@@ -789,7 +788,7 @@ CREATE TABLE subasta (
     fk_cet_sbt            INTEGER  NOT NULL , 
     CONSTRAINT subasta_PK PRIMARY KEY ( sbt_id ),
     CONSTRAINT subasta_persona_natural_FK FOREIGN KEY (fk_cet_sbt) 
-    REFERENCES persona_natural (cet_id)
+    REFERENCES persona_natural (pn_id)
 );
 
 CREATE TABLE puja (
@@ -799,13 +798,13 @@ CREATE TABLE puja (
     fk_cet_pj      INTEGER  NOT NULL , 
     CONSTRAINT puja_PK PRIMARY KEY ( fk_sbt_pj, fk_cet_pj ),
     CONSTRAINT puja_persona_natural_FK FOREIGN KEY (fk_cet_pj) 
-    REFERENCES persona_natural (cet_id),
+    REFERENCES persona_natural (pn_id),
     CONSTRAINT puja_subasta_FK FOREIGN KEY (fk_sbt_pj) 
     REFERENCES subasta (sbt_id)
 );
 
 CREATE TABLE orden_venta (
-    ov_id             INTEGER  NOT NULL, 
+    ov_id             SERIAL  NOT NULL, 
     ov_fecha_hora     TIMESTAMP  NOT NULL, 
     ov_monto          INTEGER  NOT NULL, 
     ov_numero_factura INTEGER, 
@@ -819,7 +818,7 @@ CREATE TABLE orden_venta (
 
 
 CREATE TABLE detalle_prenomina (
-    dpnmn_id              INTEGER  NOT NULL , 
+    dpnmn_id              SERIAL  NOT NULL , 
     dpnmn_monto_calculado NUMERIC  NOT NULL , 
     dpnmn_cantidad        INTEGER  NOT NULL , 
     fk_astc_dpnmn         INTEGER , 
@@ -865,7 +864,7 @@ CREATE TABLE fc_cargo (
 
 
 CREATE TABLE orden_produccion (
-    op_id                       INTEGER NOT NULL, 
+    op_id                       SERIAL NOT NULL, 
     op_cantidad_solicitada      INTEGER  NOT NULL, 
     op_fecha_creacion_orden     TIMESTAMP  NOT NULL, 
     op_fecha_finalizacion_orden TIMESTAMP, 
@@ -895,7 +894,7 @@ CREATE TABLE orden_produccion (
 );
 
 CREATE TABLE unidad_producto (
-    up_sku                   INTEGER  NOT NULL , 
+    up_sku                   SERIAL  NOT NULL , 
     up_precio_minorista      NUMERIC  NOT NULL , 
     up_precio_mayorista      NUMERIC  NOT NULL , 
     up_fecha_hora_disponible TIMESTAMP  NOT NULL , 
@@ -938,7 +937,7 @@ CREATE TABLE conciliacion_pago (
 );
 
 CREATE TABLE despacho (
-    dpc_id               INTEGER  NOT NULL , 
+    dpc_id               SERIAL  NOT NULL , 
     dpc_manifiesto_carga VARCHAR(500) , 
     dpc_numero_tracking  INTEGER , 
     dpc_direccion_envio  VARCHAR(255) NOT NULL , 
@@ -947,19 +946,6 @@ CREATE TABLE despacho (
     fk_ov_dpc            INTEGER , 
     fk_lg_dpc            INTEGER  NOT NULL , 
     fk_co_dpc            INTEGER,
-    CONSTRAINT tipo_despacho CHECK ( 
-        (  (fk_doc_dpc_1 IS NOT NULL) AND 
-         (fk_doc_dpc_2 IS NOT NULL) AND 
-         (fk_co_dpc IS NULL)  AND 
-         (fk_ov_dpc IS NULL) ) OR 
-        (  (fk_co_dpc IS NOT NULL) AND 
-         (fk_doc_dpc_1 IS NULL)  AND 
-         (fk_doc_dpc_2 IS NULL)  AND 
-         (fk_ov_dpc IS NULL) ) OR 
-        (  (fk_ov_dpc IS NOT NULL) AND 
-         (fk_doc_dpc_1 IS NULL)  AND 
-         (fk_doc_dpc_2 IS NULL)  AND 
-         (fk_co_dpc IS NULL) )  ),
     CONSTRAINT despacho_PK PRIMARY KEY ( dpc_id),
     CONSTRAINT despacho_compra_online_FK FOREIGN KEY (fk_co_dpc) 
     REFERENCES compra_online ( co_id),
@@ -972,7 +958,7 @@ CREATE TABLE despacho (
 );
 
 CREATE TABLE fase_prueba_produccion (
-    fpp_id           INTEGER  NOT NULL , 
+    fpp_id           SERIAL  NOT NULL , 
     fpp_fecha_inicio DATE  NOT NULL , 
     fpp_fecha_fin    DATE  NOT NULL , 
     fpp_resultado    VARCHAR(255) NOT NULL , 
@@ -1021,7 +1007,7 @@ CREATE TABLE consumo_materia_prima (
 );
 
 CREATE TABLE historial_post_venta (
-    hpv_id                  INTEGER  NOT NULL , 
+    hpv_id                  SERIAL  NOT NULL , 
     hpv_tipo_evento         VARCHAR(255) NOT NULL , 
     hpv_fecha_hora_evento   TIMESTAMP  NOT NULL , 
     hpv_estado_conservacion VARCHAR(255) NOT NULL , 
@@ -1031,7 +1017,7 @@ CREATE TABLE historial_post_venta (
     fk_cet_hpv              INTEGER,
     CONSTRAINT historial_post_venta_PK PRIMARY KEY ( hpv_id ),
     CONSTRAINT historial_post_venta_persona_natural_FK FOREIGN KEY (fk_cet_hpv) 
-    REFERENCES persona_natural (cet_id),
+    REFERENCES persona_natural (pn_id),
     CONSTRAINT historial_post_venta_unidad_producto_FK FOREIGN KEY (fk_up_hpv) 
     REFERENCES unidad_producto (up_sku),
     CONSTRAINT hpv_conservacion_check CHECK(hpv_estado_conservacion IN
@@ -1041,13 +1027,13 @@ CREATE TABLE historial_post_venta (
     ))
 );
 CREATE TABLE estatus (
-    ett_id          INTEGER NOT NULL,
+    ett_id          SERIAL NOT NULL,
     ett_nombre      VARCHAR(255) NOT NULL,
     ett_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT estatus_PK PRIMARY KEY ( ett_id )
 );
 CREATE TABLE historico_estatus(
-    he_id     INTEGER NOT NULL,
+    he_id     SERIAL NOT NULL,
     he_fecha_hora_inicio INTEGER NOT NULL,
     he_fecha_hora_fin INTEGER, 
     fk_he_pr INTEGER,
