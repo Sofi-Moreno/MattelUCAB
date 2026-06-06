@@ -1046,7 +1046,148 @@ CREATE TABLE estatus (
     ett_descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT estatus_PK PRIMARY KEY ( ett_id )
 );
+CREATE TABLE historico_estatus(
+    he_id     INTEGER NOT NULL,
+    he_fecha_hora_inicio INTEGER NOT NULL,
+    he_fecha_hora_fin INTEGER, 
+    fk_he_pr INTEGER,
+    fk_he_asis INTEGER,
+    fk_he_fsp INTEGER,
+    fk_he_op INTEGER,
+    fk_he_estatus INTEGER NOT NULL,
+    fk_he_usuario INTEGER,
+    fk_he_ov INTEGER,
+    fk_he_hpv INTEGER,
+    fk_he_us INTEGER,
+    fk_he_up INTEGER,
+    fk_he_oc INTEGER,
+    fk_he_co INTEGER,
 
+    CONSTRAINT historico_estatus_PK PRIMARY KEY ( he_id ),
+    CONSTRAINT historico_estatus_check CHECK ( 
+        (  (fk_he_pr IS NOT NULL) AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_asis IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_fsp IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_op IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_usuario IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_ov IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_hpv IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_us IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_up IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_oc IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_oc IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_co IS NULL) ) OR 
+        (  (fk_he_co IS NOT NULL) AND 
+         (fk_he_pr IS NULL)  AND 
+         (fk_he_asis IS NULL)  AND 
+         (fk_he_fsp IS NULL)  AND 
+         (fk_he_op IS NULL)  AND 
+         (fk_he_usuario IS NULL)  AND 
+         (fk_he_ov IS NULL)  AND 
+         (fk_he_hpv IS NULL)  AND 
+         (fk_he_us IS NULL)  AND 
+         (fk_he_up IS NULL)  AND 
+         (fk_he_oc IS NULL) )  )
+
+);
 CREATE UNIQUE INDEX persona_natural__IDX ON persona_natural (fk_crt_cet ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDXv1 ON conciliacion_pago (fk_ov_cp ASC);
