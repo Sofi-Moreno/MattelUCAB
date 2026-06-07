@@ -2565,3 +2565,271 @@ INSERT INTO lote_materia_prima (lmp_lote, lmp_cantidad, lmp_fecha_recepcion, lmp
 ('LOTE-EM-102', 12000, '2026-05-20', '2031-05-20', 5),
 ('LOTE-ME-202', 25000, '2026-04-01', '2036-04-01', 6);
 
+INSERT INTO metodo_pago (mp_id, mp_numero, mp_tipo, mp_franquicia, mp_fecha_vencimiento, mp_banco, fk_mp_swt_lg, mp_tjd_tipo_cuenta, mp_cc_num_cheque, 
+    mp_ctatv_tipo, mp_ctatv_direccion_wallet, fk_m_ctatv_mp, mp_pp_correo
+) VALUES
+(1, '123456******4444', 'TARJETA_CREDITO', 'Visa', '2030-12-31', 'Chase Bank', NULL, NULL, NULL, 
+ NULL, NULL, NULL, NULL),
+(2, '987654******1111', 'TARJETA_DEBITO', 'Mastercard', '2029-06-30', 
+ 'Citibank', NULL, 'Corriente', NULL, 
+ NULL, NULL, NULL, NULL),
+(3, 'PP-99210', 'PAYPAL', NULL, NULL, 
+ NULL, NULL, NULL, NULL, 
+ NULL, NULL, NULL, 'barbie.collector@email.com'),
+(4, 'SWIFT-US-991A', 'SWIFT', NULL, NULL, 
+ 'Wells Fargo', 1, NULL, NULL, 
+ NULL, NULL, NULL, NULL),
+(5, 'CHQ-8821', 'CHEQUE', NULL, NULL, 
+ 'Bank of America', NULL, NULL, 4402192, 
+ NULL, NULL, NULL, NULL),
+(6, 'CRIPTO-BTC-01', 'CRIPTOACTIVO', NULL, NULL, 
+ NULL, NULL, NULL, NULL, 
+ 'Bitcoin', '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', 1, NULL);
+
+INSERT INTO usuario (usar_nombre_usuario, usar_contrasena, usar_correo, usar_fecha_registro, fk_r_usar, fk_pn_usar, fk_pj_usar, fk_emp_usar
+) VALUES
+('manuel.antias', 'pass_secure_emp1', 'manuelenriqueantias.1@gmail.com', '2026-01-10 08:30:00', 
+ 1, 1, NULL, 1),
+('maria.gonzalez', 'pass_secure_emp2', 'maria.2@gmail.com', '2026-01-15 09:00:00', 
+ 2, 2, NULL, 2),
+('juan.rodriguez', 'client_pass_03', 'juan.3@gmail.com', '2026-02-01 10:15:00', 
+ 3, 3, NULL, NULL),
+('ana.fernandez', 'client_pass_04', 'ana.4@gmail.com', '2026-02-05 11:20:30', 
+ 3, 4, NULL, NULL),
+('luis.martinez', 'client_pass_05', 'luis.5@gmail.com', '2026-02-12 14:05:12', 
+ 4, 5, NULL, NULL),
+('carmen.garcia', 'client_pass_06', 'carmen.6@gmail.com', '2026-02-18 16:45:00', 
+ 3, 6, NULL, NULL),
+('pedro.diaz', 'client_pass_07', 'pedro.7@gmail.com', '2026-02-22 09:30:25', 
+ 3, 7, NULL, NULL),
+('rosa.vargas', 'client_pass_08', 'rosa.8@gmail.com', '2026-02-28 15:10:00', 
+ 4, 8, NULL, NULL),
+('juguetton_mayorista', 'corp_pass_991', 'compras@juguatton.com', '2026-03-05 11:00:00', 
+ 3, NULL, 1, NULL),
+('toys_global_corp', 'corp_pass_992', 'importaciones@toysglobal.com', '2026-03-12 13:40:00', 
+ 3, NULL, 2, NULL);
+
+INSERT INTO categoria_producto (cp_nombre, cp_descripcion, fk_cp_cp) VALUES
+('Muñecas y Accesorios', 'Muñecas de moda, playsets y accesorios relacionados', NULL),
+('Vehículos y Carreras', 'Autos a escala, pistas de carreras y radiocontrol', NULL),    
+('Juegos de Mesa', 'Juegos familiares, de estrategia y cartas', NULL),                
+('Figuras de Acción', 'Personajes articulados de películas y series', NULL),          
+('Muñecas de Colección', 'Ediciones limitadas y exclusivas para coleccionistas', 1),   
+('Casas y Playsets', 'Estructuras grandes y escenarios de juego', 1),                  
+('Autos a Escala (1:64)', 'Vehículos clásicos de metal fundido a presión', 2),        
+('Pistas y Acrobacias', 'Pistas con loops, lanzadores y conectores', 2),              
+('Juegos de Cartas', 'Juegos rápidos basados en barajas temáticas', 3),                
+('Superhéroes', 'Figuras basadas en cómics y películas de acción', 4);                 
+
+INSERT INTO categoria_categoria (fk_cp_cp_1, fk_cp_cp_2) VALUES
+(1, 5),
+(1, 6),
+(2, 7),
+(2, 8),
+(3, 9),
+(4, 10),
+(4, 8);
+
+INSERT INTO empleado (
+    epad_primer_nombre, epad_segundo_nombre, epad_primer_apellido, epad_segundo_apellido, 
+    epad_telefono, epad_correo, epad_direccion, epad_cedula, epad_fecha_nacimiento, 
+    epad_rif, fk_lg_epad
+) VALUES
+('Manuel', 'Enrique', 'Antias', 'Rodriguez', '0424-1910272', 'manuelenriqueantias.1@gmail.com', 'Conjunto Residencial Bello Monte', 'V-31108866', '1980-05-10', 'V-31108866-1', 710),
+('Maria', 'Jose', 'Gonzalez', 'Silva', '0412-1110002', 'maria.2@gmail.com', 'Av Principal 2', 'V-10000002', '1985-02-14', 'V-10000002-2', 827),
+('Juan', 'Carlos', 'Rodriguez', 'Lopez', '0416-1110003', 'juan.3@gmail.com', 'Calle 3, Sector B', 'V-10000003', '1990-11-20', 'V-10000003-3', 828),
+('Ana', 'Maria', 'Fernandez', 'Ruiz', '0424-1110004', 'ana.4@gmail.com', 'Urb Centro 4', 'V-10000004', '1992-08-05', 'V-10000004-4', 829),
+('Luis', 'Enrique', 'Martinez', 'Hernandez', '0414-1110005', 'luis.5@gmail.com', 'Vereda 5', 'V-10000005', '1975-12-30', 'V-10000005-5', 830),
+('Carmen', 'Teresa', 'Garcia', 'Mendez', '0412-1110006', 'carmen.6@gmail.com', 'Calle 6, Torre C', 'V-10000006', '1988-04-16', 'V-10000006-6', 831),
+('Pedro', 'Pablo', 'Diaz', 'Suarez', '0416-1110007', 'pedro.7@gmail.com', 'Av Libertador 7', 'V-10000007', '1995-09-22', 'V-10000007-7', 832),
+('Rosa', 'Margarita', 'Vargas', 'Rojas', '0424-1110008', 'rosa.8@gmail.com', 'Calle 8, Zona Sur', 'V-10000008', '1982-01-11', 'V-10000008-8', 833),
+('Jesus', 'Alberto', 'Romero', 'Pinto', '0414-1110009', 'jesus.9@gmail.com', 'Urb Las Rosas 9', 'V-10000009', '1978-07-07', 'V-10000009-9', 834),
+('Elena', 'Beatriz', 'Torres', 'Castro', '0412-1110010', 'elena.10@gmail.com', 'Calle 10, Edif Central', 'V-10000010', '1993-03-25', 'V-10000110-1', 835);
+
+INSERT INTO contrato (
+    ctt_fecha_inicio, ctt_fecha_fin, ctt_sueldo_base_us, fk_epad_ctt, fk_cg_ctt
+) VALUES
+('2024-01-01', NULL, 2500.00, 1, 1),
+('2024-02-15', NULL, 1200.00, 2, 2),
+('2024-03-01', NULL, 1500.00, 3, 3),
+('2024-04-10', NULL, 950.00, 4, 2),
+('2024-05-20', NULL, 1400.00, 5, 4),
+('2024-06-01', NULL, 950.00, 6, 2),
+('2024-07-15', NULL, 1100.00, 7, 5),
+('2024-08-01', NULL, 1500.00, 8, 3),
+('2024-09-10', NULL, 950.00, 9, 2),
+('2024-01-15', '2025-01-15', 900.00, 10, 2);
+
+INSERT INTO compra_online (co_fecha_hora, co_numero_compra, co_monto_total, co_numero_factura, fk_pn_co) VALUES
+('2026-06-01 10:00:00', 1001, 150.50, 5501, 1),
+('2026-06-02 14:30:00', 1002, 89.99, 5502, 2),
+('2026-06-03 18:15:00', 1003, 420.00, 5503, 3),
+('2026-06-04 09:10:00', 1004, 25.00, 5504, 4),
+('2026-06-04 11:45:00', 1005, 115.00, 5505, 5),
+('2026-06-05 13:20:00', 1006, 310.50, 5506, 6),
+('2026-06-05 16:00:00', 1007, 75.25, 5507, 7),
+('2026-06-05 21:00:00', 1008, 95.00, 5508, 8),
+('2026-06-06 08:30:00', 1009, 180.00, 5509, 9),
+('2026-06-06 12:00:00', 1010, 60.00, 5510, 10);
+
+INSERT INTO asistencia (astc_hora_entrada, astc_hora_salida, astc_fecha_laboral, astc_horas_trabajadas, astc_horas_extra, fk_ctt_astc_1, fk_ctt_astc_2, fk_ctt_astc_3) VALUES
+('2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 1, 1, 1),
+('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 2, 2, 2),
+('2026-06-05 07:30:00', '2026-06-05 16:30:00', '2026-06-05 00:00:00', 8, 1, 3, 3, 3),
+('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 4, 4, 2),
+('2026-06-05 09:00:00', '2026-06-05 18:00:00', '2026-06-05 00:00:00', 8, 0, 5, 5, 4),
+('2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 6, 6, 2),
+('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 7, 7, 5),
+('2026-06-05 07:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 1, 8, 8, 3),
+('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 9, 9, 2),
+('2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 10, 10, 2);
+
+INSERT INTO beneficio_contrato (bc_monto_acordado, fk_ctt_bc_1, fk_ctt_bc_2, fk_ctt_bc_3, fk_bnf_bc) VALUES
+(200.00, 1, 1, 1, 1),
+(150.00, 2, 2, 2, 2),
+(100.00, 3, 3, 3, 3),
+(120.00, 4, 4, 4, 1),
+(300.00, 5, 5, 5, 4),
+(110.00, 6, 6, 6, 2),
+(140.00, 7, 7, 7, 5),
+(125.00, 8, 8, 8, 3),
+(90.00, 9, 9, 9, 1),
+(100.00, 10, 10, 10, 2);
+
+INSERT INTO contrato_horario (ch_dia, ch_turno, fk_hrr_ch, fk_ctt_ch_1, fk_ctt_ch_2, fk_ctt_ch_3) VALUES
+('Lunes', 'Diurno', 1, 1, 1, 1),
+('Martes', 'Diurno', 1, 2, 2, 2),
+('Miercoles', 'Vespertino', 2, 3, 3, 3),
+('Jueves', 'Diurno', 1, 4, 4, 2),
+('Viernes', 'Nocturno', 3, 5, 5, 4),
+('Lunes', 'Diurno', 1, 6, 6, 2),
+('Martes', 'Vespertino', 2, 7, 7, 5),
+('Miercoles', 'Diurno', 1, 8, 8, 3),
+('Jueves', 'Nocturno', 3, 9, 9, 2),
+('Viernes', 'Diurno', 1, 10, 10, 2);
+
+INSERT INTO diseno_producto (
+    dp_nombre_comercial, dp_ancho_cm, dp_alto_cm, dp_largo_cm, 
+    dp_precio_minorista, dp_precio_mayorista, dp_acceso_prioritario, 
+    fk_eh_dp, fk_ce_dp, fk_cl_dp_ojos, fk_cl_dp_piel, 
+    dp_usa_bateria, fk_tc_dp, fk_dp_dp, dp_limite_compra_usuario    
+) VALUES
+('Barbie Edición Colección 2026', 15.0, 30.0, 7.0, 49.99, 35.00, TRUE, 1, 1, 1, 2, FALSE, 1, NULL, 2),
+('Barbie Malibú Beach Princess', 15.0, 30.0, 6.5, 29.99, 21.00, FALSE, 1, 1, 2, 2, FALSE, 1, NULL, 5),
+('Barbie Astronauta Misión Alfa', 16.0, 31.0, 7.5, 39.99, 28.00, FALSE, 1, 1, 1, 4, FALSE, 1, NULL, 4),
+('Barbie Sirena Destellos Mágicos', 14.0, 32.0, 6.0, 34.99, 24.50, TRUE, 1, 1, 4, 2, TRUE, 1, NULL, 3),
+('Barbie Presidenta Edición Gala', 15.0, 30.0, 7.0, 59.99, 42.00, TRUE, 1, 1, 2, 3, FALSE, 1, NULL, 1),
+('Barbie Ken Malibú Casual', 16.0, 32.0, 8.0, 29.99, 20.00, FALSE, 1, 1, 2, 2, FALSE, 2, NULL, 5),
+('Barbie Fashionista Diversidad 2026', 14.5, 29.5, 6.8, 19.99, 14.00, FALSE, 1, 1, 3, 5, FALSE, 1, NULL, 10),
+('Barbie Veterinaria con Mascotas', 22.0, 30.0, 10.0, 44.99, 31.00, FALSE, 1, 1, 1, 2, FALSE, 1, NULL, 4),
+('Barbie Pop Star Luces de Neón', 15.0, 30.0, 7.0, 24.99, 17.50, FALSE, 1, 1, 4, 1, TRUE, 1, NULL, 6),
+('Barbie Dreamhouse Playset Escala', 60.0, 50.0, 20.0, 120.00, 85.00, TRUE, 1, 1, 3, 3, TRUE, 6, NULL, 1);
+
+INSERT INTO autor_diseno (ad_porcentaje_autoria, fk_ctt_ad_1, fk_ctt_ad_2, fk_ctt_ad_3, fk_dp_ad) VALUES
+(100.00, 1, 1, 1, 1),
+(100.00, 2, 2, 2, 2),
+(50.00, 3, 3, 3, 3),
+(50.00, 4, 4, 2, 3),
+(100.00, 5, 5, 4, 4),
+(70.00, 6, 6, 2, 5),
+(30.00, 7, 7, 5, 5),
+(100.00, 8, 8, 3, 6),
+(100.00, 9, 9, 2, 7),
+(100.00, 10, 10, 2, 8);
+
+INSERT INTO dp_categoria (fk_dp_dpc, fk_cp_dpc) VALUES
+(1, 1),
+(2, 1),
+(3, 2), 
+(4, 1), 
+(5, 4),
+(6, 4), 
+(7, 3), 
+(8, 2), 
+(9, 1), 
+(10, 3);
+
+INSERT INTO dp_profesion (dpp_ano, fk_dp_dpp, fk_pfs_dpp) VALUES
+('2026-01-01', 1, 1), 
+('2026-01-15', 2, 1), 
+('2026-02-01', 3, 2), 
+('2026-02-10', 4, 1), 
+('2026-03-01', 5, 3),
+('2026-03-15', 6, 3), 
+('2026-04-01', 7, 4), 
+('2026-04-15', 8, 2), 
+('2026-05-01', 9, 1), 
+('2026-05-20', 10, 5);
+
+INSERT INTO historico_valor_mercado (hvm_fecha_hora_tasacion, hvm_precio_estimado, hvm_fuente, fk_dp_hvm) VALUES
+('2026-06-01 09:00:00', 120.00, 'Subastas Nacionales', 1),
+('2026-06-01 10:00:00', 45.00, 'Guía de Coleccionistas', 2),
+('2026-06-02 11:00:00', 85.50, 'Toy Valuation Index', 3),
+('2026-06-02 15:30:00', 110.00, 'EBay Historical Data', 4),
+('2026-06-03 09:15:00', 250.00, 'Sotheby\s Toys', 5),
+('2026-06-03 14:00:00', 310.00, 'Christie\s Pop Culture', 6),
+('2026-06-04 10:20:00', 15.00, 'Card Market Base', 7),
+('2026-06-04 16:40:00', 55.00, 'Matchbox Fan Forum', 8),
+('2026-06-05 08:00:00', 90.00, 'Barbie Price Guide', 9),
+('2026-06-05 13:10:00', 35.00, 'Fisher-Price Archive', 10);
+
+INSERT INTO fase_prueba_diseno (fpd_numero_paso, fpd_dias_estimados, fpd_tipo, fk_dp_fpd, fk_octlg_fpd) VALUES
+(1, 5, 'Prueba de Pintura', 1, 1),
+(1, 4, 'Prueba de Inyección', 2, 2),
+(1, 7, 'Resistencia de Materiales', 3, 3),
+(1, 6, 'Prueba de Costura', 4, 4),
+(1, 5, 'Prueba de Mecanismo Eléctrico', 5, 5),
+(1, 4, 'Prueba de Flexibilidad', 6, 1),
+(1, 6, 'Control de Toxinas', 7, 2),
+(1, 8, 'Prueba de Caídas', 8, 3),
+(1, 5, 'Prueba de Empaque', 9, 4),
+(1, 12, 'Ensamblaje Estructural', 10, 5);
+
+INSERT INTO taxonomia (txnm_cantidad_pieza, txnm_cantidad_material, fk_dp_txnm, fk_pz_txnm, fk_md_txnm, fk_mp_txnm, fk_cl_txnm) VALUES
+(1, 0.150, 1, 1, 1, 1, 1),   
+(2, 0.050, 2, 2, 2, 2, 2),   
+(1, 0.200, 3, 3, 3, 3, 3),   
+(1, 0.080, 4, 4, 4, 4, 4),  
+(1, 0.120, 5, 5, 5, 5, 5),  
+(2, 0.060, 6, 6, 6, 6, 2),   
+(1, 0.110, 7, 7, 7, 7, 1),  
+(4, 0.020, 8, 8, 8, 8, 3),  
+(1, 0.010, 9, 9, 9, 9, 4),  
+(12, 1.500, 10, 10, 10, 10, 5);
+
+INSERT INTO fc_cargo (fc_cantidad, fk_fpd_fc, fk_cg_fc) VALUES
+(2, 1, 1), 
+(3, 2, 2),
+(2, 3, 3), 
+(4, 4, 4), 
+(2, 5, 5), 
+(1, 6, 2),
+(2, 7, 3), 
+(3, 8, 3),
+(2, 9, 1), 
+(5, 10, 2);
+
+INSERT INTO prenomina (pnmn_fecha_inicio_periodo, pnmn_fecha_fin_periodo, pnmn_monto, fk_ett_pnmn, fk_ctt_pnmn_1, fk_ctt_pnmn_2, fk_ctt_pnmn_3, fk_htc_pnmn_1, fk_htc_pnmn_2) VALUES
+('2026-05-01', '2026-05-15', 1250.00, 3, 1, 1, 1, 1, 1), 
+('2026-05-01', '2026-05-15', 600.00,  3, 2, 2, 2, 1, 1),
+('2026-05-01', '2026-05-15', 750.00,  3, 3, 3, 3, 1, 1),
+('2026-05-01', '2026-05-15', 475.00,  3, 4, 4, 2, 1, 1),
+('2026-05-01', '2026-05-15', 700.00,  3, 5, 5, 4, 1, 1),
+('2026-05-16', '2026-05-31', 1300.00, 4, 1, 1, 1, 2, 1), 
+('2026-05-16', '2026-05-31', 650.00,  4, 2, 2, 2, 2, 1),
+('2026-05-16', '2026-05-31', 780.00,  4, 3, 3, 3, 2, 1),
+('2026-05-16', '2026-05-31', 500.00,  4, 4, 4, 2, 2, 1),
+('2026-05-16', '2026-05-31', 720.00,  4, 5, 5, 4, 2, 1);
+
+INSERT INTO orden_compra (
+    oc_nombre_cadena, oc_periodo_pago, oc_fecha_emision, oc_fecha_vencimiento, 
+    oc_credito_utilizado, oc_estado, oc_numero_factura, oc_monto_total, 
+    oc_monto_abonado, fk_pj_oc, fk_ctt_oc_1, fk_ctt_oc_2, fk_ctt_oc_3, fk_oc_oc
+) VALUES
+('Distribuidora Juguetilandia C.A.', 30, '2026-06-01', '2026-07-01', 70.00, 'Emitida', 9901, 70.00, 0.00, 1, 1, 1, 1, NULL), 
+('Distribuidora Juguetilandia C.A.', 30, '2026-06-02', '2026-07-02', 42.00, 'Validada', 9902, 42.00, 42.00, 1, 2, 2, 2, NULL), 
+('Juguetes del Mundo S.A.', 15, '2026-06-01', '2026-06-16', 56.00, 'En Preparación', 9903, 56.00, 0.00, 2, 3, 3, 3, NULL), 
+('Juguetes del Mundo S.A.', 15, '2026-06-03', '2026-06-18', 49.00, 'Despachada', 9904, 49.00, 49.00, 2, 4, 4, 2, NULL), 
+('Inversiones El Chamo', 45, '2026-06-02', '2026-07-17', 84.00, 'Entregada', 9905, 84.00, 84.00, 3, 5, 5, 4, NULL), 
+('Inversiones El Chamo', 45, '2026-06-04', '2026-07-19', 40.00, 'Facturada', 9906, 40.00, 0.00, 3, 6, 6, 2, NULL), 
+

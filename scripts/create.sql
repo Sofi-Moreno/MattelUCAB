@@ -268,7 +268,7 @@ CREATE TABLE metodo_pago (
     CONSTRAINT swt_lugar_FK FOREIGN KEY (fk_mp_swt_lg) REFERENCES lugar (lg_id),
     CONSTRAINT criptoactivo_moneda_base_FK FOREIGN KEY (fk_m_ctatv_mp) REFERENCES moneda (m_id),
     CONSTRAINT tipo_cuenta_check CHECK(mp_tjd_tipo_cuenta IS NULL OR mp_tjd_tipo_cuenta IN('Ahorro', 'Corriente')),
-    CONSTRAINT chk_req_tarjetas CHECK (
+   CONSTRAINT chk_req_tarjetas CHECK (
         (mp_tipo IN ('TARJETA_CREDITO', 'TARJETA_DEBITO') AND mp_franquicia IS NOT NULL AND mp_fecha_vencimiento IS NOT NULL) OR
         (mp_tipo NOT IN ('TARJETA_CREDITO', 'TARJETA_DEBITO') AND mp_franquicia IS NULL AND mp_fecha_vencimiento IS NULL)
     ),
@@ -277,8 +277,8 @@ CREATE TABLE metodo_pago (
         (mp_tipo != 'TARJETA_DEBITO' AND mp_tjd_tipo_cuenta IS NULL)
     ),
     CONSTRAINT chk_req_bancos CHECK (
-        (mp_tipo IN ('SWIFT', 'CHEQUE') AND mp_banco IS NOT NULL) OR
-        (mp_tipo NOT IN ('SWIFT', 'CHEQUE') AND mp_banco IS NULL)
+        (mp_tipo IN ('SWIFT', 'CHEQUE', 'TARJETA_CREDITO', 'TARJETA_DEBITO') AND mp_banco IS NOT NULL) OR
+        (mp_tipo IN ('PAYPAL', 'CRIPTOACTIVO') AND mp_banco IS NULL)
     ),
     CONSTRAINT chk_req_swift_especifico CHECK (
         (mp_tipo = 'SWIFT' AND fk_mp_swt_lg IS NOT NULL) OR
@@ -296,71 +296,6 @@ CREATE TABLE metodo_pago (
         (mp_tipo = 'PAYPAL' AND mp_pp_correo IS NOT NULL) OR
         (mp_tipo != 'PAYPAL' AND mp_pp_correo IS NULL)
     )
-);
--- PREGUNTAR QUE DISEÑO QUIEREN, SI 1 PADRE O 1 CON TODO Y EL ATRIBUTO TIPO
-CREATE TABLE metodo_pago (
-    mp_id      SERIAL NOT NULL,
-    mp_numero  INTEGER NOT NULL, 
-    CONSTRAINT metodo_pago_PK PRIMARY KEY ( mp_id )
-);
-
-CREATE TABLE tarjeta_credito (
-    mp_id                INTEGER  NOT NULL,
-    tjc_franquicia       VARCHAR(255) NOT NULL,
-    tjc_fecha_vecimiento DATE NOT NULL, 
-    CONSTRAINT tarjeta_credito_PK PRIMARY KEY ( mp_id ),
-    CONSTRAINT tarjeta_credito_metodo_pago_FK FOREIGN KEY ( mp_id )
-        REFERENCES metodo_pago ( mp_id )
-);
-
-
-CREATE TABLE tarjeta_debito (
-    mp_id                 INTEGER  NOT NULL,
-    tjd_tipo_cuenta       VARCHAR(255) NOT NULL,
-    tjd_franquicia        INTEGER NOT NULL,      
-    tjc_fecha_vencimiento VARCHAR(255) NULL,     
-    CONSTRAINT tarjeta_debito_PK PRIMARY KEY ( mp_id ),
-    CONSTRAINT tarjeta_debito_metodo_pago_FK FOREIGN KEY ( mp_id )
-        REFERENCES metodo_pago ( mp_id ),
-    CONSTRAINT tjd_tipo_cuenta_check CHECK ( tjd_tipo_cuenta IN ('Ahorro', 'Corriente') )
-);
-
-
-CREATE TABLE paypal (
-    mp_id     INTEGER  NOT NULL,
-    pp_correo VARCHAR(255) NOT NULL,
-    CONSTRAINT paypal_PK PRIMARY KEY ( mp_id ),
-    CONSTRAINT paypal_metodo_pago_FK FOREIGN KEY ( mp_id )
-        REFERENCES metodo_pago ( mp_id )
-);
-
-
-CREATE TABLE swift (
-    mp_id            INTEGER  NOT NULL,
-    swt_banco_nombre VARCHAR(255) NOT NULL,
-    swt_pais         INTEGER NOT NULL, 
-    CONSTRAINT swift_PK PRIMARY KEY ( mp_id ),
-    CONSTRAINT swift_metodo_pago_FK FOREIGN KEY ( mp_id )
-        REFERENCES metodo_pago ( mp_id )
-);
-
-CREATE TABLE cheque_corporativo (
-    mp_id           INTEGER  NOT NULL,
-    cc_num_cheque   INTEGER NOT NULL,
-    cc_banco_emisor VARCHAR(255) NOT NULL,
-    CONSTRAINT cheque_corporativo_PK PRIMARY KEY ( mp_id ),
-    CONSTRAINT cheque_corporativo_metodo_pago_FK FOREIGN KEY ( mp_id )
-        REFERENCES metodo_pago ( mp_id )
-);
-
-CREATE TABLE criptoactivo (
-    mp_id                  INTEGER  NOT NULL,
-    ctatv_tipo             VARCHAR(255) NOT NULL,
-    ctatv_moneda_base      VARCHAR(255) NOT NULL,
-    ctatv_direccion_wallet VARCHAR(255) NOT NULL,
-    CONSTRAINT criptoactivo_PK PRIMARY KEY ( mp_id ),
-    CONSTRAINT criptoactivo_metodo_pago_FK FOREIGN KEY ( mp_id )
-        REFERENCES metodo_pago ( mp_id )
 );
 
 CREATE TABLE persona_juridica (
@@ -697,17 +632,21 @@ CREATE TABLE taxonomia (
 );
 
 CREATE TABLE prenomina (
-    pnmn_id                   SERIAL  NOT NULL , 
-    pnmn_fecha_inicio_periodo DATE  NOT NULL , 
-    pnmn_fecha_fin_periodo    DATE  NOT NULL , 
-    pnmn_estatus              VARCHAR(255) NOT NULL , 
-    pnmn_monto                NUMERIC  NOT NULL , 
-    fk_ctt_pnmn_1             INTEGER  NOT NULL , 
-    fk_ctt_pnmn_2             INTEGER  NOT NULL , 
-    fk_ctt_pnmn_3             INTEGER  NOT NULL , 
-    fk_htc_pnmn_1             INTEGER  NOT NULL , 
-    fk_htc_pnmn_2             INTEGER NOT NULL , 
+    pnmn_id                   SERIAL  NOT NULL, 
+    pnmn_fecha_inicio_periodo DATE  NOT NULL, 
+    pnmn_fecha_fin_periodo    DATE  NOT NULL, 
+    pnmn_monto                NUMERIC  NOT NULL, 
+    fk_ett_pnmn               INTEGER  NOT NULL, 
+    fk_ctt_pnmn_1             INTEGER  NOT NULL, 
+    fk_ctt_pnmn_2             INTEGER  NOT NULL, 
+    fk_ctt_pnmn_3             INTEGER  NOT NULL, 
+    fk_htc_pnmn_1             INTEGER  NOT NULL, 
+    fk_htc_pnmn_2             INTEGER NOT NULL, 
+    
     CONSTRAINT prenomina_PK PRIMARY KEY ( pnmn_id ),
+    CONSTRAINT prenomina_estatus_FK FOREIGN KEY ( fk_ett_pnmn ) 
+    REFERENCES estatus ( ett_id ),
+        
     CONSTRAINT prenomina_contrato_FK FOREIGN KEY 
     ( 
      fk_ctt_pnmn_1,
@@ -720,17 +659,19 @@ CREATE TABLE prenomina (
      fk_epad_ctt, 
      fk_cg_ctt
     ),
+    
     CONSTRAINT prenomina_historico_tasa_cambio_FK FOREIGN KEY 
     ( 
      fk_htc_pnmn_1,
-     fk_htc_pnmn_2,
+     fk_htc_pnmn_2
     ) 
     REFERENCES historico_tasa_cambio 
     ( 
      htc_id,
-     fk_m_htc_1,
+     fk_m_htc_1
     )
 );
+
 
 CREATE TABLE orden_compra (
     oc_id                SERIAL  NOT NULL , 
