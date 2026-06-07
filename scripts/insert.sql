@@ -1,3 +1,14 @@
+INSERT INTO estatus (ett_nombre, ett_descripcion) VALUES
+('Emitida', 'La orden ha sido creada por el cliente pero aún no se revisa stock.'),
+('Validada', 'Se ha comprobado la disponibilidad de los productos en el almacén.'),
+('En Preparación', 'El personal de almacén está empacando los productos solicitados.'),
+('Despachada', 'La mercancía ha salido del almacén en el transporte de carga.'),
+('Entregada', 'El cliente recibió conforme los productos en su destino.'),
+('Facturada', 'Se ha emitido el documento fiscal de cobro para la orden.'),
+('Cobrada', 'El pago total de la orden ha sido procesado exitosamente.'),
+('Cancelada', 'La orden fue anulada antes de ser despachada.'),
+('Devuelta', 'El cliente regresó el pedido por inconformidad o fallas.');
+
 INSERT INTO lugar (lg_id, lg_nombre, lg_tipo, fk_lg_lg)
 VALUES
     (1,'América','Continente',NULL),
@@ -2797,17 +2808,7 @@ INSERT INTO taxonomia (txnm_cantidad_pieza, txnm_cantidad_material, fk_dp_txnm, 
 (1, 0.010, 9, 9, 9, 9, 4),  
 (12, 1.500, 10, 10, 10, 10, 5);
 
-INSERT INTO fc_cargo (fc_cantidad, fk_fpd_fc, fk_cg_fc) VALUES
-(2, 1, 1), 
-(3, 2, 2),
-(2, 3, 3), 
-(4, 4, 4), 
-(2, 5, 5), 
-(1, 6, 2),
-(2, 7, 3), 
-(3, 8, 3),
-(2, 9, 1), 
-(5, 10, 2);
+
 
 INSERT INTO prenomina (pnmn_fecha_inicio_periodo, pnmn_fecha_fin_periodo, pnmn_monto, fk_ett_pnmn, fk_ctt_pnmn_1, fk_ctt_pnmn_2, fk_ctt_pnmn_3, fk_htc_pnmn_1, fk_htc_pnmn_2) VALUES
 ('2026-05-01', '2026-05-15', 1250.00, 3, 1, 1, 1, 1, 1), 
@@ -2823,13 +2824,226 @@ INSERT INTO prenomina (pnmn_fecha_inicio_periodo, pnmn_fecha_fin_periodo, pnmn_m
 
 INSERT INTO orden_compra (
     oc_nombre_cadena, oc_periodo_pago, oc_fecha_emision, oc_fecha_vencimiento, 
-    oc_credito_utilizado, oc_estado, oc_numero_factura, oc_monto_total, 
-    oc_monto_abonado, fk_pj_oc, fk_ctt_oc_1, fk_ctt_oc_2, fk_ctt_oc_3, fk_oc_oc
+    oc_credito_utilizado, oc_numero_factura, oc_monto_total, oc_monto_abonado, 
+    fk_pj_oc, fk_ctt_oc_1, fk_ctt_oc_2, fk_ctt_oc_3, fk_oc_oc, fk_ett_oc
 ) VALUES
-('Distribuidora Juguetilandia C.A.', 30, '2026-06-01', '2026-07-01', 70.00, 'Emitida', 9901, 70.00, 0.00, 1, 1, 1, 1, NULL), 
-('Distribuidora Juguetilandia C.A.', 30, '2026-06-02', '2026-07-02', 42.00, 'Validada', 9902, 42.00, 42.00, 1, 2, 2, 2, NULL), 
-('Juguetes del Mundo S.A.', 15, '2026-06-01', '2026-06-16', 56.00, 'En Preparación', 9903, 56.00, 0.00, 2, 3, 3, 3, NULL), 
-('Juguetes del Mundo S.A.', 15, '2026-06-03', '2026-06-18', 49.00, 'Despachada', 9904, 49.00, 49.00, 2, 4, 4, 2, NULL), 
-('Inversiones El Chamo', 45, '2026-06-02', '2026-07-17', 84.00, 'Entregada', 9905, 84.00, 84.00, 3, 5, 5, 4, NULL), 
-('Inversiones El Chamo', 45, '2026-06-04', '2026-07-19', 40.00, 'Facturada', 9906, 40.00, 0.00, 3, 6, 6, 2, NULL), 
+('Distribuidora Juguetilandia C.A.', 30, '2026-06-01', '2026-07-01', 70.00, 9901, 70.00, 0.00, 1, 1, 1, 1, NULL, 1), 
+('Distribuidora Juguetilandia C.A.', 30, '2026-06-02', '2026-07-02', 42.00, 9902, 42.00, 42.00, 1, 2, 2, 2, NULL, 2), 
+('Juguetes del Mundo S.A.', 15, '2026-06-01', '2026-06-16', 56.00, 9903, 56.00, 0.00, 2, 3, 3, 3, NULL, 3), 
+('Juguetes del Mundo S.A.', 15, '2026-06-03', '2026-06-18', 49.00, 9904, 49.00, 49.00, 2, 4, 4, 2, NULL, 4), 
+('Inversiones El Chamo', 45, '2026-06-02', '2026-07-17', 84.00, 9905, 84.00, 84.00, 3, 5, 5, 4, NULL, 5), 
+('Inversiones El Chamo', 45, '2026-06-04', '2026-07-19', 40.00, 9906, 40.00, 0.00, 3, 6, 6, 2, NULL, 6), 
+('Distribuidora Juguetilandia C.A.', 30, '2026-06-05', '2026-07-05', 150.00, 9907, 150.00, 150.00, 1, 7, 7, 5, 1, 7), 
+('Tiendas TodoToys', 30, '2026-06-05', '2026-07-05', 200.00, NULL, 200.00, 0.00, 4, 8, 8, 3, NULL, 8),                  
+('Importaciones Globales', 60, '2026-06-06', '2026-08-06', 1200.00, 9908, 1200.00, 0.00, 5, 9, 9, 2, NULL, 1),             
+('Mega Tiendas Infantiles', 30, '2026-06-06', '2026-07-06', 500.00, 9909, 500.00, 250.00, 6, 10, 10, 2, NULL, 9);         
+
+CREATE PROCEDURE p_poblar_subastas_y_pujas(
+    p_total_subastas INT,
+    p_usuarios_por_subasta INT,
+    p_pujas_por_usuario INT
+) 
+AS $$
+DECLARE
+    subasta_id INT;
+    usuario_id INT;
+    puja_base_monto INT;
+    monto_actual INT;
+    fecha_inicio TIMESTAMP;
+    fecha_fin TIMESTAMP;
+    contador_subastas INT;
+    contador_usuarios INT;
+    contador_pujas INT;
+BEGIN
+    TRUNCATE TABLE puja CASCADE;
+    TRUNCATE TABLE subasta CASCADE;
+    FOR contador_subastas IN 1..p_total_subastas LOOP
+        fecha_inicio := '2026-06-07 08:00:00'::TIMESTAMP + (contador_subastas || 'hours')::INTERVAL;
+        fecha_fin := fecha_inicio + '4 hours'::INTERVAL;
+        
+        INSERT INTO subasta (
+            sbt_precio_base, sbt_incremento_minimo, sbt_precio_final, 
+            sbt_fecha_hora_inicio, sbt_fecha_hora_fin, fk_cet_sbt
+        ) VALUES (
+            100 + (contador_subastas * 5), 
+            10,                           
+            NULL,                         
+            fecha_inicio, 
+            fecha_fin, 
+            ((contador_subastas % p_usuarios_por_subasta) + 1)
+        );
+    END LOOP;
+
+  
+    FOR subasta_id IN 1..p_total_subastas LOOP
+        
+        SELECT sbt_precio_base INTO puja_base_monto FROM subasta WHERE sbt_id = subasta_id;
+        monto_actual := puja_base_monto;
+        
+        FOR contador_usuarios IN 1..p_usuarios_por_subasta LOOP
+            usuario_id := contador_usuarios; 
+            
+            FOR contador_pujas IN 1..p_pujas_por_usuario LOOP
+                monto_actual := monto_actual + 10;
+                
+                INSERT INTO puja (pj_num_intento, pj_monto, pj_fecha_hora, fk_sbt_pj, fk_cet_pj)
+                VALUES (
+                    contador_pujas, 
+                    monto_actual,
+                    '2026-06-07 08:15:00'::TIMESTAMP + (subasta_id || 'hours')::INTERVAL + (contador_pujas || 'minutes')::INTERVAL,
+                    subasta_id,
+                    usuario_id
+                );
+            END LOOP;
+            
+        END LOOP;
+        
+        UPDATE subasta 
+        SET sbt_precio_final = monto_actual 
+        WHERE sbt_id = subasta_id;
+
+    END LOOP;
+
+END;
+$$ LANGUAGE plpgsql;
+
+CALL p_poblar_subastas_y_pujas(100, 20, 3);
+
+INSERT INTO orden_venta (ov_fecha_hora, ov_monto, ov_numero_factura, fk_sbt_ov) VALUES
+('2026-06-05 18:30:00', 250, 7701, 1),
+('2026-06-05 19:30:00', 320, 7702, 2),
+('2026-06-05 20:45:00', 120, 7703, 3),
+('2026-06-06 15:30:00', 450, 7704, 4),
+('2026-06-06 17:45:00', 600, 7705, 5),
+('2026-06-06 18:30:00', 95, 7706, 6),
+('2026-06-07 16:30:00', 1100, 7707, 7),
+('2026-06-07 17:45:00', 210, 7708, 8),
+('2026-06-07 19:30:00', 390, 7709, 9),
+('2026-06-08 21:30:00', 2500, 7710, 10);
+
+INSERT INTO detalle_prenomina (dpnmn_monto_calculado, dpnmn_cantidad, fk_astc_dpnmn, fk_bnf_dpnmn, fk_pnmn_dpnmn, fk_bc_dpnmn_1, fk_bc_dpnmn_2, fk_bc_dpnmn_3, fk_bc_dpnmn_4) VALUES
+(45.50, 1, 1, NULL, 1, 1, 1, 1, 1),
+(30.00, 1, 2, NULL, 2, 2, 2, 2, 2),
+(50.00, 1, 3, NULL, 3, 3, 3, 3, 3),
+(25.00, 1, 4, NULL, 4, 4, 4, 2, 1),
+(60.00, 1, 5, NULL, 5, 5, 5, 5, 4),
+(45.50, 1, 1, NULL, 6, 1, 1, 1, 1),
+(32.00, 1, 2, NULL, 7, 2, 2, 2, 2),
+(55.00, 1, 3, NULL, 8, 3, 3, 3, 3),
+(25.00, 1, 4, NULL, 9, 4, 4, 2, 1),
+(65.00, 1, 5, NULL, 10, 5, 5, 5, 4);
+
+INSERT INTO fc_cargo (fc_cantidad, fk_fpd_fc, fk_cg_fc) VALUES
+(2, 1, 1), 
+(3, 2, 2),
+(2, 3, 3), 
+(4, 4, 4), 
+(2, 5, 5), 
+(1, 6, 2),
+(2, 7, 3), 
+(3, 8, 3),
+(2, 9, 1), 
+(5, 10, 2);
+
+INSERT INTO orden_produccion (op_cantidad_solicitada, op_fecha_creacion_orden, op_fecha_finalizacion_orden, fk_dp_op, fk_txnma_op_1, fk_txnma_op_2, fk_txnma_op_3, fk_dpp_op_1, fk_dpp_op_2) VALUES
+(500, '2026-06-01 06:00:00', '2026-06-03 18:00:00', 1, 1, 1, 1, 1, 1),
+(1000, '2026-06-01 07:00:00', '2026-06-04 12:00:00', 2, 2, 2, 2, 2, 1),
+(2500, '2026-06-02 08:00:00', NULL, 3, 3, 3, 3, 3, 2),
+(400, '2026-06-02 09:30:00', '2026-06-05 15:00:00', 4, 4, 4, 4, 4, 1),
+(300, '2026-06-03 10:00:00', NULL, 5, 5, 5, 5, 5, 3),
+(600, '2026-06-03 11:15:00', '2026-06-06 10:00:00', 6, 6, 6, 1, 6, 3),
+(5000, '2026-06-04 07:00:00', NULL, 7, 7, 7, 2, 7, 4),
+(800, '2026-06-04 08:45:00', '2026-06-06 16:00:00', 8, 8, 8, 3, 8, 2),
+(1200, '2026-06-05 09:00:00', NULL, 9, 9, 9, 4, 9, 1),
+(3000, '2026-06-05 11:30:00', NULL, 10, 10, 10, 5, 10, 5);
+
+INSERT INTO unidad_producto (up_precio_minorista, up_precio_mayorista, up_fecha_hora_disponible, fk_op_up, fk_fbc_up, fk_sbt_up) VALUES
+(49.99, 35.00, '2026-06-04 18:00:00', 1, 1, NULL),
+(49.99, 35.00, '2026-06-04 18:00:00', 1, 1, 1),
+(29.99, 20.00, '2026-06-05 10:00:00', 2, 2, NULL),
+(29.99, 20.00, '2026-06-05 10:00:00', 2, 2, 2),
+(34.99, 25.00, '2026-06-05 14:00:00', 3, 3, 3),
+(39.99, 28.00, '2026-06-06 09:00:00', 4, 4, 4),
+(59.99, 42.00, '2026-06-06 11:00:00', 5, 5, 5),
+(64.99, 45.00, '2026-06-06 13:00:00', 6, 1, 6),
+(9.99, 6.50, '2026-06-07 08:00:00', 7, 2, 7),
+(19.99, 14.00, '2026-06-07 10:00:00', 8, 3, 8);
+
+INSERT INTO conciliacion_pago (cp_monto_aplicado, cp_fecha_hora, fk_oc_cp, fk_co_cp, fk_ov_cp) VALUES
+(150, '2026-06-01 10:05:00', NULL, 1, NULL),
+(90, '2026-06-02 14:35:00', NULL, 2, NULL),
+(420, '2026-06-03 18:20:00', NULL, 3, NULL),
+(250, '2026-06-05 19:00:00', NULL, NULL, 1),
+(320, '2026-06-05 20:00:00', NULL, NULL, 2),
+(120, '2026-06-05 21:00:00', NULL, NULL, 3),
+(5000, '2026-05-12 11:00:00', 1, NULL, NULL),
+(2500, '2026-05-15 15:00:00', 2, NULL, NULL),
+(1200, '2026-05-20 09:30:00', 4, NULL, NULL),
+(5000, '2026-05-25 14:20:00', 5, NULL, NULL);
+
+INSERT INTO despacho (dpc_manifiesto_carga, dpc_numero_tracking, dpc_direccion_envio, dpc_costo, fk_tpt_dpc, fk_ov_dpc, fk_lg_dpc, fk_co_dpc) VALUES
+('Carga Juguetes Frágiles - A1', 9876541, 'Av. Francisco de Miranda, Caracas', 15.00, 1, NULL, 710, 1),
+('Envío Exprés Cliente - B2', 9876542, 'Urb. Las Mercedes, Caracas', 12.00, 2, NULL, 827, 2),
+('Despacho Caja Grande - C3', 9876543, 'Zona Industrial, Valencia', 45.00, 3, NULL, 828, 3),
+('Subasta Ganada Entrega - D4', 9876544, 'Calle Los Juncos, Maracay', 20.00, 4, 1, 829, NULL),
+('Subasta Especial de Lujo - E5', 9876545, 'Av. Bella Vista, Maracaibo', 35.00, 5, 2, 830, NULL),
+('Envío Asegurado Subasta - F6', 9876546, 'Urb. Lechería, Anzoátegui', 22.00, 1, 3, 831, NULL),
+('Despacho Regular Online - G7', 9876547, 'Sector Centro, Barquisimeto', 18.00, 2, NULL, 832, 4),
+('Envío puerta a puerta - H8', 9876548, 'Av. Bolívar, San Cristóbal', 25.00, 3, NULL, 833, 5),
+('Carga Pesada Juguetes - I9', 9876549, 'Calle Principal, Puerto Ordaz', 50.00, 4, NULL, 834, 6),
+('Última Milla Priority - J10', 9876550, 'Urb. El Viñedo, Valencia', 15.00, 5, NULL, 835, 7);
+
+INSERT INTO fase_prueba_produccion (fpp_fecha_inicio, fpp_fecha_fin, fpp_resultado, fk_up_fpp, fk_fpd_fpp) VALUES
+('2026-06-02', '2026-06-04', 'Aprobado sin defectos', 1, 1),
+('2026-06-02', '2026-06-04', 'Aprobado con detalles de pintura', 2, 2),
+('2026-06-03', '2026-06-05', 'Aprobado en límites estables', 3, 3),
+('2026-06-03', '2026-06-05', 'Aprobado sin fallas', 4, 4),
+('2026-06-04', '2026-06-05', 'Exitoso', 5, 5),
+('2026-06-04', '2026-06-06', 'Aprobado control de calidad', 6, 6),
+('2026-06-05', '2026-06-06', 'Aprobado estructuralmente', 7, 7),
+('2026-06-05', '2026-06-06', 'Exitoso', 8, 8),
+('2026-06-06', '2026-06-07', 'Aprobado sin observaciones', 9, 9),
+('2026-06-06', '2026-06-07', 'Aprobado final', 10, 10);
+
+INSERT INTO fpp_contrato (fppc_fecha_hora_inicio_labor, fppc_fecha_hora_fin_labor, fk_ctt_fppc_1, fk_ctt_fppc_2, fk_ctt_fppc_3, fk_fpp_fppc) VALUES
+('2026-06-02 08:00:00', '2026-06-02 12:00:00', 1, 1, 1, 1),
+('2026-06-02 13:00:00', '2026-06-02 17:00:00', 2, 2, 2, 2),
+('2026-06-03 08:00:00', '2026-06-03 12:00:00', 3, 3, 3, 3),
+('2026-06-03 13:00:00', '2026-06-03 17:00:00', 4, 4, 2, 4),
+('2026-06-04 08:00:00', '2026-06-04 12:00:00', 5, 5, 4, 5),
+('2026-06-04 13:00:00', '2026-06-04 17:00:00', 6, 6, 2, 6),
+('2026-06-05 08:00:00', '2026-06-05 12:00:00', 7, 7, 5, 7),
+('2026-06-05 13:00:00', '2026-06-05 17:00:00', 8, 8, 3, 8),
+('2026-06-06 08:00:00', '2026-06-06 12:00:00', 9, 9, 2, 9),
+('2026-06-06 13:00:00', '2026-06-06 17:00:00', 10, 10, 2, 10);
+
+INSERT INTO consumo_materia_prima (cmp_cantidad_usada, fk_lmp_cmp, fk_up_cmp) VALUES
+(0.245, 'LOTE-2026-00A', 1), (0.248, 'LOTE-2026-00A', 2), (0.115, 'LOTE-2026-00B', 3), (0.118, 'LOTE-2026-00B', 4), (0.790, 'LOTE-2026-00C', 5),
+(0.235, 'LOTE-2026-00C', 6), (0.440, 'LOTE-2026-00D', 7), (0.495, 'LOTE-2026-00D', 8), (0.048, 'LOTE-2026-00E', 9), (0.290, 'LOTE-2026-00E', 10);
+
+INSERT INTO historial_post_venta (hpv_tipo_evento, hpv_fecha_hora_evento, hpv_estado_conservacion, hpv_precio_transaccion, hpv_observaciones, fk_up_hpv, fk_cet_hpv) VALUES
+('Reventa de Coleccionista', '2026-06-06 12:00:00', 'NRFB', 350.00, 'Caja intacta sellada de fábrica', 2, 1),
+('Evaluación Convención', '2026-06-06 14:00:00', 'Mint', NULL, 'Abierto en display protegido', 4, 2),
+('Donación Institucional', '2026-06-06 15:30:00', 'Mint', 0.00, 'Donado a museo del juguete', 1, 3),
+('Venta Mercado Secundario', '2026-06-06 17:00:00', 'Restoration Needed', 45.00, 'Desgaste menor en la vestimenta', 3, 4),
+('Certificación de Estado', '2026-06-06 19:00:00', 'NRFB', NULL, 'Certificado oficial Mattel A+', 5, 5),
+('Subasta Privada', '2026-06-07 10:00:00', 'NRFB', 800.00, 'Lote exclusivo de reventa', 6, 6),
+('Inspección de Colección', '2026-06-07 11:30:00', 'Mint', NULL, 'Perteneciente a club VIP', 7, 7),
+('Intercambio de Fans', '2026-06-07 14:00:00', 'Mint', 120.00, 'Trato cerrado entre particulares', 8, 8),
+('Exposición Comercial', '2026-06-07 16:15:00', 'NRFB', NULL, 'Muestra para vitrina', 9, 9),
+('Tasación Profesional', '2026-06-07 18:00:00', 'Restoration Needed', 200.00, 'Caja rota pero juguete impecable', 10, 10);
+
+INSERT INTO historico_estatus (he_fecha_hora_inicio, he_fecha_hora_fin, fk_he_pr, fk_he_asis, fk_he_fsp, fk_he_op, fk_he_estatus, fk_he_usuario, fk_he_ov, fk_he_hpv, fk_he_us, fk_he_up, fk_he_oc, fk_he_co) VALUES
+(1779836400, 1779865200, NULL, 1, NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1779750000, NULL, NULL, NULL, NULL, 1, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1779810000, 1779830000, NULL, NULL, NULL, NULL, 6, NULL, NULL, NULL, NULL, NULL, 2, NULL),
+(1779840000, NULL, NULL, NULL, NULL, NULL, 7, NULL, NULL, NULL, NULL, NULL, 4, NULL),
+(1779850000, NULL, NULL, NULL, NULL, NULL, 8, NULL, NULL, NULL, NULL, NULL, 5, NULL),
+(1779760000, 1779780000, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(1779820000, NULL, NULL, NULL, NULL, NULL, 4, NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(1779830000, NULL, NULL, NULL, NULL, NULL, 4, NULL, 2, NULL, NULL, NULL, NULL, NULL),
+(1779890000, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, 1, NULL, NULL, NULL, NULL),
+(1779900000, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, 1, NULL, NULL);
+
+
 

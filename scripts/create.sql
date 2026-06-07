@@ -672,24 +672,25 @@ CREATE TABLE prenomina (
     )
 );
 
-
 CREATE TABLE orden_compra (
-    oc_id                SERIAL  NOT NULL , 
-    oc_nombre_cadena     VARCHAR(255) NOT NULL , 
-    oc_periodo_pago      INTEGER  NOT NULL , 
-    oc_fecha_emision     DATE  NOT NULL , 
-    oc_fecha_vencimiento DATE  NOT NULL , 
-    oc_credito_utilizado NUMERIC NOT NULL ,  
-    oc_estado            VARCHAR(255) NOT NULL , 
-    oc_numero_factura    INTEGER ,  
-    oc_monto_total       NUMERIC  NOT NULL , 
-    oc_monto_abonado     NUMERIC  NOT NULL , 
-    fk_pj_oc             INTEGER  NOT NULL ,
-    fk_ctt_oc_1          INTEGER  NOT NULL , 
-    fk_ctt_oc_2          INTEGER  NOT NULL , 
+    oc_id                SERIAL  NOT NULL, 
+    oc_nombre_cadena     VARCHAR(255) NOT NULL, 
+    oc_periodo_pago      INTEGER  NOT NULL, 
+    oc_fecha_emision     DATE  NOT NULL, 
+    oc_fecha_vencimiento DATE  NOT NULL, 
+    oc_credito_utilizado NUMERIC NOT NULL,  
+    oc_numero_factura    INTEGER,  
+    oc_monto_total       NUMERIC  NOT NULL, 
+    oc_monto_abonado     NUMERIC  NOT NULL, 
+    fk_pj_oc             INTEGER  NOT NULL,
+    fk_ctt_oc_1          INTEGER  NOT NULL, 
+    fk_ctt_oc_2          INTEGER  NOT NULL, 
     fk_ctt_oc_3          INTEGER  NOT NULL,
-    fk_oc_oc             INTEGER ,
+    fk_oc_oc             INTEGER,
+    fk_eo_oc             INTEGER  NOT NULL, -- La nueva Clave Foránea de Estado
+    
     CONSTRAINT orden_compra_PK PRIMARY KEY ( oc_id ),
+    
     CONSTRAINT orden_compra_contrato_FK FOREIGN KEY 
     ( 
      fk_ctt_oc_1,
@@ -702,21 +703,15 @@ CREATE TABLE orden_compra (
      fk_epad_ctt,
      fk_cg_ctt
     ),
+    
     CONSTRAINT orden_compra_orden_compra_FK FOREIGN KEY (fk_oc_oc) 
-    REFERENCES orden_compra (oc_id),
+        REFERENCES orden_compra (oc_id),
+        
     CONSTRAINT orden_compra_persona_juridica_FK FOREIGN KEY (fk_pj_oc) 
-    REFERENCES persona_juridica (pj_id),
-    CONSTRAINT oc_estado_check CHECK(oc_estado IN
-    ('Emitida', 
-     'Validada', 
-     'En Preparación', 
-     'Despachada',
-     'Entregada', 
-     'Facturada', 
-     'Cobrada', 
-     'Cancelada', 
-     'Devuelta'
-    ))
+        REFERENCES persona_juridica (pj_id),
+        
+    CONSTRAINT orden_compra_estatus_FK FOREIGN KEY (fk_eo_oc)
+        REFERENCES estatus (ett_id)
 );
 
 CREATE TABLE subasta (
@@ -733,15 +728,17 @@ CREATE TABLE subasta (
 );
 
 CREATE TABLE puja (
-    pj_monto       INTEGER  NOT NULL , 
-    pj_fecha_hora  TIMESTAMP  NOT NULL , 
-    fk_sbt_pj      INTEGER  NOT NULL , 
-    fk_cet_pj      INTEGER  NOT NULL , 
-    CONSTRAINT puja_PK PRIMARY KEY ( fk_sbt_pj, fk_cet_pj ),
+    pj_id          INTEGER  NOT NULL, 
+    pj_monto       INTEGER  NOT NULL, 
+    pj_fecha_hora  TIMESTAMP  NOT NULL, 
+    fk_sbt_pj      INTEGER  NOT NULL, 
+    fk_cet_pj      INTEGER  NOT NULL, 
+    
+    CONSTRAINT puja_PK PRIMARY KEY ( fk_sbt_pj, fk_cet_pj, pj_id ),
     CONSTRAINT puja_persona_natural_FK FOREIGN KEY (fk_cet_pj) 
-    REFERENCES persona_natural (pn_id),
+        REFERENCES persona_natural (pn_id),
     CONSTRAINT puja_subasta_FK FOREIGN KEY (fk_sbt_pj) 
-    REFERENCES subasta (sbt_id)
+        REFERENCES subasta (sbt_id)
 );
 
 CREATE TABLE orden_venta (
