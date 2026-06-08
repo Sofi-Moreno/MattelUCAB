@@ -2740,45 +2740,44 @@ VALUES
     (4, 10),
     (4, 8);
 
-INSERT INTO contrato (
-    ctt_fecha_inicio, ctt_fecha_fin, ctt_sueldo_base_us, fk_epad_ctt, fk_cg_ctt
+INSERT INTO contrato (ctt_id, ctt_fecha_inicio, ctt_fecha_fin, ctt_sueldo_base_us, fk_epad_ctt, fk_cg_ctt
 ) VALUES
-    ('2024-01-01', NULL, 2500.00, 1, 1),
-    ('2024-02-15', NULL, 1200.00, 2, 2),
-    ('2024-03-01', NULL, 1500.00, 3, 3),
-    ('2024-04-10', NULL, 950.00, 4, 2),
-    ('2024-05-20', NULL, 1400.00, 5, 4),
-    ('2024-06-01', NULL, 950.00, 6, 2),
-    ('2024-07-15', NULL, 1100.00, 7, 5),
-    ('2024-08-01', NULL, 1500.00, 8, 3),
-    ('2024-09-10', NULL, 950.00, 9, 2),
-    ('2024-01-15', '2025-01-15', 900.00, 10, 2);
+    (1, '2024-01-01', NULL, 2500.00, 1, 1),
+    (2, '2024-02-15', NULL, 1200.00, 2, 2),
+    (3, '2024-03-01', NULL, 1500.00, 3, 3),
+    (4, '2024-04-10', NULL, 950.00, 4, 2),
+    (5, '2024-05-20', NULL, 1400.00, 5, 4),
+    (6, '2024-06-01', NULL, 950.00, 6, 2),
+    (7, '2024-07-15', NULL, 1100.00, 7, 5),
+    (8, '2024-08-01', NULL, 1500.00, 8, 3),
+    (9, '2024-09-10', NULL, 950.00, 9, 2),
+    (10, '2024-01-15', '2025-01-15', 900.00, 10, 2);
 
-INSERT INTO compra_online (co_fecha_hora, co_numero_compra, co_monto_total, co_numero_factura, fk_pn_co)
+INSERT INTO compra_online (co_id, co_fecha_hora, co_numero_compra, co_monto_total, co_numero_factura, fk_pn_co)
  VALUES
-    ('2026-06-01 10:00:00', 1001, 150.50, 5501, 1),
-    ('2026-06-02 14:30:00', 1002, 89.99, 5502, 2),
-    ('2026-06-03 18:15:00', 1003, 420.00, 5503, 3),
-    ('2026-06-04 09:10:00', 1004, 25.00, 5504, 4),
-    ('2026-06-04 11:45:00', 1005, 115.00, 5505, 5),
-    ('2026-06-05 13:20:00', 1006, 310.50, 5506, 6),
-    ('2026-06-05 16:00:00', 1007, 75.25, 5507, 7),
-    ('2026-06-05 21:00:00', 1008, 95.00, 5508, 8),
-    ('2026-06-06 08:30:00', 1009, 180.00, 5509, 9),
-    ('2026-06-06 12:00:00', 1010, 60.00, 5510, 10);
+    (1, '2026-06-01 10:00:00', 1001, 150.50, 5501, 1),
+    (2, '2026-06-02 14:30:00', 1002, 89.99, 5502, 2),
+    (3, '2026-06-03 18:15:00', 1003, 420.00, 5503, 3),
+    (4, '2026-06-04 09:10:00', 1004, 25.00, 5504, 4),
+    (5, '2026-06-04 11:45:00', 1005, 115.00, 5505, 5),
+    (6, '2026-06-05 13:20:00', 1006, 310.50, 5506, 6),
+    (7, '2026-06-05 16:00:00', 1007, 75.25, 5507, 7),
+    (8, '2026-06-05 21:00:00', 1008, 95.00, 5508, 8),
+    (9, '2026-06-06 08:30:00', 1009, 180.00, 5509, 9),
+    (10, '2026-06-06 12:00:00', 1010, 60.00, 5510, 10);
 
-INSERT INTO asistencia (astc_hora_entrada, astc_hora_salida, astc_fecha_laboral, astc_horas_trabajadas, astc_horas_extra, fk_ctt_astc_1, fk_ctt_astc_2, fk_ctt_astc_3) 
+INSERT INTO asistencia (astc_id, astc_hora_entrada, astc_hora_salida, astc_fecha_laboral, astc_horas_trabajadas, astc_horas_extra, fk_ctt_astc_1, fk_ctt_astc_2, fk_ctt_astc_3) 
 VALUES
-    ('2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 1, 1, 1),
-    ('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 2, 2, 2),
-    ('2026-06-05 07:30:00', '2026-06-05 16:30:00', '2026-06-05 00:00:00', 8, 1, 3, 3, 3),
-    ('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 4, 4, 2),
-    ('2026-06-05 09:00:00', '2026-06-05 18:00:00', '2026-06-05 00:00:00', 8, 0, 5, 5, 4),
-    ('2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 6, 6, 2),
-    ('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 7, 7, 5),
-    ('2026-06-05 07:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 1, 8, 8, 3),
-    ('2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 9, 9, 2),
-    ('2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 10, 10, 2);
+    (1, '2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 1, 1, 1),
+    (2, '2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 2, 2, 2),
+    (3, '2026-06-05 07:30:00', '2026-06-05 16:30:00', '2026-06-05 00:00:00', 8, 1, 3, 3, 3),
+    (4, '2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 4, 4, 2),
+    (5, '2026-06-05 09:00:00', '2026-06-05 18:00:00', '2026-06-05 00:00:00', 8, 0, 5, 5, 4),
+    (6, '2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 6, 6, 2),
+    (7, '2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 7, 7, 5),
+    (8, '2026-06-05 07:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 1, 8, 8, 3),
+    (9, '2026-06-05 08:00:00', '2026-06-05 16:00:00', '2026-06-05 00:00:00', 8, 0, 9, 9, 2),
+    (10, '2026-06-05 08:00:00', '2026-06-05 17:00:00', '2026-06-05 00:00:00', 8, 1, 10, 10, 2);
 
 INSERT INTO beneficio_contrato (bc_monto_acordado, fk_ctt_bc_1, fk_ctt_bc_2, fk_ctt_bc_3, fk_bnf_bc) 
 VALUES
@@ -2791,7 +2790,7 @@ VALUES
     (140.00, 7, 7, 5, 5),
     (125.00, 8, 8, 3, 3),
     (90.00, 9, 9, 2, 1),
-    (100.00, 10, 10, 10, 2);
+    (100.00, 10, 10, 2, 2);
 
 INSERT INTO contrato_horario (ch_dia, ch_turno, fk_hrr_ch, fk_ctt_ch_1, fk_ctt_ch_2, fk_ctt_ch_3) 
 VALUES
@@ -2806,35 +2805,21 @@ VALUES
     ('Jueves', 'Nocturno', 3, 9, 9, 2),
     ('Viernes', 'Diurno', 1, 10, 10, 2);
 
-INSERT INTO diseno_producto (
+INSERT INTO diseno_producto (dp_id,
     dp_nombre_comercial, dp_ancho_cm, dp_alto_cm, dp_largo_cm, 
     dp_precio_minorista, dp_precio_mayorista, dp_acceso_prioritario, 
     fk_eh_dp, fk_ce_dp, fk_cl_dp_ojos, fk_cl_dp_piel, 
     dp_usa_bateria, fk_tc_dp, fk_dp_dp, dp_limite_compra_usuario    
 ) VALUES
-    ('Barbie Edición Colección 2026', 15.0, 30.0, 7.0, 49.99, 35.00, TRUE, 1, 1, 1, 2, FALSE, 1, NULL, 2),
-    ('Barbie Malibú Beach Princess', 15.0, 30.0, 6.5, 29.99, 21.00, FALSE, 1, 1, 2, 2, FALSE, 1, NULL, 5),
-    ('Barbie Astronauta Misión Alfa', 16.0, 31.0, 7.5, 39.99, 28.00, FALSE, 1, 1, 1, 4, FALSE, 1, NULL, 4),
-    ('Barbie Sirena Destellos Mágicos', 14.0, 32.0, 6.0, 34.99, 24.50, TRUE, 1, 1, 4, 2, TRUE, 1, NULL, 3),
-    ('Barbie Presidenta Edición Gala', 15.0, 30.0, 7.0, 59.99, 42.00, TRUE, 1, 1, 2, 3, FALSE, 1, NULL, 1),
-    ('Barbie Ken Malibú Casual', 16.0, 32.0, 8.0, 29.99, 20.00, FALSE, 1, 1, 2, 2, FALSE, 2, NULL, 5),
-    ('Barbie Fashionista Diversidad 2026', 14.5, 29.5, 6.8, 19.99, 14.00, FALSE, 1, 1, 3, 5, FALSE, 1, NULL, 10),
-    ('Barbie Veterinaria con Mascotas', 22.0, 30.0, 10.0, 44.99, 31.00, FALSE, 1, 1, 1, 2, FALSE, 1, NULL, 4),
-    ('Barbie Pop Star Luces de Neón', 15.0, 30.0, 7.0, 24.99, 17.50, FALSE, 1, 1, 4, 1, TRUE, 1, NULL, 6),
-    ('Barbie Dreamhouse Playset Escala', 60.0, 50.0, 20.0, 120.00, 85.00, TRUE, 1, 1, 3, 3, TRUE, 6, NULL, 1);
-
-INSERT INTO autor_diseno (ad_porcentaje_autoria, fk_ctt_ad_1, fk_ctt_ad_2, fk_ctt_ad_3, fk_dp_ad) 
-VALUES
-    (100.00, 1, 1, 1, 1),
-    (100.00, 2, 2, 2, 2),
-    (50.00, 3, 3, 3, 3),
-    (50.00, 4, 4, 2, 3),
-    (100.00, 5, 5, 4, 4),
-    (70.00, 6, 6, 2, 5),
-    (30.00, 7, 7, 5, 5),
-    (100.00, 8, 8, 3, 6),
-    (100.00, 9, 9, 2, 7),
-    (100.00, 10, 10, 2, 8);
+    (1, 'Barbie Edición Colección 2026', 15.0, 30.0, 7.0, 49.99, 35.00, TRUE, 1, 1, 1, 2, FALSE, 1, NULL, 2),
+    (2, 'Barbie Malibú Beach Princess', 15.0, 30.0, 6.5, 29.99, 21.00, FALSE, 1, 1, 2, 2, FALSE, 1, NULL, 5),
+    (3, 'Barbie Astronauta Misión Alfa', 16.0, 31.0, 7.5, 39.99, 28.00, FALSE, 1, 1, 1, 4, FALSE, 1, NULL, 4),
+    (4, 'Barbie Sirena Destellos Mágicos', 14.0, 32.0, 6.0, 34.99, 24.50, TRUE, 1, 1, 4, 2, TRUE, 1, NULL, 3),
+    (5, 'Barbie Presidenta Edición Gala', 15.0, 30.0, 7.0, 59.99, 42.00, TRUE, 1, 1, 2, 3, FALSE, 1, NULL, 1),
+    (6, 'Barbie Fashionista Diversidad 2026', 14.5, 29.5, 6.8, 19.99, 14.00, FALSE, 1, 1, 3, 5, FALSE, 1, NULL, 10),
+    (7, 'Barbie Veterinaria con Mascotas', 22.0, 30.0, 10.0, 44.99, 31.00, FALSE, 1, 1, 1, 2, FALSE, 1, NULL, 4),
+    (8, 'Barbie Pop Star Luces de Neón', 15.0, 30.0, 7.0, 24.99, 17.50, FALSE, 1, 1, 4, 1, TRUE, 1, NULL, 6),
+    (9, 'Barbie Dreamhouse Playset Escala', 60.0, 50.0, 20.0, 120.00, 85.00, TRUE, 1, 1, 3, 3, TRUE, 6, NULL, 1);
 
 INSERT INTO dp_categoria (fk_dp_dpc, fk_cp_dpc) 
 VALUES
@@ -2875,18 +2860,18 @@ VALUES
     ('2026-06-05 08:00:00', 90.00, 'Barbie Price Guide', 9),
     ('2026-06-05 13:10:00', 35.00, 'Fisher-Price Archive', 10);
 
-INSERT INTO fase_prueba_diseno (fpd_numero_paso, fpd_dias_estimados, fpd_tipo, fk_dp_fpd, fk_octlg_fpd) 
+INSERT INTO fase_prueba_diseno (fpd_id,fpd_numero_paso, fpd_dias_estimados, fpd_tipo, fk_dp_fpd, fk_octlg_fpd) 
 VALUES
-    (1, 5, 'Prueba de Pintura', 1, 1),
-    (1, 4, 'Prueba de Inyección', 2, 2),
-    (1, 7, 'Resistencia de Materiales', 3, 3),
-    (1, 6, 'Prueba de Costura', 4, 4),
-    (1, 5, 'Prueba de Mecanismo Eléctrico', 5, 5),
-    (1, 4, 'Prueba de Flexibilidad', 6, 1),
-    (1, 6, 'Control de Toxinas', 7, 2),
-    (1, 8, 'Prueba de Caídas', 8, 3),
-    (1, 5, 'Prueba de Empaque', 9, 4),
-    (1, 12, 'Ensamblaje Estructural', 10, 5);
+    (1, 1, 5, 'Producción', 1, 1),
+    (2, 1, 4, 'Prueba', 2, 2),
+    (3, 1, 7, 'Producción', 3, 3),
+    (4, 1, 6, 'Prueba', 4, 4),
+    (5, 1, 5, 'Producción', 5, 5),
+    (6, 1, 4, 'Prueba', 6, 1),
+    (7, 1, 6, 'Prueba', 7, 2),
+    (8, 1, 8, 'Producción', 8, 3),
+    (9, 1, 5, 'Prueba', 9, 4),
+    (10,1, 12, 'Producción', 10, 5);
 
 INSERT INTO taxonomia (txnm_cantidad_pieza, txnm_cantidad_material, fk_dp_txnm, fk_pz_txnm, fk_md_txnm, fk_mp_txnm, fk_cl_txnm) 
 VALUES
@@ -2901,35 +2886,36 @@ VALUES
     (1, 0.010, 9, 9, 9, 9, 4),  
     (12, 1.500, 10, 10, 10, 10, 5);
 
-INSERT INTO prenomina (pnmn_fecha_inicio_periodo, pnmn_fecha_fin_periodo, pnmn_monto, fk_ctt_pnmn_1, fk_ctt_pnmn_2, fk_ctt_pnmn_3, fk_htc_pnmn_1, fk_htc_pnmn_2) 
+INSERT INTO prenomina (pnmn_id,pnmn_fecha_inicio_periodo, pnmn_fecha_fin_periodo, 
+pnmn_monto, fk_ctt_pnmn_1, fk_ctt_pnmn_2, fk_ctt_pnmn_3, fk_htc_pnmn_1, fk_htc_pnmn_2) 
 VALUES
-    ('2026-05-01', '2026-05-15', 1250.00, 1, 1, 1, 1, 1), 
-    ('2026-05-01', '2026-05-15', 600.00, 2, 2, 2, 1, 1),
-    ('2026-05-01', '2026-05-15', 750.00, 3, 3, 3, 1, 1),
-    ('2026-05-01', '2026-05-15', 475.00, 4, 4, 2, 1, 1),
-    ('2026-05-01', '2026-05-15', 700.00, 5, 5, 4, 1, 1),
-    ('2026-05-16', '2026-05-31', 1300.00, 1, 1, 1, 2, 1), 
-    ('2026-05-16', '2026-05-31', 650.00, 2, 2, 2, 2, 1),
-    ('2026-05-16', '2026-05-31', 780.00, 3, 3, 3, 2, 1),
-    ('2026-05-16', '2026-05-31', 500.00, 4, 4, 2, 2, 1),
-    ('2026-05-16', '2026-05-31', 720.00, 5, 5, 4, 2, 1);
+    (1, '2026-05-01', '2026-05-15', 1250.00, 1, 1, 1, 1, 1), 
+    (2, '2026-05-01', '2026-05-15', 600.00, 2, 2, 2, 1, 1),
+    (3, '2026-05-01', '2026-05-15', 750.00, 3, 3, 3, 1, 1),
+    (4, '2026-05-01', '2026-05-15', 475.00, 4, 4, 2, 1, 1),
+    (5, '2026-05-01', '2026-05-15', 700.00, 5, 5, 4, 1, 1),
+    (6, '2026-05-16', '2026-05-31', 1300.00, 1, 1, 1, 2, 2), 
+    (7, '2026-05-16', '2026-05-31', 650.00, 2, 2, 2, 2, 2),
+    (8, '2026-05-16', '2026-05-31', 780.00, 3, 3, 3, 2, 2),
+    (9, '2026-05-16', '2026-05-31', 500.00, 4, 4, 2, 2, 2),
+    (10, '2026-05-16', '2026-05-31', 720.00, 5, 5, 4, 2, 2);
 
 INSERT INTO orden_compra (
-    oc_nombre_cadena, oc_periodo_pago, oc_fecha_emision, oc_fecha_vencimiento, 
-    oc_credito_utilizado, oc_numero_factura, oc_monto_total, oc_monto_abonado, 
-    fk_pj_oc, fk_ctt_oc_1, fk_ctt_oc_2, fk_ctt_oc_3, fk_oc_oc, fk_ett_oc
+    oc_id, oc_nombre_cadena, oc_periodo_pago, oc_fecha_emision, oc_fecha_vencimiento, 
+    oc_credito_utilizado, oc_numero_factura, oc_cantidad_cajas, oc_monto_total, oc_monto_abonado, 
+    fk_pj_oc, fk_ctt_oc_1, fk_ctt_oc_2, fk_ctt_oc_3, fk_oc_oc
 ) VALUES
-    ('Distribuidora Juguetilandia C.A.', 30, '2026-06-01', '2026-07-01', 70.00, 9901, 70.00, 0.00, 1, 1, 1, 1, NULL, 1), 
-    ('Distribuidora Juguetilandia C.A.', 30, '2026-06-02', '2026-07-02', 42.00, 9902, 42.00, 42.00, 1, 2, 2, 2, NULL, 2), 
-    ('Juguetes del Mundo S.A.', 60, '2026-06-01', '2026-06-16', 56.00, 9903, 56.00, 0.00, 2, 3, 3, 3, NULL, 3), 
-    ('Juguetes del Mundo S.A.', 60, '2026-06-03', '2026-06-18', 49.00, 9904, 49.00, 49.00, 2, 4, 4, 2, NULL, 4), 
-    ('Inversiones El Chamo', 90, '2026-06-02', '2026-07-17', 84.00, 9905, 84.00, 84.00, 3, 5, 5, 4, NULL, 5), 
-    ('Inversiones El Chamo', 90, '2026-06-04', '2026-07-19', 40.00, 9906, 40.00, 0.00, 3, 6, 6, 2, NULL, 6), 
-    ('Distribuidora Juguetilandia C.A.', 30, '2026-06-05', '2026-07-05', 150.00, 9907, 150.00, 150.00, 1, 7, 7, 5, 1, 7), 
-    ('Tiendas TodoToys', 30, '2026-06-05', '2026-07-05', 200.00, NULL, 200.00, 0.00, 4, 8, 8, 3, NULL, 8),                  
-    ('Importaciones Globales', 60, '2026-06-06', '2026-08-06', 1200.00, 9908, 1200.00, 0.00, 5, 9, 9, 2, NULL, 1),             
-    ('Mega Tiendas Infantiles', 30, '2026-06-06', '2026-07-06', 500.00, 9909, 500.00, 250.00, 6, 10, 10, 2, NULL, 9);         
-
+    (1, 'Distribuidora Juguetilandia C.A.', 30, '2026-06-01', '2026-07-01', 70.00, 9901, 10, 70.00, 0.00, 1, 1, 1, 1, NULL), 
+    (2, 'Distribuidora Juguetilandia C.A.', 30, '2026-06-02', '2026-07-02', 42.00, 9902, 8, 42.00, 42.00, 1, 2, 2, 2, NULL),
+    (3, 'Juguetes del Mundo S.A.', 60, '2026-06-01', '2026-06-16', 56.00, 9903, 30, 56.00, 0.00, 2, 3, 3, 3, NULL), 
+    (4, 'Juguetes del Mundo S.A.', 60, '2026-06-03', '2026-06-18', 49.00, 9904, 40, 49.00, 49.00, 2, 4, 4, 2, NULL), 
+    (5, 'Inversiones El Chamo', 90, '2026-06-02', '2026-07-17', 84.00, 9905, 50, 84.00, 84.00, 3, 5, 5, 4, NULL), 
+    (6, 'Inversiones El Chamo', 90, '2026-06-04', '2026-07-19', 40.00, 9906, 60, 40.00, 0.00, 3, 6, 6, 2, NULL), 
+    (7, 'Distribuidora Juguetilandia C.A.', 30, '2026-06-05', '2026-07-05', 150.00, 9907, 70, 150.00, 150.00, 1, 7, 7, 5, 1), 
+    (8, 'Tiendas TodoToys', 30, '2026-06-05', '2026-07-05', 200.00, NULL, 80, 200.00, 0.00, 4, 8, 8, 3, NULL),                  
+    (9, 'Importaciones Globales', 60, '2026-06-06', '2026-08-06', 1200.00, 9908, 90, 1200.00, 0.00, 5, 9, 9, 2, NULL),             
+    (10, 'Mega Tiendas Infantiles', 30, '2026-06-06', '2026-07-06', 500.00, 9909,100, 500.00, 250.00, 6, 10, 10, 2, NULL);         
+--no se ejecuto
 CREATE PROCEDURE p_poblar_subastas_y_pujas(
     p_total_subastas INT,
     p_usuarios_por_subasta INT,
@@ -3000,19 +2986,19 @@ CREATE PROCEDURE p_poblar_subastas_y_pujas(
     $$ LANGUAGE plpgsql;
 
 CALL p_poblar_subastas_y_pujas(100, 20, 3);
-
-INSERT INTO orden_venta (ov_fecha_hora, ov_monto, ov_numero_factura, fk_sbt_ov) 
+--no se ejecuto
+INSERT INTO orden_venta (ov_id,ov_fecha_hora, ov_monto, ov_numero_factura, fk_sbt_ov) 
 VALUES
-    ('2026-06-05 18:30:00', 250, 7701, 1),
-    ('2026-06-05 19:30:00', 320, 7702, 2),
-    ('2026-06-05 20:45:00', 120, 7703, 3),
-    ('2026-06-06 15:30:00', 450, 7704, 4),
-    ('2026-06-06 17:45:00', 600, 7705, 5),
-    ('2026-06-06 18:30:00', 95, 7706, 6),
-    ('2026-06-07 16:30:00', 1100, 7707, 7),
-    ('2026-06-07 17:45:00', 210, 7708, 8),
-    ('2026-06-07 19:30:00', 390, 7709, 9),
-    ('2026-06-08 21:30:00', 2500, 7710, 10);
+    (1,'2026-06-05 18:30:00', 250, 7701, 1),
+    (2, '2026-06-05 19:30:00', 320, 7702, 2),
+    (3, '2026-06-05 20:45:00', 120, 7703, 3),
+    (4, '2026-06-06 15:30:00', 450, 7704, 4),
+    (5, '2026-06-06 17:45:00', 600, 7705, 5),
+    (6, '2026-06-06 18:30:00', 95, 7706, 6),
+    (7, '2026-06-07 16:30:00', 1100, 7707, 7),
+    (8, '2026-06-07 17:45:00', 210, 7708, 8),
+    (9, '2026-06-07 19:30:00', 390, 7709, 9),
+    (10, '2026-06-08 21:30:00', 2500, 7710, 10);
 
 INSERT INTO detalle_prenomina (dpnmn_monto_calculado, dpnmn_cantidad, fk_astc_dpnmn, fk_bnf_dpnmn, fk_pnmn_dpnmn, fk_bc_dpnmn_1, fk_bc_dpnmn_2, fk_bc_dpnmn_3, fk_bc_dpnmn_4) 
 VALUES
@@ -3020,12 +3006,12 @@ VALUES
     (30.00, 1, 2, NULL, 2, 2, 2, 2, 2),
     (50.00, 1, 3, NULL, 3, 3, 3, 3, 3),
     (25.00, 1, 4, NULL, 4, 4, 4, 2, 1),
-    (60.00, 1, 5, NULL, 5, 5, 5, 5, 4),
+    (60.00, 1, 5, NULL, 5, 5, 5, 4, 4),
     (45.50, 1, 1, NULL, 6, 1, 1, 1, 1),
     (32.00, 1, 2, NULL, 7, 2, 2, 2, 2),
     (55.00, 1, 3, NULL, 8, 3, 3, 3, 3),
     (25.00, 1, 4, NULL, 9, 4, 4, 2, 1),
-    (65.00, 1, 5, NULL, 10, 5, 5, 5, 4);
+    (65.00, 1, 5, NULL, 10, 5, 5, 4, 4);
 
 INSERT INTO fc_cargo (fc_cantidad, fk_fpd_fc, fk_cg_fc) 
 VALUES
@@ -3040,19 +3026,19 @@ VALUES
     (2, 9, 1), 
     (5, 10, 2);
 
-INSERT INTO orden_produccion (op_cantidad_solicitada, op_fecha_creacion_orden, op_fecha_finalizacion_orden, fk_dp_op, fk_txnma_op_1, fk_txnma_op_2, fk_txnma_op_3, fk_dpp_op_1, fk_dpp_op_2) 
+INSERT INTO orden_produccion (op_id, op_cantidad_solicitada, op_fecha_creacion_orden, op_fecha_finalizacion_orden, fk_dp_op, fk_txnma_op_1, fk_txnma_op_2, fk_txnma_op_3, fk_dpp_op_1, fk_dpp_op_2) 
 VALUES
-    (500, '2026-06-01 06:00:00', '2026-06-03 18:00:00', 1, 1, 1, 1, 1, 1),
-    (1000, '2026-06-01 07:00:00', '2026-06-04 12:00:00', 2, 2, 2, 2, 2, 1),
-    (2500, '2026-06-02 08:00:00', NULL, 3, 3, 3, 3, 3, 2),
-    (400, '2026-06-02 09:30:00', '2026-06-05 15:00:00', 4, 4, 4, 4, 4, 1),
-    (300, '2026-06-03 10:00:00', NULL, 5, 5, 5, 5, 5, 3),
-    (600, '2026-06-03 11:15:00', '2026-06-06 10:00:00', 6, 6, 6, 1, 6, 3),
-    (5000, '2026-06-04 07:00:00', NULL, 7, 7, 7, 2, 7, 4),
-    (800, '2026-06-04 08:45:00', '2026-06-06 16:00:00', 8, 8, 8, 3, 8, 2),
-    (1200, '2026-06-05 09:00:00', NULL, 9, 9, 9, 4, 9, 1),
-    (3000, '2026-06-05 11:30:00', NULL, 10, 10, 10, 5, 10, 5);
-
+    (1, 500, '2026-06-01 06:00:00', '2026-06-03 18:00:00', 1, 1, 1, 1, 1, 1),
+    (2, 1000, '2026-06-01 07:00:00', '2026-06-04 12:00:00', 2, 2, 2, 2, 2, 1),
+    (3, 2500, '2026-06-02 08:00:00', NULL, 3, 3, 3, 3, 3, 2),
+    (4, 400, '2026-06-02 09:30:00', '2026-06-05 15:00:00', 4, 4, 4, 4, 4, 1),
+    (5, 300, '2026-06-03 10:00:00', NULL, 5, 5, 5, 5, 5, 3),
+    (6, 600, '2026-06-03 11:15:00', '2026-06-06 10:00:00', 6, 6, 6, 6, 6, 3),
+    (7, 5000, '2026-06-04 07:00:00', NULL, 7, 7, 7, 7, 7, 4),
+    (8, 800, '2026-06-04 08:45:00', '2026-06-06 16:00:00', 8, 8, 8, 8, 8, 2),
+    (9, 1200, '2026-06-05 09:00:00', NULL, 9, 9, 9, 9, 9, 1),
+    (10, 3000, '2026-06-05 11:30:00', NULL, 10, 10, 10, 10, 10, 5);
+--no se ejecuto de aqui para abajo
 INSERT INTO unidad_producto (up_precio_minorista, up_precio_mayorista, up_fecha_hora_disponible, fk_op_up, fk_fbc_up, fk_sbt_up, fk_oc_up, fk_co_up) 
 VALUES
     (49.99, 35.00, '2026-06-04 18:00:00', 1, 1, NULL, 1, NULL),
@@ -3136,20 +3122,9 @@ VALUES
     ('Exposición Comercial', '2026-06-07 16:15:00', 0.00, NULL, 'Muestra para vitrina', 9, 9),
     ('Tasación Profesional', '2026-06-07 18:00:00', 0.00, 'Caja rota pero juguete impecable', 10, 10);
 
-INSERT INTO historico_estatus (
-    he_fecha_inicio, 
-    fk_ett_he, 
-    fk_astc_he, 
-    fk_usar_he, 
-    fk_up_he, 
-    fk_ov_he, 
-    fk_oc_he, 
-    fk_op_he, 
-    fk_hpv_he, 
-    fk_fpp_he, 
-    fk_pnmn_he, 
-    fk_co_he
-) VALUES 
+INSERT INTO historico_estatus (he_fecha_inicio, fk_ett_he, fk_astc_he, fk_usar_he, fk_up_he, fk_ov_he, 
+    fk_oc_he, fk_op_he, fk_hpv_he, fk_fpp_he, fk_pnmn_he, fk_co_he) 
+    VALUES 
     ('2026-06-01 08:00:00', 27, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
     ('2026-06-01 08:00:00', 27, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
     ('2026-06-01 08:00:00', 27, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
