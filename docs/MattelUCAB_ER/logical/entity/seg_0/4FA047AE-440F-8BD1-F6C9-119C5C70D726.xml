@@ -121,20 +121,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ov_id" id="10AF4E34-7042-1C12-4EF4-A5849CCA3CF1">
-<createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-06-04 21:05:05 UTC</createdTime>
-<generatorID>60860DD0-6820-F826-D959-5BC2121E3269</generatorID>
-<ownerDesignName>MattelUCAB_ER</ownerDesignName>
-<engineerTo>
-<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
-</engineerTo>
-<referedAttribute>3172C5E5-465B-D651-DDDE-AAEF2B5E41F2</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="oc_id" id="F8B0F3C8-21A5-DA95-9A20-E7613E624BAF">
 <createdBy>SOFIA MORENO</createdBy>
 <createdTime>2026-06-04 21:06:12 UTC</createdTime>
@@ -200,6 +186,34 @@
 <item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <referedAttribute>ADE435B7-B139-75A3-9740-731966C0173A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sbt_id" id="F3341B32-1995-49E1-475E-86986ADC5501">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-08 18:14:34 UTC</createdTime>
+<generatorID>16A91BF3-F654-7548-F2C9-0C5CE12D1D65</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
+</engineerTo>
+<referedAttribute>72380176-1221-F1B2-8CAF-F084A31A24FB</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pn_id" id="2BDD6C21-8A27-EF87-8AEA-43DD337755FA">
+<createdBy>SOFIA MORENO</createdBy>
+<createdTime>2026-06-08 18:14:34 UTC</createdTime>
+<generatorID>16A91BF3-F654-7548-F2C9-0C5CE12D1D65</generatorID>
+<ownerDesignName>MattelUCAB_ER</ownerDesignName>
+<engineerTo>
+<item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
+</engineerTo>
+<referedAttribute>7B2D1EF2-4A37-C36A-91C0-5FC6E41D5436</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

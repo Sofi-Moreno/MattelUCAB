@@ -1,22 +1,22 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Arc class="oracle.dbtools.crest.model.design.logical.Arc" directorySegmentName="seg_0" id="0EBCA56B-4D26-C0C7-5774-771ADD11A16D" name="Arc_6">
+<Arc class="oracle.dbtools.crest.model.design.logical.Arc" directorySegmentName="seg_0" id="F2898FBE-8DFF-9E63-5249-30B28A449153" name="Arc_8">
 <createdBy>SOFIA MORENO</createdBy>
-<createdTime>2026-06-04 21:22:08 UTC</createdTime>
+<createdTime>2026-06-08 18:16:24 UTC</createdTime>
 <ownerDesignName>MattelUCAB_ER</ownerDesignName>
 <engineerTo>
 <item key="7D52F496-2A7C-62BE-9786-1118C6764A23" value="true"/>
 </engineerTo>
 <entity>4FA047AE-440F-8BD1-F6C9-119C5C70D726</entity>
 <relations>
-<relationID>F1BBB5DA-CF5C-5EBB-C9F3-81A931F011CD</relationID>
-<relationID>581377E5-2B89-8B7C-7F44-6474738880DB</relationID>
-<relationID>814E50B7-4BBE-9409-F1BC-114781978D87</relationID>
-<relationID>68E71E69-B0C7-9BCF-9863-BC41865791AC</relationID>
 <relationID>44F8A477-15A1-4DA8-642F-9E21C5EB84EF</relationID>
 <relationID>F09C5718-0CBD-40FC-D661-9871B1BCA81D</relationID>
 <relationID>C753B7AC-6A58-B679-2D8B-07361410C068</relationID>
 <relationID>5900DB1A-6DD1-D42F-4F86-7EFE153EC317</relationID>
+<relationID>16A91BF3-F654-7548-F2C9-0C5CE12D1D65</relationID>
+<relationID>814E50B7-4BBE-9409-F1BC-114781978D87</relationID>
+<relationID>68E71E69-B0C7-9BCF-9863-BC41865791AC</relationID>
+<relationID>581377E5-2B89-8B7C-7F44-6474738880DB</relationID>
+<relationID>F1BBB5DA-CF5C-5EBB-C9F3-81A931F011CD</relationID>
 <relationID>F155D324-A230-141F-6D2E-17681F43B07D</relationID>
-<relationID>60860DD0-6820-F826-D959-5BC2121E3269</relationID>
 </relations>
 </Arc>
