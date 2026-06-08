@@ -26,6 +26,7 @@ CREATE TABLE estatus (
     ett_id          SERIAL NOT NULL,
     ett_nombre      VARCHAR(255) NOT NULL,
     ett_descripcion VARCHAR(255) NOT NULL,
+    ett_tipo        VARCHAR(255) NOT NULL,
     CONSTRAINT estatus_PK PRIMARY KEY ( ett_id )
 );
 
@@ -86,8 +87,9 @@ CREATE TABLE color (
     cl_id            SERIAL  NOT NULL , 
     cl_nombre        VARCHAR(255) NOT NULL , 
     cl_codigo_hex    VARCHAR(255) NOT NULL , 
-    cl_clasificación VARCHAR(255) NOT NULL,
-    CONSTRAINT color_PK PRIMARY KEY ( cl_id )
+    cl_clasificacion VARCHAR(255) NOT NULL,
+    CONSTRAINT color_PK PRIMARY KEY ( cl_id ),
+    CONSTRAINT clasificacion_color_check CHECK(cl_clasificacion IN('Claro', 'Oscuro', 'Medio', 'Fantasia'))
 );
 
 CREATE TABLE profesion (
@@ -170,7 +172,6 @@ CREATE TABLE historico_tasa_cambio (
     ),
     CONSTRAINT historico_tasa_cambio_moneda_FK FOREIGN KEY (fk_m_htc) 
     REFERENCES moneda (m_id)
-
 );
 
 CREATE TABLE rol_permiso (
@@ -708,7 +709,7 @@ CREATE TABLE orden_compra (
     CONSTRAINT orden_compra_orden_compra_FK FOREIGN KEY (fk_oc_oc) 
     REFERENCES orden_compra (oc_id),   
     CONSTRAINT orden_compra_persona_juridica_FK FOREIGN KEY (fk_pj_oc) 
-    REFERENCES persona_juridica (pj_id),
+    REFERENCES persona_juridica (pj_id)
 );
 
 CREATE TABLE subasta (
@@ -745,8 +746,7 @@ CREATE TABLE orden_venta (
     fk_sbt_ov         INTEGER  NOT NULL, 
     CONSTRAINT orden_venta_PK PRIMARY KEY ( ov_id ),
     CONSTRAINT orden_venta_subasta_FK FOREIGN KEY (fk_sbt_ov) 
-    REFERENCES subasta (sbt_id),
-
+    REFERENCES subasta (sbt_id)
 ); 
 
 CREATE TABLE detalle_prenomina (
@@ -793,7 +793,6 @@ CREATE TABLE fc_cargo (
     CONSTRAINT fc_cargo_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fc) 
     REFERENCES fase_prueba_diseno (fpd_id)
 );
-
 
 CREATE TABLE orden_produccion (
     op_id                       SERIAL NOT NULL, 
@@ -1013,18 +1012,18 @@ CREATE TABLE historico_estatus(
     REFERENCES orden_compra (oc_id),
     CONSTRAINT historico_estatus_orden_venta_FK FOREIGN KEY (fk_ov_he) 
     REFERENCES orden_venta (ov_id),
-    CONSTRAINT historico_estatus_contrato_FK FOREIGN KEY (fk_co_he) 
-    REFERENCES contrato (ctt_id),
+    CONSTRAINT historico_estatus_compra_online_FK FOREIGN KEY (fk_co_he) 
+    REFERENCES compra_online (co_id),
     CONSTRAINT historico_estatus_usuario_FK FOREIGN KEY (fk_usar_he) 
     REFERENCES usuario (usar_id),
     CONSTRAINT historico_estatus_persona_natural_FK FOREIGN KEY (fk_pnmn_he) 
     REFERENCES persona_natural (pn_id),
-    CONSTRAINT historico_estatus_activo_fijo_FK FOREIGN KEY (fk_astc_he) 
-    REFERENCES activo_fijo (astc_id),
+    CONSTRAINT historico_estatus_asistencia_FK FOREIGN KEY (fk_astc_he) 
+    REFERENCES asistencia (astc_id),
     CONSTRAINT historico_estatus_fase_prueba_produccion_FK FOREIGN KEY (fk_fpp_he) 
     REFERENCES fase_prueba_produccion (fpp_id)
 );
-CREATE UNIQUE INDEX persona_natural__IDX ON persona_natural (fk_crt_cet ASC);
+
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);
 CREATE UNIQUE INDEX conciliacion_pago__IDXv1 ON conciliacion_pago (fk_ov_cp ASC);
 CREATE UNIQUE INDEX orden_venta__IDX ON orden_venta (fk_sbt_ov ASC);
