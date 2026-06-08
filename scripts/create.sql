@@ -679,7 +679,6 @@ CREATE TABLE prenomina (
 
 CREATE TABLE orden_compra (
     oc_id                SERIAL  NOT NULL, 
-    oc_nombre_cadena     VARCHAR(255) NOT NULL, 
     oc_periodo_pago      INTEGER  NOT NULL, 
     oc_fecha_emision     DATE  NOT NULL, 
     oc_fecha_vencimiento DATE  NOT NULL, 
@@ -737,17 +736,6 @@ CREATE TABLE puja (
     CONSTRAINT puja_subasta_FK FOREIGN KEY (fk_sbt_puj) 
     REFERENCES subasta (sbt_id)
 );
-
-CREATE TABLE orden_venta (
-    ov_id             SERIAL  NOT NULL, 
-    ov_fecha_hora     TIMESTAMP  NOT NULL, 
-    ov_monto          INTEGER  NOT NULL, 
-    ov_numero_factura INTEGER, 
-    fk_sbt_ov         INTEGER  NOT NULL, 
-    CONSTRAINT orden_venta_PK PRIMARY KEY ( ov_id ),
-    CONSTRAINT orden_venta_subasta_FK FOREIGN KEY (fk_sbt_ov) 
-    REFERENCES subasta (sbt_id)
-); 
 
 CREATE TABLE detalle_prenomina (
     dpnmn_id              SERIAL  NOT NULL , 
@@ -824,11 +812,30 @@ CREATE TABLE orden_produccion (
     )
 );
 
+CREATE TABLE despacho (
+    dpc_id               SERIAL  NOT NULL , 
+    dpc_manifiesto_carga VARCHAR(500) , 
+    dpc_numero_tracking  INTEGER , 
+    dpc_direccion_envio  VARCHAR(255) NOT NULL , 
+    dpc_costo            NUMERIC  NOT NULL , 
+    fk_tpt_dpc           INTEGER  NOT NULL , 
+    fk_lg_dpc            INTEGER  NOT NULL ,
+    CONSTRAINT tipo_despacho_check CHECK (
+        (dpc_manifiesto_carga IS NOT NULL AND dpc_numero_tracking IS NOT NULL) OR
+        (dpc_manifiesto_carga IS NULL AND dpc_numero_tracking IS NULL)),
+    CONSTRAINT despacho_PK PRIMARY KEY ( dpc_id),
+    CONSTRAINT despacho_lugar_FK FOREIGN KEY (fk_lg_dpc) 
+    REFERENCES lugar (lg_id),
+    CONSTRAINT despacho_transporte_FK FOREIGN KEY (fk_tpt_dpc) 
+    REFERENCES transporte (tpt_id)
+);
+
 CREATE TABLE unidad_producto (
-    up_sku                   SERIAL  NOT NULL , 
+    up_sku                   VARCHAR(50)  NOT NULL , 
     up_precio_minorista      NUMERIC  NOT NULL , 
     up_precio_mayorista      NUMERIC  NOT NULL , 
     up_fecha_hora_disponible TIMESTAMP  NOT NULL , 
+    fk_dpc_up                INTEGER ,
     fk_op_up                 INTEGER NOT NULL , 
     fk_fbc_up                INTEGER , 
     fk_sbt_up                INTEGER ,
@@ -837,7 +844,8 @@ CREATE TABLE unidad_producto (
     CONSTRAINT tipo_unidad_producto_check CHECK(
         (fk_oc_up IS NOT NULL AND (fk_co_up IS NULL) AND (fk_sbt_up IS NULL)) OR
         (fk_co_up IS NOT NULL AND (fk_oc_up IS NULL) AND (fk_sbt_up IS NULL)) OR
-        (fk_sbt_up IS NOT NULL AND (fk_oc_up IS NULL) AND (fk_co_up IS NULL))
+        (fk_sbt_up IS NOT NULL AND (fk_oc_up IS NULL) AND (fk_co_up IS NULL)) OR
+        (fk_sbt_up IS NULL AND fk_oc_up IS NULL AND fk_co_up IS NULL)
     ),
     CONSTRAINT unidad_producto_PK PRIMARY KEY ( up_sku ),
     CONSTRAINT unidad_producto_fabrica_FK FOREIGN KEY (fk_fbc_up) 
@@ -849,63 +857,32 @@ CREATE TABLE unidad_producto (
     CONSTRAINT unidad_producto_orden_compra_FK FOREIGN KEY (fk_oc_up) 
     REFERENCES orden_compra (oc_id),
     CONSTRAINT unidad_producto_compra_online_FK FOREIGN KEY (fk_co_up) 
-    REFERENCES compra_online (co_id)
+    REFERENCES compra_online (co_id),
+    CONSTRAINT unidad_producto_despacho_FK FOREIGN KEY (fk_dpc_up) 
+    REFERENCES despacho (dpc_id)
 );
 
 CREATE TABLE conciliacion_pago (
     cp_id             SERIAL  NOT NULL ,
-    cp_monto_aplicado INTEGER  NOT NULL , 
+    cp_monto_aplicado NUMERIC  NOT NULL , 
     cp_fecha_hora     TIMESTAMP  NOT NULL , 
     fk_oc_cp          INTEGER , 
     fk_co_cp          INTEGER , 
-    fk_ov_cp          INTEGER ,
+    fk_sbt_cp          INTEGER ,
     FK_mp_cp          INTEGER  NOT NULL,
     CONSTRAINT tipo_compra_check CHECK ( 
-        (  (fk_oc_cp IS NOT NULL) AND (fk_co_cp IS NULL)  AND (fk_ov_cp IS NULL) ) OR 
-        (  (fk_co_cp IS NOT NULL) AND (fk_oc_cp IS NULL)  AND (fk_ov_cp IS NULL) ) OR 
-        (  (fk_ov_cp IS NOT NULL) AND (fk_oc_cp IS NULL)  AND (fk_co_cp IS NULL) )  ),
+        (  (fk_oc_cp IS NOT NULL) AND (fk_co_cp IS NULL)  AND (fk_sbt_cp IS NULL) ) OR 
+        (  (fk_co_cp IS NOT NULL) AND (fk_oc_cp IS NULL)  AND (fk_sbt_cp IS NULL) ) OR 
+        (  (fk_sbt_cp IS NOT NULL) AND (fk_oc_cp IS NULL)  AND (fk_co_cp IS NULL) )  ),
     CONSTRAINT conciliacion_pago_PK PRIMARY KEY ( cp_id ),
     CONSTRAINT conciliacion_pago_compra_online_FK FOREIGN KEY (fk_co_cp) 
     REFERENCES compra_online (co_id),
     CONSTRAINT conciliacion_pago_orden_compra_FK FOREIGN KEY (fk_oc_cp) 
     REFERENCES orden_compra (oc_id),
-    CONSTRAINT conciliacion_pago_orden_venta_FK FOREIGN KEY (fk_ov_cp) 
-    REFERENCES orden_venta (ov_id),
+    CONSTRAINT conciliacion_pago_subasta_FK FOREIGN KEY (fk_sbt_cp) 
+    REFERENCES subasta (sbt_id),
     CONSTRAINT conciliacion_pago_metodo_pago_FK FOREIGN KEY (FK_mp_cp) 
     REFERENCES metodo_pago (mp_id)
-);
-
-CREATE TABLE despacho (
-    dpc_id               SERIAL  NOT NULL , 
-    dpc_manifiesto_carga VARCHAR(500) , 
-    dpc_numero_tracking  INTEGER , 
-    dpc_direccion_envio  VARCHAR(255) NOT NULL , 
-    dpc_costo            NUMERIC  NOT NULL , 
-    fk_tpt_dpc           INTEGER  NOT NULL , 
-    fk_lg_dpc            INTEGER  NOT NULL , 
-    fk_ov_dpc            INTEGER, 
-    fk_co_dpc            INTEGER,
-    fk_oc_dpc            INTEGER,
-    CONSTRAINT tipo_despacho_check CHECK ( 
-    (  (fk_ov_dpc IS NOT NULL) AND (fk_co_dpc IS NULL)  AND (fk_oc_dpc IS NULL) ) OR 
-    (  (fk_co_dpc IS NOT NULL) AND (fk_ov_dpc IS NULL)  AND (fk_oc_dpc IS NULL) ) OR 
-    (  (fk_oc_dpc IS NOT NULL) AND (fk_ov_dpc IS NULL)  AND (fk_co_dpc IS NULL) )  ),
-    CONSTRAINT manifiesto_traking_check CHECK (
-        (fk_ov_dpc IS NOT NULL AND dpc_manifiesto_carga IS NULL AND dpc_numero_tracking IS NOT NULL) OR
-        (fk_co_dpc IS NOT NULL AND dpc_manifiesto_carga IS NULL AND dpc_numero_tracking IS NOT NULL) OR
-        (fk_oc_dpc IS NOT NULL AND dpc_manifiesto_carga IS NOT NULL AND dpc_numero_tracking IS NULL)
-    ),
-    CONSTRAINT despacho_PK PRIMARY KEY ( dpc_id),
-    CONSTRAINT despacho_compra_online_FK FOREIGN KEY (fk_co_dpc) 
-    REFERENCES compra_online ( co_id),
-    CONSTRAINT despacho_lugar_FK FOREIGN KEY (fk_lg_dpc) 
-    REFERENCES lugar (lg_id),
-    CONSTRAINT despacho_orden_venta_FK FOREIGN KEY ( fk_ov_dpc) 
-    REFERENCES orden_venta (ov_id),
-    CONSTRAINT despacho_transporte_FK FOREIGN KEY (fk_tpt_dpc) 
-    REFERENCES transporte (tpt_id),
-    CONSTRAINT despacho_orden_compra_FK FOREIGN KEY (fk_oc_dpc) 
-    REFERENCES orden_compra (oc_id)
 );
 
 CREATE TABLE fase_prueba_produccion (
@@ -913,7 +890,7 @@ CREATE TABLE fase_prueba_produccion (
     fpp_fecha_inicio DATE  NOT NULL , 
     fpp_fecha_fin    DATE  NOT NULL , 
     fpp_resultado    VARCHAR(255) , 
-    fk_up_fpp        INTEGER NOT NULL , 
+    fk_up_fpp        VARCHAR(50)  NOT NULL , 
     fk_fpd_fpp       INTEGER  NOT NULL,
     CONSTRAINT fase_prueba_produccion_PK PRIMARY KEY ( fpp_id ),
     CONSTRAINT fase_prueba_produccion_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fpp) 
@@ -949,7 +926,7 @@ CREATE TABLE fpp_contrato (
 CREATE TABLE consumo_materia_prima (
     cmp_cantidad_usada NUMERIC  NOT NULL , 
     fk_lmp_cmp         VARCHAR(255) NOT NULL , 
-    fk_up_cmp          INTEGER  NOT NULL,
+    fk_up_cmp          VARCHAR(50)  NOT NULL,
     CONSTRAINT consumo_materia_prima_PK PRIMARY KEY (fk_up_cmp,fk_lmp_cmp),
     CONSTRAINT consumo_materia_prima_lote_materia_prima_FK FOREIGN KEY (fk_lmp_cmp) 
     REFERENCES lote_materia_prima (lmp_lote),
@@ -963,7 +940,7 @@ CREATE TABLE historial_post_venta (
     hpv_fecha_hora_evento   TIMESTAMP  NOT NULL , 
     hpv_precio_transaccion  NUMERIC , 
     hpv_observaciones       VARCHAR(255), 
-    fk_up_hpv               INTEGER  NOT NULL , 
+    fk_up_hpv               VARCHAR(50)  NOT NULL , 
     fk_pn_hpv               INTEGER,
     CONSTRAINT historial_post_venta_PK PRIMARY KEY ( hpv_id ),
     CONSTRAINT historial_post_venta_persona_natural_FK FOREIGN KEY (fk_pn_hpv) 
@@ -979,25 +956,25 @@ CREATE TABLE historico_estatus(
     fk_ett_he            INTEGER NOT NULL,
     fk_op_he             INTEGER,
     fk_hpv_he            INTEGER,
-    fk_up_he             INTEGER,
+    fk_up_he             VARCHAR(50),
     fk_oc_he             INTEGER,
-    fk_ov_he             INTEGER,
+    fk_sbt_he             INTEGER,
     fk_co_he             INTEGER,
     fk_usar_he           INTEGER,
     fk_pnmn_he           INTEGER,
     fk_astc_he           INTEGER,
     fk_fpp_he            INTEGER,
     CONSTRAINT tipo_estatus_check CHECK (
-    (fk_op_he IS NOT NULL AND (fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_hpv_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_up_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_oc_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_ov_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_co_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_usar_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_pnmn_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_astc_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_fpp_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_ov_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL))
+    (fk_op_he IS NOT NULL AND (fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_hpv_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_up_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_oc_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_sbt_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_co_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_usar_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_pnmn_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_astc_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_fpp_he IS NULL)) OR
+    (fk_fpp_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL))
     ),
     CONSTRAINT historico_estatus_PK PRIMARY KEY ( he_id ),
     CONSTRAINT historico_estatus_estatus_FK FOREIGN KEY (fk_ett_he) 
@@ -1010,8 +987,8 @@ CREATE TABLE historico_estatus(
     REFERENCES unidad_producto (up_sku),
     CONSTRAINT historico_estatus_orden_compra_FK FOREIGN KEY (fk_oc_he) 
     REFERENCES orden_compra (oc_id),
-    CONSTRAINT historico_estatus_orden_venta_FK FOREIGN KEY (fk_ov_he) 
-    REFERENCES orden_venta (ov_id),
+    CONSTRAINT historico_estatus_subasta_FK FOREIGN KEY (fk_sbt_he) 
+    REFERENCES subasta (sbt_id),
     CONSTRAINT historico_estatus_compra_online_FK FOREIGN KEY (fk_co_he) 
     REFERENCES compra_online (co_id),
     CONSTRAINT historico_estatus_usuario_FK FOREIGN KEY (fk_usar_he) 
@@ -1025,7 +1002,6 @@ CREATE TABLE historico_estatus(
 );
 
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);
-CREATE UNIQUE INDEX conciliacion_pago__IDXv1 ON conciliacion_pago (fk_ov_cp ASC);
-CREATE UNIQUE INDEX orden_venta__IDX ON orden_venta (fk_sbt_ov ASC);
+CREATE UNIQUE INDEX conciliacion_pago__IDXv1 ON conciliacion_pago (fk_sbt_cp ASC);
 CREATE UNIQUE INDEX usuario__IDX ON usuario (fk_pn_usar ASC);
 CREATE UNIQUE INDEX usuario__IDXv1 ON usuario (fk_pj_usar ASC);
