@@ -31,7 +31,7 @@ Este repositorio contiene todos los artefactos técnicos requeridos para la vali
 
 * **`docs/`**: Documentación técnica, incluyendo el Modelo Entidad-Relación (notación Patas de Gallo), Modelo Relacional y Diccionario de Datos.
 * **`scripts/`**: Archivos SQL para la creación de la base de datos (DDL), inserción de datos maestros (DML) y reglas de integridad.
-* **`src/`**: Código fuente de la aplicación Web, incluyendo las interfaces de usuario (CRUD) y la conexión al servidor.
+* **`mattel-app/`**: Código fuente de la aplicación Web, incluyendo las interfaces de usuario (CRUD) y la conexión al servidor.
 * **`procedures/`**: Implementación de la lógica de negocio a través de **Store Procedures**.
 * **`reports/`**: Formatos de reportes estratégicos y documentos transaccionales generados con **JasperReports**.
 
@@ -51,8 +51,9 @@ Este proyecto ha sido desarrollado como parte integral de la formación académi
 
 ## 👥 Autores
 
-* **Sofia Guadalupe Moreno Vivas** - [@Sofia-Moreno](https://github.com/Sofi-Moreno) - 31.507.708 - Desarrollador Fullstack y Arquitecto de Bases de Datos.
-* **Maria Victoria Fuentes Gutierrez** - [@mvfuentes24](https://github.com/mvfuentes24) - 31.448.315 - Desarrollador Fullstack y Arquitecto de Bases de Datos.
+* **Sofia Guadalupe Moreno Vivas** - [@Sofia-Moreno](https://github.com/Sofi-Moreno) - 31.507.708 - Estudiante de Ingeniería Informática.
+* **Maria Victoria Fuentes Gutierrez** - [@mvfuentes24](https://github.com/mvfuentes24) - 31.448.315 - Estudiante de Ingeniería Informática.
+* **Andrez Mendoza** - [@RUPERTIO](https://github.com/RUPERTIO) - 31.448.315 - Estudiante de Ingeniería Informática.
 
 ---
 
