@@ -869,7 +869,7 @@ CREATE TABLE conciliacion_pago (
     fk_oc_cp          INTEGER , 
     fk_co_cp          INTEGER , 
     fk_sbt_cp          INTEGER ,
-    FK_mp_cp          INTEGER  NOT NULL,
+    fk_mp_cp          INTEGER  NOT NULL,
     CONSTRAINT tipo_compra_check CHECK ( 
         (  (fk_oc_cp IS NOT NULL) AND (fk_co_cp IS NULL)  AND (fk_sbt_cp IS NULL) ) OR 
         (  (fk_co_cp IS NOT NULL) AND (fk_oc_cp IS NULL)  AND (fk_sbt_cp IS NULL) ) OR 
@@ -881,7 +881,7 @@ CREATE TABLE conciliacion_pago (
     REFERENCES orden_compra (oc_id),
     CONSTRAINT conciliacion_pago_subasta_FK FOREIGN KEY (fk_sbt_cp) 
     REFERENCES subasta (sbt_id),
-    CONSTRAINT conciliacion_pago_metodo_pago_FK FOREIGN KEY (FK_mp_cp) 
+    CONSTRAINT conciliacion_pago_metodo_pago_FK FOREIGN KEY (fk_mp_cp) 
     REFERENCES metodo_pago (mp_id)
 );
 
