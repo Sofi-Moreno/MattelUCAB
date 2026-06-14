@@ -53,7 +53,7 @@ Este proyecto ha sido desarrollado como parte integral de la formación académi
 
 * **Sofia Guadalupe Moreno Vivas** - [@Sofia-Moreno](https://github.com/Sofi-Moreno) - 31.507.708 - Estudiante de Ingeniería Informática.
 * **Maria Victoria Fuentes Gutierrez** - [@mvfuentes24](https://github.com/mvfuentes24) - 31.448.315 - Estudiante de Ingeniería Informática.
-* **Andrez Mendoza** - [@RUPERTIO](https://github.com/RUPERTIO) - 31.448.315 - Estudiante de Ingeniería Informática.
+* **Andrés Enrique Martinez Herrera** - [@RUPERTIO](https://github.com/RUPERTIO) - 30.248.569 - Estudiante de Ingeniería Informática.
 
 ---
 
