@@ -1555,7 +1555,9 @@ VALUES
     (29, 'Falta Injustificada', 'El empleado no asistió a su turno y no presentó una justificación válida', 'Asistencia'),
     (30, 'Tardanza', 'El empleado llegó tarde a su turno', 'Asistencia'),
     (31, 'Permiso', 'El empleado solicitó un permiso para no asistir a su turno', 'Asistencia'),
-    (32, 'Asistencia Extraordinaria', 'El empleado asistió a un turno adicional o con mas horas al programado', 'Asistencia');
+    (32, 'Asistencia Extraordinaria', 'El empleado asistió a un turno adicional o con mas horas al programado', 'Asistencia'),
+    (33, 'Activa', 'El diseño está vigente y disponible para producción.', 'Diseño'),
+    (34, 'Retirada', 'El diseño fue retirado del catálogo en el PLM; no debe producirse ni venderse.', 'Diseño');
 
 INSERT INTO beneficio (bnf_id, bnf_nombre, bnf_tipo, bnf_naturaleza, bnf_tipo_calculo, bnf_monto_referencia) VALUES
     (1, 'Bono Asistencia Trimestral', 'Bono', 'Fijo', 'Monto', 120.00),
@@ -9378,3 +9380,46 @@ VALUES
     (266, '2026-06-02 08:00:00', NULL, 3, NULL, NULL, NULL, NULL, 98, NULL, NULL, NULL, NULL, NULL),
     (267, '2026-06-02 08:00:00', NULL, 3, NULL, NULL, NULL, NULL, 99, NULL, NULL, NULL, NULL, NULL),
     (268, '2026-06-02 08:00:00', NULL, 3, NULL, NULL, NULL, NULL, 100, NULL, NULL, NULL, NULL, NULL);
+
+-- Retiros de diseño en el PLM (ilustrativos; representan marcas de retiro del PLM).
+--   Diseño 5 -> retirado hace 8 meses (con stock)  |  Diseño 3 -> hace 10 meses (sin stock)
+INSERT INTO historico_estatus (he_id, he_fecha_hora_inicio, he_fecha_hora_fin, fk_ett_he, fk_dp_he) VALUES
+    (269, (CURRENT_DATE - INTERVAL '8 months'),  NULL, 34, 5),
+    (270, (CURRENT_DATE - INTERVAL '10 months'), NULL, 34, 3);
+
+-- =============================================================================
+-- RESINCRONIZACIÓN DE SECUENCIAS SERIAL
+-- -----------------------------------------------------------------------------
+-- Los INSERT anteriores usan IDs explícitos (r_id, pms_id, etc.), lo que NO
+-- avanza las secuencias SERIAL asociadas. Sin este ajuste, el primer INSERT
+-- automático (p.ej. desde crear_rol) reutilizaría un ID ya usado y fallaría con
+-- "duplicate key value violates unique constraint".
+--
+-- Este bloque recorre TODAS las secuencias del esquema public y las ajusta al
+-- valor (MAX(columna) + 1) de su tabla, dejando la base lista para insertar.
+-- =============================================================================
+DO $$
+DECLARE
+    r RECORD;
+BEGIN
+    FOR r IN
+        SELECT
+            quote_ident(s.relname)                                   AS seq_ident,
+            quote_ident(tn.nspname) || '.' || quote_ident(t.relname) AS tbl_ident,
+            quote_ident(a.attname)                                   AS col_ident
+        FROM pg_class s
+        JOIN pg_namespace n   ON n.oid = s.relnamespace
+        JOIN pg_depend d      ON d.objid = s.oid AND d.deptype = 'a'
+        JOIN pg_class t       ON t.oid = d.refobjid
+        JOIN pg_namespace tn  ON tn.oid = t.relnamespace
+        JOIN pg_attribute a   ON a.attrelid = t.oid AND a.attnum = d.refobjsubid
+        WHERE s.relkind = 'S'
+          AND n.nspname = 'public'
+    LOOP
+        EXECUTE format(
+            'SELECT setval(%L, COALESCE((SELECT MAX(%s) FROM %s), 0) + 1, false)',
+            r.seq_ident, r.col_ident, r.tbl_ident
+        );
+    END LOOP;
+END;
+$$;

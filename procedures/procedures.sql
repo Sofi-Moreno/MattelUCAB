@@ -1,3 +1,10 @@
+-- =============================================================================
+-- PROCEDIMIENTOS ALMACENADOS - GESTIÓN DE ROLES Y PERMISOS
+-- =============================================================================
+
+-- -----------------------------------------------------------------------------
+-- modificar_rol_usuario: cambia el rol asignado a un usuario existente.
+-- -----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE modificar_rol_usuario(p_id_usuario INTEGER, p_id_rol INTEGER) LANGUAGE plpgsql AS $$
 BEGIN
     IF NOT EXISTS (
@@ -22,7 +29,12 @@ BEGIN
 END;
 $$;
 
-
+-- -----------------------------------------------------------------------------
+-- crear_rol: agrega un nuevo rol al sistema.
+--   - Valida que el nombre y la descripción no vengan vacíos.
+--   - Evita nombres de rol duplicados (sin distinguir mayúsculas/minúsculas).
+--   - El r_id lo genera la secuencia SERIAL automáticamente.
+-- -----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE crear_rol(p_nombre VARCHAR, p_descripcion VARCHAR) LANGUAGE plpgsql AS $$
 BEGIN
     IF p_nombre IS NULL OR btrim(p_nombre) = '' THEN
@@ -48,7 +60,13 @@ BEGIN
 END;
 $$;
 
-
+-- -----------------------------------------------------------------------------
+-- eliminar_rol: elimina un rol SOLO si ningún usuario lo tiene asignado.
+--   - Falla si el rol no existe.
+--   - Falla (y no borra nada) si algún usuario está usando el rol.
+--   - Antes de borrar el rol, limpia sus asociaciones en rol_permiso para no
+--     violar la llave foránea rol_permiso -> rol.
+-- -----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE eliminar_rol(p_id_rol INTEGER) LANGUAGE plpgsql AS $$
 DECLARE
     v_nombre_rol         VARCHAR(255);
@@ -64,7 +82,7 @@ BEGIN
         RAISE EXCEPTION 'El rol con ID % no existe.', p_id_rol;
     END IF;
 
-    -- No debe estar asignado a ningún usuario.
+    -- 2. No debe estar asignado a ningún usuario.
     SELECT COUNT(*) INTO v_usuarios_asignados
     FROM usuario
     WHERE fk_r_usar = p_id_rol;
@@ -74,11 +92,12 @@ BEGIN
             v_nombre_rol, p_id_rol, v_usuarios_asignados;
     END IF;
 
-    -- Limpiar permisos asociados al rol (evita violar la FK rol_permiso -> rol).
+    -- 3. Limpiar permisos asociados al rol (evita violar la FK rol_permiso -> rol).
     DELETE FROM rol_permiso
     WHERE fk_r_rp = p_id_rol;
     GET DIAGNOSTICS v_permisos_removidos = ROW_COUNT;
 
+    -- 4. Eliminar el rol.
     DELETE FROM rol
     WHERE r_id = p_id_rol;
 
@@ -87,6 +106,11 @@ BEGIN
 END;
 $$;
 
+-- -----------------------------------------------------------------------------
+-- agregar_permiso_rol: asigna un permiso (privilegio) a un rol.
+--   - Valida que tanto el rol como el permiso existan.
+--   - Evita duplicar una asignación que ya exista.
+-- -----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE agregar_permiso_rol(p_id_rol INTEGER, p_id_permiso INTEGER) LANGUAGE plpgsql AS $$
 BEGIN
     IF NOT EXISTS (
@@ -121,6 +145,11 @@ BEGIN
 END;
 $$;
 
+-- -----------------------------------------------------------------------------
+-- eliminar_permiso_rol: quita un permiso (privilegio) de un rol.
+--   - Valida que tanto el rol como el permiso existan.
+--   - Falla si la asignación rol-permiso no existía (no hay nada que quitar).
+-- -----------------------------------------------------------------------------
 CREATE OR REPLACE PROCEDURE eliminar_permiso_rol(p_id_rol INTEGER, p_id_permiso INTEGER) LANGUAGE plpgsql AS $$
 DECLARE
     v_filas_afectadas INTEGER;
@@ -153,4 +182,49 @@ BEGIN
 
     RAISE NOTICE 'Permiso % removido del rol % exitosamente.', p_id_permiso, p_id_rol;
 END;
+$$;
+
+-- -----------------------------------------------------------------------------
+-- reporte_skus_retirados: SKUs con stock físico cuyo diseño fue retirado en el
+-- PLM hace más de p_meses meses (por defecto 6).
+--   * "stock físico"    -> unidad cuyo estatus vigente es 'Disponible'.
+--   * "diseño retirado" -> diseño con estatus vigente 'Retirada' (tipo 'Diseño').
+-- Uso desde JasperReports:  SELECT * FROM reporte_skus_retirados($P{MESES_UMBRAL})
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION reporte_skus_retirados(p_meses INTEGER DEFAULT 6)
+RETURNS TABLE (
+    sku                VARCHAR(50),
+    diseno_id          INTEGER,
+    diseno             VARCHAR(255),
+    fecha_retiro       TIMESTAMP,
+    meses_desde_retiro INTEGER,
+    precio_minorista   NUMERIC,
+    disponible_desde   TIMESTAMP
+) LANGUAGE sql AS $$
+    SELECT
+        up.up_sku,
+        dp.dp_id,
+        dp.dp_nombre_comercial,
+        he_ret.he_fecha_hora_inicio,
+        ( EXTRACT(YEAR  FROM age(CURRENT_DATE, he_ret.he_fecha_hora_inicio)) * 12
+        + EXTRACT(MONTH FROM age(CURRENT_DATE, he_ret.he_fecha_hora_inicio)) )::int,
+        up.up_precio_minorista,
+        up.up_fecha_hora_disponible
+    FROM unidad_producto up
+        JOIN orden_produccion op ON op.op_id = up.fk_op_up
+        JOIN diseno_producto  dp ON dp.dp_id = op.fk_dp_op
+        -- (1) El SKU está EN STOCK: su estatus vigente es 'Disponible'
+        JOIN historico_estatus he_u ON he_u.fk_up_he = up.up_sku
+                                   AND he_u.he_fecha_hora_fin IS NULL
+        JOIN estatus e_u            ON e_u.ett_id = he_u.fk_ett_he
+                                   AND e_u.ett_nombre = 'Disponible'
+        -- (2) El DISEÑO está RETIRADO: estatus vigente 'Retirada' de tipo 'Diseño'
+        JOIN historico_estatus he_ret ON he_ret.fk_dp_he = dp.dp_id
+                                     AND he_ret.he_fecha_hora_fin IS NULL
+        JOIN estatus e_ret            ON e_ret.ett_id = he_ret.fk_ett_he
+                                     AND e_ret.ett_nombre = 'Retirada'
+                                     AND e_ret.ett_tipo   = 'Diseño'
+    -- (3) El retiro ocurrió hace MÁS de p_meses meses
+    WHERE he_ret.he_fecha_hora_inicio < (CURRENT_DATE - make_interval(months => p_meses))
+    ORDER BY dp.dp_nombre_comercial, up.up_sku;
 $$;

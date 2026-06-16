@@ -1,0 +1,31 @@
+<header>
+    <div class="header-container">
+
+        <a routerLink="/" class="logo">
+            <img src="logo-mattel-ucab.png" alt="Mattel Logo">
+        </a>
+
+        <nav class="nav-links">
+            <ul>
+                <li><a routerLink="/">Inicio</a></li>
+                <li *ngIf="isAdmin"><a routerLink="/roles">Gestión de Roles</a></li>
+                <li *ngIf="isAdmin"><a routerLink="/users">Gestión de Usuarios</a></li>
+                <li *ngIf="isAdmin"><a routerLink="/designs">Gestión de Diseños</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-info">
+            <a *ngIf="isLoggedIn" routerLink="/profile">
+                <button class="login-button">
+                    <img src="login-icon.png" alt="Login Icon">
+                </button>
+            </a>
+            <a *ngIf="!isLoggedIn"routerLink="/login">
+                <button class="login-button">
+                    <img src="login-icon.png" alt="Login Icon">
+                </button>
+            </a>
+        </div>
+
+    </div>
+</header>
