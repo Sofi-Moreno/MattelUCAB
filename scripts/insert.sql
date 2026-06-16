@@ -1555,7 +1555,9 @@ VALUES
     (29, 'Falta Injustificada', 'El empleado no asistió a su turno y no presentó una justificación válida', 'Asistencia'),
     (30, 'Tardanza', 'El empleado llegó tarde a su turno', 'Asistencia'),
     (31, 'Permiso', 'El empleado solicitó un permiso para no asistir a su turno', 'Asistencia'),
-    (32, 'Asistencia Extraordinaria', 'El empleado asistió a un turno adicional o con mas horas al programado', 'Asistencia');
+    (32, 'Asistencia Extraordinaria', 'El empleado asistió a un turno adicional o con mas horas al programado', 'Asistencia'),
+    (33, 'Activa', 'El diseño está vigente y disponible para producción.', 'Diseño'),
+    (34, 'Retirada', 'El diseño fue retirado del catálogo en el PLM; no debe producirse ni venderse.', 'Diseño');
 
 INSERT INTO beneficio (bnf_id, bnf_nombre, bnf_tipo, bnf_naturaleza, bnf_tipo_calculo, bnf_monto_referencia) VALUES
     (1, 'Bono Asistencia Trimestral', 'Bono', 'Fijo', 'Monto', 120.00),
@@ -1800,39 +1802,17 @@ VALUES
     (9, '2026-03-01 00:00:00', '2026-05-31 23:59:59', 0.9300, 9), 
     (10, '2026-03-01 00:00:00', '2026-05-31 23:59:59', 15.0000, 10); 
 
-INSERT INTO rol_permiso (fk_r_rp, fk_pms_rp) 
-VALUES
-    (1, 1),(1, 5),(1, 9),(1, 93),(1, 94),(1, 95),(1, 96),(1, 97),(1, 98),(1, 99),(1, 100),
-    (1, 101),(1, 102),(1, 103),(1, 104),(1, 165),(1, 205),(1, 206),(1, 207),(1, 208),
-    (1, 209),(1, 210),(1, 211),(1, 212),(1, 217),(1, 218),(1, 219),(1, 220),(1, 229),
-    (1, 230),(1, 231),(1, 232),(2, 1),(2, 5),(2, 9),(2, 61),(2, 121),(2, 125),(2, 149),
-    (2, 209),(3, 105),(3, 133),(3, 134),(3, 149),(3, 185),(3, 189),(3, 190),(3, 233),
-    (4, 105),(4, 133),(4, 134),(4, 149),(4, 233),(6, 105),(6, 109),(6, 117),(6, 118),
-    (6, 119),(6, 133),(6, 134),(6, 149),(5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), 
-    (5, 7), (5, 8), (5, 9), (5, 10),
-    (5, 11), (5, 12), (5, 13), (5, 14), (5, 15), (5, 16), (5, 17), (5, 18), (5, 19), (5, 20),
-    (5, 21), (5, 22), (5, 23), (5, 24), (5, 25), (5, 26), (5, 27), (5, 28), (5, 29), (5, 30),
-    (5, 31), (5, 32), (5, 33), (5, 34), (5, 35), (5, 36), (5, 37), (5, 38), (5, 39), (5, 40),
-    (5, 41), (5, 42), (5, 43), (5, 44), (5, 45), (5, 46), (5, 47), (5, 48), (5, 49), (5, 50),
-    (5, 51), (5, 52), (5, 53), (5, 54), (5, 55), (5, 56), (5, 57), (5, 58), (5, 59), (5, 60),
-    (5, 61), (5, 62), (5, 63), (5, 64), (5, 65), (5, 66), (5, 67), (5, 68), (5, 69), (5, 70),
-    (5, 71), (5, 72), (5, 73), (5, 74), (5, 75), (5, 76), (5, 77), (5, 78), (5, 79), (5, 80),
-    (5, 81), (5, 82), (5, 83), (5, 84), (5, 85), (5, 86), (5, 87), (5, 88), (5, 89), (5, 90),
-    (5, 91), (5, 92), (5, 93), (5, 94), (5, 95), (5, 96), (5, 97), (5, 98), (5, 99), (5, 100),
-    (5, 101), (5, 102), (5, 103), (5, 104), (5, 105), (5, 106), (5, 107), (5, 108), (5, 109), (5, 110),
-    (5, 111), (5, 112), (5, 113), (5, 114), (5, 115), (5, 116), (5, 117), (5, 118), (5, 119), (5, 120),
-    (5, 121), (5, 122), (5, 123), (5, 124), (5, 125), (5, 126), (5, 127), (5, 128), (5, 129), (5, 130),
-    (5, 131), (5, 132), (5, 133), (5, 134), (5, 135), (5, 136), (5, 137), (5, 138), (5, 139), (5, 140),
-    (5, 141), (5, 142), (5, 143), (5, 144), (5, 145), (5, 146), (5, 147), (5, 148), (5, 149), (5, 150),
-    (5, 151), (5, 152), (5, 153), (5, 154), (5, 155), (5, 156), (5, 157), (5, 158), (5, 159), (5, 160),
-    (5, 161), (5, 162), (5, 163), (5, 164), (5, 165), (5, 166), (5, 167), (5, 168), (5, 169), (5, 170),
-    (5, 171), (5, 172), (5, 173), (5, 174), (5, 175), (5, 176), (5, 177), (5, 178), (5, 179), (5, 180),
-    (5, 181), (5, 182), (5, 183), (5, 184), (5, 185), (5, 186), (5, 187), (5, 188), (5, 189), (5, 190),
-    (5, 191), (5, 192), (5, 197), (5, 198), (5, 199), (5, 200), (5, 201), (5, 202), (5, 203), (5, 204),
-    (5, 205), (5, 206), (5, 207), (5, 208), (5, 209), (5, 210), (5, 211), (5, 212), (5, 213), (5, 214),
-    (5, 215), (5, 216), (5, 217), (5, 218), (5, 219), (5, 220), (5, 221), (5, 222), (5, 223), (5, 224),
-    (5, 225), (5, 226), (5, 227), (5, 228), (5, 229), (5, 230), (5, 231), (5, 232), (5, 233), (5, 234),
-    (5, 235), (5, 236), (5, 237), (5, 238), (5, 239), (5, 240);
+INSERT INTO rol_permiso (fk_r_rp, fk_pms_rp) VALUES
+    (1, 93), (1, 94), (1, 95), (1, 96),
+    (1, 97), (1, 98), (1, 99), (1, 100),
+    (1, 101), (1, 102), (1, 103), (1, 104),
+    (1, 205), (1, 206), (1, 207), (1, 208),
+    (1, 209), (1, 210), (1, 211), (1, 212),
+    (1, 229), (1, 230), (1, 231), (1, 232),
+    (2, 121),(2, 149),(2, 209),(3, 133), 
+    (3, 134),(3, 149),(3, 185),(3, 189), 
+    (3, 190),(3, 209),(3, 233),(4, 133), 
+    (4, 134),(4, 149),(4, 209),(4, 233); 
 
 INSERT INTO cargo (cg_id, cg_nombre, cg_sueldo_base_us, fk_dptmt_cg) 
 VALUES
@@ -9400,3 +9380,46 @@ VALUES
     (266, '2026-06-02 08:00:00', NULL, 3, NULL, NULL, NULL, NULL, 98, NULL, NULL, NULL, NULL, NULL),
     (267, '2026-06-02 08:00:00', NULL, 3, NULL, NULL, NULL, NULL, 99, NULL, NULL, NULL, NULL, NULL),
     (268, '2026-06-02 08:00:00', NULL, 3, NULL, NULL, NULL, NULL, 100, NULL, NULL, NULL, NULL, NULL);
+
+-- Retiros de diseño en el PLM (ilustrativos; representan marcas de retiro del PLM).
+--   Diseño 5 -> retirado hace 8 meses (con stock)  |  Diseño 3 -> hace 10 meses (sin stock)
+INSERT INTO historico_estatus (he_id, he_fecha_hora_inicio, he_fecha_hora_fin, fk_ett_he, fk_dp_he) VALUES
+    (269, (CURRENT_DATE - INTERVAL '8 months'),  NULL, 34, 5),
+    (270, (CURRENT_DATE - INTERVAL '10 months'), NULL, 34, 3);
+
+-- =============================================================================
+-- RESINCRONIZACIÓN DE SECUENCIAS SERIAL
+-- -----------------------------------------------------------------------------
+-- Los INSERT anteriores usan IDs explícitos (r_id, pms_id, etc.), lo que NO
+-- avanza las secuencias SERIAL asociadas. Sin este ajuste, el primer INSERT
+-- automático (p.ej. desde crear_rol) reutilizaría un ID ya usado y fallaría con
+-- "duplicate key value violates unique constraint".
+--
+-- Este bloque recorre TODAS las secuencias del esquema public y las ajusta al
+-- valor (MAX(columna) + 1) de su tabla, dejando la base lista para insertar.
+-- =============================================================================
+DO $$
+DECLARE
+    r RECORD;
+BEGIN
+    FOR r IN
+        SELECT
+            quote_ident(s.relname)                                   AS seq_ident,
+            quote_ident(tn.nspname) || '.' || quote_ident(t.relname) AS tbl_ident,
+            quote_ident(a.attname)                                   AS col_ident
+        FROM pg_class s
+        JOIN pg_namespace n   ON n.oid = s.relnamespace
+        JOIN pg_depend d      ON d.objid = s.oid AND d.deptype = 'a'
+        JOIN pg_class t       ON t.oid = d.refobjid
+        JOIN pg_namespace tn  ON tn.oid = t.relnamespace
+        JOIN pg_attribute a   ON a.attrelid = t.oid AND a.attnum = d.refobjsubid
+        WHERE s.relkind = 'S'
+          AND n.nspname = 'public'
+    LOOP
+        EXECUTE format(
+            'SELECT setval(%L, COALESCE((SELECT MAX(%s) FROM %s), 0) + 1, false)',
+            r.seq_ident, r.col_ident, r.tbl_ident
+        );
+    END LOOP;
+END;
+$$;

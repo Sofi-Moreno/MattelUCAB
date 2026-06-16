@@ -958,23 +958,19 @@ CREATE TABLE historico_estatus(
     fk_hpv_he            INTEGER,
     fk_up_he             VARCHAR(50),
     fk_oc_he             INTEGER,
-    fk_sbt_he             INTEGER,
+    fk_sbt_he            INTEGER,
     fk_co_he             INTEGER,
     fk_usar_he           INTEGER,
     fk_pnmn_he           INTEGER,
     fk_astc_he           INTEGER,
     fk_fpp_he            INTEGER,
+    fk_dp_he             INTEGER,
     CONSTRAINT tipo_estatus_check CHECK (
-    (fk_op_he IS NOT NULL AND (fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_hpv_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_up_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_oc_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_sbt_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_co_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_usar_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_pnmn_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_astc_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_astc_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_fpp_he IS NULL)) OR
-    (fk_fpp_he IS NOT NULL AND (fk_op_he IS NULL) AND ( fk_hpv_he IS NULL) AND (fk_up_he IS NULL) AND (fk_oc_he IS NULL) AND (fk_sbt_he IS NULL) AND (fk_co_he IS NULL) AND (fk_usar_he IS NULL) AND (fk_pnmn_he IS NULL) AND (fk_astc_he IS NULL))
+        num_nonnulls(
+            fk_op_he, fk_hpv_he, fk_up_he, fk_oc_he, fk_sbt_he,
+            fk_co_he, fk_usar_he, fk_pnmn_he, fk_astc_he, fk_fpp_he,
+            fk_dp_he
+        ) = 1
     ),
     CONSTRAINT historico_estatus_PK PRIMARY KEY ( he_id ),
     CONSTRAINT historico_estatus_estatus_FK FOREIGN KEY (fk_ett_he) 
@@ -998,7 +994,9 @@ CREATE TABLE historico_estatus(
     CONSTRAINT historico_estatus_asistencia_FK FOREIGN KEY (fk_astc_he) 
     REFERENCES asistencia (astc_id),
     CONSTRAINT historico_estatus_fase_prueba_produccion_FK FOREIGN KEY (fk_fpp_he) 
-    REFERENCES fase_prueba_produccion (fpp_id)
+    REFERENCES fase_prueba_produccion (fpp_id),
+    CONSTRAINT historico_estatus_diseno_producto_FK FOREIGN KEY (fk_dp_he) 
+    REFERENCES diseno_producto (dp_id)
 );
 
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);

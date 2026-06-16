@@ -1,3 +1,17 @@
+-- =============================================================================
+-- LIMPIEZA DE PROCEDIMIENTOS ALMACENADOS
+-- (Se especifica la firma de argumentos para que el DROP sea inequívoco.)
+-- =============================================================================
+DROP PROCEDURE IF EXISTS modificar_rol_usuario(INTEGER, INTEGER) CASCADE;
+DROP PROCEDURE IF EXISTS crear_rol(VARCHAR, VARCHAR) CASCADE;
+DROP PROCEDURE IF EXISTS eliminar_rol(INTEGER) CASCADE;
+DROP PROCEDURE IF EXISTS agregar_permiso_rol(INTEGER, INTEGER) CASCADE;
+DROP PROCEDURE IF EXISTS eliminar_permiso_rol(INTEGER, INTEGER) CASCADE;
+DROP FUNCTION IF EXISTS reporte_skus_retirados(INTEGER) CASCADE;
+
+-- =============================================================================
+-- LIMPIEZA DE ÍNDICES Y TABLAS
+-- =============================================================================
 DROP INDEX IF EXISTS usuario__IDXv1 CASCADE;
 DROP INDEX IF EXISTS usuario__IDX CASCADE;
 DROP INDEX IF EXISTS conciliacion_pago__IDXv1 CASCADE;
