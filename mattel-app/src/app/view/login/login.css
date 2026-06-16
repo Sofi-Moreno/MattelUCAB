@@ -15,12 +15,12 @@
 }
 
 .login-page {
-  min-height: 100vh;
+  height: calc(100vh - 60px);
   background-color: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
