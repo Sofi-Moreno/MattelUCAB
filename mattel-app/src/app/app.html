@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header *ngIf="!isLoginPage()"></app-header>
 
 <router-outlet/>
 
 <footer>
   <div className='fondopag'>
-        <p> &copy; DreamLegacySystem.com | Sofia Moreno | Maria Fuentes | Andres Martinez</p>
-    </div>
+    <p> &copy; DreamLegacySystem.com | Sofia Moreno | Maria Fuentes | Andres Martinez</p>
+  </div>
 </footer>
