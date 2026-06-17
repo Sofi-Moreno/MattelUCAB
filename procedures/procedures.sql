@@ -287,3 +287,41 @@ BEGIN
         JOIN estatus e ON e.ett_id = he.fk_ett_he;
 END;
 $$;
+
+-- -----------------------------------------------------------------------------
+-- login_usuario: autentica un usuario por correo y contraseña.
+-- Retorna los datos de sesión si las credenciales son correctas.
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION login_usuario(
+    p_correo     VARCHAR,
+    p_contrasena VARCHAR
+)
+RETURNS TABLE (
+    usar_id             INTEGER,
+    usar_nombre_usuario VARCHAR,
+    usar_correo         VARCHAR,
+    r_id                INTEGER,
+    r_nombre            VARCHAR,
+    r_descripcion       VARCHAR
+)
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        u.usar_id,
+        u.usar_nombre_usuario,
+        u.usar_correo,
+        r.r_id,
+        r.r_nombre,
+        r.r_descripcion
+    FROM usuario u
+    INNER JOIN rol r ON r.r_id = u.fk_r_usar
+    WHERE u.usar_correo    = p_correo
+      AND u.usar_contrasena = p_contrasena;
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION login_usuario(VARCHAR, VARCHAR) TO anon;
+GRANT EXECUTE ON FUNCTION login_usuario(VARCHAR, VARCHAR) TO authenticated;
