@@ -6,15 +6,12 @@
   --color-text: #2c1a45;
   --color-text-muted: #7a6a8a;
   --color-border: #d5c4e8;
-  
-  /* Paleta individual para los íconos */
-  --color-btn-roles: #7b4ca8;
+    --color-btn-roles: #7b4ca8;
   --color-btn-users: #4a6fa5;
   --color-btn-designs: #4895ef;
   --color-btn-reports: #e63946;
 }
 
-/* Contenedor principal fluido */
 .admin-home {
   width: 100%;
   height: calc(100vh - 140px);

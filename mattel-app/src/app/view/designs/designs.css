@@ -1,0 +1,207 @@
+/* ==========================================================================
+   MÓDULO: GESTIÓN DE DISEÑO DE PRODUCTOS (ESTILO MATTELUCAB)
+   ========================================================================== */
+
+.gestion-contenedor {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f0fa;
+  min-height: calc(100vh - 120px);
+  box-sizing: border-box;
+  clear: both;
+}
+
+.gestion-header h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2b1b4d;
+  margin-bottom: 25px;
+}
+
+.tabla-tarjeta {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #eae5f2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: auto; 
+  scrollbar-width: none;
+  -ms-overflow-style: none;  
+}
+
+.tabla-tarjeta::-webkit-scrollbar {
+  display: none; 
+}
+
+.tabla-minimalista {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 14px;
+  color: #444444;
+  margin-bottom: 15px !important;
+}
+
+.tabla-minimalista thead th {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+  font-weight: bold !important;
+  padding: 14px 10px !important;
+  border-bottom: 2px solid #2b1b4d !important;
+  text-align: left;
+  white-space: nowrap; 
+}
+
+.tabla-minimalista tbody tr {
+  border-bottom: 1px solid #f1edf7 !important;
+  background-color: #ffffff !important;
+}
+
+.tabla-minimalista tbody tr:hover {
+  background-color: #fbfaff !important;
+}
+
+.tabla-minimalista tbody td {
+  padding: 14px 10px !important;
+  vertical-align: middle;
+  white-space: nowrap; 
+}
+
+.col-nombre {
+  white-space: normal !important;
+  max-width: 180px;
+  font-weight: bold;
+}
+
+.badge-estatus {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.badge-estatus.retirada {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.acciones-wrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-icon-only {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: #7c6e94;
+  transition: transform 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon-only:hover {
+  transform: scale(1.2);
+  color: #2b1b4d;
+}
+
+.btn-delete-icon:hover {
+  color: #dc2626;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_length {
+  display: none !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter {
+  float: left !important;
+  margin: 0 0 20px 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter label {
+  font-size: 14px !important;
+  font-weight: bold !important;
+  color: #2b1b4d !important; 
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important; 
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter input {
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  background-color: #ffffff !important;
+  font-size: 14px !important;
+  color: #111111 !important;
+  outline: none !important;
+  width: 260px !important;
+  margin: 0 !important; 
+  box-sizing: border-box !important;
+  font-weight: normal !important;
+  transition: border-color 0.15s ease;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter input:focus {
+  border-color: #bca8e3 !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_info {
+  float: left !important;
+  margin-top: 20px !important;
+  font-size: 13px !important;
+  color: #6b7280 !important; 
+  font-weight: 500 !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate {
+  float: right !important;
+  margin-top: 15px !important;
+  display: block !important;
+  font-size: 0 !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button {
+  display: inline-block !important;
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 6px !important;
+  color: #374151 !important; 
+  padding: 8px 14px !important;
+  margin-left: 6px !important; 
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #f9fafb !important;
+  border-color: #d1d5db !important;
+  color: #111111 !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: #2b1b4d !important;
+  border-color: #2b1b4d !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  background: #ffffff !important;
+  border-color: #e5e7eb !important;
+  color: #9ca3af !important;
+}

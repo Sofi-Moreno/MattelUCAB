@@ -228,3 +228,62 @@ RETURNS TABLE (
     WHERE he_ret.he_fecha_hora_inicio < (CURRENT_DATE - make_interval(months => p_meses))
     ORDER BY dp.dp_nombre_comercial, up.up_sku;
 $$;
+
+-- =============================================================================
+-- PROCEDIMIENTOS ALMACENADOS - GESTIÓN DE DISEÑOS DE PRODUCTO
+-- =============================================================================
+
+- -----------------------------------------------------------------------------
+-- ver_lista_diseno_producto muestra la información de un diseño de producto existente.
+-- -----------------------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION lista_diseno_producto()
+RETURNS TABLE (
+    dp_id INTEGER,
+    dp_nombre_comercial VARCHAR,
+    dp_ancho_cm NUMERIC,
+    dp_largo_cm NUMERIC,
+    dp_alto_cm NUMERIC,
+    dp_precio_minorista NUMERIC,
+    dp_precio_mayorista NUMERIC,
+    dp_acceso_prioritario TEXT,
+    dp_usa_bateria TEXT,
+    dp_limite_compra_usuario INTEGER,
+    eh_nombre VARCHAR,
+    ce_nombre VARCHAR,
+    cl_ojos VARCHAR,
+    cl_piel VARCHAR,
+    tc_nombre VARCHAR,
+    ett_nombre VARCHAR
+) 
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        dp.dp_id,
+        dp.dp_nombre_comercial,
+        dp.dp_ancho_cm,
+        dp.dp_largo_cm,
+        dp.dp_alto_cm,
+        dp.dp_precio_minorista,
+        dp.dp_precio_mayorista,
+        CASE WHEN dp.dp_acceso_prioritario THEN 'Sí' ELSE 'No' END,
+        CASE WHEN dp.dp_usa_bateria THEN 'Sí' ELSE 'No' END,
+        dp.dp_limite_compra_usuario,
+        eh.eh_nombre,
+        ce.ce_nombre,
+        c1.cl_nombre AS cl_ojos, 
+        c2.cl_nombre AS cl_piel, 
+        tc.tc_nombre,
+        e.ett_nombre
+    FROM diseno_producto dp
+        JOIN era_historica eh ON eh.eh_id = dp.fk_eh_dp
+        JOIN clasificacion_exclusividad ce ON ce.ce_id = dp.fk_ce_dp
+        JOIN color c1 ON c1.cl_id = dp.fk_cl_dp_ojos
+        JOIN color c2 ON c2.cl_id = dp.fk_cl_dp_piel
+        JOIN tipo_cuerpo tc ON tc.tc_id = dp.fk_tc_dp
+        JOIN historico_estatus he ON he.fk_dp_he = dp.dp_id AND he.he_fecha_hora_fin IS NULL
+        JOIN estatus e ON e.ett_id = he.fk_ett_he;
+END;
+$$;
