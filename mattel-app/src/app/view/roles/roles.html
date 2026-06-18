@@ -1,0 +1,329 @@
+<div class="roles-page" *ngIf="vista() === 'tabla'">
+
+  <div class="page-header">
+    <div>
+      <h1>Gestión de Roles y Privilegios</h1>
+      <p class="page-sub">Listado de usuarios y sus roles asignados</p>
+    </div>
+    <button class="btn-primary" (click)="mostrarCrear()">
+      <span class="btn-icon">+</span> Nuevo Usuario
+    </button>
+  </div>
+
+  <div class="msg-success" *ngIf="successMsg()">{{ successMsg() }}</div>
+  <div class="msg-error"   *ngIf="errorMsg()">{{ errorMsg() }}</div>
+
+  <div class="table-card">
+
+    <div class="table-toolbar">
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input
+          type="text"
+          placeholder="Buscar por usuario, correo, nombre o rol..."
+          [value]="busqueda()"
+          (input)="onBusqueda($any($event.target).value)"
+        />
+      </div>
+    </div>
+
+    <div class="loading-row" *ngIf="isLoading()">
+      <span class="spinner"></span> Cargando...
+    </div>
+
+    <table *ngIf="!isLoading()">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Nombre Real</th>
+          <th>Correo</th>
+          <th>Tipo</th>
+          <th>Rol Asignado</th>
+          <th>Fecha Registro</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of usuariosPagina">
+          <td>
+            <div class="user-cell">
+              <div class="user-avatar">{{ u.usar_nombre_usuario?.[0]?.toUpperCase() }}</div>
+              <div>
+                <div class="user-name">{{ u.usar_nombre_usuario }}</div>
+                <div class="user-id">ID: {{ u.usar_id }}</div>
+              </div>
+            </div>
+          </td>
+          <td>{{ u.nombre_completo || '—' }}</td>
+          <td class="text-muted">{{ u.usar_correo }}</td>
+          <td>
+            <span class="tipo-badge" [ngClass]="getTipoVinculoClass(u.tipo_vinculo)">
+              {{ u.tipo_vinculo || '—' }}
+            </span>
+          </td>
+          <td>
+            <span class="rol-badge">{{ u.r_nombre || '—' }}</span>
+          </td>
+          <td class="text-muted">{{ u.usar_fecha_registro | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <div class="acciones">
+              <button class="btn-icon-action edit" (click)="mostrarEditar(u)" title="Cambiar rol">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </button>
+              <button class="btn-icon-action delete" (click)="abrirModalEliminar(u)" title="Eliminar usuario">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                  <path d="M10 11v6"/><path d="M14 11v6"/>
+                  <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="usuariosPagina.length === 0">
+          <td colspan="7" class="empty-row">No se encontraron usuarios.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination" *ngIf="!isLoading()">
+      <span class="pag-info">
+        Mostrando {{ (paginaActual()-1)*6 + 1 }}–{{ paginaActual()*6 > usuariosFiltrados.length ? usuariosFiltrados.length : paginaActual()*6 }}
+        de {{ usuariosFiltrados.length }} usuarios
+      </span>
+      <div class="pag-controls">
+        <button (click)="paginaAnterior()" [disabled]="paginaActual() === 1">Anterior</button>
+        <span class="pag-num">{{ paginaActual() }} / {{ totalPaginas }}</span>
+        <button (click)="paginaSiguiente()" [disabled]="paginaActual() === totalPaginas">Siguiente</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     VISTA: CREAR USUARIO
+══════════════════════════════════════════════════ -->
+<div class="roles-page" *ngIf="vista() === 'crear'">
+
+  <div class="back-link" (click)="volverTabla()">
+    ← Volver al listado
+  </div>
+
+  <h1>Crear Usuario</h1>
+  <p class="page-sub">Registro de Nuevo Usuario — Gestión de Roles y Privilegios</p>
+
+  <div class="form-card">
+
+    <!-- Tipo de usuario -->
+    <div class="form-section">
+      <h3>Tipo de Usuario</h3>
+      <p class="section-hint">
+        <strong>Empleado</strong>: usuarios internos del sistema (gerentes, vendedores, operadores).<br>
+        <strong>Cliente</strong>: consumidores B2C o coleccionistas de la tienda en línea.
+      </p>
+      <div class="form-grid">
+        <div class="form-group full-width">
+          <label>Tipo <span class="req">*</span></label>
+          <select [value]="form().tipo_persona"
+            (change)="updateForm('tipo_persona', $any($event.target).value)">
+            <option value="empleado">Empleado (usuario interno)</option>
+            <option value="cliente">Cliente B2C / Coleccionista</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Credenciales -->
+    <div class="form-section">
+      <h3>Credenciales de Acceso</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre de Usuario <span class="req">*</span></label>
+          <input type="text" placeholder="Ej: mgonzalez1"
+            [value]="form().usar_nombre_usuario"
+            (input)="updateForm('usar_nombre_usuario', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Correo Electrónico <span class="req">*</span></label>
+          <input type="email" placeholder="usuario@ejemplo.com"
+            [value]="form().usar_correo"
+            (input)="updateForm('usar_correo', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Contraseña <span class="req">*</span></label>
+          <input type="password" placeholder="••••••••"
+            [value]="form().usar_contrasena"
+            (input)="updateForm('usar_contrasena', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Rol Asignado <span class="req">*</span></label>
+          <select [value]="form().fk_r_usar"
+            (change)="updateForm('fk_r_usar', $any($event.target).value)">
+            <option value="">— Seleccionar rol —</option>
+            <option *ngFor="let r of roles()" [value]="r.r_id">{{ r.r_nombre }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información personal -->
+    <div class="form-section">
+      <h3>Información Personal</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Primer Nombre <span class="req">*</span></label>
+          <input type="text" placeholder="Ej: María"
+            [value]="form().primer_nombre"
+            (input)="updateForm('primer_nombre', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Segundo Nombre</label>
+          <input type="text" placeholder="Opcional"
+            [value]="form().segundo_nombre"
+            (input)="updateForm('segundo_nombre', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Primer Apellido <span class="req">*</span></label>
+          <input type="text" placeholder="Ej: González"
+            [value]="form().primer_apellido"
+            (input)="updateForm('primer_apellido', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Segundo Apellido</label>
+          <input type="text" placeholder="Opcional"
+            [value]="form().segundo_apellido"
+            (input)="updateForm('segundo_apellido', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Cédula / ID <span class="req">*</span></label>
+          <input type="text" placeholder="V-12345678"
+            [value]="form().cedula"
+            (input)="updateForm('cedula', $any($event.target).value)" />
+        </div>
+        <div class="form-group">
+          <label>Teléfono <span class="req">*</span></label>
+          <input type="text" placeholder="0424-1234567"
+            [value]="form().telefono"
+            (input)="updateForm('telefono', $any($event.target).value)" />
+        </div>
+        <div class="form-group full-width">
+          <label>Dirección <span class="req">*</span></label>
+          <input type="text" placeholder="Dirección completa"
+            [value]="form().direccion"
+            (input)="updateForm('direccion', $any($event.target).value)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-error"   *ngIf="errorMsg()">{{ errorMsg() }}</div>
+    <div class="msg-success" *ngIf="successMsg()">{{ successMsg() }}</div>
+
+    <div class="form-actions">
+      <button class="btn-secondary" (click)="volverTabla()">Cancelar</button>
+      <button class="btn-primary" (click)="crearUsuario()" [disabled]="isLoading()">
+        <span *ngIf="!isLoading()">Aceptar</span>
+        <span *ngIf="isLoading()" class="spinner-sm"></span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     VISTA: EDITAR ROL
+══════════════════════════════════════════════════ -->
+<div class="roles-page" *ngIf="vista() === 'editar'">
+
+  <div class="back-link" (click)="volverTabla()">
+    ← Volver al listado
+  </div>
+
+  <h1>Editar Rol de Usuario</h1>
+  <p class="page-sub">Cambiar el rol asignado al usuario</p>
+
+  <div class="form-card">
+    <div class="form-section">
+      <h3>Datos del Usuario</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre de Usuario</label>
+          <input type="text" [value]="form().usar_nombre_usuario" disabled />
+        </div>
+        <div class="form-group">
+          <label>Correo</label>
+          <input type="text" [value]="form().usar_correo" disabled />
+        </div>
+        <div class="form-group">
+          <label>Nuevo Rol <span class="req">*</span></label>
+          <select [value]="form().fk_r_usar"
+            (change)="updateForm('fk_r_usar', $any($event.target).value)">
+            <option value="">— Seleccionar rol —</option>
+            <option *ngFor="let r of roles()" [value]="r.r_id">{{ r.r_nombre }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-error"   *ngIf="errorMsg()">{{ errorMsg() }}</div>
+    <div class="msg-success" *ngIf="successMsg()">{{ successMsg() }}</div>
+
+    <div class="form-actions">
+      <button class="btn-secondary" (click)="volverTabla()">Cancelar</button>
+      <button class="btn-primary" (click)="guardarEdicion()" [disabled]="isLoading()">
+        <span *ngIf="!isLoading()">Guardar Cambios</span>
+        <span *ngIf="isLoading()" class="spinner-sm"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MODAL: CONFIRMAR ELIMINACIÓN
+══════════════════════════════════════════════════ -->
+<div class="modal-overlay" *ngIf="modalEliminar()" (click)="cerrarModal()">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+
+    <h2>Confirmar Eliminación de Usuario</h2>
+
+    <div class="modal-warning">
+      ¿Está seguro de eliminar este usuario? Esta acción no se puede deshacer.
+    </div>
+
+    <div class="modal-info-row">
+      <span class="modal-label">Usuario seleccionado:</span>
+      <span class="modal-value">
+        <strong>{{ usuarioSeleccionado()?.usar_nombre_usuario }}</strong>
+        (ID: {{ usuarioSeleccionado()?.usar_id }})
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="modal-label">Elemento de Seguridad</label>
+      <p class="modal-hint">Para confirmar, escriba el ID del usuario: <strong>{{ usuarioSeleccionado()?.usar_id }}</strong></p>
+      <input type="text" placeholder="Escriba el ID del usuario"
+        [value]="confirmId()"
+        (input)="confirmId.set($any($event.target).value)" />
+    </div>
+
+    <div class="msg-error" *ngIf="errorMsg()">{{ errorMsg() }}</div>
+
+    <div class="modal-actions">
+      <button class="btn-secondary" (click)="cerrarModal()">Cancelar</button>
+      <button class="btn-danger" (click)="confirmarEliminar()" [disabled]="isLoading()">
+        <span *ngIf="!isLoading()">Aceptar</span>
+        <span *ngIf="isLoading()" class="spinner-sm"></span>
+      </button>
+    </div>
+  </div>
+</div>
