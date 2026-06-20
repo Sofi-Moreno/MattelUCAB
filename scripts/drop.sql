@@ -8,6 +8,8 @@ DROP PROCEDURE IF EXISTS eliminar_rol(INTEGER) CASCADE;
 DROP PROCEDURE IF EXISTS agregar_permiso_rol(INTEGER, INTEGER) CASCADE;
 DROP PROCEDURE IF EXISTS eliminar_permiso_rol(INTEGER, INTEGER) CASCADE;
 DROP FUNCTION IF EXISTS reporte_skus_retirados(INTEGER) CASCADE;
+DROP FUNCTION IF EXISTS reporte_inventario_por_cabello_piel() CASCADE;
+DROP FUNCTION IF EXISTS reporte_accesorios_compatibles(INTEGER) CASCADE;
 
 -- =============================================================================
 -- LIMPIEZA DE ÍNDICES Y TABLAS

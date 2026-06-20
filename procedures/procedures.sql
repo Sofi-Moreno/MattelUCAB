@@ -228,7 +228,73 @@ RETURNS TABLE (
     WHERE he_ret.he_fecha_hora_inicio < (CURRENT_DATE - make_interval(months => p_meses))
     ORDER BY dp.dp_nombre_comercial, up.up_sku;
 $$;
+-- -----------------------------------------------------------------------------
+-- reporte_inventario_por_cabello_piel: cantidad de SKUs disponibles para la venta
+-- agrupados por color de cabello y tono de piel.
+--   * color de cabello -> color de la pieza 'Cabello Enraizado' en taxonomía.
+--   * tono de piel      -> color del diseño (fk_cl_dp_piel).
+--   * SKU disponible    -> unidad con estatus vigente 'Disponible'.
+-- Uso desde JasperReports:  SELECT * FROM reporte_inventario_por_cabello_piel()
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION reporte_inventario_por_cabello_piel()
+RETURNS TABLE (
+    color_cabello    VARCHAR(255),
+    tono_piel        VARCHAR(255),
+    skus_disponibles BIGINT
+) LANGUAGE sql AS $$
+    SELECT
+        c_cab.cl_nombre,
+        c_piel.cl_nombre,
+        count(*)
+    FROM unidad_producto up
+        JOIN orden_produccion op ON op.op_id = up.fk_op_up
+        JOIN diseno_producto  dp ON dp.dp_id = op.fk_dp_op
+        -- stock disponible para la venta
+        JOIN historico_estatus he ON he.fk_up_he = up.up_sku
+                                 AND he.he_fecha_hora_fin IS NULL
+        JOIN estatus e            ON e.ett_id = he.fk_ett_he
+                                 AND e.ett_nombre = 'Disponible'
+        -- tono de piel (color del diseño)
+        JOIN color c_piel ON c_piel.cl_id = dp.fk_cl_dp_piel
+        -- color de cabello (color de la pieza 'Cabello Enraizado' en taxonomía)
+        JOIN taxonomia tx ON tx.fk_dp_txnm = dp.dp_id
+        JOIN pieza pz     ON pz.pz_id = tx.fk_pz_txnm
+                         AND pz.pz_nombre = 'Cabello Enraizado'
+        JOIN color c_cab  ON c_cab.cl_id = tx.fk_cl_txnm
+    GROUP BY c_cab.cl_nombre, c_piel.cl_nombre
+    ORDER BY count(*) DESC, c_cab.cl_nombre, c_piel.cl_nombre;
+$$;
 
+-- -----------------------------------------------------------------------------
+-- reporte_accesorios_compatibles: accesorios/mobiliarios compatibles con un modelo
+-- específico de dreamhouse, indicando si existe stock de cada uno.
+--   * compatibilidad -> el accesorio apunta al dreamhouse vía diseno_producto.fk_dp_dp.
+--   * "con stock"     -> tiene al menos una unidad con estatus vigente 'Disponible'.
+-- Uso desde JasperReports:  SELECT * FROM reporte_accesorios_compatibles($P{DREAMHOUSE_ID})
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION reporte_accesorios_compatibles(p_dreamhouse_id INTEGER)
+RETURNS TABLE (
+    accesorio_id      INTEGER,
+    accesorio         VARCHAR(255),
+    unidades_en_stock BIGINT,
+    hay_stock         BOOLEAN
+) LANGUAGE sql AS $$
+    SELECT
+        acc.dp_id,
+        acc.dp_nombre_comercial,
+        count(up.up_sku) FILTER (WHERE e.ett_nombre = 'Disponible'),
+        count(up.up_sku) FILTER (WHERE e.ett_nombre = 'Disponible') > 0
+    FROM diseno_producto acc
+        LEFT JOIN orden_produccion op ON op.fk_dp_op = acc.dp_id
+        LEFT JOIN unidad_producto  up ON up.fk_op_up = op.op_id
+        LEFT JOIN historico_estatus he ON he.fk_up_he = up.up_sku
+                                      AND he.he_fecha_hora_fin IS NULL
+        LEFT JOIN estatus e            ON e.ett_id = he.fk_ett_he
+    WHERE acc.fk_dp_dp = p_dreamhouse_id
+    GROUP BY acc.dp_id, acc.dp_nombre_comercial
+    ORDER BY (count(up.up_sku) FILTER (WHERE e.ett_nombre = 'Disponible') > 0) DESC,
+             acc.dp_nombre_comercial;
+$$;
 -- =============================================================================
 -- PROCEDIMIENTOS ALMACENADOS - GESTIÓN DE DISEÑOS DE PRODUCTO
 -- =============================================================================
