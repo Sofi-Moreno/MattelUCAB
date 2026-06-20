@@ -325,3 +325,240 @@ $$;
 
 GRANT EXECUTE ON FUNCTION login_usuario(VARCHAR, VARCHAR) TO anon;
 GRANT EXECUTE ON FUNCTION login_usuario(VARCHAR, VARCHAR) TO authenticated;
+
+-- -----------------------------------------------------------------------------
+-- listar_usuarios: todos los usuarios del sistema con su nombre real y tipo.
+-- Resuelve la unión polimórfica: empleado | persona_natural | persona_juridica.
+-- El administrador ve los tres tipos en una sola tabla.
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION listar_usuarios()
+RETURNS TABLE (
+    usar_id             INTEGER,
+    usar_nombre_usuario VARCHAR,
+    usar_correo         VARCHAR,
+    usar_fecha_registro TIMESTAMP,
+    r_id                INTEGER,
+    r_nombre            VARCHAR,
+    r_descripcion       VARCHAR,
+    nombre_completo     VARCHAR,  -- nombre real según la entidad vinculada
+    tipo_vinculo        VARCHAR   -- 'Empleado' | 'Cliente B2C' | 'Empresa B2B'
+)
+LANGUAGE plpgsql SECURITY DEFINER AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        u.usar_id,
+        u.usar_nombre_usuario,
+        u.usar_correo,
+        u.usar_fecha_registro,
+        r.r_id,
+        r.r_nombre,
+        r.r_descripcion,
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL
+                THEN (e.epad_primer_nombre  || ' ' || e.epad_primer_apellido)::VARCHAR
+            WHEN u.fk_pn_usar IS NOT NULL
+                THEN (pn.pn_primer_nombre   || ' ' || pn.pn_primer_apellido)::VARCHAR
+            WHEN u.fk_pj_usar IS NOT NULL
+                THEN pj.pj_razon_social::VARCHAR
+            ELSE '—'::VARCHAR
+        END AS nombre_completo,
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN 'Empleado'::VARCHAR
+            WHEN u.fk_pn_usar  IS NOT NULL THEN 'Cliente B2C'::VARCHAR
+            WHEN u.fk_pj_usar  IS NOT NULL THEN 'Empresa B2B'::VARCHAR
+            ELSE '—'::VARCHAR
+        END AS tipo_vinculo
+    FROM usuario u
+    INNER JOIN rol              r  ON r.r_id    = u.fk_r_usar
+    LEFT  JOIN empleado         e  ON e.epad_id = u.fk_emp_usar
+    LEFT  JOIN persona_natural  pn ON pn.pn_id  = u.fk_pn_usar
+    LEFT  JOIN persona_juridica pj ON pj.pj_id  = u.fk_pj_usar
+    ORDER BY u.usar_id ASC;
+END;
+$$;
+ 
+GRANT EXECUTE ON FUNCTION listar_usuarios() TO anon;
+GRANT EXECUTE ON FUNCTION listar_usuarios() TO authenticated;
+ 
+-- -----------------------------------------------------------------------------
+-- listar_roles: todos los roles disponibles.
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION listar_roles()
+RETURNS TABLE (r_id INTEGER, r_nombre VARCHAR, r_descripcion VARCHAR)
+LANGUAGE plpgsql SECURITY DEFINER AS $$
+BEGIN
+    RETURN QUERY
+    SELECT r.r_id, r.r_nombre, r.r_descripcion FROM rol r ORDER BY r.r_id ASC;
+END;
+$$;
+ 
+GRANT EXECUTE ON FUNCTION listar_roles() TO anon;
+GRANT EXECUTE ON FUNCTION listar_roles() TO authenticated;
+ 
+-- -----------------------------------------------------------------------------
+-- crear_usuario: crea un usuario vinculándolo a la entidad correcta según p_tipo.
+--
+--   'empleado'  -> INSERT en empleado         + fk_emp_usar   (usuarios internos)
+--   'cliente'   -> INSERT en persona_natural  + fk_pn_usar    (consumidores B2C)
+--   'empresa'   -> INSERT en persona_juridica + fk_pj_usar    (Retail Partners B2B)
+--
+-- Los campos exclusivos de empresa (p_nombre_comercial, p_rif, p_limite_credito)
+-- son opcionales para los otros tipos y se ignoran si no corresponden.
+-- Esto respeta el CHECK juridica_natural_empleado_FK de la tabla usuario.
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE crear_usuario(
+    p_nombre_usuario   VARCHAR,
+    p_correo           VARCHAR,
+    p_contrasena       VARCHAR,
+    p_rol              INTEGER,
+    p_tipo             VARCHAR,   -- 'empleado' | 'cliente' | 'empresa'
+    -- Campos comunes (persona natural / empleado)
+    p_primer_nombre    VARCHAR,
+    p_primer_apellido  VARCHAR,
+    p_cedula           VARCHAR,
+    p_telefono         VARCHAR,
+    p_direccion        VARCHAR,
+    -- Campos exclusivos de empresa (B2B)
+    p_razon_social     VARCHAR  DEFAULT NULL,
+    p_nombre_comercial VARCHAR  DEFAULT NULL,
+    p_rif              VARCHAR  DEFAULT NULL,
+    p_limite_credito   NUMERIC  DEFAULT 0
+)
+LANGUAGE plpgsql AS $$
+DECLARE
+    v_emp_id INTEGER;
+    v_pn_id  INTEGER;
+    v_pj_id  INTEGER;
+BEGIN
+    -- ── Validaciones generales ────────────────────────────────────────────────
+    IF p_nombre_usuario IS NULL OR btrim(p_nombre_usuario) = '' THEN
+        RAISE EXCEPTION 'El nombre de usuario no puede estar vacío.';
+    END IF;
+    IF p_correo IS NULL OR btrim(p_correo) = '' THEN
+        RAISE EXCEPTION 'El correo no puede estar vacío.';
+    END IF;
+    IF p_contrasena IS NULL OR btrim(p_contrasena) = '' THEN
+        RAISE EXCEPTION 'La contraseña no puede estar vacía.';
+    END IF;
+    IF p_tipo IS NULL OR btrim(p_tipo) NOT IN ('empleado', 'cliente', 'empresa') THEN
+        RAISE EXCEPTION 'El tipo debe ser "empleado", "cliente" o "empresa". Recibido: %', p_tipo;
+    END IF;
+ 
+    -- Validaciones extra para empresa
+    IF btrim(p_tipo) = 'empresa' THEN
+        IF p_razon_social IS NULL OR btrim(p_razon_social) = '' THEN
+            RAISE EXCEPTION 'La razón social es obligatoria para empresas B2B.';
+        END IF;
+        IF p_rif IS NULL OR btrim(p_rif) = '' THEN
+            RAISE EXCEPTION 'El RIF es obligatorio para empresas B2B.';
+        END IF;
+        IF p_limite_credito IS NULL OR p_limite_credito < 0 THEN
+            RAISE EXCEPTION 'El límite de crédito debe ser mayor o igual a cero.';
+        END IF;
+    END IF;
+ 
+    -- ── Unicidad de credenciales ──────────────────────────────────────────────
+    IF NOT EXISTS (SELECT 1 FROM rol WHERE r_id = p_rol) THEN
+        RAISE EXCEPTION 'El rol con ID % no existe.', p_rol;
+    END IF;
+    IF EXISTS (SELECT 1 FROM usuario WHERE usar_nombre_usuario = btrim(p_nombre_usuario)) THEN
+        RAISE EXCEPTION 'Ya existe un usuario con el nombre "%".', btrim(p_nombre_usuario);
+    END IF;
+    IF EXISTS (SELECT 1 FROM usuario WHERE usar_correo = btrim(p_correo)) THEN
+        RAISE EXCEPTION 'Ya existe un usuario con el correo "%".', btrim(p_correo);
+    END IF;
+ 
+    -- ── Rama EMPLEADO ─────────────────────────────────────────────────────────
+    IF btrim(p_tipo) = 'empleado' THEN
+        INSERT INTO empleado (
+            epad_primer_nombre, epad_primer_apellido, epad_cedula,
+            epad_telefono, epad_correo, epad_direccion,
+            epad_fecha_nacimiento, epad_rif, fk_lg_epad
+        ) VALUES (
+            btrim(p_primer_nombre), btrim(p_primer_apellido), btrim(p_cedula),
+            btrim(p_telefono), btrim(p_correo), btrim(p_direccion),
+            CURRENT_DATE, 'J-00000000-0', 1
+        ) RETURNING epad_id INTO v_emp_id;
+ 
+        INSERT INTO usuario (
+            usar_nombre_usuario, usar_contrasena, usar_correo,
+            usar_fecha_registro, fk_r_usar, fk_emp_usar
+        ) VALUES (
+            btrim(p_nombre_usuario), btrim(p_contrasena), btrim(p_correo),
+            NOW(), p_rol, v_emp_id
+        );
+        RAISE NOTICE 'Empleado + usuario "%" creados con rol ID %.', btrim(p_nombre_usuario), p_rol;
+ 
+    -- ── Rama CLIENTE B2C ──────────────────────────────────────────────────────
+    ELSIF btrim(p_tipo) = 'cliente' THEN
+        INSERT INTO persona_natural (
+            pn_primer_nombre, pn_primer_apellido, pn_cedula,
+            pn_telefono, pn_correo, pn_direccion,
+            pn_fecha_nacimiento, pn_rif, pn_tipo, fk_lg_pn
+        ) VALUES (
+            btrim(p_primer_nombre), btrim(p_primer_apellido), btrim(p_cedula),
+            btrim(p_telefono), btrim(p_correo), btrim(p_direccion),
+            CURRENT_DATE, 'J-00000000-0', 'Normal', 1
+        ) RETURNING pn_id INTO v_pn_id;
+ 
+        INSERT INTO usuario (
+            usar_nombre_usuario, usar_contrasena, usar_correo,
+            usar_fecha_registro, fk_r_usar, fk_pn_usar
+        ) VALUES (
+            btrim(p_nombre_usuario), btrim(p_contrasena), btrim(p_correo),
+            NOW(), p_rol, v_pn_id
+        );
+        RAISE NOTICE 'Cliente B2C + usuario "%" creados con rol ID %.', btrim(p_nombre_usuario), p_rol;
+ 
+    -- ── Rama EMPRESA B2B ──────────────────────────────────────────────────────
+    ELSE
+        INSERT INTO persona_juridica (
+            pj_razon_social, pj_nombre_comercial, pj_rif,
+            pj_correo, pj_direccion,
+            pj_limite_credito, pj_saldo_pendiente, fk_lg_pj
+        ) VALUES (
+            btrim(p_razon_social), btrim(COALESCE(p_nombre_comercial, p_razon_social)),
+            btrim(p_rif),
+            btrim(p_correo), btrim(p_direccion),
+            p_limite_credito, 0, 1
+        ) RETURNING pj_id INTO v_pj_id;
+ 
+        INSERT INTO usuario (
+            usar_nombre_usuario, usar_contrasena, usar_correo,
+            usar_fecha_registro, fk_r_usar, fk_pj_usar
+        ) VALUES (
+            btrim(p_nombre_usuario), btrim(p_contrasena), btrim(p_correo),
+            NOW(), p_rol, v_pj_id
+        );
+        RAISE NOTICE 'Empresa B2B + usuario "%" creados con rol ID %.', btrim(p_nombre_usuario), p_rol;
+    END IF;
+END;
+$$;
+ 
+GRANT EXECUTE ON PROCEDURE crear_usuario(
+    VARCHAR, VARCHAR, VARCHAR, INTEGER, VARCHAR,
+    VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR,
+    VARCHAR, VARCHAR, VARCHAR, NUMERIC
+) TO authenticated;
+ 
+-- -----------------------------------------------------------------------------
+-- eliminar_usuario: elimina un usuario por ID.
+--   - NO elimina la entidad vinculada para conservar el historial.
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE eliminar_usuario(p_id_usuario INTEGER)
+LANGUAGE plpgsql AS $$
+DECLARE
+    v_nombre VARCHAR;
+BEGIN
+    SELECT usar_nombre_usuario INTO v_nombre FROM usuario WHERE usar_id = p_id_usuario;
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'El usuario con ID % no existe.', p_id_usuario;
+    END IF;
+    DELETE FROM usuario WHERE usar_id = p_id_usuario;
+    RAISE NOTICE 'Usuario "%" (ID %) eliminado exitosamente.', v_nombre, p_id_usuario;
+END;
+$$;
+ 
+GRANT EXECUTE ON PROCEDURE eliminar_usuario(INTEGER) TO authenticated;
+
