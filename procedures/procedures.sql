@@ -406,8 +406,8 @@ RETURNS TABLE (
     r_id                INTEGER,
     r_nombre            VARCHAR,
     r_descripcion       VARCHAR,
-    nombre_completo     VARCHAR,  -- nombre real según la entidad vinculada
-    tipo_vinculo        VARCHAR   -- 'Empleado' | 'Cliente B2C' | 'Empresa B2B'
+    nombre_completo     VARCHAR,
+    tipo_vinculo        VARCHAR
 )
 LANGUAGE plpgsql SECURITY DEFINER AS $$
 BEGIN
@@ -443,7 +443,7 @@ BEGIN
     ORDER BY u.usar_id ASC;
 END;
 $$;
- 
+
 GRANT EXECUTE ON FUNCTION listar_usuarios() TO anon;
 GRANT EXECUTE ON FUNCTION listar_usuarios() TO authenticated;
  
