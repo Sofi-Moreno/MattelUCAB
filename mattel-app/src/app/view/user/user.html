@@ -51,7 +51,7 @@
           <td>{{ u.usar_fecha_registro | date:'dd/MM/yyyy' }}</td>
           <td class="text-center">
             <div class="acciones-wrapper">
-              <button class="btn-icon-only" (click)="mostrarEditar(u)" title="Cambiar rol">
+              <button class="btn-icon-only" (click)="mostrarEditar(u)" title="Editar usuario">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                   fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
@@ -134,7 +134,8 @@
       </div>
     </div>
 
-    <div class="form-section">
+    <!-- EMPLEADO o CLIENTE -->
+    <div class="form-section" *ngIf="form.tipo_persona === 'empleado' || form.tipo_persona === 'cliente'">
       <h3>Información Personal</h3>
       <div class="form-grid">
         <div class="form-group">
@@ -175,6 +176,38 @@
       </div>
     </div>
 
+    <!-- EMPRESA -->
+    <div class="form-section" *ngIf="form.tipo_persona === 'empresa'">
+      <h3>Información de Empresa</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Razón Social <span class="req">*</span></label>
+          <input type="text" placeholder="Ej: General Import C.A."
+            [(ngModel)]="form.razon_social" />
+        </div>
+        <div class="form-group">
+          <label>Nombre Comercial</label>
+          <input type="text" placeholder="Opcional"
+            [(ngModel)]="form.nombre_comercial" />
+        </div>
+        <div class="form-group">
+          <label>RIF <span class="req">*</span></label>
+          <input type="text" placeholder="J-12345678-9"
+            [(ngModel)]="form.rif" />
+        </div>
+        <div class="form-group">
+          <label>Límite de Crédito <span class="req">*</span></label>
+          <input type="number" placeholder="0.00"
+            [(ngModel)]="form.limite_credito" />
+        </div>
+        <div class="form-group full-width">
+          <label>Dirección <span class="req">*</span></label>
+          <input type="text" placeholder="Dirección completa"
+            [(ngModel)]="form.direccion" />
+        </div>
+      </div>
+    </div>
+
     <div class="msg-error"   *ngIf="errorMsg">{{ errorMsg }}</div>
     <div class="msg-success" *ngIf="successMsg">{{ successMsg }}</div>
 
@@ -189,33 +222,105 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     VISTA: EDITAR ROL
+     VISTA: EDITAR USUARIO
 ══════════════════════════════════════════════════ -->
 <div class="roles-page" *ngIf="vista === 'editar'">
 
   <div class="back-link" (click)="volverTabla()">← Volver al listado</div>
 
-  <h1>Editar Rol de Usuario</h1>
-  <p class="page-sub">Cambiar el rol asignado al usuario</p>
+  <h1>Editar Usuario</h1>
+  <p class="page-sub">Modificar datos del usuario</p>
 
   <div class="form-card">
+
+    <!-- Credenciales (siempre visibles) -->
     <div class="form-section">
-      <h3>Datos del Usuario</h3>
+      <h3>Credenciales de Acceso</h3>
       <div class="form-grid">
         <div class="form-group">
           <label>Nombre de Usuario</label>
-          <input type="text" [value]="form.usar_nombre_usuario" disabled />
+          <input type="text" [(ngModel)]="form.usar_nombre_usuario" />
         </div>
         <div class="form-group">
-          <label>Correo</label>
-          <input type="text" [value]="form.usar_correo" disabled />
+          <label>Correo Electrónico</label>
+          <input type="email" [(ngModel)]="form.usar_correo" />
         </div>
         <div class="form-group">
-          <label>Nuevo Rol <span class="req">*</span></label>
+          <label>
+            Nueva Contraseña
+            <span class="hint-label">(dejar vacío para no cambiar)</span>
+          </label>
+          <input type="password" placeholder="••••••••"
+            [(ngModel)]="form.usar_contrasena" />
+        </div>
+        <div class="form-group">
+          <label>Rol Asignado <span class="req">*</span></label>
           <select [(ngModel)]="form.fk_r_usar">
             <option value="">— Seleccionar rol —</option>
             <option *ngFor="let r of roles" [value]="r.r_id">{{ r.r_nombre }}</option>
           </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPLEADO o CLIENTE -->
+    <div class="form-section" *ngIf="form.tipo_persona === 'empleado' || form.tipo_persona === 'cliente'">
+      <h3>Información Personal</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Primer Nombre</label>
+          <input type="text" [(ngModel)]="form.primer_nombre" />
+        </div>
+        <div class="form-group">
+          <label>Segundo Nombre</label>
+          <input type="text" [(ngModel)]="form.segundo_nombre" />
+        </div>
+        <div class="form-group">
+          <label>Primer Apellido</label>
+          <input type="text" [(ngModel)]="form.primer_apellido" />
+        </div>
+        <div class="form-group">
+          <label>Segundo Apellido</label>
+          <input type="text" [(ngModel)]="form.segundo_apellido" />
+        </div>
+        <div class="form-group">
+          <label>Cédula / ID</label>
+          <input type="text" [(ngModel)]="form.cedula" />
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="text" [(ngModel)]="form.telefono" />
+        </div>
+        <div class="form-group full-width">
+          <label>Dirección</label>
+          <input type="text" [(ngModel)]="form.direccion" />
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPRESA -->
+    <div class="form-section" *ngIf="form.tipo_persona === 'empresa'">
+      <h3>Información de Empresa</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Razón Social</label>
+          <input type="text" [(ngModel)]="form.razon_social" />
+        </div>
+        <div class="form-group">
+          <label>Nombre Comercial</label>
+          <input type="text" [(ngModel)]="form.nombre_comercial" />
+        </div>
+        <div class="form-group">
+          <label>RIF</label>
+          <input type="text" [(ngModel)]="form.rif" />
+        </div>
+        <div class="form-group">
+          <label>Límite de Crédito</label>
+          <input type="number" [(ngModel)]="form.limite_credito" />
+        </div>
+        <div class="form-group full-width">
+          <label>Dirección</label>
+          <input type="text" [(ngModel)]="form.direccion" />
         </div>
       </div>
     </div>

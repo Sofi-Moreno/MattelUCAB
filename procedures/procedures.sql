@@ -464,40 +464,29 @@ GRANT EXECUTE ON FUNCTION listar_roles() TO authenticated;
  
 -- -----------------------------------------------------------------------------
 -- crear_usuario: crea un usuario vinculándolo a la entidad correcta según p_tipo.
---
---   'empleado'  -> INSERT en empleado         + fk_emp_usar   (usuarios internos)
---   'cliente'   -> INSERT en persona_natural  + fk_pn_usar    (consumidores B2C)
---   'empresa'   -> INSERT en persona_juridica + fk_pj_usar    (Retail Partners B2B)
---
--- Los campos exclusivos de empresa (p_nombre_comercial, p_rif, p_limite_credito)
--- son opcionales para los otros tipos y se ignoran si no corresponden.
--- Esto respeta el CHECK juridica_natural_empleado_FK de la tabla usuario.
 -- -----------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE crear_usuario(
+CREATE OR REPLACE FUNCTION crear_usuario(
     p_nombre_usuario   VARCHAR,
     p_correo           VARCHAR,
     p_contrasena       VARCHAR,
     p_rol              INTEGER,
-    p_tipo             VARCHAR,   -- 'empleado' | 'cliente' | 'empresa'
-    -- Campos comunes (persona natural / empleado)
+    p_tipo             VARCHAR,
     p_primer_nombre    VARCHAR,
     p_primer_apellido  VARCHAR,
     p_cedula           VARCHAR,
     p_telefono         VARCHAR,
     p_direccion        VARCHAR,
-    -- Campos exclusivos de empresa (B2B)
-    p_razon_social     VARCHAR  DEFAULT NULL,
-    p_nombre_comercial VARCHAR  DEFAULT NULL,
-    p_rif              VARCHAR  DEFAULT NULL,
-    p_limite_credito   NUMERIC  DEFAULT 0
+    p_razon_social     VARCHAR DEFAULT NULL,
+    p_nombre_comercial VARCHAR DEFAULT NULL,
+    p_rif              VARCHAR DEFAULT NULL,
+    p_limite_credito   NUMERIC DEFAULT 0
 )
-LANGUAGE plpgsql AS $$
+RETURNS void LANGUAGE plpgsql SECURITY DEFINER AS $$
 DECLARE
     v_emp_id INTEGER;
     v_pn_id  INTEGER;
     v_pj_id  INTEGER;
 BEGIN
-    -- ── Validaciones generales ────────────────────────────────────────────────
     IF p_nombre_usuario IS NULL OR btrim(p_nombre_usuario) = '' THEN
         RAISE EXCEPTION 'El nombre de usuario no puede estar vacío.';
     END IF;
@@ -510,8 +499,6 @@ BEGIN
     IF p_tipo IS NULL OR btrim(p_tipo) NOT IN ('empleado', 'cliente', 'empresa') THEN
         RAISE EXCEPTION 'El tipo debe ser "empleado", "cliente" o "empresa". Recibido: %', p_tipo;
     END IF;
- 
-    -- Validaciones extra para empresa
     IF btrim(p_tipo) = 'empresa' THEN
         IF p_razon_social IS NULL OR btrim(p_razon_social) = '' THEN
             RAISE EXCEPTION 'La razón social es obligatoria para empresas B2B.';
@@ -523,8 +510,6 @@ BEGIN
             RAISE EXCEPTION 'El límite de crédito debe ser mayor o igual a cero.';
         END IF;
     END IF;
- 
-    -- ── Unicidad de credenciales ──────────────────────────────────────────────
     IF NOT EXISTS (SELECT 1 FROM rol WHERE r_id = p_rol) THEN
         RAISE EXCEPTION 'El rol con ID % no existe.', p_rol;
     END IF;
@@ -534,8 +519,6 @@ BEGIN
     IF EXISTS (SELECT 1 FROM usuario WHERE usar_correo = btrim(p_correo)) THEN
         RAISE EXCEPTION 'Ya existe un usuario con el correo "%".', btrim(p_correo);
     END IF;
- 
-    -- ── Rama EMPLEADO ─────────────────────────────────────────────────────────
     IF btrim(p_tipo) = 'empleado' THEN
         INSERT INTO empleado (
             epad_primer_nombre, epad_primer_apellido, epad_cedula,
@@ -546,7 +529,6 @@ BEGIN
             btrim(p_telefono), btrim(p_correo), btrim(p_direccion),
             CURRENT_DATE, 'J-00000000-0', 1
         ) RETURNING epad_id INTO v_emp_id;
- 
         INSERT INTO usuario (
             usar_nombre_usuario, usar_contrasena, usar_correo,
             usar_fecha_registro, fk_r_usar, fk_emp_usar
@@ -554,9 +536,6 @@ BEGIN
             btrim(p_nombre_usuario), btrim(p_contrasena), btrim(p_correo),
             NOW(), p_rol, v_emp_id
         );
-        RAISE NOTICE 'Empleado + usuario "%" creados con rol ID %.', btrim(p_nombre_usuario), p_rol;
- 
-    -- ── Rama CLIENTE B2C ──────────────────────────────────────────────────────
     ELSIF btrim(p_tipo) = 'cliente' THEN
         INSERT INTO persona_natural (
             pn_primer_nombre, pn_primer_apellido, pn_cedula,
@@ -567,7 +546,6 @@ BEGIN
             btrim(p_telefono), btrim(p_correo), btrim(p_direccion),
             CURRENT_DATE, 'J-00000000-0', 'Normal', 1
         ) RETURNING pn_id INTO v_pn_id;
- 
         INSERT INTO usuario (
             usar_nombre_usuario, usar_contrasena, usar_correo,
             usar_fecha_registro, fk_r_usar, fk_pn_usar
@@ -575,9 +553,6 @@ BEGIN
             btrim(p_nombre_usuario), btrim(p_contrasena), btrim(p_correo),
             NOW(), p_rol, v_pn_id
         );
-        RAISE NOTICE 'Cliente B2C + usuario "%" creados con rol ID %.', btrim(p_nombre_usuario), p_rol;
- 
-    -- ── Rama EMPRESA B2B ──────────────────────────────────────────────────────
     ELSE
         INSERT INTO persona_juridica (
             pj_razon_social, pj_nombre_comercial, pj_rif,
@@ -589,7 +564,6 @@ BEGIN
             btrim(p_correo), btrim(p_direccion),
             p_limite_credito, 0, 1
         ) RETURNING pj_id INTO v_pj_id;
- 
         INSERT INTO usuario (
             usar_nombre_usuario, usar_contrasena, usar_correo,
             usar_fecha_registro, fk_r_usar, fk_pj_usar
@@ -597,12 +571,11 @@ BEGIN
             btrim(p_nombre_usuario), btrim(p_contrasena), btrim(p_correo),
             NOW(), p_rol, v_pj_id
         );
-        RAISE NOTICE 'Empresa B2B + usuario "%" creados con rol ID %.', btrim(p_nombre_usuario), p_rol;
     END IF;
 END;
 $$;
- 
-GRANT EXECUTE ON PROCEDURE crear_usuario(
+
+GRANT EXECUTE ON FUNCTION crear_usuario(
     VARCHAR, VARCHAR, VARCHAR, INTEGER, VARCHAR,
     VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR,
     VARCHAR, VARCHAR, VARCHAR, NUMERIC
@@ -612,19 +585,161 @@ GRANT EXECUTE ON PROCEDURE crear_usuario(
 -- eliminar_usuario: elimina un usuario por ID.
 --   - NO elimina la entidad vinculada para conservar el historial.
 -- -----------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE eliminar_usuario(p_id_usuario INTEGER)
-LANGUAGE plpgsql AS $$
+CREATE OR REPLACE FUNCTION eliminar_usuario(p_id_usuario INTEGER)
+RETURNS void LANGUAGE plpgsql SECURITY DEFINER AS $$
 DECLARE
     v_nombre VARCHAR;
 BEGIN
-    SELECT usar_nombre_usuario INTO v_nombre FROM usuario WHERE usar_id = p_id_usuario;
+    SELECT usar_nombre_usuario INTO v_nombre
+    FROM usuario WHERE usar_id = p_id_usuario;
+
     IF NOT FOUND THEN
         RAISE EXCEPTION 'El usuario con ID % no existe.', p_id_usuario;
     END IF;
+
     DELETE FROM usuario WHERE usar_id = p_id_usuario;
-    RAISE NOTICE 'Usuario "%" (ID %) eliminado exitosamente.', v_nombre, p_id_usuario;
 END;
 $$;
- 
-GRANT EXECUTE ON PROCEDURE eliminar_usuario(INTEGER) TO authenticated;
 
+GRANT EXECUTE ON FUNCTION eliminar_usuario(INTEGER) TO authenticated;
+
+
+-- =============================================================================
+-- EDITAR USUARIO
+-- =============================================================================
+CREATE OR REPLACE FUNCTION editar_usuario(
+    p_id_usuario        INTEGER,
+    p_nombre_usuario    VARCHAR DEFAULT NULL,
+    p_correo            VARCHAR DEFAULT NULL,
+    p_contrasena        VARCHAR DEFAULT NULL,
+    p_id_rol            INTEGER DEFAULT NULL,
+    p_primer_nombre     VARCHAR DEFAULT NULL,
+    p_segundo_nombre    VARCHAR DEFAULT NULL,
+    p_primer_apellido   VARCHAR DEFAULT NULL,
+    p_segundo_apellido  VARCHAR DEFAULT NULL,
+    p_telefono          VARCHAR DEFAULT NULL,
+    p_direccion         VARCHAR DEFAULT NULL,
+    -- Empresa
+    p_razon_social      VARCHAR DEFAULT NULL,
+    p_nombre_comercial  VARCHAR DEFAULT NULL,
+    p_limite_credito    NUMERIC DEFAULT NULL,
+    -- Empleado: sueldo del contrato activo
+    p_sueldo_base_us    NUMERIC DEFAULT NULL
+)
+RETURNS void LANGUAGE plpgsql SECURITY DEFINER AS $$
+DECLARE
+    v_tipo   VARCHAR;
+    v_fk_emp INTEGER;
+    v_fk_pn  INTEGER;
+    v_fk_pj  INTEGER;
+    v_ctt_id INTEGER;
+    v_cg_id  INTEGER;
+BEGIN
+    SELECT
+        CASE
+            WHEN fk_emp_usar IS NOT NULL THEN 'empleado'
+            WHEN fk_pn_usar  IS NOT NULL THEN 'cliente'
+            WHEN fk_pj_usar  IS NOT NULL THEN 'empresa'
+        END,
+        fk_emp_usar, fk_pn_usar, fk_pj_usar
+    INTO v_tipo, v_fk_emp, v_fk_pn, v_fk_pj
+    FROM usuario
+    WHERE usar_id = p_id_usuario;
+
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'El usuario con ID % no existe.', p_id_usuario;
+    END IF;
+
+    -- Validar unicidad nombre usuario
+    IF p_nombre_usuario IS NOT NULL AND EXISTS (
+        SELECT 1 FROM usuario
+        WHERE usar_nombre_usuario = btrim(p_nombre_usuario)
+          AND usar_id <> p_id_usuario
+    ) THEN
+        RAISE EXCEPTION 'Ya existe un usuario con el nombre "%".', btrim(p_nombre_usuario);
+    END IF;
+
+    -- Validar unicidad correo
+    IF p_correo IS NOT NULL AND EXISTS (
+        SELECT 1 FROM usuario
+        WHERE usar_correo = btrim(p_correo)
+          AND usar_id <> p_id_usuario
+    ) THEN
+        RAISE EXCEPTION 'Ya existe un usuario con el correo "%".', btrim(p_correo);
+    END IF;
+
+    -- Validar rol
+    IF p_id_rol IS NOT NULL AND NOT EXISTS (
+        SELECT 1 FROM rol WHERE r_id = p_id_rol
+    ) THEN
+        RAISE EXCEPTION 'El rol con ID % no existe.', p_id_rol;
+    END IF;
+
+    -- Actualizar usuario
+    UPDATE usuario SET
+        usar_nombre_usuario = COALESCE(btrim(p_nombre_usuario), usar_nombre_usuario),
+        usar_correo         = COALESCE(btrim(p_correo),         usar_correo),
+        usar_contrasena     = COALESCE(btrim(p_contrasena),     usar_contrasena),
+        fk_r_usar           = COALESCE(p_id_rol,                fk_r_usar)
+    WHERE usar_id = p_id_usuario;
+
+    -- ── EMPLEADO ──────────────────────────────────────────────────────────────
+    IF v_tipo = 'empleado' THEN
+        UPDATE empleado SET
+            epad_primer_nombre    = COALESCE(btrim(p_primer_nombre),    epad_primer_nombre),
+            epad_segundo_nombre   = COALESCE(btrim(p_segundo_nombre),   epad_segundo_nombre),
+            epad_primer_apellido  = COALESCE(btrim(p_primer_apellido),  epad_primer_apellido),
+            epad_segundo_apellido = COALESCE(btrim(p_segundo_apellido), epad_segundo_apellido),
+            epad_telefono         = COALESCE(btrim(p_telefono),         epad_telefono),
+            epad_correo           = COALESCE(btrim(p_correo),           epad_correo),
+            epad_direccion        = COALESCE(btrim(p_direccion),        epad_direccion)
+        WHERE epad_id = v_fk_emp;
+
+        -- Actualizar sueldo del contrato activo (sin fecha fin = activo)
+        IF p_sueldo_base_us IS NOT NULL THEN
+            SELECT ctt_id, fk_cg_ctt
+            INTO v_ctt_id, v_cg_id
+            FROM contrato
+            WHERE fk_epad_ctt = v_fk_emp
+              AND ctt_fecha_fin IS NULL
+            ORDER BY ctt_fecha_inicio DESC
+            LIMIT 1;
+
+            IF v_ctt_id IS NOT NULL THEN
+                UPDATE contrato SET
+                    ctt_sueldo_base_us = p_sueldo_base_us
+                WHERE ctt_id = v_ctt_id
+                  AND fk_epad_ctt = v_fk_emp
+                  AND fk_cg_ctt = v_cg_id;
+            END IF;
+        END IF;
+
+    -- ── CLIENTE ───────────────────────────────────────────────────────────────
+    ELSIF v_tipo = 'cliente' THEN
+        UPDATE persona_natural SET
+            pn_primer_nombre    = COALESCE(btrim(p_primer_nombre),    pn_primer_nombre),
+            pn_segundo_nombre   = COALESCE(btrim(p_segundo_nombre),   pn_segundo_nombre),
+            pn_primer_apellido  = COALESCE(btrim(p_primer_apellido),  pn_primer_apellido),
+            pn_segundo_apellido = COALESCE(btrim(p_segundo_apellido), pn_segundo_apellido),
+            pn_telefono         = COALESCE(btrim(p_telefono),         pn_telefono),
+            pn_correo           = COALESCE(btrim(p_correo),           pn_correo),
+            pn_direccion        = COALESCE(btrim(p_direccion),        pn_direccion)
+        WHERE pn_id = v_fk_pn;
+
+    -- ── EMPRESA ───────────────────────────────────────────────────────────────
+    ELSIF v_tipo = 'empresa' THEN
+        UPDATE persona_juridica SET
+            pj_nombre_comercial = COALESCE(btrim(p_nombre_comercial), pj_nombre_comercial),
+            pj_correo           = COALESCE(btrim(p_correo),           pj_correo),
+            pj_direccion        = COALESCE(btrim(p_direccion),        pj_direccion),
+            pj_limite_credito   = COALESCE(p_limite_credito,          pj_limite_credito)
+        WHERE pj_id = v_fk_pj;
+    END IF;
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION editar_usuario(
+    INTEGER, VARCHAR, VARCHAR, VARCHAR, INTEGER,
+    VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR,
+    VARCHAR, VARCHAR, NUMERIC, NUMERIC
+) TO authenticated;

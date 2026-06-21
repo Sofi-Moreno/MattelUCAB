@@ -1,23 +1,24 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
-    overflow: hidden; 
     box-sizing: border-box;
 }
 
 app-root {
-    display: block;
-    position: relative;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     width: 100vw;
 }
 
+.content-wrapper {
+    flex: 1;
+    overflow-y: auto;
+}
+
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
     height: 60px;
     background-color: #ffffff;
@@ -29,10 +30,12 @@ footer {
     align-items: center;
     box-sizing: border-box;
     z-index: 999;
+    flex-shrink: 0;
 }
 
 .fondopag {
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .fondopag p {
@@ -41,8 +44,4 @@ footer {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.8;
-}
-
-.fondopag {
-    letter-spacing: 0.5px;
 }
