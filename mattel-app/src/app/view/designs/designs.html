@@ -1,8 +1,8 @@
-<div class="gestion-contenedor">
+<div class="roles-page">
   
-  <div class="gestion-header-flex">
+  <div class="page-header">
     <div>
-      <h2>Gestión de diseño de productos</h2>
+      <h1>Gestión de Diseño de Productos</h1>
       <p class="page-sub">Listado, especificaciones técnicas y estados de los diseños</p>
     </div>
     <button class="btn-primary">
@@ -10,7 +10,7 @@
     </button>
   </div>
   
-  <div class="tabla-tarjeta">
+  <div class="table-card">
     <table *ngIf="disenos.length > 0" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="tabla-minimalista">
       <thead>
         <tr>
@@ -54,7 +54,8 @@
             <span class="badge" [ngClass]="(d.ett_nombre === 'Retirada') ? 'badge-retirada' : 'badge-lila'">
               {{ d.ett_nombre | titlecase }}
             </span>
-          </td>          <td class="text-center">
+          </td>
+          <td class="text-center">
             <div class="acciones-wrapper">
               <button class="btn-icon-only" (click)="verDetalle(d.dp_id)" title="Ver Detalle">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
