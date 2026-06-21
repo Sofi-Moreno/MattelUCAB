@@ -1,4 +1,4 @@
-<div class="roles-page">
+<div class="designs-home">
   
   <div class="page-header">
     <div>
@@ -73,5 +73,44 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="modalEliminar" (click)="cerrarModal()">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+
+    <h2>Confirmar Eliminación de Diseño</h2>
+
+    <div class="modal-warning">
+      ¿Está seguro de eliminar este diseño de producto? Esta acción no se puede deshacer y borrará permanentemente sus especificaciones técnicas.
+    </div>
+
+    <div class="modal-info-row">
+      <span class="modal-label">Diseño seleccionado:</span>
+      <span class="modal-value">
+        <strong>{{ disenoSeleccionado?.dp_nombre_comercial }}</strong>
+        (ID: {{ disenoSeleccionado?.dp_id }})
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="modal-label">Elemento de Seguridad</label>
+      <p class="modal-hint">Para confirmar, escriba el ID del diseño: <strong>{{ disenoSeleccionado?.dp_id }}</strong></p>
+      <input type="text" placeholder="Escriba el ID del diseño"
+        [value]="confirmId"
+        (input)="confirmId = $any($event.target).value" />
+    </div>
+
+    <div class="msg-error" *ngIf="errorModalMsg">{{ errorModalMsg }}</div>
+
+    <div class="modal-actions">
+      <button class="btn-secondary" (click)="cerrarModal()">Cancelar</button>
+      <button class="btn-danger" 
+              [disabled]="confirmId !== disenoSeleccionado?.dp_id.toString()" 
+              (click)="confirmarEliminar()">
+        Eliminar Diseño
+      </button>
+    </div>
+
   </div>
 </div>
