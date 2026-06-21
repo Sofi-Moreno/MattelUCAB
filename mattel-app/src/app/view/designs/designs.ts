@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DesignsService } from '../../services/designs-service';
-import { DataTablesModule } from 'angular-datatables';
-import { OnInit } from '@angular/core';
+import { DataTablesModule, DataTableDirective } from 'angular-datatables';
 import { CommonModule } from '@angular/common';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-designs',
@@ -13,9 +11,16 @@ import * as $ from 'jquery';
   styleUrl: './designs.css',
 })
 export class Designs implements OnInit {
+  @ViewChild(DataTableDirective, { static: false }) dtElement!: DataTableDirective;
   disenos: any[] = [];
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  modalEliminar: boolean = false;
+  disenoSeleccionado: any = null;
+  confirmId: string = '';
+  errorModalMsg: string = '';
+  successMsg: string = '';
+  isLoading: boolean = false;
 
   constructor(private service: DesignsService) {}
 
@@ -46,6 +51,33 @@ export class Designs implements OnInit {
     });
   }
 
+  cargarDatos(): void {
+    this.service.getDisenos().subscribe({
+      next: (data) => {
+        if (this.dtElement && this.dtElement.dtInstance) {
+          this.dtElement.dtInstance.then((dtInstance: any) => {
+            dtInstance.destroy();
+
+            this.disenos = data;
+
+            setTimeout(() => {
+              this.dtTrigger.next(null);
+            }, 50);
+          });
+        } else {
+
+          this.disenos = data;
+          setTimeout(() => {
+            this.dtTrigger.next(null);
+          }, 50);
+        }
+      },
+      error: (err) => {
+        console.error('Error al cargar diseños:', err);
+      }
+    });
+  }
+  
   verDetalle(id: number): void {
     console.log('Navegando a la vista ampliada del diseño ID:', id);
   }
@@ -55,8 +87,47 @@ export class Designs implements OnInit {
   }
 
   eliminarDiseno(id: number): void {
-    if (confirm(`¿Estás seguro de que deseas eliminar el diseño #${id}?`)) {
-      console.log('Ejecutando llamada a Supabase para eliminar el ID:', id);
+    const diseno = this.disenos.find(d => d.dp_id === id);
+    if (diseno) {
+      this.disenoSeleccionado = diseno;
+      this.confirmId = '';
+      this.errorModalMsg = '';
+      this.modalEliminar = true;
     }
+  }
+
+  cerrarModal(): void {
+    this.modalEliminar = false;
+    this.disenoSeleccionado = null;
+    this.confirmId = '';
+    this.errorModalMsg = '';
+  }
+
+  confirmarEliminar(): void {
+    const d = this.disenoSeleccionado;
+    
+    if (!d || this.confirmId !== d.dp_id.toString()) {
+      this.errorModalMsg = 'El ID no coincide.';
+      return;
+    }
+
+    this.isLoading = true;
+    this.errorModalMsg = '';
+
+    this.service.eliminarDiseno(d.dp_id).subscribe({
+      next: (res) => {
+        this.cerrarModal();
+        
+        this.cargarDatos(); 
+        
+        this.successMsg = 'Diseño de producto eliminado exitosamente.';
+        setTimeout(() => this.successMsg = '', 2000);
+        this.isLoading = false;
+      },
+      error: (e: any) => {
+        this.errorModalMsg = e?.error?.message || e?.message || 'Error al eliminar el diseño. Puede que esté en uso en producción.';
+        this.isLoading = false;
+      }
+    });
   }
 }

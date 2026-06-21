@@ -534,7 +534,7 @@ CREATE TABLE diseno_producto (
     CONSTRAINT diseno_producto_color_FKv2 FOREIGN KEY (fk_cl_dp_piel) 
     REFERENCES color (cl_id),
     CONSTRAINT diseno_producto_diseno_producto_FK FOREIGN KEY (fk_dp_dp) 
-    REFERENCES diseno_producto (dp_id),
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE,
     CONSTRAINT diseno_producto_era_historica_FK FOREIGN KEY (fk_eh_dp) 
     REFERENCES era_historica (eh_id),
     CONSTRAINT diseno_producto_tipo_cuerpo_FK FOREIGN KEY (fk_tc_dp) 
@@ -566,7 +566,7 @@ CREATE TABLE autor_diseno (
      fk_cg_ctt
     ),
     CONSTRAINT autor_diseno_diseno_producto_FK FOREIGN KEY (fk_dp_ad) 
-    REFERENCES diseno_producto (dp_id)
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE
 );
 
 CREATE TABLE dp_categoria (
@@ -576,7 +576,7 @@ CREATE TABLE dp_categoria (
     CONSTRAINT dp_categoria_categoria_producto_FK FOREIGN KEY (fk_cp_dpc) 
     REFERENCES categoria_producto (cp_id),
     CONSTRAINT dp_categoria_diseno_producto_FK FOREIGN KEY (fk_dp_dpc) 
-    REFERENCES diseno_producto (dp_id)
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE
 );
 
 CREATE TABLE dp_profesion (
@@ -585,7 +585,7 @@ CREATE TABLE dp_profesion (
     fk_pfs_dpp INTEGER  NOT NULL,
     CONSTRAINT dp_pro_PK PRIMARY KEY ( fk_dp_dpp, fk_pfs_dpp ),
     CONSTRAINT dp_pro_diseno_producto_FK FOREIGN KEY (fk_dp_dpp) 
-    REFERENCES diseno_producto (dp_id),
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE,
     CONSTRAINT dp_pro_profesion_FK FOREIGN KEY (fk_pfs_dpp) 
     REFERENCES profesion (pfs_id)
 );
@@ -598,7 +598,7 @@ CREATE TABLE historico_valor_mercado (
     fk_dp_hvm               INTEGER  NOT NULL,
     CONSTRAINT historico_valor_mercado_PK PRIMARY KEY ( hvm_id ),
     CONSTRAINT historico_valor_mercado_diseno_producto_FK FOREIGN KEY (fk_dp_hvm) 
-    REFERENCES diseno_producto (dp_id)
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE
 );
 
 CREATE TABLE fase_prueba_diseno (
@@ -610,7 +610,7 @@ CREATE TABLE fase_prueba_diseno (
     fk_octlg_fpd       INTEGER  NOT NULL ,
     CONSTRAINT fase_prueba_diseno_PK PRIMARY KEY ( fpd_id ),
     CONSTRAINT fase_prueba_diseno_diseno_producto_FK FOREIGN KEY (fk_dp_fpd) 
-    REFERENCES diseno_producto (dp_id),
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE,
     CONSTRAINT fase_prueba_diseno_operacion_catalogo_FK FOREIGN KEY (fk_octlg_fpd) 
     REFERENCES operacion_catalogo (octlg_id),
     CONSTRAINT tipo_fase_prueba_diseno CHECK(fpd_tipo IN('Producción','Prueba'))
@@ -632,7 +632,7 @@ CREATE TABLE taxonomia (
     CONSTRAINT Taxonomia_color_FK FOREIGN KEY (fk_cl_txnm) 
     REFERENCES color (cl_id),
     CONSTRAINT Taxonomia_diseno_producto_FK FOREIGN KEY (fk_dp_txnm) 
-    REFERENCES diseno_producto (dp_id),
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE,
     CONSTRAINT Taxonomia_materia_prima_FK FOREIGN KEY (fk_mp_txnm) 
     REFERENCES materia_prima (mp_id),
     CONSTRAINT Taxonomia_molde_FK FOREIGN KEY (fk_md_txnm) 
@@ -779,7 +779,7 @@ CREATE TABLE fc_cargo (
     CONSTRAINT fc_cargo_cargo_FK FOREIGN KEY (fk_cg_fc) 
     REFERENCES cargo (cg_id),
     CONSTRAINT fc_cargo_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fc) 
-    REFERENCES fase_prueba_diseno (fpd_id)
+    REFERENCES fase_prueba_diseno (fpd_id) ON DELETE CASCADE
 );
 
 CREATE TABLE orden_produccion (
@@ -795,7 +795,7 @@ CREATE TABLE orden_produccion (
     fk_dpp_op_2                 INTEGER  NOT NULL,
     CONSTRAINT orden_produccion_PK PRIMARY KEY ( op_id ),
     CONSTRAINT orden_produccion_diseno_producto_FK FOREIGN KEY (fk_dp_op) 
-    REFERENCES diseno_producto (dp_id),
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE,
     CONSTRAINT orden_produccion_dp_pro_FK FOREIGN KEY (fk_dpp_op_1, fk_dpp_op_2) 
     REFERENCES dp_profesion (fk_dp_dpp,fk_pfs_dpp),
     CONSTRAINT orden_produccion_Taxonomia_FK FOREIGN KEY 
@@ -851,7 +851,7 @@ CREATE TABLE unidad_producto (
     CONSTRAINT unidad_producto_fabrica_FK FOREIGN KEY (fk_fbc_up) 
     REFERENCES fabrica (fbc_id),
     CONSTRAINT unidad_producto_orden_produccion_FK FOREIGN KEY (fk_op_up) 
-    REFERENCES orden_produccion (op_id),
+    REFERENCES orden_produccion (op_id) ON DELETE CASCADE,
     CONSTRAINT unidad_producto_subasta_FK FOREIGN KEY (fk_sbt_up) 
     REFERENCES subasta (sbt_id),
     CONSTRAINT unidad_producto_orden_compra_FK FOREIGN KEY (fk_oc_up) 
@@ -894,9 +894,9 @@ CREATE TABLE fase_prueba_produccion (
     fk_fpd_fpp       INTEGER  NOT NULL,
     CONSTRAINT fase_prueba_produccion_PK PRIMARY KEY ( fpp_id ),
     CONSTRAINT fase_prueba_produccion_fase_prueba_diseno_FK FOREIGN KEY (fk_fpd_fpp) 
-    REFERENCES fase_prueba_diseno (fpd_id),
+    REFERENCES fase_prueba_diseno (fpd_id) ON DELETE CASCADE,
     CONSTRAINT fase_prueba_producion_unidad_producto_FK FOREIGN KEY (fk_up_fpp)
-    REFERENCES unidad_producto (up_sku)
+    REFERENCES unidad_producto (up_sku) ON DELETE CASCADE
 );
 
 CREATE TABLE fpp_contrato (
@@ -920,7 +920,7 @@ CREATE TABLE fpp_contrato (
      fk_cg_ctt
     ),
     CONSTRAINT fpp_contrato_fase_prueba_produccion_FK FOREIGN KEY (fk_fpp_fppc) 
-    REFERENCES fase_prueba_produccion(fpp_id)
+    REFERENCES fase_prueba_produccion(fpp_id) ON DELETE CASCADE
 );
 
 CREATE TABLE consumo_materia_prima (
@@ -931,7 +931,7 @@ CREATE TABLE consumo_materia_prima (
     CONSTRAINT consumo_materia_prima_lote_materia_prima_FK FOREIGN KEY (fk_lmp_cmp) 
     REFERENCES lote_materia_prima (lmp_lote),
     CONSTRAINT consumo_materia_prima_unidad_producto_FK FOREIGN KEY (fk_up_cmp) 
-    REFERENCES unidad_producto (up_sku)
+    REFERENCES unidad_producto (up_sku) ON DELETE CASCADE
 );
 
 CREATE TABLE historial_post_venta (
@@ -946,7 +946,7 @@ CREATE TABLE historial_post_venta (
     CONSTRAINT historial_post_venta_persona_natural_FK FOREIGN KEY (fk_pn_hpv) 
     REFERENCES persona_natural (pn_id),
     CONSTRAINT historial_post_venta_unidad_producto_FK FOREIGN KEY (fk_up_hpv) 
-    REFERENCES unidad_producto (up_sku)
+    REFERENCES unidad_producto (up_sku) ON DELETE CASCADE
 );
 
 CREATE TABLE historico_estatus(
@@ -996,7 +996,7 @@ CREATE TABLE historico_estatus(
     CONSTRAINT historico_estatus_fase_prueba_produccion_FK FOREIGN KEY (fk_fpp_he) 
     REFERENCES fase_prueba_produccion (fpp_id),
     CONSTRAINT historico_estatus_diseno_producto_FK FOREIGN KEY (fk_dp_he) 
-    REFERENCES diseno_producto (dp_id)
+    REFERENCES diseno_producto (dp_id) ON DELETE CASCADE
 );
 
 CREATE UNIQUE INDEX conciliacion_pago__IDX ON conciliacion_pago (fk_co_cp ASC);

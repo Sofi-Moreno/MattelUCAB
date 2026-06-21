@@ -299,8 +299,8 @@ $$;
 -- PROCEDIMIENTOS ALMACENADOS - GESTIÓN DE DISEÑOS DE PRODUCTO
 -- =============================================================================
 
-- -----------------------------------------------------------------------------
--- ver_lista_diseno_producto muestra la información de un diseño de producto existente.
+-- -----------------------------------------------------------------------------
+-- lista_diseno_producto muestra la información de un diseño de producto existente.
 -- -----------------------------------------------------------------------------
 
 CREATE OR REPLACE FUNCTION lista_diseno_producto()
@@ -351,6 +351,20 @@ BEGIN
         JOIN tipo_cuerpo tc ON tc.tc_id = dp.fk_tc_dp
         JOIN historico_estatus he ON he.fk_dp_he = dp.dp_id AND he.he_fecha_hora_fin IS NULL
         JOIN estatus e ON e.ett_id = he.fk_ett_he;
+END;
+$$;
+
+-- -----------------------------------------------------------------------------
+-- eliminar_diseno_producto elimina un diseño de producto
+-- -----------------------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION eliminar_diseno_producto(p_id_diseno INT) 
+RETURNS TEXT
+LANGUAGE plpgsql AS $$
+BEGIN
+    DELETE FROM diseno_producto 
+    WHERE dp_id = p_id_diseno;
+    RETURN 'Diseño eliminado con éxito junto con todo su historial de producción.';
 END;
 $$;
 
