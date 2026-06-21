@@ -21,7 +21,7 @@
 
 /* ── Página ─────────────────────────────────── */
 .roles-page {
-  min-height: calc(100vh - 97px);
+  min-height: calc(100vh - 120px);
   background: var(--bg);
   padding: 36px 48px;
   font-family: 'Segoe UI', sans-serif;

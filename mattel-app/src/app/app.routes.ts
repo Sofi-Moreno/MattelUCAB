@@ -2,12 +2,12 @@ import { Routes } from '@angular/router';
 import { Designs } from './view/designs/designs';
 import { Home } from './view/home/home';
 import { Login } from './view/login/login';
-import { Roles } from './view/roles/roles';
+import { User } from './view/user/user';
 
 export const routes: Routes = [
     { path: '', component: Login },
     { path: 'login', component: Login },
     { path: 'home', component: Home },
-    { path: 'roles', component: Roles },
+    { path: 'user', component: User },
     { path: 'designs', component: Designs },
 ];
