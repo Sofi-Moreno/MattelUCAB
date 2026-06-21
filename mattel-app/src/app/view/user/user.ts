@@ -9,10 +9,10 @@ type TipoPersona = 'empleado' | 'cliente' | 'empresa';
 @Component({
   selector: 'app-roles',
   imports: [CommonModule, FormsModule],
-  templateUrl: './roles.html',
-  styleUrl: './roles.css',
+  templateUrl: './user.html',
+  styleUrl: './user.css',
 })
-export class Roles implements OnInit {
+export class User implements OnInit {
 
   // ── Vista activa ─────────────────────────────────────
   protected vista = signal<'tabla' | 'crear' | 'editar'>('tabla');

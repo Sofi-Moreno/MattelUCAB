@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MÓDULO: GESTIÓN DE DISEÑO DE PRODUCTOS (ESTILO MATTELUCAB)
-   ========================================================================== */
+   MÓDULO: GESTIÓN DE DISEÑO DE PRODUCTOS
+========================================================================== */
 
 .gestion-contenedor {
   padding: 40px;
@@ -11,11 +11,49 @@
   clear: both;
 }
 
-.gestion-header h2 {
+.gestion-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.gestion-header-flex h2 {
   font-size: 26px;
   font-weight: bold;
   color: #2b1b4d;
-  margin-bottom: 25px;
+  margin: 0 0 4px 0;
+}
+
+.page-sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.btn-primary {
+  background: #2b1b4d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+  box-shadow: 0 2px 5px rgba(43, 27, 77, 0.15);
+}
+
+.btn-primary:hover {
+  background: #1a1030;
+}
+
+.btn-icon {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .tabla-tarjeta {
@@ -44,48 +82,64 @@
   margin-bottom: 15px !important;
 }
 
-.tabla-minimalista thead th {
+::ng-deep .tabla-minimalista thead th {
   background-color: #ffffff !important;
   color: #111111 !important;
   font-weight: bold !important;
-  padding: 14px 10px !important;
+  padding: 14px 12px !important;
   border-bottom: 2px solid #2b1b4d !important;
-  text-align: left;
-  white-space: nowrap; 
+  text-align: left !important;
+  white-space: nowrap !important;
 }
 
-.tabla-minimalista tbody tr {
+::ng-deep .tabla-minimalista thead th.sorting,
+::ng-deep .tabla-minimalista thead th.sorting_asc,
+::ng-deep .tabla-minimalista thead th.sorting_desc {
+  background-image: none !important;
+}
+
+::ng-deep .tabla-minimalista tbody tr {
   border-bottom: 1px solid #f1edf7 !important;
   background-color: #ffffff !important;
+  transition: background-color 0.15s ease !important;
 }
 
-.tabla-minimalista tbody tr:hover {
-  background-color: #fbfaff !important;
+::ng-deep .tabla-minimalista tbody tr:hover,
+::ng-deep .tabla-minimalista tbody tr:hover td {
+  background-color: #f7f4fc !important; 
 }
 
-.tabla-minimalista tbody td {
-  padding: 14px 10px !important;
-  vertical-align: middle;
-  white-space: nowrap; 
+::ng-deep .tabla-minimalista tbody td {
+  padding: 14px 12px !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
 }
 
 .col-nombre {
-  white-space: normal !important;
-  max-width: 180px;
-  font-weight: bold;
+  font-weight: 600;
+  color: #111111;
 }
 
-.badge-estatus {
-  background-color: #e0f2fe;
-  color: #0369a1;
-  padding: 4px 10px;
-  border-radius: 4px;
+.badge {
+  padding: 5px 14px;      
+  border-radius: 50px;     
   font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  text-transform: capitalize;
 }
 
-.badge-estatus.retirada {
+.badge-retirada {
   background-color: #fee2e2;
-  color: #991b1b;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+
+.badge-lila {
+  background-color: #f4f0fa;
+  color: #2b1b4d;
+  border: 1px solid #dcd3eb;
 }
 
 .acciones-wrapper {
@@ -112,27 +166,19 @@
 }
 
 .btn-delete-icon:hover {
-  color: #dc2626;
-}
-
-::ng-deep .dataTables_wrapper .dataTables_length {
-  display: none !important;
+  color: #dc2626 !important;
 }
 
 ::ng-deep .dataTables_wrapper .dataTables_filter {
   float: left !important;
-  margin: 0 0 20px 0 !important;
-  padding: 0 !important;
   text-align: left !important;
+  margin-bottom: 20px !important;
 }
 
 ::ng-deep .dataTables_wrapper .dataTables_filter label {
   font-size: 14px !important;
   font-weight: bold !important;
-  color: #2b1b4d !important; 
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important; 
+  color: #2b1b4d !important;
 }
 
 ::ng-deep .dataTables_wrapper .dataTables_filter input {
@@ -144,10 +190,9 @@
   color: #111111 !important;
   outline: none !important;
   width: 260px !important;
-  margin: 0 !important; 
-  box-sizing: border-box !important;
+  margin-left: 8px !important;
   font-weight: normal !important;
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease !important;
 }
 
 ::ng-deep .dataTables_wrapper .dataTables_filter input:focus {
@@ -156,7 +201,7 @@
 
 ::ng-deep .dataTables_wrapper .dataTables_info {
   float: left !important;
-  margin-top: 20px !important;
+  margin-top: 15px !important;
   font-size: 13px !important;
   color: #6b7280 !important; 
   font-weight: 500 !important;
@@ -190,7 +235,8 @@
   color: #111111 !important;
 }
 
-::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
   background: #2b1b4d !important;
   border-color: #2b1b4d !important;
   color: #ffffff !important;
