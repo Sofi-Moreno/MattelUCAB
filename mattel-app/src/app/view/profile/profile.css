@@ -1,0 +1,222 @@
+:host {
+  --primary:       #5b2d8e;
+  --primary-dark:  #3f1e63;
+  --primary-light: #7a4ab0;
+  --accent:        #f9e4b7;
+  --bg:            #f5f0fb;
+  --card:          #ffffff;
+  --text:          #2c1a45;
+  --text-muted:    #7a6a8a;
+  --border:        #d5c4e8;
+  --error:         #c0392b;
+  --error-bg:      #fdf0ef;
+}
+
+.profile-page {
+  min-height: calc(100vh - 120px);
+  background: var(--bg);
+  padding: 36px 48px;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+  box-sizing: border-box;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Header card ─────────────────────────────── */
+.profile-header-card {
+  background: var(--primary);
+  border-radius: 16px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 20px rgba(91, 45, 142, 0.2);
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(249, 228, 183, 0.2);
+  border: 3px solid var(--accent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profile-header-info {
+  flex: 1;
+}
+
+.profile-header-info h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.profile-username {
+  font-size: 14px;
+  color: var(--accent);
+  margin: 0 0 12px 0;
+}
+
+.profile-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.profile-fecha {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.profile-fecha .info-label {
+  color: rgba(249, 228, 183, 0.7);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-fecha .info-value {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ── Sección título ──────────────────────────── */
+.profile-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 10px 0;
+  padding-left: 4px;
+}
+
+/* ── Card info ───────────────────────────────── */
+.profile-card {
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(44, 26, 69, 0.04);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+
+/* ── Grid de datos ───────────────────────────── */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-item.full {
+  grid-column: 1 / -1;
+}
+
+.info-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── Badges ──────────────────────────────────── */
+.badge {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+}
+
+.badge-empleado {
+  background-color: rgba(249, 228, 183, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(249, 228, 183, 0.3);
+}
+
+.badge-cliente {
+  background-color: #e8f4fd;
+  color: #1a5276;
+  border: 1px solid #aed6f1;
+}
+
+.badge-empresa {
+  background-color: #fef9e7;
+  color: #7d6608;
+  border: 1px solid #f9e79f;
+}
+
+.badge-rol {
+  background-color: rgba(249, 228, 183, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(249, 228, 183, 0.2);
+}
+
+/* ── Mensajes ────────────────────────────────── */
+.msg-error {
+  background: var(--error-bg);
+  border: 1px solid #e8a09a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--error);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.loading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 20px; height: 20px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .profile-page { padding: 20px 16px; }
+  .profile-header-card { flex-direction: column; align-items: flex-start; }
+  .profile-fecha { align-items: flex-start; }
+  .info-grid { grid-template-columns: 1fr; }
+}

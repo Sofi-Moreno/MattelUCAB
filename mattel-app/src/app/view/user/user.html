@@ -224,16 +224,16 @@
 <!-- ═══════════════════════════════════════════════
      VISTA: EDITAR USUARIO
 ══════════════════════════════════════════════════ -->
+<!-- VISTA: EDITAR USUARIO -->
 <div class="roles-page" *ngIf="vista === 'editar'">
 
   <div class="back-link" (click)="volverTabla()">← Volver al listado</div>
-
   <h1>Editar Usuario</h1>
   <p class="page-sub">Modificar datos del usuario</p>
 
   <div class="form-card">
 
-    <!-- Credenciales (siempre visibles) -->
+    <!-- Credenciales -->
     <div class="form-section">
       <h3>Credenciales de Acceso</h3>
       <div class="form-grid">
@@ -246,8 +246,7 @@
           <input type="email" [(ngModel)]="form.usar_correo" />
         </div>
         <div class="form-group">
-          <label>
-            Nueva Contraseña
+          <label>Nueva Contraseña
             <span class="hint-label">(dejar vacío para no cambiar)</span>
           </label>
           <input type="password" placeholder="••••••••"
@@ -263,8 +262,8 @@
       </div>
     </div>
 
-    <!-- EMPLEADO o CLIENTE -->
-    <div class="form-section" *ngIf="form.tipo_persona === 'empleado' || form.tipo_persona === 'cliente'">
+    <!-- EMPLEADO -->
+    <div class="form-section" *ngIf="form.tipo_persona === 'empleado'">
       <h3>Información Personal</h3>
       <div class="form-grid">
         <div class="form-group">
@@ -285,7 +284,54 @@
         </div>
         <div class="form-group">
           <label>Cédula / ID</label>
-          <input type="text" [(ngModel)]="form.cedula" />
+          <input type="text" [value]="form.cedula" disabled />
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="text" [(ngModel)]="form.telefono" />
+        </div>
+        <div class="form-group full-width">
+          <label>Dirección</label>
+          <input type="text" [(ngModel)]="form.direccion" />
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPLEADO: contrato activo -->
+    <div class="form-section" *ngIf="form.tipo_persona === 'empleado'">
+      <h3>Contrato Activo</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Sueldo Base (USD)</label>
+          <input type="number" placeholder="0.00"
+            [(ngModel)]="form.sueldo_base_us" />
+        </div>
+      </div>
+    </div>
+
+    <!-- CLIENTE -->
+    <div class="form-section" *ngIf="form.tipo_persona === 'cliente'">
+      <h3>Información Personal</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Primer Nombre</label>
+          <input type="text" [(ngModel)]="form.primer_nombre" />
+        </div>
+        <div class="form-group">
+          <label>Segundo Nombre</label>
+          <input type="text" [(ngModel)]="form.segundo_nombre" />
+        </div>
+        <div class="form-group">
+          <label>Primer Apellido</label>
+          <input type="text" [(ngModel)]="form.primer_apellido" />
+        </div>
+        <div class="form-group">
+          <label>Segundo Apellido</label>
+          <input type="text" [(ngModel)]="form.segundo_apellido" />
+        </div>
+        <div class="form-group">
+          <label>Cédula / ID</label>
+          <input type="text" [value]="form.cedula" disabled />
         </div>
         <div class="form-group">
           <label>Teléfono</label>
@@ -304,7 +350,7 @@
       <div class="form-grid">
         <div class="form-group">
           <label>Razón Social</label>
-          <input type="text" [(ngModel)]="form.razon_social" />
+          <input type="text" [value]="form.razon_social" disabled />
         </div>
         <div class="form-group">
           <label>Nombre Comercial</label>
@@ -312,7 +358,7 @@
         </div>
         <div class="form-group">
           <label>RIF</label>
-          <input type="text" [(ngModel)]="form.rif" />
+          <input type="text" [value]="form.rif" disabled />
         </div>
         <div class="form-group">
           <label>Límite de Crédito</label>

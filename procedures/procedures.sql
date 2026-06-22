@@ -757,3 +757,122 @@ GRANT EXECUTE ON FUNCTION editar_usuario(
     VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR, VARCHAR,
     VARCHAR, VARCHAR, NUMERIC, NUMERIC
 ) TO authenticated;
+
+CREATE OR REPLACE FUNCTION obtener_perfil_usuario(p_id_usuario INTEGER)
+RETURNS TABLE (
+    -- Usuario
+    usar_id             INTEGER,
+    usar_nombre_usuario VARCHAR,
+    usar_correo         VARCHAR,
+    usar_fecha_registro TIMESTAMP,
+    -- Rol
+    r_nombre            VARCHAR,
+    r_descripcion       VARCHAR,
+    -- Tipo
+    tipo_vinculo        VARCHAR,
+    -- Campos comunes
+    primer_nombre       VARCHAR,
+    segundo_nombre      VARCHAR,
+    primer_apellido     VARCHAR,
+    segundo_apellido    VARCHAR,
+    telefono            VARCHAR,
+    direccion           VARCHAR,
+    cedula              VARCHAR,
+    -- Empresa
+    razon_social        VARCHAR,
+    nombre_comercial    VARCHAR,
+    rif                 VARCHAR,
+    limite_credito      NUMERIC,
+    saldo_pendiente     NUMERIC,
+    -- Contrato activo (empleado)
+    sueldo_base_us      NUMERIC,
+    cargo_nombre        VARCHAR,
+    departamento_nombre VARCHAR,
+    fecha_inicio_contrato DATE
+)
+LANGUAGE plpgsql SECURITY DEFINER AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        u.usar_id,
+        u.usar_nombre_usuario,
+        u.usar_correo,
+        u.usar_fecha_registro,
+        r.r_nombre,
+        r.r_descripcion,
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN 'empleado'::VARCHAR
+            WHEN u.fk_pn_usar  IS NOT NULL THEN 'cliente'::VARCHAR
+            WHEN u.fk_pj_usar  IS NOT NULL THEN 'empresa'::VARCHAR
+        END,
+        -- primer_nombre
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN e.epad_primer_nombre
+            WHEN u.fk_pn_usar  IS NOT NULL THEN pn.pn_primer_nombre
+            ELSE NULL
+        END,
+        -- segundo_nombre
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN e.epad_segundo_nombre
+            WHEN u.fk_pn_usar  IS NOT NULL THEN pn.pn_segundo_nombre
+            ELSE NULL
+        END,
+        -- primer_apellido
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN e.epad_primer_apellido
+            WHEN u.fk_pn_usar  IS NOT NULL THEN pn.pn_primer_apellido
+            ELSE NULL
+        END,
+        -- segundo_apellido
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN e.epad_segundo_apellido
+            WHEN u.fk_pn_usar  IS NOT NULL THEN pn.pn_segundo_apellido
+            ELSE NULL
+        END,
+        -- telefono
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN e.epad_telefono
+            WHEN u.fk_pn_usar  IS NOT NULL THEN pn.pn_telefono
+            ELSE NULL
+        END,
+        -- direccion
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN e.epad_direccion
+            WHEN u.fk_pn_usar  IS NOT NULL THEN pn.pn_direccion
+            WHEN u.fk_pj_usar  IS NOT NULL THEN pj.pj_direccion
+            ELSE NULL
+        END,
+        -- cedula
+        CASE
+            WHEN u.fk_emp_usar IS NOT NULL THEN e.epad_cedula
+            WHEN u.fk_pn_usar  IS NOT NULL THEN pn.pn_cedula
+            ELSE NULL
+        END,
+        -- empresa
+        pj.pj_razon_social,
+        pj.pj_nombre_comercial,
+        pj.pj_rif,
+        pj.pj_limite_credito,
+        pj.pj_saldo_pendiente,
+        -- contrato activo
+        c.ctt_sueldo_base_us,
+        cg.cg_nombre,
+        d.dptmt_nombre,
+        c.ctt_fecha_inicio
+    FROM usuario u
+    INNER JOIN rol              r   ON r.r_id    = u.fk_r_usar
+    LEFT  JOIN empleado         e   ON e.epad_id = u.fk_emp_usar
+    LEFT  JOIN persona_natural  pn  ON pn.pn_id  = u.fk_pn_usar
+    LEFT  JOIN persona_juridica pj  ON pj.pj_id  = u.fk_pj_usar
+    LEFT  JOIN contrato         c   ON c.fk_epad_ctt = u.fk_emp_usar
+                                   AND c.ctt_fecha_fin IS NULL
+    LEFT  JOIN cargo            cg  ON cg.cg_id  = c.fk_cg_ctt
+    LEFT  JOIN departamento     d   ON d.dptmt_id = cg.fk_dptmt_cg
+    WHERE u.usar_id = p_id_usuario
+    ORDER BY c.ctt_fecha_inicio DESC
+    LIMIT 1;
+END;
+$$;
+
+GRANT EXECUTE ON FUNCTION obtener_perfil_usuario(INTEGER) TO authenticated;
+GRANT EXECUTE ON FUNCTION obtener_perfil_usuario(INTEGER) TO anon;

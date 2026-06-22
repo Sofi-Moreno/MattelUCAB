@@ -84,16 +84,20 @@ export class User implements OnInit, OnDestroy {
   }
 
   mostrarEditar(usuario: any): void {
-    this.form = {
-      ...this.formVacio(),
-      usar_nombre_usuario: usuario.usar_nombre_usuario || '',
-      usar_correo:         usuario.usar_correo         || '',
-      fk_r_usar:           usuario.r_id?.toString()    || '',
-    };
-    this.editandoId = usuario.usar_id;
-    this.errorMsg = '';
-    this.successMsg = '';
-    this.vista = 'editar';
+  this.form = {
+    ...this.formVacio(),
+    usar_nombre_usuario: usuario.usar_nombre_usuario || '',
+    usar_correo:         usuario.usar_correo         || '',
+    fk_r_usar:           usuario.r_id?.toString()    || '',
+    tipo_persona: usuario.tipo_vinculo === 'Empleado'    ? 'empleado'
+                : usuario.tipo_vinculo === 'Cliente B2C' ? 'cliente'
+                : usuario.tipo_vinculo === 'Empresa B2B' ? 'empresa'
+                : 'empleado',
+  };
+  this.editandoId = usuario.usar_id;
+  this.errorMsg = '';
+  this.successMsg = '';
+  this.vista = 'editar';
   }
 
   volverTabla(): void {
@@ -136,19 +140,33 @@ export class User implements OnInit, OnDestroy {
   }
 
   guardarEdicion(): void {
-    if (!this.form.fk_r_usar) { this.errorMsg = 'Selecciona un rol.'; return; }
-    this.isLoading = true;
-    this.supabase.callProcedure('modificar_rol_usuario', {
-      p_id_usuario: this.editandoId,
-      p_id_rol:     parseInt(this.form.fk_r_usar),
-    }).then(() => {
-      this.successMsg = 'Rol actualizado exitosamente.';
-      this.isLoading = false;
-      setTimeout(() => this.volverTabla(), 1500);
-    }).catch((e: any) => {
-      this.errorMsg = e?.message || 'Error al actualizar rol.';
-      this.isLoading = false;
-    });
+  if (!this.form.fk_r_usar) { this.errorMsg = 'Selecciona un rol.'; return; }
+  this.isLoading = true;
+  this.errorMsg = '';
+  this.supabase.callProcedure('editar_usuario', {
+    p_id_usuario:       this.editandoId,
+    p_nombre_usuario:   this.form.usar_nombre_usuario || null,
+    p_correo:           this.form.usar_correo         || null,
+    p_contrasena:       this.form.usar_contrasena     || null,
+    p_id_rol:           parseInt(this.form.fk_r_usar),
+    p_primer_nombre:    this.form.primer_nombre       || null,
+    p_segundo_nombre:   this.form.segundo_nombre      || null,
+    p_primer_apellido:  this.form.primer_apellido     || null,
+    p_segundo_apellido: this.form.segundo_apellido    || null,
+    p_telefono:         this.form.telefono            || null,
+    p_direccion:        this.form.direccion           || null,
+    p_razon_social:     null,
+    p_nombre_comercial: this.form.nombre_comercial    || null,
+    p_limite_credito:   this.form.limite_credito ? parseFloat(this.form.limite_credito) : null,
+    p_sueldo_base_us:   this.form.sueldo_base_us ? parseFloat(this.form.sueldo_base_us) : null,
+  }).then(() => {
+    this.successMsg = 'Usuario actualizado exitosamente.';
+    this.isLoading = false;
+    setTimeout(() => this.volverTabla(), 1500);
+  }).catch((e: any) => {
+    this.errorMsg = e?.message || 'Error al actualizar usuario.';
+    this.isLoading = false;
+  });
   }
 
   abrirModalEliminar(usuario: any): void {
@@ -193,23 +211,24 @@ export class User implements OnInit, OnDestroy {
   }
 
   private formVacio() {
-    return {
-      usar_nombre_usuario: '',
-      usar_correo:         '',
-      usar_contrasena:     '',
-      fk_r_usar:           '',
-      tipo_persona:        'empleado' as TipoPersona,
-      primer_nombre:       '',
-      segundo_nombre:      '',
-      primer_apellido:     '',
-      segundo_apellido:    '',
-      cedula:              '',
-      telefono:            '',
-      direccion:           '',
-      razon_social:        '',
-      nombre_comercial:    '',
-      rif:                 '',
-      limite_credito:      '',
-    };
+  return {
+    usar_nombre_usuario: '',
+    usar_correo:         '',
+    usar_contrasena:     '',
+    fk_r_usar:           '',
+    tipo_persona:        'empleado' as TipoPersona,
+    primer_nombre:       '',
+    segundo_nombre:      '',
+    primer_apellido:     '',
+    segundo_apellido:    '',
+    cedula:              '',
+    telefono:            '',
+    direccion:           '',
+    razon_social:        '',
+    nombre_comercial:    '',
+    rif:                 '',
+    limite_credito:      '',
+    sueldo_base_us:      '',  // ← nuevo
+  };
   }
 }

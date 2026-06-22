@@ -1,0 +1,191 @@
+<div class="profile-page">
+
+  <div class="loading-row" *ngIf="isLoading">
+    <span class="spinner"></span> Cargando perfil...
+  </div>
+
+  <div class="msg-error" *ngIf="errorMsg">{{ errorMsg }}</div>
+
+  <ng-container *ngIf="!isLoading && perfil">
+
+    <!-- Encabezado del perfil -->
+    <div class="profile-header-card">
+      <div class="profile-avatar">{{ getIniciales() }}</div>
+      <div class="profile-header-info">
+        <h1>{{ getNombreCompleto() }}</h1>
+        <p class="profile-username">@{{ perfil.usar_nombre_usuario }}</p>
+        <div class="profile-badges">
+          <span class="badge" [ngClass]="getTipoBadgeClass()">{{ getTipoLabel() }}</span>
+          <span class="badge badge-rol">{{ perfil.r_nombre }}</span>
+        </div>
+      </div>
+      <div class="profile-fecha">
+        <span class="info-label">Miembro desde</span>
+        <span class="info-value">{{ perfil.usar_fecha_registro | date:'dd/MM/yyyy' }}</span>
+      </div>
+    </div>
+
+    <!-- Acceso al sistema -->
+    <div class="profile-section-title">Acceso al Sistema</div>
+    <div class="profile-card">
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Nombre de Usuario</span>
+          <span class="info-value">{{ perfil.usar_nombre_usuario }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Correo Electrónico</span>
+          <span class="info-value">{{ perfil.usar_correo }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Rol</span>
+          <span class="info-value">{{ perfil.r_nombre }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Descripción del Rol</span>
+          <span class="info-value">{{ perfil.r_descripcion }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPLEADO -->
+    <ng-container *ngIf="perfil.tipo_vinculo === 'empleado'">
+
+      <div class="profile-section-title">Información Personal</div>
+      <div class="profile-card">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Primer Nombre</span>
+            <span class="info-value">{{ perfil.primer_nombre || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Segundo Nombre</span>
+            <span class="info-value">{{ perfil.segundo_nombre || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Primer Apellido</span>
+            <span class="info-value">{{ perfil.primer_apellido || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Segundo Apellido</span>
+            <span class="info-value">{{ perfil.segundo_apellido || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Cédula</span>
+            <span class="info-value">{{ perfil.cedula || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Teléfono</span>
+            <span class="info-value">{{ perfil.telefono || '—' }}</span>
+          </div>
+          <div class="info-item full">
+            <span class="info-label">Dirección</span>
+            <span class="info-value">{{ perfil.direccion || '—' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-section-title">Contrato Activo</div>
+      <div class="profile-card">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Cargo</span>
+            <span class="info-value">{{ perfil.cargo_nombre || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Departamento</span>
+            <span class="info-value">{{ perfil.departamento_nombre || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Sueldo Base (USD)</span>
+            <span class="info-value">{{ perfil.sueldo_base_us ? ('$' + perfil.sueldo_base_us) : '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Fecha de Inicio</span>
+            <span class="info-value">{{ perfil.fecha_inicio_contrato ? (perfil.fecha_inicio_contrato | date:'dd/MM/yyyy') : '—' }}</span>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <!-- CLIENTE -->
+    <ng-container *ngIf="perfil.tipo_vinculo === 'cliente'">
+
+      <div class="profile-section-title">Información Personal</div>
+      <div class="profile-card">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Primer Nombre</span>
+            <span class="info-value">{{ perfil.primer_nombre || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Segundo Nombre</span>
+            <span class="info-value">{{ perfil.segundo_nombre || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Primer Apellido</span>
+            <span class="info-value">{{ perfil.primer_apellido || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Segundo Apellido</span>
+            <span class="info-value">{{ perfil.segundo_apellido || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Cédula</span>
+            <span class="info-value">{{ perfil.cedula || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Teléfono</span>
+            <span class="info-value">{{ perfil.telefono || '—' }}</span>
+          </div>
+          <div class="info-item full">
+            <span class="info-label">Dirección</span>
+            <span class="info-value">{{ perfil.direccion || '—' }}</span>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+
+    <!-- EMPRESA -->
+    <ng-container *ngIf="perfil.tipo_vinculo === 'empresa'">
+
+      <div class="profile-section-title">Información de Empresa</div>
+      <div class="profile-card">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Razón Social</span>
+            <span class="info-value">{{ perfil.razon_social || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Nombre Comercial</span>
+            <span class="info-value">{{ perfil.nombre_comercial || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">RIF</span>
+            <span class="info-value">{{ perfil.rif || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Correo</span>
+            <span class="info-value">{{ perfil.usar_correo || '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Límite de Crédito</span>
+            <span class="info-value">{{ perfil.limite_credito != null ? ('$' + perfil.limite_credito) : '—' }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Saldo Pendiente</span>
+            <span class="info-value">{{ perfil.saldo_pendiente != null ? ('$' + perfil.saldo_pendiente) : '—' }}</span>
+          </div>
+          <div class="info-item full">
+            <span class="info-label">Dirección</span>
+            <span class="info-value">{{ perfil.direccion || '—' }}</span>
+          </div>
+        </div>
+      </div>
+
+    </ng-container>
+
+  </ng-container>
+</div>
