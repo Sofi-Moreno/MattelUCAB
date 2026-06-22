@@ -121,3 +121,70 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Rol label ───────────────────────────────── */
+.rol-label {
+  display: inline-block;
+  background: rgba(91, 45, 142, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(91, 45, 142, 0.2);
+  border-radius: 50px;
+  padding: 3px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+/* ── Card subtitle (vendedor) ────────────────── */
+.card-sub {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* ── Sin módulos (clientes) ──────────────────── */
+.no-modules {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 24px;
+  background: var(--color-card);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.no-modules-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(91, 45, 142, 0.08);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-modules-text {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.btn-perfil {
+  background: var(--color-primary);
+  color: #f9e4b7;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-perfil:hover { background: var(--color-primary-dark); }

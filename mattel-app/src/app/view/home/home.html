@@ -1,37 +1,71 @@
 <div class="admin-home">
   <div class="home-container">
-    
+
     <div class="home-header">
-      <h1>Bienvenido a DreamLegacySystem</h1>
-      <p>Selecciona un módulo para empezar a trabajar</p>
+      <h1>Bienvenido</h1>
+      <p *ngIf="puedeVerRoles || puedeVerUsuarios || puedeVerDisenos || puedeVerReportes">
+        Selecciona un módulo para empezar a trabajar
+      </p>
     </div>
 
-    <div class="nav-grid">
-      
-      <a routerLink="/roles" class="grid-card card-roles">
+    <div class="no-modules" *ngIf="!puedeVerRoles && !puedeVerUsuarios && !puedeVerDisenos && !puedeVerReportes">
+      <div class="no-modules-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <p class="no-modules-text">No tienes módulos de gestión asignados.</p>
+      <a routerLink="/profile" class="btn-perfil">Ver mi perfil</a>
+    </div>
+
+    <div class="nav-grid" *ngIf="puedeVerRoles || puedeVerUsuarios || puedeVerDisenos || puedeVerReportes">
+
+      <a *ngIf="puedeVerRoles" routerLink="/roles" class="grid-card card-roles">
         <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
         </div>
         <span class="card-title">Gestión de Roles y Permisos</span>
       </a>
 
-      <a routerLink="/user" class="grid-card card-users">
+      <a *ngIf="puedeVerUsuarios" routerLink="/user" class="grid-card card-users">
         <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
         </div>
         <span class="card-title">Gestión de Usuarios</span>
       </a>
 
-      <a routerLink="/designs" class="grid-card card-designs">
+      <a *ngIf="puedeVerDisenos" routerLink="/designs" class="grid-card card-designs">
         <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
         </div>
         <span class="card-title">Gestión de Diseños</span>
+        <span class="card-sub" *ngIf="!puedeVerReportes">Precios y disponibilidad</span>
       </a>
 
-      <a routerLink="/reports" class="grid-card card-reports">
+      <a *ngIf="puedeVerReportes" routerLink="/reports" class="grid-card card-reports">
         <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
         </div>
         <span class="card-title">Reportes</span>
       </a>
