@@ -78,4 +78,9 @@ export class Profile implements OnInit {
   volver(): void {
     this.router.navigate(['/home']);
   }
+
+  cerrarSesion(): void {
+  localStorage.removeItem('usuario');
+  this.router.navigate(['/login']);
+}
 }

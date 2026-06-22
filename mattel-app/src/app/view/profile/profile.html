@@ -8,24 +8,33 @@
 
   <ng-container *ngIf="!isLoading && perfil">
 
-    <!-- Encabezado del perfil -->
     <div class="profile-header-card">
-      <div class="profile-avatar">{{ getIniciales() }}</div>
-      <div class="profile-header-info">
+        <div class="profile-avatar">{{ getIniciales() }}</div>
+        <div class="profile-header-info">
         <h1>{{ getNombreCompleto() }}</h1>
-        <p class="profile-username">@{{ perfil.usar_nombre_usuario }}</p>
-        <div class="profile-badges">
-          <span class="badge" [ngClass]="getTipoBadgeClass()">{{ getTipoLabel() }}</span>
-          <span class="badge badge-rol">{{ perfil.r_nombre }}</span>
+            <p class="profile-username">@{{ perfil.usar_nombre_usuario }}</p>
+            <div class="profile-badges">
+                <span class="badge" [ngClass]="getTipoBadgeClass()">{{ getTipoLabel() }}</span>
+                <span class="badge badge-rol">{{ perfil.r_nombre }}</span>
+            </div>
         </div>
-      </div>
-      <div class="profile-fecha">
-        <span class="info-label">Miembro desde</span>
-        <span class="info-value">{{ perfil.usar_fecha_registro | date:'dd/MM/yyyy' }}</span>
-      </div>
-    </div>
+        <div class="profile-header-right">
+            <div class="profile-fecha">
+                <span class="info-label">Miembro desde</span>
+                <span class="info-value">{{ perfil.usar_fecha_registro | date:'dd/MM/yyyy' }}</span>
+            </div>
+            <button class="btn-logout" (click)="cerrarSesion()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+        Cerrar Sesión
+            </button>
+        </div>
+</div>
 
-    <!-- Acceso al sistema -->
     <div class="profile-section-title">Acceso al Sistema</div>
     <div class="profile-card">
       <div class="info-grid">
