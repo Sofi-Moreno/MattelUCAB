@@ -1,0 +1,633 @@
+/* =============================================
+   Paleta Morado + Crema
+   ============================================= */
+:host {
+  --primary: #5b2d8e;
+  --primary-dark: #3f1e63;
+  --primary-light: #7a4ab0;
+  --accent: #f9e4b7;
+  --accent-dark: #f0cb7a;
+  --bg: #f5f0fb;
+  --card: #ffffff;
+  --text: #2c1a45;
+  --text-muted: #7a6a8a;
+  --border: #d5c4e8;
+  --error: #c0392b;
+  --error-bg: #fdf0ef;
+  --success: #1a6b4a;
+  --success-bg: #f0f7f4;
+  --danger: #c0392b;
+}
+
+/* ── Página ─────────────────────────────────── */
+.roles-page {
+  min-height: calc(100vh - 120px);
+  background: var(--bg);
+  padding: 36px 48px;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+/* ── Encabezado ─────────────────────────────── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 4px 0;
+}
+
+.page-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Botones principales ─────────────────────── */
+.btn-primary {
+  background: var(--primary);
+  color: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #a93226;
+}
+
+.btn-danger:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn-icon {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* ── Tarjeta tabla ───────────────────────────── */
+.table-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(44, 26, 69, 0.04);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.table-card::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Tabla minimalista ───────────────────────── */
+.tabla-minimalista {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 15px !important;
+}
+
+::ng-deep .tabla-minimalista thead th {
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+  font-weight: 600 !important;
+  padding: 14px 12px !important;
+  border-bottom: 2px solid var(--border) !important;
+  text-align: left !important;
+  white-space: nowrap !important;
+}
+
+::ng-deep .tabla-minimalista thead th.sorting,
+::ng-deep .tabla-minimalista thead th.sorting_asc,
+::ng-deep .tabla-minimalista thead th.sorting_desc {
+  background-image: none !important;
+}
+
+::ng-deep .tabla-minimalista tbody tr {
+  border-bottom: 1px solid var(--border) !important;
+  background-color: var(--card) !important;
+  transition: background-color 0.15s ease !important;
+}
+
+::ng-deep .tabla-minimalista tbody td {
+  padding: 14px 12px !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+::ng-deep .tabla-minimalista tbody tr:hover,
+::ng-deep .tabla-minimalista tbody tr:hover td {
+  background-color: #fcfaff !important;
+}
+
+/* ── Nombre en tabla ─────────────────────────── */
+.col-nombre {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ── Badges ──────────────────────────────────── */
+.badge {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.badge-empleado {
+  background-color: rgba(91, 45, 142, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(91, 45, 142, 0.2);
+}
+
+.badge-cliente {
+  background-color: #e8f4fd;
+  color: #1a5276;
+  border: 1px solid #aed6f1;
+}
+
+.badge-empresa {
+  background-color: #fef9e7;
+  color: #7d6608;
+  border: 1px solid #f9e79f;
+}
+
+.badge-rol {
+  background-color: #f0e6fa;
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+/* ── Botones de acción ───────────────────────── */
+.acciones-wrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-icon-only {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: transform 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon-only:hover {
+  transform: scale(1.15);
+  color: var(--primary);
+}
+
+.btn-delete-icon:hover {
+  color: var(--error) !important;
+}
+
+/* ── DataTables overrides ────────────────────── */
+::ng-deep .dataTables_wrapper .dataTables_filter {
+  float: left !important;
+  text-align: left !important;
+  margin-bottom: 20px !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter label {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter input {
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  background-color: var(--card) !important;
+  font-size: 14px !important;
+  color: var(--text) !important;
+  outline: none !important;
+  width: 260px !important;
+  margin-left: 8px !important;
+  font-weight: normal !important;
+  transition: border-color 0.15s ease !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter input:focus {
+  border-color: var(--primary-light) !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_info {
+  float: left !important;
+  margin-top: 15px !important;
+  font-size: 13px !important;
+  color: var(--text-muted) !important;
+  font-weight: 500 !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate {
+  float: right !important;
+  margin-top: 15px !important;
+  display: block !important;
+  font-size: 0 !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button {
+  display: inline-block !important;
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  color: var(--text-muted) !important;
+  padding: 8px 14px !important;
+  margin-left: 6px !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: var(--bg) !important;
+  color: var(--primary) !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+  opacity: 0.4 !important;
+  cursor: not-allowed !important;
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--text-muted) !important;
+}
+
+/* ── Back link ───────────────────────────────── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--primary);
+}
+
+/* ── Tarjeta formulario ──────────────────────── */
+.form-card {
+  background: var(--card);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(91, 45, 142, 0.08);
+  padding: 32px 36px;
+  max-width: 860px;
+  margin-top: 20px;
+}
+
+.form-section {
+  margin-bottom: 28px;
+}
+
+.form-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.section-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: -8px 0 16px 0;
+  line-height: 1.6;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.req {
+  color: var(--danger);
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text);
+  background: #faf8fe;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(91, 45, 142, 0.1);
+  background: white;
+}
+
+.form-group input:disabled {
+  background: #f0eaf8;
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.form-group input::placeholder {
+  color: #bba8d0;
+}
+
+/* ── Acciones formulario ─────────────────────── */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Modal ───────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 26, 69, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.modal-card {
+  background: white;
+  border-radius: 14px;
+  padding: 32px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(91, 45, 142, 0.2);
+}
+
+.modal-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 16px 0;
+}
+
+.modal-warning {
+  background: var(--error-bg);
+  border: 1px solid #e8a09a;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #7a2a22;
+  margin-bottom: 16px;
+}
+
+.modal-info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  background: #faf8fe;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.modal-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.modal-value {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.modal-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0 0 8px 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* ── Mensajes ─────────────────────────────────── */
+.msg-error {
+  background: var(--error-bg);
+  border: 1px solid #e8a09a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--error);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.msg-success {
+  background: var(--success-bg);
+  border: 1px solid #a8d5be;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--success);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* ── Spinners ─────────────────────────────────── */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+.spinner-sm {
+  width: 16px;
+  height: 16px;
+  border: 2.5px solid rgba(249, 228, 183, 0.4);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+.loading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  color: var(--text-muted);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .roles-page {
+    padding: 20px 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 20px 16px;
+  }
+}
+
+/* ── Permisos List ───────────────────────────── */
+.permisos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.permisos-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.wide-modal {
+  max-width: 700px !important;
+}
+
+.table-card-sm {
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
