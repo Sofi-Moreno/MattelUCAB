@@ -11,7 +11,7 @@ import { Supabase } from '../../services/supabase';
   templateUrl: './roles.html',
   styleUrl: './roles.css',
 })
-export class Roles implements OnInit, OnDestroy {
+export class Roles implements OnInit {
 
   roles: any[] = [];
   usuarios: any[] = [];
@@ -51,9 +51,6 @@ export class Roles implements OnInit, OnDestroy {
     this.cargarDatos();
   }
 
-  ngOnDestroy(): void {
-    this.dtTrigger.complete();
-  }
 
   cargarDatos(): void {
     this.isLoading = true;

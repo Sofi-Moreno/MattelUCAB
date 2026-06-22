@@ -5,6 +5,7 @@ import { Login } from './view/login/login';
 import { User } from './view/user/user';
 import { Profile } from './view/profile/profile';
 import { Roles } from './view/roles/roles';
+import { Reports } from './reports/reports';
 
 export const routes: Routes = [
     { path: '', component: Login },
@@ -14,4 +15,5 @@ export const routes: Routes = [
     { path: 'roles', component: Roles },
     { path: 'designs', component: Designs },
     { path: 'profile', component: Profile },
+    { path: 'reports', component: Reports}
 ];

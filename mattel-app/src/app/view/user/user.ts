@@ -14,7 +14,7 @@ type Vista = 'tabla' | 'crear' | 'editar';
   templateUrl: './user.html',  
   styleUrl: './user.css',      
 })
-export class User implements OnInit, OnDestroy {  
+export class User implements OnInit{  
 
   usuarios: any[] = [];
   roles: any[] = [];
@@ -53,9 +53,7 @@ export class User implements OnInit, OnDestroy {
     this.cargarDatos();
   }
 
-  ngOnDestroy(): void {
-    this.dtTrigger.complete();
-  }
+  
 
   cargarDatos(): void {
     this.isLoading = true;
