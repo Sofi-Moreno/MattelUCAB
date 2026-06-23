@@ -35,7 +35,7 @@ $$;
 --   - Evita nombres de rol duplicados (sin distinguir mayúsculas/minúsculas).
 --   - El r_id lo genera la secuencia SERIAL automáticamente.
 -- -----------------------------------------------------------------------------
-CREATE OR REPLACE PROCEDURE crear_rol(p_nombre VARCHAR, p_descripcion VARCHAR) LANGUAGE plpgsql AS $$
+CREATE OR REPLACE FUNCTION crear_rol(p_nombre VARCHAR, p_descripcion VARCHAR) RETURNS void LANGUAGE plpgsql AS $$
 BEGIN
     IF p_nombre IS NULL OR btrim(p_nombre) = '' THEN
         RAISE EXCEPTION 'El nombre del rol no puede estar vacío.';
