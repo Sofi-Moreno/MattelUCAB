@@ -228,6 +228,9 @@ RETURNS TABLE (
     WHERE he_ret.he_fecha_hora_inicio < (CURRENT_DATE - make_interval(months => p_meses))
     ORDER BY dp.dp_nombre_comercial, up.up_sku;
 $$;
+
+GRANT EXECUTE ON FUNCTION reporte_skus_retirados(INTEGER) TO anon;
+GRANT EXECUTE ON FUNCTION reporte_skus_retirados(INTEGER) TO authenticated;
 -- -----------------------------------------------------------------------------
 -- reporte_inventario_por_cabello_piel: cantidad de SKUs disponibles para la venta
 -- agrupados por color de cabello y tono de piel.
@@ -265,6 +268,9 @@ RETURNS TABLE (
     ORDER BY count(*) DESC, c_cab.cl_nombre, c_piel.cl_nombre;
 $$;
 
+GRANT EXECUTE ON FUNCTION reporte_inventario_por_cabello_piel() TO anon;
+GRANT EXECUTE ON FUNCTION reporte_inventario_por_cabello_piel() TO authenticated;
+
 -- -----------------------------------------------------------------------------
 -- reporte_accesorios_compatibles: accesorios/mobiliarios compatibles con un modelo
 -- específico de dreamhouse, indicando si existe stock de cada uno.
@@ -295,6 +301,9 @@ RETURNS TABLE (
     ORDER BY (count(up.up_sku) FILTER (WHERE e.ett_nombre = 'Disponible') > 0) DESC,
              acc.dp_nombre_comercial;
 $$;
+
+GRANT EXECUTE ON FUNCTION reporte_accesorios_compatibles(INTEGER) TO anon;
+GRANT EXECUTE ON FUNCTION reporte_accesorios_compatibles(INTEGER) TO authenticated;
 -- =============================================================================
 -- PROCEDIMIENTOS ALMACENADOS - GESTIÓN DE DISEÑOS DE PRODUCTO
 -- =============================================================================
