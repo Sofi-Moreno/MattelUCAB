@@ -355,6 +355,105 @@ END;
 $$;
 
 -- -----------------------------------------------------------------------------
+-- las proximas funciones devuelven el detalle de un diseno_producto
+-- -----------------------------------------------------------------------------
+CREATE OR REPLACE FUNCTION detalle_categoria(id_diseno INT)
+RETURNS TEXT
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    texto_resultado TEXT;
+BEGIN
+    SELECT STRING_AGG(c.cp_nombre, ', ') INTO texto_resultado
+    FROM dp_categoria dpc
+        JOIN categoria_producto c ON  c.cp_id = dpc.fk_cp_dpc
+    WHERE dpc.fk_dp_dpc = id_diseno;
+    RETURN COALESCE(texto_resultado, 'Sin categorías asignadas');
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION detalle_taxonomia(id_diseno INT)
+RETURNS TABLE(
+    pz_nombre VARCHAR,
+    txnm_cantidad_pieza INTEGER,
+    md_nombre VARCHAR,
+    mp_nombre VARCHAR,
+    txnm_cantidad_material NUMERIC,
+    cl_nombre VARCHAR
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        p.pz_nombre,
+        t.txnm_cantidad_pieza,
+        m.md_nombre,
+        mp.mp_nombre,
+        t.txnm_cantidad_material,
+        c.cl_nombre
+    FROM taxonomia t 
+        LEFT JOIN pieza p ON p.pz_id = t.fk_pz_txnm
+        LEFT JOIN molde m ON m.md_id = t.fk_md_txnm
+        LEFT JOIN materia_prima mp ON mp.mp_id = t.fk_mp_txnm
+        LEFT JOIN color c ON c.cl_id = t.fk_cl_txnm
+    WHERE t.fk_dp_txnm = id_diseno;
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION detalle_profesiones(id_diseno INT)
+RETURNS TABLE(
+    nombre_profesion VARCHAR,
+    descripcion_profesion VARCHAR,
+    ano_ejercicio DATE
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        p.pfs_nombre,
+        p.pfs_descripcion,
+        dpp.dpp_ano
+    FROM dp_profesion dpp
+        JOIN profesion p ON p.pfs_id = dpp.fk_pfs_dpp
+    WHERE fk_dp_dpp = id_diseno;
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION detalle_fases_pruebas(id_diseno INT)
+RETURNS TABLE(
+    numero_paso INTEGER,
+    nombre_operacion VARCHAR,
+    descripcion_operacion VARCHAR,
+    dias_estimados INTEGER,
+    tipo_fase VARCHAR,
+    cargos_requeridos TEXT
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        fpd.fpd_numero_paso,
+        oc.octlg_nombre,
+        oc.octlg_descripcion,
+        fpd.fpd_dias_estimados,
+        fpd.fpd_tipo,
+        (
+            SELECT COALESCE(STRING_AGG(fc.fc_cantidad::TEXT || ' ' || c.cg_nombre, ', '), 'Ninguno') 
+            FROM fc_cargo fc
+                JOIN cargo c ON c.cg_id = fc.fk_cg_fc
+            WHERE fc.fk_fpd_fc = fpd.fpd_id
+        )
+    FROM fase_prueba_diseno fpd 
+        JOIN operacion_catalogo oc ON oc.octlg_id = fpd.fk_octlg_fpd
+    WHERE fpd.fk_dp_fpd = id_diseno 
+    ORDER BY fpd.fpd_numero_paso ASC; 
+END;
+$$;
+
+-- -----------------------------------------------------------------------------
 -- eliminar_diseno_producto elimina un diseño de producto
 -- -----------------------------------------------------------------------------
 
