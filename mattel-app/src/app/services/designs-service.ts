@@ -7,10 +7,13 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class DesignsService {
-  // URLs para llamar a los procedimientos almacenados a través de la API REST de Supabase
-  private urlListar = 'https://vciukjsjsynqfiocokfg.supabase.co/rest/v1/rpc/lista_diseno_producto'; 
-  private urlEliminar = 'https://vciukjsjsynqfiocokfg.supabase.co/rest/v1/rpc/eliminar_diseno_producto'; 
-  
+  private baseUrl = 'https://vciukjsjsynqfiocokfg.supabase.co/rest/v1/rpc';
+  private urlListar = `${this.baseUrl}/lista_diseno_producto`; 
+  private urlEliminar = `${this.baseUrl}/eliminar_diseno_producto`; 
+    private urlCategoria = `${this.baseUrl}/detalle_categoria`;
+  private urlTaxonomia = `${this.baseUrl}/detalle_taxonomia`;
+  private urlProfesiones = `${this.baseUrl}/detalle_profesiones`;
+  private urlFasesPruebas = `${this.baseUrl}/detalle_fases_pruebas`;
   private supabaseKey = 'sb_publishable_mfSdsbSFtBEtf6z-xsRQVw_zFBFI5CS';
 
   constructor(private http: HttpClient) {}
@@ -41,5 +44,21 @@ export class DesignsService {
         error: (err) => console.error('--- ERROR AL ELIMINAR DISEÑO ---', err)
       })
     );
+  }
+
+  getDetalleCategoria(id: number): Observable<string> {
+    return this.http.post<string>(this.urlCategoria, { id_diseno: id }, { headers: this.getHeaders() });
+  }
+
+  getDetalleTaxonomia(id: number): Observable<any[]> {
+    return this.http.post<any[]>(this.urlTaxonomia, { id_diseno: id }, { headers: this.getHeaders() });
+  }
+
+  getDetalleProfesiones(id: number): Observable<any[]> {
+    return this.http.post<any[]>(this.urlProfesiones, { id_diseno: id }, { headers: this.getHeaders() });
+  }
+
+  getDetalleFasesPruebas(id: number): Observable<any[]> {
+    return this.http.post<any[]>(this.urlFasesPruebas, { id_diseno: id }, { headers: this.getHeaders() });
   }
 }

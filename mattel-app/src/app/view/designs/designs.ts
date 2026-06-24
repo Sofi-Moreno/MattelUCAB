@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, forkJoin} from 'rxjs';
 import { DesignsService } from '../../services/designs-service';
 import { DataTablesModule, DataTableDirective } from 'angular-datatables';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-designs',
@@ -21,6 +22,12 @@ export class Designs implements OnInit {
   errorModalMsg: string = '';
   successMsg: string = '';
   isLoading: boolean = false;
+  vistaActual: 'listado' | 'detalle' = 'listado';
+  infoGeneral: any = null;
+  categoriasTexto: string = '';
+  tablaTaxonomia: any[] = [];
+  tablaProfesiones: any[] = [];
+  tablaFasesPruebas: any[] = [];
 
   constructor(private service: DesignsService) {}
 
@@ -79,11 +86,49 @@ export class Designs implements OnInit {
   }
   
   verDetalle(id: number): void {
-    console.log('Navegando a la vista ampliada del diseño ID:', id);
+    this.isLoading = true;
+    
+    // Buscamos la info general localmente
+    this.infoGeneral = this.disenos.find(d => d.dp_id === id);
+    
+    if (!this.infoGeneral) {
+      console.error('No se encontró el diseño localmente');
+      this.isLoading = false;
+      return;
+    }
+
+    // forkJoin ejecuta todas las llamadas al mismo tiempo y nos devuelve todo junto
+    forkJoin({
+      catRes: this.service.getDetalleCategoria(id),
+      taxRes: this.service.getDetalleTaxonomia(id),
+      profRes: this.service.getDetalleProfesiones(id),
+      faseRes: this.service.getDetalleFasesPruebas(id)
+    }).subscribe({
+      next: (resultados) => {
+        // Asignamos los resultados a nuestras variables
+        this.categoriasTexto = resultados.catRes || 'Sin categorías';
+        this.tablaTaxonomia = resultados.taxRes || [];
+        this.tablaProfesiones = resultados.profRes || [];
+        this.tablaFasesPruebas = resultados.faseRes || [];
+        
+        // Cambiamos la vista para mostrar el detalle
+        this.vistaActual = 'detalle';
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error('Error cargando el detalle del diseño:', error);
+        this.isLoading = false;
+      }
+    });
   }
 
-  editarDiseno(id: number): void {
-    console.log('Abriendo formulario de edición para el diseño ID:', id);
+  regresarAlListado(): void {
+    this.vistaActual = 'listado';
+    this.infoGeneral = null;
+    this.categoriasTexto = '';
+    this.tablaTaxonomia = [];
+    this.tablaProfesiones = [];
+    this.tablaFasesPruebas = [];
   }
 
   eliminarDiseno(id: number): void {
