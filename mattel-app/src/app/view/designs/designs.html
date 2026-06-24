@@ -1,52 +1,122 @@
-<div class="designs-home">
+<div class="designs-home" [hidden]="vistaActual === 'detalle'">
   
-  <div *ngIf="vistaActual === 'listado'">
-    <div class="page-header">
-      <div>
-        <h1>Gestión de Diseño de Productos</h1>
-        <p class="page-sub">Listado, especificaciones técnicas y estados de los diseños</p>
-      </div>
-      <button class="btn-primary">
-        <span class="btn-icon">+</span> Nuevo Diseño
+  <div class="page-header">
+    <div>
+      <h1>Gestión de Diseño de Productos</h1>
+      <p class="page-sub">Listado, especificaciones técnicas y estados de los diseños</p>
+    </div>
+    <button class="btn-primary">
+      <span class="btn-icon">+</span> Nuevo Diseño
+    </button>
+  </div>
+  
+  <div class="table-card">
+    <table *ngIf="disenos.length > 0" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="tabla-minimalista">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre Comercial</th>
+          <th>Ancho</th>
+          <th>Largo</th>
+          <th>Alto</th>
+          <th>P. Min</th>
+          <th>P. May</th>
+          <th>Prior.</th>
+          <th>Bat.</th>
+          <th>Lím.</th>
+          <th>Era Histórica</th>
+          <th>Clasificación</th>
+          <th>Ojos</th>
+          <th>Piel</th>
+          <th>Cuerpo</th>
+          <th>Estatus</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of disenos">
+          <td><strong>{{ d.dp_id }}</strong></td>
+          <td class="col-nombre">{{ d.dp_nombre_comercial }}</td>
+          <td>{{ d.dp_ancho_cm }}</td>
+          <td>{{ d.dp_largo_cm }}</td>
+          <td>{{ d.dp_alto_cm }}</td>
+          <td>{{ d.dp_precio_minorista | currency }}</td>
+          <td>{{ d.dp_precio_mayorista | currency }}</td>
+          <td>{{ d.dp_acceso_prioritario }}</td>
+          <td>{{ d.dp_usa_bateria }}</td>
+          <td>{{ d.dp_limite_compra_usuario }}</td>
+          <td>{{ d.eh_nombre }}</td>
+          <td>{{ d.ce_nombre }}</td>
+          <td>{{ d.cl_ojos }}</td>
+          <td>{{ d.cl_piel }}</td>
+          <td>{{ d.tc_nombre }}</td>
+          <td>
+            <span class="badge" [ngClass]="(d.ett_nombre === 'Retirada') ? 'badge-retirada' : 'badge-lila'">
+              {{ d.ett_nombre | titlecase }}
+            </span>
+          </td>
+          <td class="text-center">
+            <div class="acciones-wrapper">
+              <button class="btn-icon-only" (click)="verDetalle(d.dp_id)" title="Ver Detalle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+              <!--
+              <button class="btn-icon-only" (click)="editarDiseno(d.dp_id)" title="Editar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+              </button>
+
+              <button class="btn-icon-only btn-delete-icon" (click)="eliminarDiseno(d.dp_id)" title="Eliminar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+              </button>
+              -->
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="modalEliminar" (click)="cerrarModal()">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+
+    <h2>Confirmar Eliminación de Diseño</h2>
+
+    <div class="modal-warning">
+      ¿Está seguro de eliminar este diseño de producto? Esta acción no se puede deshacer y borrará permanentemente sus especificaciones técnicas.
+    </div>
+
+    <div class="modal-info-row">
+      <span class="modal-label">Diseño seleccionado:</span>
+      <span class="modal-value">
+        <strong>{{ disenoSeleccionado?.dp_nombre_comercial }}</strong>
+        (ID: {{ disenoSeleccionado?.dp_id }})
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label class="modal-label">Elemento de Seguridad</label>
+      <p class="modal-hint">Para confirmar, escriba el ID del diseño: <strong>{{ disenoSeleccionado?.dp_id }}</strong></p>
+      <input type="text" placeholder="Escriba el ID del diseño"
+        [value]="confirmId"
+        (input)="confirmId = $any($event.target).value" />
+    </div>
+
+    <div class="msg-error" *ngIf="errorModalMsg">{{ errorModalMsg }}</div>
+
+    <div class="modal-actions">
+      <button class="btn-secondary" (click)="cerrarModal()">Cancelar</button>
+      <button class="btn-danger" 
+              [disabled]="confirmId !== disenoSeleccionado?.dp_id.toString()" 
+              (click)="confirmarEliminar()">
+        Eliminar Diseño
       </button>
     </div>
-    
-    <div class="table-card">
-      <table *ngIf="disenos.length > 0" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="tabla-minimalista">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre Comercial</th>
-            <th>Dimensiones (cm)</th>
-            <th>P. Min</th>
-            <th>P. May</th>
-            <th>Estatus</th>
-            <th class="text-center">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let d of disenos">
-            <td><strong>{{ d.dp_id }}</strong></td>
-            <td class="col-nombre">{{ d.dp_nombre_comercial }}</td>
-            <td>{{ d.dp_ancho_cm }}x{{ d.dp_largo_cm }}x{{ d.dp_alto_cm }}</td>
-            <td>${{ d.dp_precio_minorista }}</td>
-            <td>${{ d.dp_precio_mayorista }}</td>
-            <td>
-              <span class="badge-status">{{ d.ett_nombre }}</span>
-            </td>
-            <td class="text-center">
-              <div class="action-buttons">
-                <button class="btn-action btn-view" (click)="verDetalle(d.dp_id)" title="Ver Detalle">👁️</button>
-                <button class="btn-action btn-delete" (click)="eliminarDiseno(d.dp_id)" title="Eliminar">🗑️</button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 
-  <div *ngIf="vistaActual === 'detalle' && infoGeneral">
+  </div>
+</div>
+
+<div *ngIf="vistaActual === 'detalle' && infoGeneral" class="detalle-container">
     
     <div class="detail-header">
       <button class="btn-back" (click)="regresarAlListado()" title="Regresar al listado">
@@ -59,12 +129,27 @@
         <h1>Detalle de Diseño Producto</h1>
         <p class="page-sub">Estructura técnica completa de: <strong>{{ infoGeneral.dp_nombre_comercial }}</strong></p>
       </div>
+      <div class="status-area">
+        <span class="badge-status success">
+          <span class="status-dot"></span> {{ infoGeneral.dp }}
+        </span>
+      </div>
     </div>
 
     <div class="info-general-grid">
       <div class="info-card-block">
-        <h3>📐 Datos Técnicos</h3>
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.17 11.83a2.82 2.82 0 0 0-3.98 0L3 20.02V21h.98l14.19-14.19a2.82 2.82 0 0 0 0-3.98z"/><path d="m15 5 4 4"/></svg>
+          Datos Técnicos
+        </h3>
         <div class="info-row"><span>ID Diseño:</span> <strong>{{ infoGeneral.dp_id }}</strong></div>
+        <div class="info-row" style="align-items: center;">
+          <span>Estatus:</span> 
+          <span class="badge-status" 
+                [ngClass]="(infoGeneral.ett_nombre === 'Retirada' || infoGeneral.ett_nombre === 'Inactivo') ? 'status-inactivo' : 'status-activo'">
+            {{ infoGeneral.ett_nombre | titlecase }}
+          </span>
+        </div>
         <div class="info-row"><span>Ancho:</span> {{ infoGeneral.dp_ancho_cm }} cm</div>
         <div class="info-row"><span>Largo:</span> {{ infoGeneral.dp_largo_cm }} cm</div>
         <div class="info-row"><span>Alto:</span> {{ infoGeneral.dp_alto_cm }} cm</div>
@@ -72,7 +157,10 @@
       </div>
 
       <div class="info-card-block">
-        <h3>💰 Comercialización</h3>
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Comercialización
+        </h3>
         <div class="info-row"><span>Precio Minorista:</span> <b class="text-purple">${{ infoGeneral.dp_precio_minorista }}</b></div>
         <div class="info-row"><span>Precio Mayorista:</span> <b class="text-purple">${{ infoGeneral.dp_precio_mayorista }}</b></div>
         <div class="info-row"><span>Límite Compra:</span> {{ infoGeneral.dp_limite_compra_usuario }} unidades</div>
@@ -80,7 +168,10 @@
       </div>
 
       <div class="info-card-block">
-        <h3>👑 Estética & Contexto</h3>
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          Estética & Contexto
+        </h3>
         <div class="info-row"><span>Era Histórica:</span> {{ infoGeneral.eh_nombre }}</div>
         <div class="info-row"><span>Clasificación:</span> {{ infoGeneral.ce_nombre }}</div>
         <div class="info-row"><span>Tipo de Cuerpo:</span> {{ infoGeneral.tc_nombre }}</div>
@@ -93,7 +184,8 @@
       <span class="section-label">Categorías del Producto:</span>
       <div class="categories-container">
         <span class="badge-category" *ngFor="let cat of categoriasTexto.split(', ')">
-          🏷️ {{ cat }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          {{ cat }}
         </span>
       </div>
     </div>
@@ -101,7 +193,10 @@
     <div class="tables-stack">
       
       <div class="table-card-detail">
-        <h2>🦴 Taxonomía del Diseño (Piezas y Materiales)</h2>
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          Taxonomía del Diseño (Piezas y Materiales)
+        </h2>
         <div class="table-responsive">
           <table class="tabla-minimalista">
             <thead>
@@ -132,7 +227,10 @@
       </div>
 
       <div class="table-card-detail">
-        <h2>💼 Profesiones Asociadas</h2>
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Profesiones Asociadas
+        </h2>
         <div class="table-responsive">
           <table class="tabla-minimalista">
             <thead>
@@ -157,7 +255,10 @@
       </div>
 
       <div class="table-card-detail">
-        <h2>🧪 Fases y Pruebas de Producción (Secuencia)</h2>
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
+          Fases y Pruebas de Producción (Secuencia)
+        </h2>
         <div class="table-responsive">
           <table class="tabla-minimalista">
             <thead>
@@ -175,9 +276,19 @@
                 <td class="text-center"><span class="step-counter">{{ fase.numero_paso }}</span></td>
                 <td><strong>{{ fase.nombre_operacion }}</strong></td>
                 <td><small>{{ fase.descripcion_operacion }}</small></td>
-                <td>⏱️ {{ fase.dias_estimados }} días</td>
+                <td>
+                  <span class="badge-icon-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {{ fase.dias_estimados }} días
+                  </span>
+                </td>
                 <td><span class="badge-phase-type">{{ fase.tipo_fase }}</span></td>
-                <td><span class="text-muted-cargo">🛠️ {{ fase.cargos_requeridos }}</span></td>
+                <td>
+                  <span class="text-muted-cargo badge-icon-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    {{ fase.cargos_requeridos }}
+                  </span>
+                </td>
               </tr>
               <tr *ngIf="tablaFasesPruebas.length === 0">
                 <td colspan="6" class="text-center empty-msg">No se han definido fases de producción para este diseño.</td>
@@ -188,5 +299,4 @@
       </div>
 
     </div>
-  </div>
 </div>

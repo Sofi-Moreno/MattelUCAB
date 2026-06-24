@@ -8,6 +8,10 @@
       <h1>Gestión de Roles</h1>
       <p class="page-sub">Listado de roles del sistema y sus privilegios</p>
     </div>
+    <button class="btn-primary" (click)="abrirModalCrear()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Crear Rol
+    </button>
   </div>
 
   <div class="msg-success" *ngIf="successMsg">{{ successMsg }}</div>
@@ -121,6 +125,33 @@
 
     <div class="modal-actions">
       <button class="btn-secondary" (click)="cerrarModales()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MODAL: CREAR NUEVO ROL
+══════════════════════════════════════════════════ -->
+<div class="modal-overlay" *ngIf="modalCrear" (click)="cerrarModales()">
+  <div class="modal-card" (click)="$event.stopPropagation()">
+    <h2>Crear Nuevo Rol</h2>
+    
+    <div class="form-group" style="margin-bottom: 16px;">
+      <label>Nombre del Rol <span class="req">*</span></label>
+      <input type="text" [(ngModel)]="nuevoRolNombre" placeholder="Ej: Supervisor, Vendedor...">
+    </div>
+    
+    <div class="form-group" style="margin-bottom: 16px;">
+      <label>Descripción <span class="req">*</span></label>
+      <input type="text" [(ngModel)]="nuevoRolDesc" placeholder="Descripción breve de las responsabilidades...">
+    </div>
+    
+    <div class="modal-actions">
+      <button class="btn-secondary" (click)="cerrarModales()">Cancelar</button>
+      <button class="btn-primary" (click)="guardarRol()" [disabled]="!nuevoRolNombre || !nuevoRolDesc || isSaving">
+        <span class="spinner-sm" *ngIf="isSaving"></span> 
+        {{ isSaving ? 'Guardando...' : 'Guardar Rol' }}
+      </button>
     </div>
   </div>
 </div>

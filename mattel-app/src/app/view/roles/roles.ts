@@ -26,6 +26,12 @@ export class Roles implements OnInit {
   // Modals state
   modalUsuarios = false;
   modalPermisos = false;
+  modalCrear = false;
+
+  // Create Role state
+  nuevoRolNombre = '';
+  nuevoRolDesc = '';
+  isSaving = false;
 
   rolSeleccionado: any = null;
   usuariosDelRol: any[] = [];
@@ -89,11 +95,45 @@ export class Roles implements OnInit {
     this.modalPermisos = true;
   }
 
+  abrirModalCrear(): void {
+    this.nuevoRolNombre = '';
+    this.nuevoRolDesc = '';
+    this.modalCrear = true;
+  }
+
+  async guardarRol() {
+    if (!this.nuevoRolNombre || !this.nuevoRolDesc) return;
+    
+    this.isSaving = true;
+    this.errorMsg = '';
+    this.successMsg = '';
+
+    try {
+      await this.supabase.callProcedure('crear_rol', {
+        p_nombre: this.nuevoRolNombre,
+        p_descripcion: this.nuevoRolDesc
+      });
+      
+      this.successMsg = `Rol "${this.nuevoRolNombre}" creado exitosamente.`;
+      this.cerrarModales();
+      // Recargar la página para refrescar DataTables de forma segura
+      setTimeout(() => window.location.reload(), 1500);
+      
+    } catch (error: any) {
+      this.errorMsg = error.message || 'Ocurrió un error al crear el rol.';
+      this.isSaving = false;
+    }
+  }
+
   cerrarModales(): void {
     this.modalUsuarios = false;
     this.modalPermisos = false;
+    this.modalCrear = false;
     this.rolSeleccionado = null;
     this.usuariosDelRol = [];
     this.permisosSimulados = [];
+    this.nuevoRolNombre = '';
+    this.nuevoRolDesc = '';
+    this.isSaving = false;
   }
 }

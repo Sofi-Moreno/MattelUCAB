@@ -88,7 +88,6 @@ export class Designs implements OnInit {
   verDetalle(id: number): void {
     this.isLoading = true;
     
-    // Buscamos la info general localmente
     this.infoGeneral = this.disenos.find(d => d.dp_id === id);
     
     if (!this.infoGeneral) {
@@ -97,7 +96,6 @@ export class Designs implements OnInit {
       return;
     }
 
-    // forkJoin ejecuta todas las llamadas al mismo tiempo y nos devuelve todo junto
     forkJoin({
       catRes: this.service.getDetalleCategoria(id),
       taxRes: this.service.getDetalleTaxonomia(id),
@@ -105,13 +103,11 @@ export class Designs implements OnInit {
       faseRes: this.service.getDetalleFasesPruebas(id)
     }).subscribe({
       next: (resultados) => {
-        // Asignamos los resultados a nuestras variables
         this.categoriasTexto = resultados.catRes || 'Sin categorías';
         this.tablaTaxonomia = resultados.taxRes || [];
         this.tablaProfesiones = resultados.profRes || [];
         this.tablaFasesPruebas = resultados.faseRes || [];
         
-        // Cambiamos la vista para mostrar el detalle
         this.vistaActual = 'detalle';
         this.isLoading = false;
       },
@@ -123,6 +119,7 @@ export class Designs implements OnInit {
   }
 
   regresarAlListado(): void {
+    this.cargarDatos();
     this.vistaActual = 'listado';
     this.infoGeneral = null;
     this.categoriasTexto = '';
